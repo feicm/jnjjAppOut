@@ -288,7 +288,7 @@ var App = (function () {
             }
         }).fail(function (data) {
             alert('数据请求失败，请检查网络连接！');
-            go.history(0);
+            history.go(0);
         });
     }
 

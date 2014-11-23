@@ -19,23 +19,6 @@ $(function () {
         + jnjjApp.config.requestUrl
         + '/jnpublic/getUserInfo.json';//用户信息请求地址
     console.log('用户名：' + userName);
-    /*var o = { //个人信息response
-     "userName"       : "测试2",
-     "registerName"   : "测试用户2A",
-     "email"          : "xx@xx.com",
-     "identityId"     : "35071111111111111",
-     "phoneNum"       : "18888888888",
-     "closeUserName"  : "closeUserName",
-     "closeIdentityId": "closeIdentityId",
-     "closePhoneNum"  : "closePhoneNum",
-     "moveCarName"    : null,
-     "moveCarPhone"   : null,
-     "registerId"     : "243",
-     "centerSuccess"  : "true",
-     "centerContent"  : "user info",
-     "registerTime"   : "2014-11-21 15:36:30.0",
-     "userImage"      : "http://localhost:8080/jnpublics/userimage/normal.png"
-     };*/
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
         "registerName": userName
@@ -73,4 +56,10 @@ $(function () {
         "dom"           : saveinfoBtn,
         "hoverClassName": 'ui_btn_01_hover'
     });
+    var edits = $('.edit');
+    edits.each(function(index){
+        $(this).on('click',function(e){
+            $(this).parent().find('input').css('border','1px dashed #e00');
+        })
+    })
 })
