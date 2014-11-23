@@ -118,8 +118,11 @@ var App = (function () {
                         var result;
                         var tipstxt;
                         var value;
+                        var edit;
                         input = $(this).find('input');
                         close = $(this).find('a.close');
+                        edit = $(this).find('a.edit');
+                        edit && close.css('right', '35px');
                         close.on('click', function () {
                             console.log('close')
                             var curInput = $(this).parent().children('input');
