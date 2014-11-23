@@ -220,7 +220,7 @@ $(function () {
     loginSubmit.on('click', loginSubmitListener);
     //rigisterBtn.on('click', rigisterListener);
     skipBtn.on('click', skipListener);
-    rigisterBtn.attr('href',rigisterPageUrl);//注册按钮初始化跳转
+    //rigisterBtn.attr('href',rigisterPageUrl);//注册按钮初始化跳转
     App.UI('buttonHover',{//添加按钮点击效果
         "dom":loginSubmit,
         "hoverClassName":'ui_btn_01_hover'
@@ -272,9 +272,9 @@ $(function () {
         }
     }
     //注册事件函数
-    /*function rigisterListener(){
-     alert('注册页面切换');
-     }*/
+    function rigisterListener(){
+         window.open(rigisterPageUrl);
+     }
     //跳过事件函数
     function skipListener(){
         console.dir(footbarDatas);
