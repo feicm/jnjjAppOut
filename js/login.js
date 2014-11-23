@@ -190,11 +190,43 @@ $(function () {
             },
             "list": [
                 {
-                    "beforeImg" : "config/html/images/wispui/clxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "afterImg"  : "config/html/images/wispui/hover.png",
+                    "name"      : "个人资料维护",
+                    "clickEvent": "",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/personalinfo.jsp",
+                    "subBtns"   : []
+                },
+                {
+                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的车辆",
                     "clickEvent": "",
-                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/repwd.jsp",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/carlist.jsp",
+                    "subBtns"   : []
+                },
+                {
+                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "afterImg"  : "config/html/images/wispui/hover.png",
+                    "name"      : "我的驾照",
+                    "clickEvent": "",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp",
+                    "subBtns"   : []
+                },
+                {
+                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "afterImg"  : "config/html/images/wispui/hover.png",
+                    "name"      : "我的违法",
+                    "clickEvent": "",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violationlist.jsp",
+                    "subBtns"   : []
+                },
+                {
+                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "afterImg"  : "config/html/images/wispui/hover.png",
+                    "name"      : "消息查看",
+                    "clickEvent": "",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp",
                     "subBtns"   : []
                 }
             ]
