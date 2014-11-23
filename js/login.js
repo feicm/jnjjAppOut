@@ -312,9 +312,12 @@ $(function () {
     function skipListener(){
         console.dir(footbarDatas);
         console.dir(siderDatas);
+        Wisp.UI.progressDialog.show('数据加载中，请稍后！');
         skipBtn.off('click');
         sendClientUIdata( footbarDatas, siderDatas);//发送默认配置按钮
-        alert('我是游客，选择跳过。');
+        Wisp.UI.progressDialog.remove();
+        Wisp.UI.loginResult.success();
+        skipBtn.on('click', skipListener);
     }
     //登录成功回调函数
     function loginSuccessCallback(data, footbarDatas) {

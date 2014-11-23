@@ -18,6 +18,9 @@ $(function () {
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/getUserInfo.json';//用户信息请求地址
+    var edituserinfoRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/updUserInfo.json';//用户信息修改请求地址
     console.log('用户名：' + userName);
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
@@ -45,7 +48,32 @@ $(function () {
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
     }
-
+    //registerName=测试用户2A
+    // &phonenum=18555555555
+    // &movecarname=吗1
+    // &movecarphone=m2
+    saveinfoBtn.on('click',saveinfoListener);
+    function saveinfoListener(){
+        var params={
+            "registerName":userName,
+            "phonenum":ip_phone.val(),
+            "movecarname":ip_y_name.val(),
+            "movecarphone":ip_y_phone.val()
+        };
+        Wisp.UI.progressDialog.show('信息保存中，请稍后！');
+        saveinfoBtn.off('click');
+        App.getAjaxData(edituserinfoRequestUrl, params, function (data) {//用户信息请求回调
+            var msg = data.userCenterResponse;
+            if ( msg ) {
+                alert('保存失败！');
+                Wisp.UI.progressDialog.remove();
+                saveinfoBtn.on('click',saveinfoListener);
+            } else {
+                alert('个人信息初始化失败');
+                saveinfoBtn.on('click',saveinfoListener);
+            }
+        });
+    }
     /*
      * --------------------页面效果------------------------
      * */
