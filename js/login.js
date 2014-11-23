@@ -226,7 +226,8 @@ $(function () {
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "消息查看",
                     "clickEvent": "",
-                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp",
+                    "url"       : "",
+                    "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android",
                     "subBtns"   : []
                 }
             ]
