@@ -1,11 +1,12 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
     <title>注册</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/app_p.css">
+    <link rel="stylesheet" href="config/html/css/reset.css">
+    <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
                         <div class="item-inner">
                             <div class="item-title label">用 户 名</div>
                             <div class="item-input">
-                                <input id="setusername" type="text" placeholder="请输入用户名">
+                                <input id="setusername" data-type="user" type="text" placeholder="请输入用户名">
                             </div>
                         </div>
                     </div>
@@ -28,7 +29,7 @@
                         <div class="item-inner">
                             <div class="item-title label">密 码</div>
                             <div class="item-input">
-                                <input id="setpwd_01" type="password" placeholder="请设置您的密码">
+                                <input id="setpwd_01" data-type="psd" type="password" placeholder="请设置您的密码">
                             </div>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                         <div class="item-inner">
                             <div class="item-title label">确认密码</div>
                             <div class="item-input">
-                                <input id="setpwd_02" type="password" placeholder="请再次输入您的密码">
+                                <input id="setpwd_02" data-type="psd" type="password" placeholder="请再次输入您的密码">
                             </div>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓 名</div>
                             <div class="item-input">
-                                <input id="setname" type="text" placeholder="请输入您的姓名">
+                                <input id="setname" data-type="cnuser" type="text" placeholder="请输入密切联系人姓名">
                             </div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                         <div class="item-inner">
                             <div class="item-title label">手 机</div>
                             <div class="item-input">
-                                <input id="setphone" type="password" placeholder="请输入您的手机号码">
+                                <input id="setphone" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                         <div class="item-inner">
                             <div class="item-title label">身份证号</div>
                             <div class="item-input">
-                                <input id="setidnum" type="password" placeholder="请输入您的身份证号码">
+                                <input id="setidnum" data-type="card" type="text" placeholder="请输入密切联系人身份证号">
                             </div>
                         </div>
                     </div>
@@ -96,7 +97,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓 名</div>
                             <div class="item-input">
-                                <input id="yclxxm" type="text" placeholder="请输入移车联系姓名">
+                                <input id="yclxxm" data-type="cnuser" type="text" placeholder="请输入移车联系姓名">
                             </div>
                         </div>
                     </div>
@@ -104,9 +105,9 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">电 话</div>
+                            <div class="item-title label">手 机</div>
                             <div class="item-input">
-                                <input id="yclxdh" type="text" placeholder="请输入移车联系人电话">
+                                <input id="yclxdh" data-type="mobile" type="text" placeholder="请输入移车联系人电话">
                             </div>
                         </div>
                     </div>
@@ -120,7 +121,7 @@
                         <div class="item-inner">
                             <div class="item-title label">邮 箱</div>
                             <div class="item-input">
-                                <input id="setemail" type="text" placeholder="请输入邮箱名">
+                                <input id="setemail" data-type="mail" type="text" placeholder="请输入邮箱名">
                             </div>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓 名</div>
                             <div class="item-input">
-                                <input id="mqlxrxm" type="text" placeholder="请输入密切联系人姓名">
+                                <input id="mqlxrxm" data-type="cnuser" type="text" placeholder="请输入密切联系人姓名">
                             </div>
                         </div>
                     </div>
@@ -145,9 +146,9 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">电 话</div>
+                            <div class="item-title label">手 机</div>
                             <div class="item-input">
-                                <input id="mqlxrdh" type="text" placeholder="请输入密切联系人电话">
+                                <input id="mqlxrdh" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
                             </div>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                         <div class="item-inner">
                             <div class="item-title label">身份证号</div>
                             <div class="item-input">
-                                <input id="mqlxrsfzh" type="text" placeholder="请输入密切联系人身份证号">
+                                <input id="mqlxrsfzh" data-type="card" type="text" placeholder="请输入密切联系人身份证号">
                             </div>
                         </div>
                     </div>
@@ -177,8 +178,9 @@
 
 </form>
 </body>
-<script src="js/zepto.min.js"></script>
-<script src="js/WISPComponents_v3.0.js"></script>
-<script src="js/common.js"></script>
-<script src="js/rigister.js"></script>
+<script src="config/html/js/zepto.min.js"></script>
+<script src="config/html/js/WISPComponents_v3.0.js"></script>
+<script src="config/html/js/appConfig.js"></script>
+<script src="config/html/js/common.js"></script>
+<script src="config/html/js/rigister.js"></script>
 </html>

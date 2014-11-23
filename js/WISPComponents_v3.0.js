@@ -120,6 +120,14 @@
                 Wisp.CommenFunc.SendToWISPClient('post', '@@dismissProgressDialog@@', '', false);
             } //移除加载对话框
         };
+        var loginResult = {   //登录结果
+            "success": function () {
+                Wisp.CommenFunc.SendToWISPClient('post', '@@loginSuccess@@', '', false);
+            }, //成功
+            "fail"   : function () {
+                Wisp.CommenFunc.SendToWISPClient('post', '@@loginFail@@', '', false);
+            } //失败
+        };
         var fullScreen = {   //全屏控制
             "open" : function () {
             }, //打开
@@ -135,6 +143,7 @@
         return {
             "Init"          : Init, //初始化
             "progressDialog": progressDialog,//加载对话框
+            "loginResult"   : loginResult,//登录结果
             "fullScreen"    : fullScreen,//TODO 全屏
             "zoomWindow"    : zoomWindow //TODO 窗口缩放
         }

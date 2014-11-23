@@ -38,11 +38,13 @@ body{
     width       : 40%;
     height      : 2.5em;
     line-height : 2.5;
-    background  : #0C79BE;
+    background: #0C79BE;
     text-align  : center;
     color       : #fff;
 }
-
+.ui_btn_hover{
+    background: #085A90;
+}
 .ui_btn_block {
     display : block;
     width   : 100%;
@@ -51,9 +53,16 @@ body{
 .ui_btn_01 {
     background : #F4760E;
 }
-
+.ui_btn_01_hover{
+    background: #B4580A;
+}
 .ui_btn_02 {
-    background : #999;
+    background: #fff;
+    border: 1px solid #0C79BE;
+    color: #0C79BE;
+}
+.ui_btn_02_hover {
+    background: #eee;
 }
 
 .ft {
@@ -270,6 +279,15 @@ i.icon {
     text-align    : center;
     border-radius : 9999px;
     color         : #fff;
+}
+.list-block .item-input .tips {
+    background: rgba(0,0,0,.2);
+    position      : absolute;
+    top: -5px;
+    border-radius : 9999px;
+    color: #e00;
+    font-size: 12px;
+    padding: 0 5px;
 }
 .list-block-title{
     height: 2em;

@@ -1,25 +1,15 @@
 $(function () {
     /*
-    * lgoin
-    * 流程：设置化客户端ui数据——发起登录验证请求(点击登录)(loginSubmitListener)
-    *      ——登录请求回调(loginSuccessCallback)
-    *      ——初始化权限按钮（更多）(refreshMoreViewData——>formatData)
-    *      ——发起个人信息请求(-)
-    *      ——个人信息请求回调(userInfoSuccessCallback)
-    *      ——初始化个人中心按钮(-)
-    *      ——发送初始化后的客户端ui数据(sendClientUIdata)
-    *      ——登录结束
-    * */
-    /*
-     * 工具栏数据格式
+     * lgoin
+     * 流程：设置化客户端ui数据——发起登录验证请求(点击登录)(loginSubmitListener)
+     *      ——登录请求回调(loginSuccessCallback)
+     *      ——初始化权限按钮（更多）(refreshMoreViewData——>formatData)
+     *      ——发起个人信息请求(-)
+     *      ——个人信息请求回调(userInfoSuccessCallback)
+     *      ——初始化个人中心按钮(-)
+     *      ——发送初始化后的客户端ui数据(sendClientUIdata)
+     *      ——登录结束
      * */
-    var toolbarDatas = {
-        "toolbar": {
-            "title"   : "济南交警",
-            "leftBtn" : {},//工具栏左侧按钮配置，可选
-            "rightBtn": {}//工具栏右侧按钮配置，可选
-        }
-    };
     var footbarDatas = {
         "footbar": [
             {
@@ -30,15 +20,15 @@ $(function () {
                 "subBtns"   : [   //客户端直接和服务端通信
                     {
                         "name"      : "交管新闻",
-                        "requestUrl": App.config.requestUrl + "/wispcms/content/list.do?cid=64&type=Android" //客户端向服务器发起数据请求
+                        "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=64&type=Android" //客户端向服务器发起数据请求
                     },
                     {
                         "name"      : "道路状况",
-                        "requestUrl": App.config.requestUrl + "/wispcms/content/list.do?cid=65&type=Android"
+                        "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android"
                     },
                     {
                         "name"      : "交通事故",
-                        "requestUrl": App.config.requestUrl + "/wispcms/content/list.do?cid=65&type=Android"
+                        "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android"
                     }
                 ]
             },
@@ -72,7 +62,7 @@ $(function () {
                                 "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
                                 "disableImg": "config/html/images/wispui/wzxx_dis.png",
                                 "enable"    : "false",
-                                "name"      : "违章信息",
+                                "name"      : "违法信息",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
                                 "url"       : "adapter?open&url=/wispcms/config/html/querycard.jsp"
@@ -196,7 +186,7 @@ $(function () {
                 "id"  : '',
                 "img" : '',
                 "name": '',
-                "url" : '登陆页地址'
+                "url" : 'adapter?url=' + jnjjApp.config.requestUrl + '/wispcms/config/html/login.jsp'
             },
             "list": [
                 {
@@ -204,7 +194,7 @@ $(function () {
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的车辆",
                     "clickEvent": "",
-                    "url"       : "adapter?url=" + App.config.requestUrl + "/wispcms/config/html/repwd.jsp",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/repwd.jsp",
                     "subBtns"   : []
                 }
             ]
@@ -214,9 +204,8 @@ $(function () {
     var loginSubmit = $('#login-submit');//登录
     var rigisterBtn = $('#rigister');//注册
     var skipBtn = $('#skip'); //跳过
-    console.dir(footbarDatas);
-    var username = $('#username');
-    var password = $('#password');
+    var username;
+    var password;
     var roleId = '0001';
     var urlPre = 'adapter?open&url=';
     var loginRequestUrl = urlPre
@@ -225,11 +214,34 @@ $(function () {
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/getUserInfo.json';//用户信息请求地址
+    var rigisterPageUrl=urlPre
+        +jnjjApp.config.requestUrl
+        +'/jnpublic/config/html/rigister.jsp';
     loginSubmit.on('click', loginSubmitListener);
-    function loginSubmitListener() { //登录事件函数
-        username = username.val();
-        password = password.val();
+    //rigisterBtn.on('click', rigisterListener);
+    skipBtn.on('click', skipListener);
+    rigisterBtn.attr('href',rigisterPageUrl);//注册按钮初始化跳转
+    App.UI('buttonHover',{//添加按钮点击效果
+        "dom":loginSubmit,
+        "hoverClassName":'ui_btn_01_hover'
+    });
+    App.UI('buttonHover',{//添加按钮点击效果
+        "dom":rigisterBtn,
+        "hoverClassName":'ui_btn_hover'
+    });
+    App.UI('buttonHover',{//添加按钮点击效果
+        "dom":skipBtn,
+        "hoverClassName":'ui_btn_02_hover'
+    });
+    //登录事件函数
+    function loginSubmitListener() {
+        username = $('#username').val();
+        password = $('#password').val();
         loginSubmit.off('click');
+        /*App.UI('buttonHover',{//移除按钮点击效果
+         "dom":loginSubmit,
+         "off":true
+         });*/
         if ( username === '' ) {
             alert('用户名不能为空！');
             loginSubmit.on('click', loginSubmitListener);
@@ -244,10 +256,13 @@ $(function () {
                 "password": password,
                 "roleId"  : roleId
             }, function (data) {//登录请求回调
-                var json = eval('(' + data + ')');
-                var msg = eval(json.loginResponse);
-                if ( msg ) {
+                var msg = data.loginResponse;
+                if ( msg.loginSuccess === 'true' ) {
                     loginSuccessCallback(msg, footbarDatas);
+                } else if ( msg.loginSuccess === 'false' ) {
+                    Wisp.UI.progressDialog.remove();
+                    alert(msg.loginContent + '!');
+                    loginSubmit.on('click', loginSubmitListener);
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败!');
@@ -256,20 +271,30 @@ $(function () {
             });
         }
     }
-
+    //注册事件函数
+    /*function rigisterListener(){
+     alert('注册页面切换');
+     }*/
+    //跳过事件函数
+    function skipListener(){
+        console.dir(footbarDatas);
+        console.dir(siderDatas);
+        skipBtn.off('click');
+        sendClientUIdata( footbarDatas, siderDatas);//发送默认配置按钮
+        alert('我是游客，选择跳过。');
+    }
     //登录成功回调函数
     function loginSuccessCallback(data, footbarDatas) {
         console.dir(data);
         if ( data.loginSuccess ) {//登陆成功
             //初始化footbarDatas
-            var MoreViewData = refreshMoreViewData(footbarDatas, msg.authList);//刷新更多按钮
+            var MoreViewData = refreshMoreViewData(footbarDatas, data.authList);//刷新更多按钮
             console.dir(MoreViewData);
             //请求用户信息
             App.getAjaxData(userinfoRequestUrl, {
                 "registerName": username
             }, function (data) {//用户信息请求回调
-                var json = eval('(' + data + ')');
-                var msg = eval(json.userCenterResponse);
+                var msg = data.userCenterResponse;
                 if ( msg ) {
                     userInfoSuccessCallback(msg, siderDatas);
                 } else {
@@ -288,20 +313,18 @@ $(function () {
     //获取个人信息回调函数
     function userInfoSuccessCallback(data, siderDatas) {
         console.dir(data);
-        data.userName && (siderDatas.sider.info.name=data.userName);
-        data.userImage && (siderDatas.sider.info.img=data.userImage);
-        siderDatas.sider.info.url='';
-        sendClientUIdata(toolbarDatas,footbarDatas,siderDatas);//发送客户端ui数据
+        data.userName && (siderDatas.sider.info.name = data.userName);
+        data.userImage && (siderDatas.sider.info.img = data.userImage);
+        siderDatas.sider.info.url = '';
+        sendClientUIdata(footbarDatas, siderDatas);//发送客户端ui数据
         Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+        Wisp.UI.loginResult.success();
+        console.log('login END!!!!');
 
     }
 
     //发送客户端初始化ui
-    function sendClientUIdata(toolbarDatas, footbarDatas, siderDatas) {
-        Wisp.UI.Init({
-            'type' : 'toolbar',
-            'datas': toolbarDatas
-        });
+    function sendClientUIdata(footbarDatas, siderDatas) {
         Wisp.UI.Init({
             'type' : 'footbar',
             'datas': footbarDatas
@@ -316,10 +339,12 @@ $(function () {
     function refreshMoreViewData(defaultdata, resdata) {
         console.dir(defaultdata);
         console.dir(resdata);
-        var more_btns = defaultdata.footbar[lenght - 1].shortcutBtns;
+        var l=defaultdata.footbar.length-1;
+        console.dir(l);
+        var more_btns = defaultdata.footbar[l].shortcutBtns;
         var cur_btn;
-        for ( var i = arr.length - 1; i >= 0; i-- ) {
-            cur_btn = arr[i].authcontent;
+        for ( var i = resdata.length - 1; i >= 0; i-- ) {
+            cur_btn = resdata[i].authcontent;
             formatData(cur_btn, more_btns);
         }
         return defaultdata;
@@ -340,5 +365,6 @@ $(function () {
             }
         }
     }
+
 
 })

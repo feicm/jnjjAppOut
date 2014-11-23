@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
     <title>公众版登录</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/app_p.css">
+    <link rel="stylesheet" href="config/html/css/reset.css">
+    <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
 <form class="login_f" action="" method="post" id="login_form">
     <div class="h_pic">
-        <img src="images/banner.png">
+        <img src="config/html/images/banner.png">
     </div>
     <div class="list-block">
         <ul>
@@ -42,7 +43,7 @@
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit">
             登录
         </a>
-        <a class="ui_btn ui_radius fl" id="rigister">
+        <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
             快速注册
         </a>
         <a class="ui_btn ui_btn_02 ui_radius fr" id="skip">
@@ -51,8 +52,9 @@
     </div>
 </form>
 </body>
-<script src="js/zepto.min.js"></script>
-<script src="js/WISPComponents_v3.0.js"></script>
-<script src="js/appConfig.js"></script>
-<script src="js/login.js"></script>
+<script src="config/html/js/zepto.min.js"></script>
+<script src="config/html/js/WISPComponents_v3.0.js"></script>
+<script src="config/html/js/appConfig.js"></script>
+<script src="config/html/js/common.js"></script>
+<script src="config/html/js/login.js"></script>
 </html>
