@@ -134,12 +134,14 @@ var App = (function () {
                             //console.log('blur')
                             type = $(this).attr('data-type');
                             value = $(this).val();
-                            type && (result = self.validationer(type, value));
-                            if ( !result ) { //没验证通过，弹出提示
-                                tipstxt = self.tipsMap[type];
-                                self.popTips($(this), tipstxt);
-                            } else {//验证通过，原有提示，则移除
-                                self.removeTips($(this));
+                            if(type){
+                                result = self.validationer(type, value);
+                                if ( !result ) { //没验证通过，弹出提示
+                                    tipstxt = self.tipsMap[type];
+                                    self.popTips($(this), tipstxt);
+                                } else {//验证通过，原有提示，则移除
+                                    self.removeTips($(this));
+                                }
                             }
                             !value && close.css('display', 'none');
                         })
