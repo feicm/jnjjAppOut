@@ -218,7 +218,7 @@ $(function () {
         +jnjjApp.config.requestUrl
         +'/jnpublic/config/html/rigister.jsp';
     loginSubmit.on('click', loginSubmitListener);
-    //rigisterBtn.on('click', rigisterListener);
+    rigisterBtn.on('click', rigisterListener);
     skipBtn.on('click', skipListener);
     //rigisterBtn.attr('href',rigisterPageUrl);//注册按钮初始化跳转
     App.UI('buttonHover',{//添加按钮点击效果
