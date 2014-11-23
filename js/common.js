@@ -255,7 +255,7 @@ var App = (function () {
             while ( i < clen ) {
                 var j = i + alen;
                 //alert(j);
-                if ( document.cookie.substring(i, j) == arg ) return this.cookie.getCookieVal(j);
+                if ( document.cookie.substring(i, j) == arg ) return this.getCookieVal(j);
                 i = document.cookie.indexOf(" ", i) + 1;
                 if ( i == 0 ) break;
             }
@@ -269,7 +269,7 @@ var App = (function () {
         "ResetCookie" : function () {
             var usr = document.getElementById('username').value;
             var expdate = new Date();
-            this.cookie.SetCookie(usr, null, expdate);
+            this.SetCookie(usr, null, expdate);
         }
     };
     //ajax 请求封装
