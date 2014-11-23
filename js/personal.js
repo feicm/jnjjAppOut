@@ -58,8 +58,13 @@ $(function () {
     });
     var edits = $('.edit');
     edits.each(function(index){
+        var input;
         $(this).on('click',function(e){
-            $(this).parent().find('input').css('border','1px dashed #e00');
+            input=$(this).parent().find('input');
+            input.css('border','1px dashed #e00').trigger('focus');
+            input.on('blur',function(e){
+                   $(this).css('border','none')
+            })
         })
     })
 })
