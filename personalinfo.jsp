@@ -106,7 +106,7 @@
                     <div class="item-inner">
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
-                            <input id="y_name" type="text" value="张无忌">
+                            <input id="y_name" type="text" placeholder="+点击添加">
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                     <div class="item-inner">
                         <div class="item-title label">电 话</div>
                         <div class="item-input">
-                            <input id="y_phone" type="text">
+                            <input id="y_phone" type="text" placeholder="+点击添加">
                         </div>
                     </div>
                 </div>
