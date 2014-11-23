@@ -38,7 +38,7 @@
                         <div class="item-title label">头 像</div>
                         <div class="item-input">
                             <div class="ui-circle-pic">
-                                <img src="images/pic.jpg">
+                                <img id='photo' src="images/pic.jpg">
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="bindinfo_btn">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="saveinfo_btn">
             保存
         </a>
     </div>

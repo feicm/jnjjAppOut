@@ -134,7 +134,7 @@ var App = (function () {
                             //console.log('blur')
                             type = $(this).attr('data-type');
                             value = $(this).val();
-                            if(type){
+                            if ( type ) {
                                 result = self.validationer(type, value);
                                 if ( !result ) { //没验证通过，弹出提示
                                     tipstxt = self.tipsMap[type];
@@ -230,6 +230,49 @@ var App = (function () {
         name && moduleNameMap[name].init();
     }
 
+    /*
+     * 操作cookie
+     * */
+    var Cookie = {
+        "SetCookie"   : function (name, value, expires) {
+            var argv = arguments;
+            var argc = arguments.length;
+            var expires = (argc > 2) ? argv[2] : null;
+            var path = (argc > 3) ? argv[3] : null;
+            var domain = (argc > 4) ? argv[4] : null;
+            var secure = (argc > 5) ? argv[5] : false;
+            document.cookie = name + "=" + escape(value) + ((expires == null) ?
+                "" : ("; expires=" + expires.toGMTString())) + ((path == null) ?
+                "" : ("; path=" + path)) + ((domain == null) ?
+                "" : ("; domain=" + domain)) + ((secure == true) ?
+                "; secure" : "");
+        },
+        "GetCookie"   : function (name) {
+            var arg = name + "=";
+            var alen = arg.length;
+            var clen = document.cookie.length;
+            var i = 0;
+            while ( i < clen ) {
+                var j = i + alen;
+                //alert(j);
+                if ( document.cookie.substring(i, j) == arg ) return this.cookie.getCookieVal(j);
+                i = document.cookie.indexOf(" ", i) + 1;
+                if ( i == 0 ) break;
+            }
+            return null;
+        },
+        "getCookieVal": function (offset) {
+            var endstr = document.cookie.indexOf(";", offset);
+            if ( endstr == -1 ) endstr = document.cookie.length;
+            return unescape(document.cookie.substring(offset, endstr));
+        },
+        "ResetCookie" : function () {
+            var usr = document.getElementById('username').value;
+            var expdate = new Date();
+            this.cookie.SetCookie(usr, null, expdate);
+        }
+    };
+    //ajax 请求封装
     function getAjaxData(url, params, callback) {
         $.ajax({ //登录验证请求
             type    : 'GET',
@@ -349,6 +392,7 @@ var App = (function () {
 
     return {
         "UI"         : UI,
-        "getAjaxData": getAjaxData
+        "getAjaxData": getAjaxData,
+        "Cookie"     : Cookie
     };
 })();
