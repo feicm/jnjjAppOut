@@ -300,7 +300,16 @@ i.icon {
     font-size     : 12px;
     padding       : 0 5px;
 }
-
+.list-block .item-input .edit{
+    position: absolute;
+    right: 0;
+    top: 6px;
+    display : inline-block;
+    width: 28px;
+    height: 28px;
+    background: url("../images/edit_normal.png");
+    background-size: cover;
+}
 .list-block-title {
     height        : 2em;
     line-height   : 2;

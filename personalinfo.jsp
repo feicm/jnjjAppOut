@@ -60,6 +60,7 @@
                         <div class="item-title label">手 机</div>
                         <div class="item-input">
                             <input id="phone" type="text" value="12345678900">
+                            <b class="edit"></b>
                         </div>
                     </div>
                 </div>
@@ -107,6 +108,7 @@
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
                             <input id="y_name" type="text" placeholder="+点击添加">
+                            <b class="edit"></b>
                         </div>
                     </div>
                 </div>
@@ -117,13 +119,14 @@
                         <div class="item-title label">电 话</div>
                         <div class="item-input">
                             <input id="y_phone" type="text" placeholder="+点击添加">
+                            <b class="edit"></b>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="list-block-title">
+    <!--<div class="list-block-title">
         密切联系人信息
     </div>
     <div class="list-block">
@@ -159,7 +162,7 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div>-->
     <div class="ft w100">
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="saveinfo_btn">
             保存
