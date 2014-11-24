@@ -245,7 +245,7 @@ var App = (function () {
                 var selectArr = [];
                 var selectStr;
                 var _module = _self.module;
-                data.msg.length && (list = data.msg);
+                data.msg && (list = data.msg);
                 if ( _self.dataType === 'Object' ) {
                     for ( var j in list ) {
                         selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
