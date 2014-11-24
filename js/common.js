@@ -180,6 +180,7 @@ var App = (function () {
                         break;
                     case "car2":
                         result = iscarid2(value);
+                        break;
                     default:
                         console.log('这是一个彩蛋，买彩票去吧！');
                 }
