@@ -13,7 +13,7 @@
         <div class="carlist_c">
             <div class="tips">
                 <div class="carimg">
-                    <img src="images/car.png" />
+                    <img src="config/html/images/car.png" />
                 </div>
                 <h2>您还未绑定车辆，快去绑定吧！</h2>
             </div>
