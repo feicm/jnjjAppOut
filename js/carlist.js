@@ -32,11 +32,12 @@ $(function () {
             var args = Array.prototype.slice.call(arguments);
             var listWrap = _self.listWrap;
             var tipsWrap = _self.tipsWrap;
-            var l = data.length || 0;
+            var l;
             var listArr = [];
             var listStr = '';
             var defautlhtml = '';
             if ( args.length ) {
+                l = data.length
                 //渲染列表
                 for ( var i = 0; i < l; i++ ) {
                     listhtml = [
