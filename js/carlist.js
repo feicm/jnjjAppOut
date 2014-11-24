@@ -15,7 +15,7 @@ $(function () {
             this.module = opts.module;
             this.requestUrl = opts.requestUrl;
             this.params = opts.datas;
-            var _self=this;
+            var _self = this;
             _self.requestData(_self.requestUrl, _self.params, function (data) {
                 var listData = data.carList;
                 console.dir(listData);
@@ -32,7 +32,7 @@ $(function () {
             var args = Array.prototype.slice.call(arguments);
             var listWrap = _self.listWrap;
             var tipsWrap = _self.tipsWrap;
-            var l = data.length;
+            var l = data.length || 0;
             var listArr = [];
             var listStr = '';
             var defautlhtml = '';
@@ -65,9 +65,9 @@ $(function () {
                 //渲染默认
                 defautlhtml = [
                     '<div class="carimg">',
-                    '    <img src="config/html/images/'+_self.module+'.png" />',
+                    '    <img src="config/html/images/' + _self.module + '.png" />',
                     '</div>',
-                    '<h2>您还未绑定'+_self.module+'，快去绑定吧！</h2>'].join("");
+                    '<h2>您还未绑定' + _self.module + '，快去绑定吧！</h2>'].join("");
                 tipsWrap.append(defautlhtml);
             }
         },
