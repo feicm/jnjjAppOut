@@ -354,6 +354,14 @@ $(function () {
             alert('提交失败！（请检查您的身份证号）');
             return false;
         }
+        if ( opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length ) {
+            alert('提交失败！（请检查您的车辆识别代号）');
+            return false;
+        }
+        if ( opts.hphm.val() === '' || opts.hphm.find('.tips').length ) {
+            alert('提交失败！（请检查您的号牌号码）');
+            return false;
+        }
         return true;
     }
 

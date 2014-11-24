@@ -4,6 +4,12 @@ $(function () {
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryCar.json';//用户车辆列表请求地址
+    var carbindRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/bandCar.json';//车辆绑定请求地址
+    var cardbindRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/bandLicense.json';//驾照绑定请求地址
     var params = {
         "registerName": userName,
         "axisFlag"    : true
@@ -98,21 +104,168 @@ $(function () {
         }
     };
     var module = $('.c').attr('data-mode');
+    var opts = {};
     if ( module === 'car' ) {
         var goCarbindpage = $('#go_carbindpage');
         var bindinfoBtn = $('#bindinfo_btn');
+        var ip_name;
+        var ip_hphm;
+        var ip_hpzl;
+        var ip_clsbdh;
+        var ip_idnum;
+        var ip_phone;
     }
     if ( module === 'card' ) {
         var goCardbindpage = $('#go_cardbindpage');
         var bindcardBtn = $('#bindcard_btn');
+        var ip_name;
+        var ip_phone;
+        var ip_idnum;
+        var ip_dabh;
     }
     listModule.init({
         "listWrap"  : $('.ui-list'),
         "tipsWrap"  : $('.tips'),
         "module"    : module,
         "requestUrl": carlistRequestUrl,
-        "datas"    : params
+        "datas"     : params
     });
+    bindinfoBtn.on('click', bindcarListerner);
+    bindcardBtn.on('click', bindcardListerner);
+    //车辆绑定事件函数
+    function bindcarListerner() {
+        ip_name = $('#name').val();
+        ip_hphm = $('#hphm').val();
+        ip_hpzl = $('#hpzl').val();
+        ip_clsbdh = $('#clsbdh').val();
+        ip_idnum = $('#idnum').val();
+        ip_phone = $('#phone').val();
+        opts = {
+            "name"  : $('#name'),//姓名
+            "hphm"  : $('#hphm'),//号牌号码
+            "clsbdh": $('#clsbdh'),//车辆识别代号
+            "idnum" : $('#idnum'),//身份证
+            "phone" : $('#phone')//手机
+        };
+        var optiontype = 'band';
+        var params;
+        if ( verify(opts) ) {
+            params = {
+                "register"   : userName,
+                "carowner"   : ip_name,
+                "carNumType" : ip_hpzl,
+                "carNum"     : ip_hphm,
+                "indentityid": ip_idnum,
+                "phoneNum"   : ip_phone,
+                "carFramId"  : ip_clsbdh,
+                "optiontype" : optiontype
+            };
+            Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
+            //提交表单
+            App.getAjaxData(carbindRequestUrl, params, function (data) {
+                var msg = data.carBandResponse;
+                console.dir(msg);
+                if ( msg.bindSuccess === 'true' ) {
+                    bindSuccessCallback(msg);
+                } else if ( msg.bindSuccess === 'false' ) {
+                    Wisp.UI.progressDialog.remove();
+                    alert(msg.bandContent + '!');
+                } else {
+                    Wisp.UI.progressDialog.remove();
+                    alert('提交失败!');
+                }
+            })
+        }
+    }
+
+    //驾照绑定事件函数
+    function bindcardListerner() {
+        ip_name = $('#name').val();
+        ip_phone = $('#phone').val();
+        ip_idnum = $('#idnum').val();
+        ip_dabh = $('#dabh').val();
+        opts = {
+            "name" : $('#name'),//姓名
+            "idnum": $('#idnum'),//身份证
+            "phone": $('#phone'),//手机
+            "dabh" : $('#dabh')//档案编号
+        };
+        var dotype = 'band';
+        var params;
+        if ( verify(opts) ) {
+            params = {
+                "register"     : userName,
+                "licensename"  : ip_name,
+                "licenseid"    : ip_idnum,
+                "licensephone" : ip_phone,
+                "licenseRecord": ip_dabh,
+                "dotype"       : dotype
+            };
+            Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
+            //提交表单
+            App.getAjaxData(cardbindRequestUrl, params, function (data) {
+                var msg = data.licenseBandResponse;
+                console.dir(msg);
+                if ( msg.bindSuccess === 'true' ) {
+                    bindSuccessCallback(msg);
+                } else if ( msg.bindSuccess === 'false' ) {
+                    Wisp.UI.progressDialog.remove();
+                    alert(msg.bandContent + '!');
+                } else {
+                    Wisp.UI.progressDialog.remove();
+                    alert('提交失败!');
+                }
+            })
+        }
+    }
+
+    function bindSuccessCallback(data) {
+        console.dir(data);
+        history.go(0); //直接刷新获取最新列表
+        Wisp.UI.progressDialog.remove();
+        alert('绑定成功！');
+    }
+
+    //校验函数
+    function verify(opts) {
+        console.dir(opts);
+        if ( opts.username.val() === '' || opts.username.find('.tips').length ) {
+            alert('提交失败！（请检查您的用户名）');
+            return false;
+        }
+        if ( opts.pwd1.val() === ''
+            || opts.pwd2.val() === ''
+            || opts.pwd1.find('.tips').length
+            || opts.pwd2.find('.tips').length ) {
+            alert('提交失败！（请检查您的密码）');
+            return false;
+        }
+        if ( opts.name.val() === '' || opts.name.find('.tips').length ) {
+            alert('提交失败！（请检查您的姓名）');
+            return false;
+        }
+        if ( opts.phone.val() === '' || opts.phone.find('.tips').length ) {
+            alert('提交失败！（请检查您的手机号码）');
+            return false;
+        }
+        if ( opts.idnum.val() === '' || opts.idnum.find('.tips').length ) {
+            alert('提交失败！（请检查您的身份证号）');
+            return false;
+        }
+        if ( opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length ) {
+            alert('提交失败！（请检查您的车辆识别代号）');
+            return false;
+        }
+        if ( opts.hphm.val() === '' || opts.hphm.find('.tips').length ) {
+            alert('提交失败！（请检查您的号牌号码）');
+            return false;
+        }
+        if ( opts.dabh.val() === '' || opts.dabh.find('.tips').length ) {
+            alert('提交失败！（请检查您的档案编号）');
+            return false;
+        }
+        return true;
+    }
 
     /*
      * --------------------页面效果------------------------

@@ -36,7 +36,7 @@
     <div class="item-inner">
     <div class="item-title label">手 机</div>
     <div class="item-input">
-    <input id="hphm" data-type="mobile" type="text" placeholder="请输入驾驶人手机号码">
+    <input id="phone" data-type="mobile" type="text" placeholder="请输入驾驶人手机号码">
     </div>
     </div>
     </div>
