@@ -179,7 +179,7 @@ $(function () {
             },
             "list": [
                 {
-                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/personal_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "个人资料维护",
                     "clickEvent": "",
@@ -187,7 +187,7 @@ $(function () {
                     "subBtns"   : []
                 },
                 {
-                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/mycar_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的车辆",
                     "clickEvent": "",
@@ -195,7 +195,7 @@ $(function () {
                     "subBtns"   : []
                 },
                 {
-                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/mycard_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的驾照",
                     "clickEvent": "",
@@ -203,7 +203,7 @@ $(function () {
                     "subBtns"   : []
                 },
                 {
-                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/myviolation_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的违法",
                     "clickEvent": "",
@@ -211,7 +211,7 @@ $(function () {
                     "subBtns"   : []
                 },
                 {
-                    "beforeImg" : "config/html/images/wispui/ryxx_normal.png",
+                    "beforeImg" : "config/html/images/wispui/msg_normal.png",
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "消息查看",
                     "clickEvent": "",
