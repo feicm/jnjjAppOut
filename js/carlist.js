@@ -183,6 +183,8 @@ $(function () {
                     bindinfoBtn.on('click', bindcarListerner);
                 }
             })
+        }else{
+            bindinfoBtn.on('click', bindcarListerner);
         }
     }
 
@@ -228,6 +230,8 @@ $(function () {
                     bindcardBtn.on('click', bindcardListerner);
                 }
             })
+        }else{
+            bindcardBtn.on('click', bindcardListerner);
         }
     }
 
