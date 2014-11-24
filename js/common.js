@@ -269,7 +269,13 @@ var App = (function () {
                             selectArr.push("<option value='" + list[j].licenseRecord + "'>" + list[j].licenseName + "</option>");
                         }
                     }
-                    !list.length && _self.callback();
+                    if(!list.length){
+                        selectArr.push("<option>未绑定</option>");
+                        selectStr = selectArr.join('');
+                        _self.dom.append(selectStr);
+                        _self.dom.attr('disabled','disabled');
+                        return;
+                    }
                 }
                 selectStr = selectArr.join('');
                 _self.dom.append(selectStr);
