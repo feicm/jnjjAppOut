@@ -46,7 +46,7 @@
     <div class="item-inner">
     <div class="item-title label">身份证号</div>
     <div class="item-input">
-    <input id="idnum" data-type="archive" type="text" placeholder="请输入驾驶人身份证号">
+    <input id="idnum" data-type="card" type="text" placeholder="请输入驾驶人身份证号">
     </div>
     </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="item-inner">
     <div class="item-title label">档案编号</div>
     <div class="item-input">
-    <input id="dabh" data-type="car2" type="text" placeholder="请输入驾驶证档案编号">
+    <input id="dabh" data-type="archive" type="text" placeholder="请输入驾驶证档案编号">
     </div>
     </div>
     </div>
