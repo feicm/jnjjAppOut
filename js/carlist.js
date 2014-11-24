@@ -187,6 +187,9 @@ $(function () {
     App.UI('changePage', {//注册页面切换效果
         "wrap": $('.c')
     });
+    App.UI('inputClose', {//绑定页面输入校验
+        "doms": $('.list-block')
+    });
     goCarbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCarbindpage,
         "hoverClassName": 'ui_btn_01_hover'

@@ -451,7 +451,7 @@ $(function () {
     App.UI('changePage', {//注册页面切换效果
         "wrap": $('#rigister_form')
     });
-    App.UI('inputClose', {//注册页面切换效果
+    App.UI('inputClose', {//注册页面输入校验
         "doms": $('.list-block')
     });
     App.UI('buttonHover', {//添加按钮点击效果

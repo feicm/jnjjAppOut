@@ -27,7 +27,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">车主名称</div>
                                 <div class="item-input">
-                                    <input id="name" type="text" placeholder="请输入车主姓名">
+                                    <input id="name" data-type="cnuser" type="text" placeholder="请输入车主姓名">
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">号牌号码</div>
                                 <div class="item-input">
-                                    <input id="hphm" type="text" placeholder="请输入车牌号码">
+                                    <input id="hphm" data-type="car" type="text" placeholder="请输入车牌号码">
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">车识别号</div>
                                 <div class="item-input">
-                                    <input id="clsbdh" type="text" placeholder="请输入车辆识别代号">
+                                    <input id="clsbdh" data-type="car2" type="text" placeholder="请输入车辆识别代号">
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">身份证号</div>
                                 <div class="item-input">
-                                    <input id="idnum" type="text" placeholder="请输入身份证号">
+                                    <input id="idnum" data-type="card" type="text" placeholder="请输入身份证号">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">手 机</div>
                                 <div class="item-input">
-                                    <input id="phone" type="text" placeholder="请输入手机号码">
+                                    <input id="phone" data-type="mobile" type="text" placeholder="请输入手机号码">
                                 </div>
                             </div>
                         </div>
