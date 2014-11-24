@@ -110,7 +110,7 @@ $(function () {
         "tipsWrap"  : $('.tips'),
         "module"    : module,
         "requestUrl": carlistRequestUrl,
-        "params"    : params
+        "datas"    : params
     });
     /*init();//初始化
      function init() {
