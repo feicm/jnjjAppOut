@@ -62,6 +62,7 @@ $(function () {
                 }
                 listStr = listArr.join("");
                 listWrap.append(listStr);
+                Wisp.UI.progressDialog.remove();
             } else {
                 //渲染默认
                 defautlhtml = [
@@ -70,6 +71,7 @@ $(function () {
                     '</div>',
                     '<h2>您还未绑定' + _self.module + '，快去绑定吧！</h2>'].join("");
                 tipsWrap.append(defautlhtml);
+                Wisp.UI.progressDialog.remove();
             }
         },
         "bindEvent"  : function () {
