@@ -423,7 +423,7 @@ i.icon {
 .icon01_arr_r {
     background-image: url(../images/arr_r.png);
 }
-.ios7 .dwb{height: 2em}
+.ios7 .dwb{height: 2em !important;}
 /*login*/
 .login_f {
     height     : 100%;
