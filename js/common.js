@@ -266,7 +266,7 @@ var App = (function () {
                     }
                     if ( _module === 'card' ) {
                         for ( var j in list ) { //按驾照
-                            selectArr.push("<option value='" + list[j].licenseRecord + "'>" + list[j].licenseName + "</option>");
+                            selectArr.push("<option value='" + list[j].licenseid + "'>" + list[j].licenseName + "</option>");
                         }
                     }
                     if(!list.length){
