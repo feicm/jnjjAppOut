@@ -257,11 +257,6 @@ var App = (function () {
                         selectArr.push("<option value='" + list[j].ddbh + "'>" + list[j].ddmc + "</option>");
                     }
                 }
-                else {
-                    for ( var j in list ) {
-                        selectArr.push("<option value='" + j + "'>" + list[j] + "</option>");
-                    }
-                }
                 if ( _module ) {
                     list = data[_module + 'QueryResponse'][_module + 'List'];
                     if ( _module === 'car' ) {  //按车辆
@@ -277,7 +272,7 @@ var App = (function () {
                 }
                 selectStr = selectArr.join('');
                 _self.dom.append(selectStr);
-                _self.dom.mobiscroll().select({
+                selectStr && _self.dom.mobiscroll().select({
                     theme   : 'ios7',
                     lang    : 'zh',
                     display : 'bottom',
