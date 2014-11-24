@@ -269,6 +269,7 @@ var App = (function () {
                             selectArr.push("<option value='" + list[j].licenseRecord + "'>" + list[j].licenseName + "</option>");
                         }
                     }
+                    !list.length && _self.callback();
                 }
                 selectStr = selectArr.join('');
                 _self.dom.append(selectStr);

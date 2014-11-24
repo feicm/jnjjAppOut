@@ -16,11 +16,15 @@ $(function () {
         "url"     : carlistRequestUrl,
         "data"    : {'rigister': userName, 'axisFlag': true},
         "module": 'car'
+    },function(){
+        alert('未绑定车辆！');
     });
     App.UI('select', {
         "dom"     : $('#jzxm'),
         "url"     : cardlistRequestUrl,
         "data"    : {'rigister': userName, 'axisFlag': true},
         "module": 'license'
+    },function(){
+        alert('未绑定驾照！');
     });
 });
