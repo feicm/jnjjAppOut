@@ -22,9 +22,6 @@
                         <div class="item-title label">号牌号码</div>
                         <div class="item-input">
                             <select id="hphm">
-                                <option>小型汽车</option>
-                                <option>大型汽车</option>
-                                <option>普通摩托车</option>
                             </select>
                         </div>
                     </div>
@@ -51,9 +48,6 @@
                         <div class="item-title label">驾照姓名</div>
                         <div class="item-input">
                             <select id="jzxm">
-                                <option>姓名1</option>
-                                <option>姓名2</option>
-                                <option>姓名3</option>
                             </select>
                         </div>
                     </div>
