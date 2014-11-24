@@ -4,6 +4,9 @@ $(function () {
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryCar.json';//用户车辆列表请求地址
+    var cardlistRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
     var carbindRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/bandCar.json';//车辆绑定请求地址
@@ -156,6 +159,13 @@ $(function () {
         var ip_idnum;
         var ip_phone;
         bindinfoBtn.on('click', bindcarListerner);
+        listModule.init({
+            "listWrap"  : $('.ui-list'),
+            "tipsWrap"  : $('.tips'),
+            "module"    : module,
+            "requestUrl": carlistRequestUrl,
+            "datas"     : params
+        });
     }
     if ( module === 'card' ) {
         var goCardbindpage = $('#go_cardbindpage');
@@ -165,14 +175,14 @@ $(function () {
         var ip_idnum;
         var ip_dabh;
         bindcardBtn.on('click', bindcardListerner);
+        listModule.init({
+            "listWrap"  : $('.ui-list'),
+            "tipsWrap"  : $('.tips'),
+            "module"    : module,
+            "requestUrl": cardlistRequestUrl,
+            "datas"     : params
+        });
     }
-    listModule.init({
-        "listWrap"  : $('.ui-list'),
-        "tipsWrap"  : $('.tips'),
-        "module"    : module,
-        "requestUrl": carlistRequestUrl,
-        "datas"     : params
-    });
 
     //车辆绑定事件函数
     function bindcarListerner() {

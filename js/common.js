@@ -230,18 +230,22 @@ var App = (function () {
             "init"      : function () {
                 this.dom = opts.dom;
                 this.url = opts.url;
-                this.dataType = opts.dataType;
+                this.dataType = opts.dataType || null;
+                this.params = opts.data;
+                this.module = opts.module || null;
                 this.callback = callback || null;
                 var _self = this;
-                getAjaxData(_self.url, null, function (data) {
+                getAjaxData(_self.url, _self.params, function (data) {
                     _self.initSelect(data);
-                }, 'POST');
+                });
             },
             "initSelect": function (data) {
                 var _self = this;
-                var list = data.msg;
+                var list;
                 var selectArr = [];
-                var selectStr = "";
+                var selectStr;
+                var _module = _self.module;
+                data.msg.length && (list = data.msg);
                 if ( _self.dataType === 'Object' ) {
                     for ( var j in list ) {
                         selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
@@ -256,6 +260,19 @@ var App = (function () {
                 else {
                     for ( var j in list ) {
                         selectArr.push("<option value='" + j + "'>" + list[j] + "</option>");
+                    }
+                }
+                if ( _module ) {
+                    list = data[_module + 'QueryResponse'][_module + 'List'];
+                    if ( _module === 'car' ) {  //按车辆
+                        for ( var j in list ) {
+                            selectArr.push("<option value='" + list[j].msg.hpzl + "'>" + list[j].carid + "</option>");
+                        }
+                    }
+                    if ( _module === 'card' ) {
+                        for ( var j in list ) { //按驾照
+                            selectArr.push("<option value='" + list[j].licenseRecord + "'>" + list[j].licenseName + "</option>");
+                        }
                     }
                 }
                 selectStr = selectArr.join('');
