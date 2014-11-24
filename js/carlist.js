@@ -114,6 +114,7 @@ $(function () {
         var ip_clsbdh;
         var ip_idnum;
         var ip_phone;
+        bindinfoBtn.on('click', bindcarListerner);
     }
     if ( module === 'card' ) {
         var goCardbindpage = $('#go_cardbindpage');
@@ -122,6 +123,7 @@ $(function () {
         var ip_phone;
         var ip_idnum;
         var ip_dabh;
+        bindcardBtn.on('click', bindcardListerner);
     }
     listModule.init({
         "listWrap"  : $('.ui-list'),
@@ -130,8 +132,7 @@ $(function () {
         "requestUrl": carlistRequestUrl,
         "datas"     : params
     });
-    bindinfoBtn.on('click', bindcarListerner);
-    bindcardBtn.on('click', bindcardListerner);
+
     //车辆绑定事件函数
     function bindcarListerner() {
         ip_name = $('#name').val();
@@ -149,6 +150,7 @@ $(function () {
         };
         var optiontype = 'band';
         var params;
+        bindinfoBtn.off('click');
         if ( verify(opts) ) {
             params = {
                 "register"   : userName,
@@ -167,12 +169,15 @@ $(function () {
                 console.dir(msg);
                 if ( msg.bindSuccess === 'true' ) {
                     bindSuccessCallback(msg);
+                    bindinfoBtn.on('click', bindcarListerner);
                 } else if ( msg.bindSuccess === 'false' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.bandContent + '!');
+                    bindinfoBtn.on('click', bindcarListerner);
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('提交失败!');
+                    bindinfoBtn.on('click', bindcarListerner);
                 }
             })
         }
@@ -192,6 +197,7 @@ $(function () {
         };
         var dotype = 'band';
         var params;
+        bindcardBtn.off('click');
         if ( verify(opts) ) {
             params = {
                 "register"     : userName,
@@ -208,12 +214,15 @@ $(function () {
                 console.dir(msg);
                 if ( msg.bindSuccess === 'true' ) {
                     bindSuccessCallback(msg);
+                    bindcardBtn.on('click', bindcardListerner);
                 } else if ( msg.bindSuccess === 'false' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.bandContent + '!');
+                    bindcardBtn.on('click', bindcardListerner);
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('提交失败!');
+                    bindcardBtn.on('click', bindcardListerner);
                 }
             })
         }
