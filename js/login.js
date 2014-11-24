@@ -65,7 +65,7 @@ $(function () {
                                 "name"      : "违法信息",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/querycard.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -76,7 +76,7 @@ $(function () {
                                 "name"      : "车辆信息",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -87,7 +87,7 @@ $(function () {
                                 "name"      : "事故快处",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/sgkc.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -98,7 +98,7 @@ $(function () {
                                 "name"      : "车辆绑定",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/bindinfo.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -109,7 +109,7 @@ $(function () {
                                 "name"      : "驾照绑定",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/bindcard.jsp"
                             }
                         ]
                     },
@@ -128,7 +128,7 @@ $(function () {
                                 "name"      : "考试预约",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/csyy.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -139,7 +139,7 @@ $(function () {
                                 "name"      : "年检预约",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/njyy.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -150,7 +150,7 @@ $(function () {
                                 "name"      : "考试预约查询",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/querycsyy.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -161,7 +161,7 @@ $(function () {
                                 "name"      : "年检预约查询",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/querynjyy.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -172,7 +172,7 @@ $(function () {
                                 "name"      : "考试成绩查询",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url=/wispcms/config/html/queryviolation.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/querykscj.jsp"
                             }
                         ]
                     }
