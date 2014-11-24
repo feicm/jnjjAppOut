@@ -26,7 +26,9 @@ $(function () {
             this.params = opts.datas;
             var _self = this;
             _self.requestData(_self.requestUrl, _self.params, function (data) {
-                var listData = data.carList;
+                var listData;
+                data.carList && (listData = data.carList);
+                data.licenseList && (listData = data.licenseList);
                 console.dir(listData);
                 if ( listData.length ) {
                     _self.renderList(listData);
@@ -41,36 +43,13 @@ $(function () {
             var args = Array.prototype.slice.call(arguments);
             var listWrap = _self.listWrap;
             var tipsWrap = _self.tipsWrap;
-            var l;
             var listArr = [];
             var listStr = '';
             var defautlhtml = '';
             if ( args.length ) {
-                l = data.length;
                 console.dir(data);
                 //渲染列表
-                for ( var i = 0; i < l; i++ ) {
-                    listhtml = [
-                        '<li>',
-                        '    <section class="ui-g-fly0-b">',
-                        '        <p>',
-                        '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
-                        '        </p>',
-                        '        <p>',
-                        '            号牌号码：<em class="name">' + data[i].carid + '</em>',
-                        '        </p>',
-                        '    </section>',
-                        '    <aside class="ui-g-fly0-b-l">',
-                        '        <img src="config/html/images/ico_car.png"></br>',
-                        '        <b>车辆' + i + '</b>',
-                        '    </aside>',
-                        '    <aside class="ui-g-fly0-b-r">',
-                        '        <i class="icon01 icon01_arr_r"></i>',
-                        '    </aside>',
-                        '</li>'].join("");
-                    listArr.push(listhtml);
-                }
-                listStr = listArr.join("");
+                listStr = _self.getListHtml(data, _self.module);
                 listWrap.append(listStr);
                 Wisp.UI.progressDialog.remove();
             } else {
@@ -88,6 +67,63 @@ $(function () {
             var _self = this;
             //TODO 注册事件
         },
+        "getListHtml": function (data, mode) {
+            var html;
+            var l = data.length;
+            var listhtml;
+            var listArr;
+            switch ( mode ) {
+                case 'car':
+                    for ( var i = 0; i < l; i++ ) {
+                        listhtml = [
+                            '<li>',
+                            '    <section class="ui-g-fly0-b">',
+                            '        <p>',
+                            '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
+                            '        </p>',
+                            '        <p>',
+                            '            号牌号码：<em class="name">' + data[i].carid + '</em>',
+                            '        </p>',
+                            '    </section>',
+                            '    <aside class="ui-g-fly0-b-l">',
+                            '        <img src="config/html/images/ico_car.png"></br>',
+                            '        <b>车辆' + i + '</b>',
+                            '    </aside>',
+                            '    <aside class="ui-g-fly0-b-r">',
+                            '        <i class="icon01 icon01_arr_r"></i>',
+                            '    </aside>',
+                            '</li>'].join("");
+                        listArr.push(listhtml);
+                    }
+                    html = listArr.join("");
+                    break;
+                case 'card':
+                    for ( var i = 0; i < l; i++ ) {
+                        listhtml = [
+                            '<li>',
+                            '    <section class="ui-g-fly0-b">',
+                            '        <p>',
+                            '            姓名：<em class="name">' + data[i].licenseName + '</em>',
+                            '        </p>',
+                            '        <p>',
+                            '            身份证号：<em class="name">' + data[i].licenseid + '</em>',
+                            '        </p>',
+                            '    </section>',
+                            '    <aside class="ui-g-fly0-b-l">',
+                            '        <img src="config/html/images/ico_card.png"></br>',
+                            '        <b>驾照' + i + '</b>',
+                            '    </aside>',
+                            '    <aside class="ui-g-fly0-b-r">',
+                            '        <i class="icon01 icon01_arr_r"></i>',
+                            '    </aside>',
+                            '</li>'].join("");
+                        listArr.push(listhtml);
+                    }
+                    html = listArr.join("");
+                    break;
+            }
+            return html;
+        },
         "requestData": function (url, params, callback) {
             var _self = this;
             var _url = url;
@@ -96,7 +132,9 @@ $(function () {
             var _module = _self.module;
             Wisp.UI.progressDialog.show('请求' + _module + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
-                var msg = data.carQueryResponse;
+                var msg;
+                data.carQueryResponse && (msg = data.carQueryResponse);
+                data.licenseQueryResponse && (msg = data.licenseQueryResponse);
                 if ( msg ) {
                     _callback && _callback(msg);
                 } else {
@@ -183,7 +221,7 @@ $(function () {
                     bindinfoBtn.on('click', bindcarListerner);
                 }
             })
-        }else{
+        } else {
             bindinfoBtn.on('click', bindcarListerner);
         }
     }
@@ -230,7 +268,7 @@ $(function () {
                     bindcardBtn.on('click', bindcardListerner);
                 }
             })
-        }else{
+        } else {
             bindcardBtn.on('click', bindcardListerner);
         }
     }
