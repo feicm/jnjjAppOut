@@ -15,14 +15,15 @@ $(function () {
             this.module = opts.module;
             this.requestUrl = opts.requestUrl;
             this.params = opts.datas;
-            this.requestData(this.requestUrl, this.params, function (data) {
+            var _self=this;
+            _self.requestData(_self.requestUrl, _self.params, function (data) {
                 var listData = data.carList;
                 console.dir(listData);
                 if ( listData.length ) {
-                    this.renderList(listData);
-                    this.bindEvent();
+                    _self.renderList(listData);
+                    _self.bindEvent();
                 } else {
-                    this.renderList();
+                    _self.renderList();
                 }
             });
         },
