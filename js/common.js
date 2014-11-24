@@ -239,8 +239,7 @@ var App = (function () {
             },
             "initSelect": function (data) {
                 var _self = this;
-                var json = eval('(' + data + ')');
-                var list = eval(json.msg);
+                var list = data.msg;
                 var selectArr = [];
                 var selectStr = "";
                 if ( _self.dataType === 'Object' ) {
