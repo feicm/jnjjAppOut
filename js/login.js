@@ -65,7 +65,7 @@ $(function () {
                                 "name"      : "违法信息",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/violation.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -98,7 +98,7 @@ $(function () {
                                 "name"      : "车辆绑定",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
-                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/bindinfo.jsp"
+                                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
                             },
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -218,7 +218,7 @@ $(function () {
                     "afterImg"  : "config/html/images/wispui/hover.png",
                     "name"      : "我的违法",
                     "clickEvent": "",
-                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violationlist.jsp",
+                    "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violation.jsp",
                     "subBtns"   : []
                 },
                 {
