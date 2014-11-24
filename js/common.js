@@ -226,11 +226,57 @@ var App = (function () {
                 _dom.off('touchend');
             }
         };
+        var select = {
+            "init"      : function () {
+                this.dom = opts.dom;
+                this.url = opts.url;
+                this.dataType = opts.dataType;
+                this.callback = callback || null;
+                var _self = this;
+                getAjaxData(_self.url, null, function (data) {
+                    _self.initSelect(data);
+                }, 'POST');
+            },
+            "initSelect": function (data) {
+                var _self = this;
+                var json = eval('(' + data + ')');
+                var list = eval(json.msg);
+                var selectArr = [];
+                var selectStr = "";
+                if ( _self.dataType === 'Object' ) {
+                    for ( var j in list ) {
+                        selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
+                    }
+                }
+                /* 违法抓拍地点*/
+                else if ( _self.dataType === 'Wfddbh' ) {
+                    for ( var j in list ) {
+                        selectArr.push("<option value='" + list[j].ddbh + "'>" + list[j].ddmc + "</option>");
+                    }
+                }
+                else {
+                    for ( var j in list ) {
+                        selectArr.push("<option value='" + j + "'>" + list[j] + "</option>");
+                    }
+                }
+                selectStr = selectArr.join('');
+                _self.dom.append(selectStr);
+                _self.dom.mobiscroll().select({
+                    theme   : 'ios7',
+                    lang    : 'zh',
+                    display : 'bottom',
+                    mode    : 'scroller',
+                    minWidth: 200
+                });
+                _self.callback && _self.callback();
+            }
+        };
         var moduleNameMap = {
             "changePage" : changePage,
             "inputClose" : inputClose,
-            "buttonHover": buttonHover
-        }
+            "buttonHover": buttonHover,
+            "select"     : select
+        };
         name && moduleNameMap[name].init();
     }
 
@@ -277,9 +323,9 @@ var App = (function () {
         }
     };
     //ajax 请求封装
-    function getAjaxData(url, params, callback) {
+    function getAjaxData(url, params, callback, type) {
         $.ajax({ //登录验证请求
-            type    : 'GET',
+            type    : type || 'GET',
             url     : url,
             data    : params,
             dataType: 'json'

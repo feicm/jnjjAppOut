@@ -7,6 +7,11 @@
     <title>我的车辆</title>
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
+    <!--select组件 css-->
+    <link href="config/html/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css"/>
+    <link href="config/html/css/mobiscroll.scroller.ios7.css" rel="stylesheet" type="text/css"/>
+    <link href="config/html/css/mobiscroll.animation.css" rel="stylesheet" type="text/css"/>
+    <!--select组件 css end-->
 </head>
 <body>
     <div class="c"  data-mode='car'>
@@ -48,9 +53,6 @@
                                 <div class="item-title label">号牌种类</div>
                                 <div class="item-input">
                                     <select id="hpzl">
-                                        <option>小型汽车</option>
-                                        <option>大型汽车</option>
-                                        <option>普通摩托车</option>
                                     </select>
                                 </div>
                             </div>
@@ -100,9 +102,12 @@
         </form>
     </div>
 </body>
-<script src="config/html/js/zepto.min.js"></script>
-<script src="config/html/js/WISPComponents_v3.0.js"></script>
-<script src="config/html/js/appConfig.js"></script>
-<script src="config/html/js/common.js"></script>
-<script src="config/html/js/carlist.js"></script>
+    <script src="config/html/js/zepto.min.js"></script>
+    <script src="config/html/js/WISPComponents_v3.0.js"></script>
+    <script src="config/html/js/appConfig.js"></script>
+    <script src="config/html/js/common.js"></script>
+    <script src="config/html/js/carlist.js"></script>
+    <!--select组件-->
+    <script src="config/html/js/mobiscroll.all.js" type="text/javascript"></script>
+    <!--select组件 end-->
 </html>
