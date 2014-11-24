@@ -29,6 +29,9 @@ body {
     width : 100%;
 }
 
+.mt01{
+    margin-top: 24px;
+}
 .ui_radius {
     border-radius         : 4px;
     -webkit-border-radius : 4px;
@@ -322,29 +325,31 @@ i.icon {
 /*table*/
 #c_Table_b {
     width         : 100%;
-    border-bottom : 1px solid #E1E1E1;
+    border-bottom: 1px solid #D9D9D9;
 }
 
 #c_Table_b tbody tr {
     line-height      : 2;
-    border           : 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
     background-color : #FFF;
-    border-bottom    : 0;
 }
 
 #c_Table_b tbody tr:nth-child(2n) {
-    background : none;
+    background: #EDEDED;
 }
 
 #c_Table_b tbody tr td:first-child {
     width         : 5em;
-    border-right  : 2px solid #3AA0F6;
+    border-right: 1px solid #E1E1E1;
     text-align    : right;
     padding-right : .5em;
     padding-left  : .5em;
     color         : #555;
+    color: #407C41;
 }
-
+#c_Table_b tbody tr:nth-child(2n) td:first-child{
+    color: #555;
+}
 #c_Table_b tbody tr td:last-child {
     padding-left : .5em;
 }
@@ -409,6 +414,49 @@ i.icon {
     float       : right;
     width       : 2em;
     margin-left : -2em;
+}
+.ui-grid-a {
+    overflow : hidden;
+}
+.ui-block-a{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    float: left;
+    min-height: 1px;
+}
+/*两列布局*/
+.ui-grid-a .ui-block-a {
+    clear: left;
+}
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
+    width: 49.95%;
+}
+.ui-grid-a>:nth-child(n) {
+    width: 50%;
+    margin-right: -.5px;
+}
+.tab {
+    overflow : hidden;
+    width    : 100%;
+    height   : 2.6em;
+}
+
+.tab a {
+    display       : inline-block;
+    height        : 100%;
+    line-height   : 2.6;
+    background    : #F2F2F1;
+    color         : #444;
+    border-right  : 0 none;
+    border-bottom: 1px solid #CECECE;
+    text-align    : center;
+}
+
+.tab a.active {
+    border-bottom: 2px solid #3879D9;
+    background    : #F2F2F1;
+    color         : #3879D9;
 }
 .icon01 {
     display: inline-block;
@@ -475,7 +523,6 @@ i.icon {
 /*details*/
 .details {
     overflow    : hidden;
-    padding-top : 5px;
     height      : 100%;
     background  : #F6F6F6;
 }
@@ -525,4 +572,48 @@ i.icon {
 }
 .carlist_c .ui-g-fly0-b p .name{
     color: #000;
+}
+/*violation*/
+.print {
+    overflow: hidden;
+    font-size: 28px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    margin-top: -.5em;
+}
+.print input {
+    display: none;
+}
+.print input + label {
+    padding: 0 .5em 0 2em;
+    display: inline-block;
+    position: relative;
+    color: #999;
+    font-size: 18px;
+    margin-left: 1em;
+}
+.print input:checked + label:after {
+    content: '\2714';
+    position: absolute;
+    color: #FFF;
+    display: inline-block;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 3px;
+    background: #0C79BE;
+    border: 1px solid #0C79BE;
+}
+.print input + label:after {
+    content: '';
+    font-size: 14px;
+    position: absolute;
+    top: .2em;
+    left: 0;
+    color: #99A1A7;
+    display: inline-block;
+    border: 1px solid;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 3px;
 }

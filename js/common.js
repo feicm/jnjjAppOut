@@ -270,10 +270,45 @@ var App = (function () {
                 _self.callback && _self.callback();
             }
         };
+        var tabToggle = {
+            "init"     : function () {
+                this.dom = opts.dom;
+                this.activeClass = opts.activeClass;
+                this.defaultClass = opts.defaultClass || null;
+                this.bindEvent();
+            },
+            "bindEvent": function (e) {
+                var _self = this;
+                var _activeClass = _self.activeClass;
+                var _defaultClass = _self.defaultClass;
+                var tabItem = _self.dom.children();
+                tabItem.each(function (index) {
+                    $(this).on('click', function (e) {
+                        var me = $(this);
+                        var dataFor = me.attr('data-for');
+                        var currentTabContent = $('#' + dataFor);
+                        if ( me.hasClass(_activeClass) ) {
+                            _defaultClass && me.removeClass(_defaultClass);
+                        }
+                        me.addClass(_activeClass);
+                        currentTabContent.show();
+                        tabItem.each(function (index) {
+                            var me = $(this);
+                            if ( me.attr('data-for') !== dataFor ) {
+                                me.removeClass(_activeClass);
+                                _defaultClass && me.addClass(_defaultClass);
+                                $('#' + me.attr('data-for')).hide();
+                            }
+                        });
+                    });
+                });
+            }
+        };
         var moduleNameMap = {
             "changePage" : changePage,
             "inputClose" : inputClose,
             "buttonHover": buttonHover,
+            "tabToggle"  : tabToggle,
             "select"     : select
         };
         name && moduleNameMap[name].init();
