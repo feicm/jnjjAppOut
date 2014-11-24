@@ -167,10 +167,10 @@ $(function () {
             App.getAjaxData(carbindRequestUrl, params, function (data) {
                 var msg = data.carBandResponse;
                 console.dir(msg);
-                if ( msg.bindSuccess === 'true' ) {
+                if ( msg.bandSuccess === 'true' ) {
                     bindSuccessCallback(msg);
                     bindinfoBtn.on('click', bindcarListerner);
-                } else if ( msg.bindSuccess === 'false' ) {
+                } else if ( msg.bandSuccess === 'false' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.bandContent + '!');
                     bindinfoBtn.on('click', bindcarListerner);
@@ -212,10 +212,10 @@ $(function () {
             App.getAjaxData(cardbindRequestUrl, params, function (data) {
                 var msg = data.licenseBandResponse;
                 console.dir(msg);
-                if ( msg.bindSuccess === 'true' ) {
+                if ( msg.bandSuccess === 'true' ) {
                     bindSuccessCallback(msg);
                     bindcardBtn.on('click', bindcardListerner);
-                } else if ( msg.bindSuccess === 'false' ) {
+                } else if ( msg.bandSuccess === 'false' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.bandContent + '!');
                     bindcardBtn.on('click', bindcardListerner);
