@@ -10,9 +10,9 @@ $(function () {
     var cardbindRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/bandLicense.json';//驾照绑定请求地址
-    var carTypeRequestUrl = urlPre //TODO
-        + jnjjApp.config.msgRequestUrl
-        + '/wisp_platform/platform/vehicle_carType.action';//号牌种类请求地址
+    var carTypeRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/carType.json';//号牌种类请求地址
     var params = {
         "registerName": userName,
         "axisFlag"    : true
