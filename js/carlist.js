@@ -118,11 +118,6 @@ $(function () {
         var ip_idnum;
         var ip_phone;
         bindinfoBtn.on('click', bindcarListerner);
-        App.UI('select',{
-            "dom":$('#hpzl'),
-            "url":carTypeRequestUrl,
-            "dataType":'Object'
-        })
     }
     if ( module === 'card' ) {
         var goCardbindpage = $('#go_cardbindpage');
@@ -310,5 +305,11 @@ $(function () {
     bindcardBtn && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : bindcardBtn,
         "hoverClassName": 'ui_btn_01_hover'
+    });
+    var type = $('#hpzl');
+    type && App.UI('select', {
+        "dom"     : type,
+        "url"     : carTypeRequestUrl,
+        "dataType": 'Object'
     });
 });
