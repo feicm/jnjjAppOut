@@ -349,7 +349,7 @@ $(function () {
         "hoverClassName": 'ui_btn_01_hover'
     });
     var type = $('#hpzl');
-    type && App.UI('select', {
+    type.length && App.UI('select', {
         "dom"     : type,
         "url"     : carTypeRequestUrl,
         "dataType": 'Object'
