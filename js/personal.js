@@ -71,6 +71,7 @@ $(function () {
             } else {
                 alert('个人信息初始化失败');
                 saveinfoBtn.on('click',saveinfoListener);
+                Wisp.UI.progressDialog.remove();
             }
         });
     }
