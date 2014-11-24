@@ -1,4 +1,5 @@
 $(function () {
+    var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryCar.json';//用户车辆列表请求地址
