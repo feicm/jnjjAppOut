@@ -242,34 +242,36 @@ $(function () {
             alert('提交失败！（请检查您的用户名）');
             return false;
         }
-        if ( opts.pwd1.val() === ''
+        if ( opts.pwd1
+            && opts.pwd2
+            && (opts.pwd1.val() === ''
             || opts.pwd2.val() === ''
             || opts.pwd1.find('.tips').length
-            || opts.pwd2.find('.tips').length ) {
+            || opts.pwd2.find('.tips').length ) ) {
             alert('提交失败！（请检查您的密码）');
             return false;
         }
-        if ( opts.name.val() === '' || opts.name.find('.tips').length ) {
+        if ( opts.name && (opts.name.val() === '' || opts.name.find('.tips').length) ) {
             alert('提交失败！（请检查您的姓名）');
             return false;
         }
-        if ( opts.phone.val() === '' || opts.phone.find('.tips').length ) {
+        if ( opts.phone && (opts.phone.val() === '' || opts.phone.find('.tips').length) ) {
             alert('提交失败！（请检查您的手机号码）');
             return false;
         }
-        if ( opts.idnum.val() === '' || opts.idnum.find('.tips').length ) {
+        if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.find('.tips').length) ) {
             alert('提交失败！（请检查您的身份证号）');
             return false;
         }
-        if ( opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length ) {
+        if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length) ) {
             alert('提交失败！（请检查您的车辆识别代号）');
             return false;
         }
-        if ( opts.hphm.val() === '' || opts.hphm.find('.tips').length ) {
+        if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.find('.tips').length) ) {
             alert('提交失败！（请检查您的号牌号码）');
             return false;
         }
-        if ( opts.dabh.val() === '' || opts.dabh.find('.tips').length ) {
+        if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.find('.tips').length) ) {
             alert('提交失败！（请检查您的档案编号）');
             return false;
         }
