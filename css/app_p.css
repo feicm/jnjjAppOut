@@ -3,7 +3,7 @@ html, body {
     height : 100%;
 }
 
-div, ul, li, input, a, p, form {
+div, ul, li, input, a, p, form, section {
     box-sizing         : border-box;
     -webkit-box-sizing : border-box;
     -ms-box-sizing     : border-box;
@@ -147,7 +147,6 @@ body {
     flex-shrink         : 0;
     -webkit-box-lines   : single;
     -webkit-flex-wrap   : nowrap;
-    -ms-flex-wrap       : none;
     -ms-flex-wrap       : nowrap;
     flex-wrap           : nowrap;
     -webkit-box-align   : center;
@@ -214,7 +213,6 @@ i.icon {
     margin-top          : -8px;
     margin-bottom       : -7px;
     -webkit-box-flex    : 1;
-    -ms-flex            : 1;
     -webkit-flex-shrink : 1;
     -ms-flex            : 0 1 auto;
     flex-shrink         : 1;
@@ -300,16 +298,18 @@ i.icon {
     font-size     : 12px;
     padding       : 0 5px;
 }
-.list-block .item-input .edit{
-    position: absolute;
-    right: 0;
-    top: 6px;
-    display : inline-block;
-    width: 28px;
-    height: 28px;
-    background: url("../images/edit_normal.png");
-    background-size: cover;
+
+.list-block .item-input .edit {
+    position        : absolute;
+    right           : 0;
+    top             : 6px;
+    display         : inline-block;
+    width           : 28px;
+    height          : 28px;
+    background      : url("../images/edit_normal.png");
+    background-size : cover;
 }
+
 .list-block-title {
     height        : 2em;
     line-height   : 2;
@@ -329,7 +329,7 @@ i.icon {
     line-height      : 2;
     border           : 1px solid #E1E1E1;
     background-color : #FFF;
-    border-bottom    : 0px;
+    border-bottom    : 0;
 }
 
 #c_Table_b tbody tr:nth-child(2n) {
@@ -372,6 +372,57 @@ i.icon {
     max-height    : 100%;
 }
 
+.ui-list {
+    overflow : hidden;
+    margin   : .5em 0;
+}
+
+.ui-list li {
+    position      : relative;
+    overflow      : hidden;
+    background    : #fff;
+    border: 1px solid #ddd;
+    min-height    : 3.5em;
+    margin-bottom : .5em;
+    border-radius: 3px;
+}
+
+/*双翼*/
+.ui-g-fly0-b {
+    float   : left;
+    width   : 100%;
+    height: 4.5em;
+    padding: .7em 2em .7em 3em;
+}
+
+.ui-g-fly0-b-l {
+    float       : left;
+    width: 3em;
+    height: 4.5em;
+    margin-left : -100%;
+    background: #E9F3FD;
+    text-align: center;
+    line-height: 1;
+}
+
+.ui-g-fly0-b-r {
+    float       : right;
+    width       : 2em;
+    margin-left : -2em;
+}
+.icon01 {
+    display: inline-block;
+    position: relative;
+    width: .5em;
+    height: 1em;
+    top: 1.5em;
+    margin-right: .2em;
+    background-size: cover;
+    left: 1em;
+}
+.icon01_arr_r {
+    background-image: url(../images/arr_r.png);
+}
 /*login*/
 .login_f {
     height     : 100%;
@@ -457,4 +508,20 @@ i.icon {
     text-align    : center;
     color         : #555;
     margin-bottom : 2em;
+}
+.carlist_c .ui-g-fly0-b-l img{
+    margin-top: 1em;
+    width: 2em;
+}
+.carlist_c .ui-g-fly0-b-l b{
+    font-size: 14px;
+    color: #95989B;
+}
+.carlist_c .ui-g-fly0-b p{
+    color: #838383;
+    padding-left: 1em;
+    line-height: 1.5;
+}
+.carlist_c .ui-g-fly0-b p .name{
+    color: #000;
 }

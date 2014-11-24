@@ -9,21 +9,12 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="c">
+    <div class="c"  data-mode='card'>
         <div class="carlist_c">
             <div class="tips">
-                <div class="carimg">
-                    <img src="config/html/images/card.png" />
-                </div>
-                <h2>您还未绑定驾照，快去绑定吧！</h2>
+
             </div>
-            <!--<ul>
-                <li>车辆列表</li>
-                <li>车辆列表</li>
-                <li>车辆列表</li>
-                <li>车辆列表</li>
-            </ul>-->
-            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='next' id="go_carbindpage">
+            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='next' id="go_cardbindpage">
                 添加绑定
             </a>
         </div>
