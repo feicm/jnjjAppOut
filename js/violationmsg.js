@@ -14,7 +14,7 @@ $(function () {
         + '/jnpublic/queryOneLicense.json';//用户驾照信息请求地址
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/infodetails.js;';//用户驾照信息请求地址
+        + '/jnpublic/violationlist.jsp';//用户驾照信息请求地址
     var userName = App.Cookie.GetCookie('username');
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
