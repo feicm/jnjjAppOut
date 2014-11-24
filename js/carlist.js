@@ -238,7 +238,7 @@ $(function () {
     //校验函数
     function verify(opts) {
         console.dir(opts);
-        if ( opts.username && opts.username.val() === '' || opts.username.find('.tips').length ) {
+        if ( opts.username && (opts.username.val() === '' || opts.username.find('.tips').length) ) {
             alert('提交失败！（请检查您的用户名）');
             return false;
         }
