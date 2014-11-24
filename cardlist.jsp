@@ -73,6 +73,7 @@
 </body>
 <script src="config/html/js/zepto.min.js"></script>
 <script src="config/html/js/WISPComponents_v3.0.js"></script>
+<script src="config/html/js/appConfig.js"></script>
 <script src="config/html/js/common.js"></script>
 <script src="config/html/js/carlist.js"></script>
 </html>
