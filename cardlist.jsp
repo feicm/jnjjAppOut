@@ -46,7 +46,7 @@
     <div class="item-inner">
     <div class="item-title label">身份证号</div>
     <div class="item-input">
-    <input id="innum" data-type="archive" type="text" placeholder="请输入驾驶人身份证号">
+    <input id="idnum" data-type="archive" type="text" placeholder="请输入驾驶人身份证号">
     </div>
     </div>
     </div>
