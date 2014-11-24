@@ -37,7 +37,8 @@ $(function () {
             var listStr = '';
             var defautlhtml = '';
             if ( args.length ) {
-                l = data.length
+                l = data.length;
+                console.dir(data);
                 //渲染列表
                 for ( var i = 0; i < l; i++ ) {
                     listhtml = [
@@ -112,76 +113,6 @@ $(function () {
         "requestUrl": carlistRequestUrl,
         "datas"    : params
     });
-    /*init();//初始化
-     function init() {
-     Wisp.UI.progressDialog.show('请求车辆列表中，请稍后！');
-     App.getAjaxData(carlistRequestUrl, params, function (data) {//用户车辆列表请求回调
-     var msg = data.carQueryResponse;
-     if ( msg ) {
-     listSuccessCallback(msg);
-     } else {
-     Wisp.UI.progressDialog.remove();
-     alert('车辆列表初始化失败！');
-     }
-     });
-     }
-
-     //获取车辆列表回调
-     function listSuccessCallback(data) {
-     var listData = data.carList;
-     console.dir(listData);
-     if ( listData.length ) {
-     renderList(listData);
-     } else {
-     renderList();
-     }
-     }
-
-     //渲染列表
-     function renderList(data) {
-     var args = Array.prototype.slice.call(arguments);
-     var listWrap = $('.ui-list');
-     var tipsWrap = $('.tips');
-     var l = data.length;
-     var listArr = [];
-     var listStr = '';
-     var defautlhtml = '';
-     if ( args.length ) {
-     //渲染列表
-     for ( var i = 0; i < l; i++ ) {
-     listhtml = [
-     '<li>',
-     '    <section class="ui-g-fly0-b">',
-     '        <p>',
-     '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
-     '        </p>',
-     '        <p>',
-     '            号牌号码：<em class="name">' + data[i].carid + '</em>',
-     '        </p>',
-     '    </section>',
-     '    <aside class="ui-g-fly0-b-l">',
-     '        <img src="config/html/images/ico_car.png"></br>',
-     '        <b>车辆一</b>',
-     '    </aside>',
-     '    <aside class="ui-g-fly0-b-r">',
-     '        <i class="icon01 icon01_arr_r"></i>',
-     '    </aside>',
-     '</li>'].join("");
-     listArr.push(listhtml);
-     }
-     listStr = listArr.join("");
-     listWrap.append(listStr);
-     bindEvent(listWrap);
-     } else {
-     //渲染默认
-     defautlhtml = [
-     '<div class="carimg">',
-     '    <img src="config/html/images/car.png" />',
-     '</div>',
-     '<h2>您还未绑定车辆，快去绑定吧！</h2>'].join("");
-     tipsWrap.append(defautlhtml);
-     }
-     }*/
 
     /*
      * --------------------页面效果------------------------
