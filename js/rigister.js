@@ -371,7 +371,7 @@ $(function () {
             console.dir(MoreViewData);
             //请求用户信息
             App.getAjaxData(userinfoRequestUrl, {
-                "registerName": opts.username
+                "registerName": opts.username.val()
             }, function (data) {//用户信息请求回调
                 var msg = data.userCenterResponse;
                 if ( msg ) {
