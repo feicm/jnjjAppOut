@@ -68,7 +68,8 @@ $(function () {
         App.getAjaxData(edituserinfoRequestUrl, params, function (data) {
             var msg = data.userUpdateResponse;
             if ( msg ) {
-                console.log('更新成功！')
+                console.log('更新成功！');
+                alert('信息已保存！');
                 Wisp.UI.progressDialog.remove();
                 saveinfoBtn.on('click',saveinfoListener);
             } else {
