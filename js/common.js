@@ -121,10 +121,9 @@ var App = (function () {
                         var edit;
                         input = $(this).find('input');
                         close = $(this).find('a.close');
-                        edit = $(this).find('a.edit');
+                        edit = $(this).find('b.edit');
                         edit.length && close.css('right', '35px');
                         close.on('click', function () {
-                            console.log('close')
                             var curInput = $(this).parent().children('input');
                             curInput.val('');
                             $(this).css('display', 'none');
