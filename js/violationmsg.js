@@ -21,13 +21,13 @@ $(function () {
         var jkbj;
         $('#nodo01').prop('checked') ? jkbj = 1 : jkbj = 0;
         /*var params = {
-            "register": userName,
-            "cartype" : hpzl,
-            "carid"   : hphm
-        };*/
+         "register": userName,
+         "cartype" : hpzl,
+         "carid"   : hphm
+         };*/
         clxcSubmit.off('click');
-        if ( hpzl ) {
-            var params = '#cartype=' + hpzl + '#carid=' + hphm+'#jkbj='+jkbj;
+        if ( hpzl !== '未绑定' ) {
+            var params = '#cartype=' + hpzl + '#carid=' + hphm + '#jkbj=' + jkbj;
             window.open(infoPageUrl + params);//通过url hash传参
         } else {
             alert('未绑定车辆！');
@@ -36,16 +36,16 @@ $(function () {
     }
 
     function jzcxListener() {
-        var ip_hphm = $('#jzcx');
-        var licenseid = ip_hphm.val();
+        var ip_jzxm = $('#jzxm');
+        var licenseid = ip_jzxm.val();
         var jkbj;
         $('#nodo02').prop('checked') ? jkbj = 1 : jkbj = 0;
-        if ( licenseid ) {
-            var params = '#licenseid=' + licenseid + '#jkbj='+jkbj;
+        if ( licenseid !== '未绑定' ) {
+            var params = '#licenseid=' + licenseid + '#jkbj=' + jkbj;
             window.open(infoPageUrl + params);//通过url hash传参
         } else {
             alert('未绑定驾照！');
-            jzcxSubmit.on('click', clxcListener);
+            jzcxSubmit.on('click', jzcxListener);
         }
     }
 
