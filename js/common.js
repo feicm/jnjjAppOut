@@ -505,11 +505,61 @@ var App = (function () {
         if ( iSum % 11 != 1 )return false;
         return true;
     }
-
+    //验证必填项
+    /*var opts = {
+     "username": $('#setusername'),//用户名
+     "pwd1"    : $('#setpwd_01'),//密码1
+     "pwd2"    : $('#setpwd_02'),//密码2
+     "name"    : $('#setname'),//姓名
+     "phone"   : $('#setphone'),//手机
+     "idnum"   : $('#setidnum')//身份证
+     };*/
+    function verify(opts) {
+        console.dir(opts);
+        if ( opts.username && (opts.username.val() === '' || opts.username.find('.tips').length) ) {
+            alert('提交失败！（请检查您的用户名）');
+            return false;
+        }
+        if ( opts.pwd1
+            && opts.pwd2
+            && (opts.pwd1.val() === ''
+            || opts.pwd2.val() === ''
+            || opts.pwd1.find('.tips').length
+            || opts.pwd2.find('.tips').length ) ) {
+            alert('提交失败！（请检查您的密码）');
+            return false;
+        }
+        if ( opts.name && (opts.name.val() === '' || opts.name.find('.tips').length) ) {
+            alert('提交失败！（请检查您的姓名）');
+            return false;
+        }
+        if ( opts.phone && (opts.phone.val() === '' || opts.phone.find('.tips').length) ) {
+            alert('提交失败！（请检查您的手机号码）');
+            return false;
+        }
+        if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.find('.tips').length) ) {
+            alert('提交失败！（请检查您的身份证号）');
+            return false;
+        }
+        if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length) ) {
+            alert('提交失败！（请检查您的车辆识别代号）');
+            return false;
+        }
+        if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.find('.tips').length) ) {
+            alert('提交失败！（请检查您的号牌号码）');
+            return false;
+        }
+        if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.find('.tips').length) ) {
+            alert('提交失败！（请检查您的档案编号）');
+            return false;
+        }
+        return true;
+    }
     return {
         "UI"         : UI,
         "getAjaxData": getAjaxData,
         "getHash"    : getHash,
+        "verify"    : verify,
         "Cookie"     : Cookie
     };
 })();
