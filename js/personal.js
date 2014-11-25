@@ -1,7 +1,7 @@
 $(function () {
     /*
-    * 个人信息维护
-    * */
+     * 个人信息维护
+     * */
     var saveinfoBtn = $('#saveinfo_btn');
     var userName = App.Cookie.GetCookie('username');
     var ip_username = $('#username');//用户名
@@ -51,34 +51,41 @@ $(function () {
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
     }
+
     //registerName=测试用户2A
     // &phonenum=18555555555
     // &movecarname=吗1
     // &movecarphone=m2
-    saveinfoBtn.on('click',saveinfoListener);
-    function saveinfoListener(){
-        var params={
-            "registerName":userName,
-            "phonenum":ip_phone.val(),
-            "movecarname":ip_y_name.val(),
-            "movecarphone":ip_y_phone.val()
+    saveinfoBtn.on('click', saveinfoListener);
+    function saveinfoListener() {
+        var params = {
+            "registerName": userName,
+            "phonenum"    : ip_phone.val(),
+            "movecarname" : ip_y_name.val(),
+            "movecarphone": ip_y_phone.val()
         };
-        Wisp.UI.progressDialog.show('信息保存中，请稍后！');
         saveinfoBtn.off('click');
+        if ( !params.phonenum ) {
+            alert('手机号码不能为空！');
+            saveinfoBtn.on('click', saveinfoListener);
+            return;
+        }
+        Wisp.UI.progressDialog.show('信息保存中，请稍后！');
         App.getAjaxData(edituserinfoRequestUrl, params, function (data) {
             var msg = data.userUpdateResponse;
             if ( msg ) {
                 console.log('更新成功！');
                 alert('信息已保存！');
                 Wisp.UI.progressDialog.remove();
-                saveinfoBtn.on('click',saveinfoListener);
+                saveinfoBtn.on('click', saveinfoListener);
             } else {
                 alert('保存失败！');
-                saveinfoBtn.on('click',saveinfoListener);
+                saveinfoBtn.on('click', saveinfoListener);
                 Wisp.UI.progressDialog.remove();
             }
         });
     }
+
     /*
      * --------------------页面效果------------------------
      * */
@@ -90,13 +97,13 @@ $(function () {
         "hoverClassName": 'ui_btn_01_hover'
     });
     var edits = $('.edit');
-    edits.each(function(index){
+    edits.each(function (index) {
         var input;
-        $(this).on('click',function(e){
-            input=$(this).parent().find('input');
-            input.css('border','1px dashed #e00');
-            input.on('blur',function(e){
-                   $(this).css('border','none')
+        $(this).on('click', function (e) {
+            input = $(this).parent().find('input');
+            input.css('border', '1px dashed #e00');
+            input.on('blur', function (e) {
+                $(this).css('border', 'none')
             })
         })
     })

@@ -497,12 +497,12 @@ var App = (function () {
         var iSum = 0;
         if ( reg.test(sId) === false )return false;
         sId = sId.replace(/x$/i, "a");
-        if ( aCity[parseInt(sId.substr(0, 2))] == null )return "Error:非法地区";
+        if ( aCity[parseInt(sId.substr(0, 2))] == null )return false;
         sBirthday = sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2));
         var d = new Date(sBirthday.replace(/-/g, "/"));
         if ( sBirthday != (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()) )return "Error:非法生日";
         for ( var i = 17; i >= 0; i-- )iSum += (Math.pow(2, i) % 11) * parseInt(sId.charAt(17 - i), 11);
-        if ( iSum % 11 != 1 )return "Error:非法证号";
+        if ( iSum % 11 != 1 )return false;
         return true;
     }
 
