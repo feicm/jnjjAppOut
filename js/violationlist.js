@@ -2,12 +2,15 @@ $(function () {
     var urlPre = 'adapter?open&url=';
     var wf_car_url = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/electIllegalquery.json;';//违法 车辆查询请求
-    var wf_car_url = urlPre
+        + '/jnpublic/electIllegalquery.json;';//车辆电子监控违法信息
+    var wf_card_url = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/violationQuery.json;';//违法 驾照查询请求地址
+        + '/jnpublic/violationQuery.json;';//驾照现场违法信息
+    var wf_card_url02 = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/vioforcequery.json;';//驾照强制措施信息
     var userName = App.Cookie.GetCookie('username');
-    var moduleName = App.Cookie.GetCookie('modulename');
+    //TODO　封装结果表格
     switch ( moduleName ) {
         case 'car':
             //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
@@ -47,7 +50,7 @@ $(function () {
         console.dir(data);
         var UL=$('#violationList');
         var li;
-        var liArr;
+        var liArr=[];
         var liStr;
         var datas=data.msg;
         var l=datas.length;
@@ -72,6 +75,6 @@ $(function () {
             }
         }
         liStr=liArr.join("");
-        Ul.append(liStr);
+        U.append(liStr);
     }
 });

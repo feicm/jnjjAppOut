@@ -1,4 +1,7 @@
 $(function () {
+    /*
+    * 绑定模块列表
+    * */
     var userName = App.Cookie.GetCookie('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -20,7 +23,9 @@ $(function () {
         "registerName": userName,
         "axisFlag"    : true
     };
+    //绑定（车辆、驾照）列表对象
     var listModule = {
+        "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"       : function (opts) {
             this.listWrap = opts.listWrap;
             this.tipsWrap = opts.tipsWrap;
@@ -68,7 +73,26 @@ $(function () {
         },
         "bindEvent"  : function () {
             var _self = this;
-            //TODO 注册事件
+            //注册事件
+            var _list = _self.listWrap;
+            var _mode = _self.module;
+            if ( _mode === 'car' ) {
+                _list.on('click', 'li', function (e) {
+                    var _me = $(this);
+                    var cartype = _me.attr('data-cartype');
+                    var carid = _me.attr('data-carid');
+                    var params = '#cartype=' + cartype + '#carid=' + carid;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                })
+            }
+            if ( _mode === 'card' ) {
+                _list.on('click', 'li', function (e) {
+                    var _me = $(this);
+                    var licenseRecord = _me.attr('data-licenserecord');
+                    var params = '#licenseRecord=' + licenseRecord;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                })
+            }
         },
         "getListHtml": function (data, mode) {
             var html;
@@ -78,8 +102,13 @@ $(function () {
             switch ( mode ) {
                 case 'car':
                     for ( var i = 0; i < l; i++ ) {
+                        /*var o = [{ //data 示例
+                         "msg"     : "{\"bxzzrq\":\"2015-01-17 00:00:00\",\"clzt\":\"正常\",\"gxsj\":\"2014-10-09 00:00:00\",\"hbdbqk\":\"GB17691-2005国Ⅳ,GB3847-2005\",\"hphm\":\"AR0327\",\"hpzl\":\"01\",\"jyyxqz\":\"2015-02-28 00:00:00\",\"qzbfqz\":\"2029-02-12 00:00:00\",\"xm\":\"山东中寰网络科技有限公司\",\"yqjybfqz2\":\"2017-02-28 00:00:00\",\"yqjyqzbfqz\":\"2018-02-28 00:00:00\"}",
+                         "carowner": "山东中寰网络科技有限公司",
+                         "carid"   : "AR0327"
+                         }];*/
                         listhtml = [
-                            '<li>',
+                            '<li data-cartype="' + data[i].msg.hpzl + '" data-carid="' + data[i].carid + '">',
                             '    <section class="ui-g-fly0-b">',
                             '        <p>',
                             '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
@@ -101,9 +130,16 @@ $(function () {
                     html = listArr.join("");
                     break;
                 case 'card':
+                    /*var o1 = [{ //data 示例
+                     "licenseid"    : "370181199403103425",
+                     "licensephone" : "18842657483",
+                     "licenseRecord": "370102335479",
+                     "msg"          : "{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}",
+                     "licenseName"  : "李莹"
+                     }];*/
                     for ( var i = 0; i < l; i++ ) {
                         listhtml = [
-                            '<li>',
+                            '<li data-licenserecord="' + data[i].licenseRecord + '">',
                             '    <section class="ui-g-fly0-b">',
                             '        <p>',
                             '            姓名：<em class="name">' + data[i].licenseName + '</em>',
@@ -147,9 +183,9 @@ $(function () {
             });
         }
     };
-    var module = $('.c').attr('data-mode');
+    var module = $('.c').attr('data-mode');//模块名获取
     var opts = {};
-    if ( module === 'car' ) {
+    if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
         var bindinfoBtn = $('#bindinfo_btn');
         var ip_name;
@@ -167,7 +203,7 @@ $(function () {
             "datas"     : params
         });
     }
-    if ( module === 'card' ) {
+    if ( module === 'card' ) { //绑定驾照 参数初始化
         var goCardbindpage = $('#go_cardbindpage');
         var bindcardBtn = $('#bindcard_btn');
         var ip_name;
@@ -283,6 +319,7 @@ $(function () {
         }
     }
 
+    //绑定成功回调函数
     function bindSuccessCallback(data) {
         console.dir(data);
         //history.go(0); //直接刷新获取最新列表

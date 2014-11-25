@@ -2,19 +2,13 @@ $(function () {
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/queryCar.json';//用户车辆列表请求地址
+        + '/jnpublic/queryCar.json';//用户车辆列表请求地址 select
     var cardlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
-    var carinfoRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/queryOneCar.json';//用户车辆信息请求地址
-    var cardinfoRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/queryOneLicense.json';//用户驾照信息请求地址
+        + '/jnpublic/queryLicense.json';//用户驾照列表请求地址 select
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/violationlist.jsp';//用户驾照信息请求地址
+        + '/jnpublic/config/html/violationlist.jsp';//查询结果页地址
     var userName = App.Cookie.GetCookie('username');
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
@@ -26,19 +20,15 @@ $(function () {
         var hpzl = ip_hphm.val();
         var jkbj;
         $('#nodo01').prop('checked') ? jkbj = 1 : jkbj = 0;
-        var params = {
+        /*var params = {
             "register": userName,
             "cartype" : hpzl,
             "carid"   : hphm
-        };
+        };*/
         clxcSubmit.off('click');
         if ( hpzl ) {
-            App.Cookie.SetCookie('modulename', "car");
-            App.Cookie.SetCookie('cartype', hpzl);
-            App.Cookie.SetCookie('carid', hphm);
-            App.Cookie.SetCookie('jkbj', jkbj);
-            clxcSubmit.on('click', clxcListener);
-            window.open(infoPageUrl);
+            var params = '#cartype=' + hpzl + '#carid=' + hphm+'#jkbj='+jkbj;
+            window.open(infoPageUrl + params);//通过url hash传参
         } else {
             alert('未绑定车辆！');
             clxcSubmit.on('click', clxcListener);
@@ -50,12 +40,9 @@ $(function () {
         var licenseid = ip_hphm.val();
         var jkbj;
         $('#nodo02').prop('checked') ? jkbj = 1 : jkbj = 0;
-        if ( licenceRecord ) {
-            App.Cookie.SetCookie('modulename', "card");
-            App.Cookie.SetCookie('licenseid', licenseid);
-            App.Cookie.SetCookie('jkbj', jkbj);
-            jzcxSubmit.on('click', jzcxListener);
-            window.open(infoPageUrl);
+        if ( licenseid ) {
+            var params = '#licenseid=' + licenseid + '#jkbj='+jkbj;
+            window.open(infoPageUrl + params);//通过url hash传参
         } else {
             alert('未绑定驾照！');
             jzcxSubmit.on('click', clxcListener);

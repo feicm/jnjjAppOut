@@ -269,11 +269,11 @@ var App = (function () {
                             selectArr.push("<option value='" + list[j].licenseid + "'>" + list[j].licenseName + "</option>");
                         }
                     }
-                    if(!list.length){
+                    if ( !list.length ) {
                         selectArr.push("<option>未绑定</option>");
                         selectStr = selectArr.join('');
                         _self.dom.append(selectStr);
-                        _self.dom.attr('disabled','disabled');
+                        _self.dom.attr('disabled', 'disabled');
                         return;
                     }
                 }
@@ -392,6 +392,21 @@ var App = (function () {
         });
     }
 
+    //hash
+    function getHash(str) {
+        var oHash = {},
+            aHash = [],
+            aItem,
+            l;
+        aHash = str.split('#');
+        l = aHash.length;
+        for ( var i = 1; i < l; i++ ) {
+            aItem = aHash[i].split('=');
+            oHash[aItem[0]] = aItem[1];
+        }
+        return aHash;
+    }
+
     //车辆识别代号号检测
     function iscarid2(str) {
         var reg = /^[a-zA-Z0-9]{18}$/;
@@ -481,7 +496,6 @@ var App = (function () {
         };
         var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
         var iSum = 0;
-        var info = "";
         if ( reg.test(sId) === false )return false;
         sId = sId.replace(/x$/i, "a");
         if ( aCity[parseInt(sId.substr(0, 2))] == null )return "Error:非法地区";
@@ -496,6 +510,7 @@ var App = (function () {
     return {
         "UI"         : UI,
         "getAjaxData": getAjaxData,
+        "getHash"    : getHash,
         "Cookie"     : Cookie
     };
 })();

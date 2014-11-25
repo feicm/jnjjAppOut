@@ -11,34 +11,7 @@
 <body>
    <div class="details">
        <table id="c_Table_b">
-           <tr>
-               <td>姓名</td>
-               <td>张三</td>
-           </tr>
-           <tr>
-               <td>号牌号码</td>
-               <td>鲁A23435</td>
-           </tr>
-           <tr>
-               <td>号牌种类</td>
-               <td>小型汽车</td>
-           </tr>
-           <tr>
-               <td>车辆状态</td>
-               <td>报废</td>
-           </tr>
-           <tr>
-               <td>检验有效期至</td>
-               <td>2014-11-12</td>
-           </tr>
-           <tr>
-               <td>标题标题标题标题标题标题标题</td>
-               <td>内容内容内容</td>
-           </tr>
-           <tr>
-               <td>标题</td>
-               <td>内容内容内容内容内容内容内容内容内容内容内容内容</td>
-           </tr>
+
        </table>
    </div>
 </body>
