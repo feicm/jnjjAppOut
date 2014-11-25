@@ -1,4 +1,7 @@
 $(function () {
+    /*
+    * 个人信息维护
+    * */
     var saveinfoBtn = $('#saveinfo_btn');
     var userName = App.Cookie.GetCookie('username');
     var ip_username = $('#username');//用户名
@@ -30,7 +33,7 @@ $(function () {
         if ( msg ) {
             renderPersonalInfoPage(msg);
         } else {
-            alert('个人信息初始化失败');
+            alert('用户信息初始化失败！');
         }
     });
     function renderPersonalInfoPage(data) {
@@ -62,14 +65,14 @@ $(function () {
         };
         Wisp.UI.progressDialog.show('信息保存中，请稍后！');
         saveinfoBtn.off('click');
-        App.getAjaxData(edituserinfoRequestUrl, params, function (data) {//用户信息请求回调
-            var msg = data.userCenterResponse;
+        App.getAjaxData(edituserinfoRequestUrl, params, function (data) {
+            var msg = data.userUpdateResponse;
             if ( msg ) {
-                alert('保存失败！');
+                console.log('更新成功！')
                 Wisp.UI.progressDialog.remove();
                 saveinfoBtn.on('click',saveinfoListener);
             } else {
-                alert('个人信息初始化失败');
+                alert('保存失败！');
                 saveinfoBtn.on('click',saveinfoListener);
                 Wisp.UI.progressDialog.remove();
             }
