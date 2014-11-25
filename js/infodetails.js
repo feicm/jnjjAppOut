@@ -1,7 +1,7 @@
 $(function () {
     /*
-    * 单个车辆、驾照信息内容，通过列表页传过来的hash 作为请求参数
-    * */
+     * 单个车辆、驾照信息内容，通过列表页传过来的hash 作为请求参数
+     * */
     var urlPre = 'adapter?open&url=';
     var carOnlyUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -9,13 +9,23 @@ $(function () {
     var cardOnlyUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryOneLicense.json;';//单驾照驾照查询请求地址
+    var wf_car_url = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/electIllegalquery.json;';//车辆电子监控违法信息
+    var wf_card_url = urlPre
+        + jnjjApp.config.requestUrl //&register=user2A&indentyid=370181199403014414&jkbj=1
+        + '/jnpublic/violationQuery.json;';//驾照现场违法信息
+    var wf_card_url02 = urlPre
+        + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
+        + '/jnpublic/vioforcequery.json;';//驾照强制措施信息
     var userName = App.Cookie.GetCookie('username');
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码
         licenserecord, //驾照代码
         oHash = {},
-        params;
+        params,
+        modeName;//加载模块名
     console.dir(hash);
     //内容块加载对象
     var detailsBlock = {
@@ -32,8 +42,10 @@ $(function () {
             var _params = _self.params;
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
-                data.carQueryResponse && (msg = data.carQueryResponse);
-                data.licenseQueryResponse && (msg = data.licenseQueryResponse);
+                data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
+                data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
+                data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
+                data.violationInfoResponse && (msg = data.violationInfoResponse);//驾照违法
                 if ( msg ) {
                     _self.render(msg);
                 } else {
@@ -44,17 +56,18 @@ $(function () {
         "render" : function (data) {
             console.dir(datas);
             var _self = this;
-            var _table = _self.dom;
+            var _dom = _self.dom;
             var _trStr;
             var type = _self.type;
-            _trStr = _self.getHtml(type,data);
-            _table.append(_trStr);
+            _trStr = _self.getHtml(type, data);
+            _dom.append(_trStr);
         },
-        "getHtml": function (type,data) {
+        "getHtml": function (type, data) {
             var html;
-            var msg = data[0].msg;
+            var msg;
             switch ( type ) {
-                case 'car':
+                case 'carquery': //车辆查询结果内容模板
+                    msg = data.carList[0];//Object
                     html = [
                         '<tr>',
                         '     <td>姓名</td>',
@@ -101,7 +114,8 @@ $(function () {
                         '     <td>' + msg.bxzzrq + '</td>',
                         ' </tr>'].join("");
                     break;
-                case 'card':
+                case 'cardquery': //驾照查询结果内容模板
+                    msg = data.licenseList[0];//Object
                     html = [
                         '<tr>',
                         '     <td>姓名</td>',
@@ -147,48 +161,139 @@ $(function () {
                         '     <td>保险终止日期</td>',
                         '     <td>' + msg.bxzzrq + '</td>',
                         ' </tr>'].join("");
+                    break;
+                case 'wf_car':
+                    msg =data.msg;//Array
+                    var l=msg.length;
+                    var li='';
+                    var liArr=[];
+                    for(var i=0;i<l;i++){
+                        li=[
+                            '<li>',
+                            '    <h1>违法行为：'+msg[i].wfxw+'</h1>',
+                            '    <h1>违法地点：'+msg[i].wfdz+'</h1>',
+                            '    <h1>违法时间：'+msg[i].wfsj+'</h1>',
+                            '    <h1>处理时间：'+msg[i].clsj+'</h1>',
+                            '    <h1>处理情况：'+msg[i].clqk+'</h1>',
+                            '    <h1>交款情况：'+msg[i].jkqk+'</h1>',
+                            '    <h1>交款时间：'+msg[i].jksj+'</h1>',
+                            '</li>'].join("");
+                        liArr.push(li);
+                    }
+                    html='<h1>'+data.carNum+'</h1>'+liArr.join("");
+                    break;
+                case 'wf_card':
+                    msg =data.msg;//Array
+                    var l=msg.length;
+                    var li='';
+                    var liArr=[];
+                    for(var i=0;i<l;i++){
+                        li=[
+                            '<li>',
+                            '    <h1>违法行为：'+msg[i].wfxw+'</h1>',
+                            '    <h1>违法地点：'+msg[i].wfdz+'</h1>',
+                            '    <h1>违法时间：'+msg[i].wfsj+'</h1>',
+                            '    <h1>交款时间：'+msg[i].jksj+'</h1>',
+                            '    <h1>交款情况：'+msg[i].jkqk+'</h1>',
+                            '    <h1>处理时间：'+msg[i].clsj+'</h1>',
+                            '    <h1>违法记分数：'+msg[i].wfjfs+'</h1>',
+                            '    <h1>罚款金额：'+msg[i].fkje+'</h1>',
+                            '</li>'].join("");
+                        liArr.push(li);
+                    }
+                    html=liArr.join("");
                     break;
                 default:
                     html = [
-                        ' <tr>',
-                        '     <td>类型未选择！</td>',
-                        ' </tr>'].join("");
+                        ' <div>',
+                        '     <b>无记录！</b>',
+                        ' </div>'].join("");
                     break;
             }
+            /*if(type==='wf_card'){ // 强制措施
+                var tabnav='';
+                tabnav=['<div class="ui-grid-a tab" id="tab_content">',
+                    '    <a class="ui-block-a active" data-for="tab-item-01">驾照违法</a>',
+                    '    <a class="ui-block-b" data-for="tab-item-02">驾照强制措施</a>',
+                    '</div>'].join("");
+            }*/
             return html;
         }
     };
     if ( hash ) {
         oHash = App.getHash(hash); //格式化hash 对象
-        if ( hasKey('cartype', oHash) && hasKey('carid', oHash) ) {
-            //加载单车辆信息
-            params = {
-                "register": userName,
-                "cartype" : oHash.cartype,
-                "carid"   : oHash.carid
-            };
-            detailsBlock.init({
-                "dom" : $('#c_Table_b'),
-                "type": 'car',
-                "url" : carOnlyUrl,
-                "data": params
-            });
-        }
-        if ( hasKey('licenserecord', oHash) ) {
-            //加载单驾照信息
-            params = {
-                "register"     : userName,
-                "licenceRecord": oHash.licenserecord
-            };
-            detailsBlock.init({
-                "dom" : $('#c_Table_b'),
-                "type": 'card',
-                "url" : cardOnlyUrl,
-                "data": params
-            });
-        }
-    }else{
+        modeName = oHash.mode;
+        modeName && showMode(modeName);
+
+    } else {
         console.log('传参失败！');
+    }
+    function showMode(modename) {
+        switch ( modename ) {
+            case 'carquery': //单绑定车辆内容加载
+                if ( hasKey('cartype', oHash) && hasKey('carid', oHash) ) {
+                    //加载单车辆信息
+                    params = {
+                        "register": userName,
+                        "cartype" : oHash.cartype,
+                        "carid"   : oHash.carid
+                    };
+                    detailsBlock.init({
+                        "dom" : $('#c_Table_b'),
+                        "type": 'car',
+                        "url" : carOnlyUrl,
+                        "data": params
+                    });
+                }
+                break;
+            case 'cardquery': //单绑定驾照内容加载
+                if ( hasKey('licenserecord', oHash) ) {
+                    //加载单驾照信息
+                    params = {
+                        "register"     : userName,
+                        "licenceRecord": oHash.licenserecord
+                    };
+                    detailsBlock.init({
+                        "dom" : $('#c_Table_b'),
+                        "type": 'card',
+                        "url" : cardOnlyUrl,
+                        "data": params
+                    });
+                }
+                break;
+            case 'wf_car'://违法信息-按车辆-内容结果加载
+                if ( hasKey('cartype', oHash) && hasKey('carid', oHash) && hasKey('jkbj', oHash) ) {
+                    params = {
+                        "register": userName,
+                        "cartype" : oHash.cartype,
+                        "carid"   : oHash.carid,
+                        "jkbj"    : oHash.jkbj
+                    };
+                    detailsBlock.init({
+                        "dom" : $('#violation-list'),
+                        "type": 'wf_car',
+                        "url" : wf_car_url,
+                        "data": params
+                    });
+                }
+                break;
+            case 'wf_card'://违法信息-按驾照-内容结果加载
+                if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
+                    params = {
+                        "register" : userName,
+                        "licenseid": oHash.licenseid,
+                        "jkbj"     : oHash.jkbj
+                    };
+                    detailsBlock.init({
+                        "dom" : $('#violation-list'),
+                        "type": 'wf_card',
+                        "url" : wf_card_url,
+                        "data": params
+                    });
+                }
+                break;
+        }
+
     }
 
     //返回对象o是否存在属性keyname

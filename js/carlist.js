@@ -81,7 +81,7 @@ $(function () {
                     var _me = $(this);
                     var cartype = _me.attr('data-cartype');
                     var carid = _me.attr('data-carid');
-                    var params = '#cartype=' + cartype + '#carid=' + carid;
+                    var params = '#mode=carquery#cartype=' + cartype + '#carid=' + carid;
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
@@ -89,7 +89,7 @@ $(function () {
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
-                    var params = '#licenseRecord=' + licenseRecord;
+                    var params = '#mode=carquery#licenseRecord=' + licenseRecord;
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
