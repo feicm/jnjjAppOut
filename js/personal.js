@@ -104,6 +104,10 @@ $(function () {
         "doms": $('.list-block')
     });
     App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : gorepwdBtn,
+        "hoverClassName": 'ui_btn_02_hover'
+    });
+    App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : saveinfoBtn,
         "hoverClassName": 'ui_btn_01_hover'
     });

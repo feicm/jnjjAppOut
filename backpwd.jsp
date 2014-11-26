@@ -40,7 +40,7 @@
                     <div class="item-inner">
                         <div class="item-title label">邮 箱</div>
                         <div class="item-input">
-                            <input id="email" type="text" placeholder="请输入邮箱名">
+                            <input id="email" data-type="mail" type="text" placeholder="请输入邮箱名">
                         </div>
                     </div>
                 </div>

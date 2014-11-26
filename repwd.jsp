@@ -17,7 +17,7 @@
                     <div class="item-inner">
                         <div class="item-title label">旧 密 码</div>
                         <div class="item-input">
-                            <input id="repwd_old" type="password" placeholder="请输入旧密码">
+                            <input id="repwd_old" data-type="psd" type="password" placeholder="请输入旧密码">
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="item-inner">
                         <div class="item-title label">新 密 码</div>
                         <div class="item-input">
-                            <input id="repwd_new" type="password" placeholder="请输入新密码">
+                            <input id="repwd_new" data-type="psd" type="password" placeholder="请输入新密码">
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="item-inner">
                         <div class="item-title label">再次输入</div>
                         <div class="item-input">
-                            <input id="repwd_new2" type="password" placeholder="请再次输入新密码">
+                            <input id="repwd_new2" data-type="psd" type="password" placeholder="请再次输入新密码">
                         </div>
                     </div>
                 </div>
