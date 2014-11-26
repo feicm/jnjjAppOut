@@ -270,7 +270,7 @@ i.icon {
     top: .5em;
 }
 .list-block .item-input .preText+input{
-    padding-left: 7em;
+    padding-left: 2.5em;
 }
 .list-block .item-title {
     -webkit-flex-shrink : 1;
