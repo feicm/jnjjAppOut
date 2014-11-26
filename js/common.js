@@ -542,11 +542,11 @@ var App = (function () {
      };*/
     function verify(opts) {
         console.dir(opts);
-        if ( opts.username && (opts.username.val() === '' || opts.username.find('.tips').length) ) {
+        if ( opts.username && (opts.username.val() === '' || opts.username.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的用户名）');
             return false;
         }
-        if ( opts.pwdold && (opts.pwdold.val() === '' || opts.pwdold.find('.tips').length) ) {
+        if ( opts.pwdold && (opts.pwdold.val() === '' || opts.pwdold.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的旧用户名）');
             return false;
         }
@@ -554,8 +554,8 @@ var App = (function () {
             && opts.pwd2
             && (opts.pwd1.val() === ''
             || opts.pwd2.val() === ''
-            || opts.pwd1.find('.tips').length
-            || opts.pwd2.find('.tips').length ) ) {
+            || opts.pwd1.parent().find('.tips').length
+            || opts.pwd2.parent().find('.tips').length ) ) {
             alert('提交失败！（请检查您的密码）');
             return false;
         }
@@ -563,56 +563,56 @@ var App = (function () {
             && opts.pwdnew2
             && (opts.pwdnew1.val() === ''
             || opts.pwdnew2.val() === ''
-            || opts.pwdnew1.find('.tips').length
-            || opts.pwdnew2.find('.tips').length ) ) {
+            || opts.pwdnew1.parent().find('.tips').length
+            || opts.pwdnew2.parent().find('.tips').length ) ) {
             alert('提交失败！（请检查您的密码）');
             return false;
         }
-        if ( opts.name && (opts.name.val() === '' || opts.name.find('.tips').length) ) {
+        if ( opts.name && (opts.name.val() === '' || opts.name.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的姓名）');
             return false;
         }
-        if ( opts.phone && (opts.phone.val() === '' || opts.phone.find('.tips').length) ) {
+        if ( opts.phone && (opts.phone.val() === '' || opts.phone.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的手机号码）');
             return false;
         }
-        if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.find('.tips').length) ) {
+        if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的身份证号）');
             return false;
         }
-        if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.find('.tips').length) ) {
+        if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的车辆识别代号）');
             return false;
         }
-        if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.find('.tips').length) ) {
+        if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的号牌号码）');
             return false;
         }
-        if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.find('.tips').length) ) {
+        if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的档案编号）');
             return false;
         }
-        if ( opts.email && (opts.email.val() === '' || opts.email.find('.tips').length) ) {
+        if ( opts.email && (opts.email.val() === '' || opts.email.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的邮箱）');
             return false;
         }
-        if ( opts.closername && (opts.closername.val() === '' || opts.closername.find('.tips').length) ) {
+        if ( opts.closername && (opts.closername.val() === '' || opts.closername.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的密切联系人姓名）');
             return false;
         }
-        if ( opts.closerphone && (opts.closerphone.val() === '' || opts.closerphone.find('.tips').length) ) {
+        if ( opts.closerphone && (opts.closerphone.val() === '' || opts.closerphone.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的密切联系人电话）');
             return false;
         }
-        if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.find('.tips').length) ) {
+        if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的密切联系人身份证号）');
             return false;
         }
-        if ( opts.movecarname && (opts.movecarname.val() === '' || opts.movecarname.find('.tips').length) ) {
+        if ( opts.movecarname && (opts.movecarname.val() === '' || opts.movecarname.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的移车联系人姓名）');
             return false;
         }
-        if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.find('.tips').length) ) {
+        if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的移车联系人电话）');
             return false;
         }
