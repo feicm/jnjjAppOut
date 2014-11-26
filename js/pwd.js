@@ -33,7 +33,7 @@ $(function () {
         var params;
         backpwdBtn.off('click');
         switch ( getMethon ) {
-            case 'rommemail':
+            case 'fromemail':
                 opts = {
                     "email": $('#email')//邮箱
                 };
@@ -85,6 +85,9 @@ $(function () {
                     backpwdBtn.on('click', backpwdListener);
                 }
                 break;
+            default :
+                console.log('这是一个彩蛋，还愣着干嘛，买彩票去啊！！');
+                backpwdBtn.on('click', backpwdListener);
         }
     }
 
