@@ -40,6 +40,7 @@ $(function () {
         var ip_jzxm = $('#jzxm');
         var licenseid = ip_jzxm.val();
         var jkbj;
+        jzcxSubmit.off('click');
         $('#nodo02').prop('checked') ? jkbj = 1 : jkbj = 0;
         if ( licenseid !== '未绑定' ) {
             var params = '#mode=wf_card#licenseid=' + licenseid + '#jkbj=' + jkbj;

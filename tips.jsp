@@ -14,7 +14,7 @@
         padding-top: 40%;
         text-shadow: 1px 1px 1px #FFF,1px -1px 1px #FFF,-1px 1px 1px #FFF,-1px -1px 1px #FFF;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 48px;
     }
     </style>
 </head>
