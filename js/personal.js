@@ -66,9 +66,9 @@ $(function () {
         data.closeUserName && ip_m_name.val(data.closeUserName);
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
-        cur_ip_phone = data.phoneNum;//手机号初始值
-        cur_ip_y_name = data.moveCarName;//移车人姓名初始值
-        cur_ip_y_phone = data.moveCarPhone;//移车人电话初始值
+        cur_ip_phone =ip_phone.val();//手机号初始值
+        cur_ip_y_name = ip_y_name.val();//移车人姓名初始值
+        cur_ip_y_phone = ip_y_phone.val();//移车人电话初始值
     }
 
     gorepwdBtn.on('click', gorepwdListener);
