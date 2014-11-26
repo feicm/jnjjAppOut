@@ -88,15 +88,21 @@ $(function () {
             return;
         }
         if ( params.phonenum !== cur_ip_phone ) {//修改过的项视为必填项，经过校验
-            opts.phone = params.phonenum;//校验字段
+            opts = {
+                "phone": params.phonenum
+            };//校验字段
             updataInfo(edituserinfoRequestUrl, params, opts);
         }
         if ( params.movecarname !== cur_ip_y_name ) {
-            opts.movecarname = params.movecarname;
+            opts = {
+                "movecarname": params.movecarname
+            };//校验字段
             updataInfo(edituserinfoRequestUrl, params, opts);
         }
         if ( params.movecarname !== cur_ip_y_name ) {
-            opts.movecarphone = params.movecarphone;
+            opts = {
+                "movecarphone": params.movecarphone
+            };//校验字段
             updataInfo(edituserinfoRequestUrl, params, opts);
         }
     }
