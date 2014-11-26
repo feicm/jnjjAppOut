@@ -2,7 +2,8 @@ $(function () {
     /*
      * 个人信息维护
      * */
-    var saveinfoBtn = $('#saveinfo_btn');
+    var saveinfoBtn = $('#saveinfo_btn');//保存
+    var gorepwdBtn = $('#go_repwd');//修改密码
     var userName = App.Cookie.GetCookie('username');
     var ip_username = $('#username');//用户名
     var ip_name = $('#name');//姓名
@@ -24,6 +25,9 @@ $(function () {
     var edituserinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/updUserInfo.json';//用户信息修改请求地址
+    var repwdPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/repwd.json';//修改密码页url
     console.log('用户名：' + userName);
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
@@ -36,6 +40,7 @@ $(function () {
             alert('用户信息初始化失败！');
         }
     });
+    //填充个人信息
     function renderPersonalInfoPage(data) {
         data.userName && ip_username.val(data.userName);
         data.registerName && ip_name.val(data.registerName);
@@ -51,13 +56,14 @@ $(function () {
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
     }
-
-    //registerName=测试用户2A
-    // &phonenum=18555555555
-    // &movecarname=吗1
-    // &movecarphone=m2
+    gorepwdBtn.on('click', gorepwdListener);
     saveinfoBtn.on('click', saveinfoListener);
+    //保存按钮事件函数
     function saveinfoListener() {
+        //registerName=测试用户2A
+        // &phonenum=18555555555
+        // &movecarname=吗1
+        // &movecarphone=m2
         var params = {
             "registerName": userName,
             "phonenum"    : ip_phone.val(),
@@ -85,7 +91,12 @@ $(function () {
             }
         });
     }
-
+    //修改密码时间函数
+    function gorepwdListener(){
+        gorepwdBtn.off('click');
+        window.open(repwdPageUrl);
+        gorepwdBtn.on('click', gorepwdListener);
+    }
     /*
      * --------------------页面效果------------------------
      * */

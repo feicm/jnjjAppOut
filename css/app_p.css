@@ -648,3 +648,13 @@ i.icon {
 #fromcloser {
     display : none;
 }
+/*repwd*/
+.repwd{
+    position: absolute;
+    top: 8px;
+    right: .5em;
+    height: 2em;
+    line-height: 2;
+    width: 5em;
+    font-size: .8em;
+}

@@ -28,6 +28,7 @@
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
                             <input id="name" disabled type="text" value="谢逊">
+                            <a id='go_repwd' class="ui_btn ui_btn_02 ui_radius repwd">密码修改</a>
                         </div>
                     </div>
                 </div>
