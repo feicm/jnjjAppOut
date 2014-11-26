@@ -33,7 +33,7 @@ $(function () {
         var params;
         backpwdBtn.off('click');
         switch ( getMethon ) {
-            case 'formemail':
+            case 'rommemail':
                 opts = {
                     "email": $('#email')//邮箱
                 };
@@ -46,7 +46,7 @@ $(function () {
                     sendBackpwdRequest(mailRequestUrl,params);
                 }
                 break;
-            case 'formphone':
+            case 'fromphone':
                 opts = {
                     "phone": $('#phone')//手机
                 };
@@ -59,7 +59,7 @@ $(function () {
                     sendBackpwdRequest(phoneRequestUrl,params);
                 }
                 break;
-            case 'formcloser':
+            case 'fromcloser':
                 opts = {
                     "closername"  : $('#mqlxrxm'),//密切联系人姓名
                     "closerphone" : $('#mqlxrdh'),//手机
@@ -111,7 +111,7 @@ $(function () {
             App.getAjaxData(repwdRequestUrl, params, function (data) {
                 var msg = data.passwordRestResponse;
                 console.dir(msg);
-                if ( msg.result === 'true' ) {
+                if ( msg.result === 'success' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.resultContent + '!');
                     repwdBtn.on('click', repwdListener);
