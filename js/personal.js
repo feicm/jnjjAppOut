@@ -18,9 +18,9 @@ $(function () {
     var ip_m_name = $('#m_name'); //密切联系姓名
     var ip_m_phone = $('#m_phone'); //密切联系人电话
     var ip_m_innum = $('#m_innum');//密切联系人身份证
-    var cur_ip_phone;//手机号初始值
-    var cur_ip_y_name;//移车人姓名初始值
-    var cur_ip_y_phone;//移车人电话初始值
+    var cur_ip_phone='';//手机号初始值
+    var cur_ip_y_name='';//移车人姓名初始值
+    var cur_ip_y_phone='';//移车人电话初始值
     var urlPre = 'adapter?open&url=';
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -97,7 +97,7 @@ $(function () {
         }
         if ( params.phonenum !== cur_ip_phone ) {//修改过的项视为必填项，经过校验
             opts = {
-                "phone": ip_photo
+                "phone": ip_phone
             };//校验字段
             updataInfo(edituserinfoRequestUrl, params, opts);
         }
