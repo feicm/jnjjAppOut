@@ -184,6 +184,9 @@ $(function () {
     /*
      * --------------------页面效果------------------------
      * */
+    App.UI('inputClose', {//页面输入校验
+        "doms": $('.list-block')
+    });
     if ( backpwdMethonSelect.length && backpwdBtn.length ) {   //密码找回
         backpwdMethonSelect.mobiscroll().select({ //下拉底部弹出
             theme   : 'ios7',
@@ -206,7 +209,4 @@ $(function () {
             "hoverClassName": 'ui_btn_01_hover'
         });
     }
-    App.UI('inputClose', {//注册页面输入校验
-        "doms": $('.list-block')
-    });
 });
