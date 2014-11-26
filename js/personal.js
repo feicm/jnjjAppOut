@@ -27,7 +27,7 @@ $(function () {
         + '/jnpublic/updUserInfo.json';//用户信息修改请求地址
     var repwdPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/repwd.json';//修改密码页url
+        + '/jnpublic/repwd.jsp';//修改密码页url
     console.log('用户名：' + userName);
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
