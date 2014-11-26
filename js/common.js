@@ -612,7 +612,7 @@ var App = (function () {
             alert('提交失败！（请检查您的移车联系人姓名）');
             return false;
         }
-        if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.find('.tips').length) ) {
+        if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.find('.tips').length) ) {
             alert('提交失败！（请检查您的移车联系人电话）');
             return false;
         }
