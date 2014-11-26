@@ -37,26 +37,30 @@ $(function () {
                 opts = {
                     "email": $('#email')//邮箱
                 };
-                if(App.verify(opts)){
+                if ( App.verify(opts) ) {
                     //&userName=测试用户1A&email=xx@xx.com
-                    params={
-                        "userName":userName,
-                        "email": ip_email
+                    params = {
+                        "userName": userName,
+                        "email"   : ip_email
                     };
-                    sendBackpwdRequest(mailRequestUrl,params);
+                    sendBackpwdRequest(mailRequestUrl, params);
+                } else {
+                    backpwdBtn.on('click', backpwdListener);
                 }
                 break;
             case 'fromphone':
                 opts = {
                     "phone": $('#phone')//手机
                 };
-                if(App.verify(opts)){
+                if ( App.verify(opts) ) {
                     //&userName=测试用户3A&phoneNum=18888888888
-                    params={
-                        "userName":userName,
-                        "phoneNum":ip_phone
+                    params = {
+                        "userName": userName,
+                        "phoneNum": ip_phone
                     };
-                    sendBackpwdRequest(phoneRequestUrl,params);
+                    sendBackpwdRequest(phoneRequestUrl, params);
+                } else {
+                    backpwdBtn.on('click', backpwdListener);
                 }
                 break;
             case 'fromcloser':
@@ -65,18 +69,20 @@ $(function () {
                     "closerphone" : $('#mqlxrdh'),//手机
                     "closeridcard": $('#mqlxrsfzh')//身份证
                 };
-                if(App.verify(opts)){
+                if ( App.verify(opts) ) {
                     //&userName=测试用户3A
                     // &closeUserName=closeUserName
                     // &closeIdentityId=closeIdentityId
                     // &closePhoneNum=closePhoneNum
-                    params={
-                        "userName":userName,
-                        "closeUserName":ip_mqlxrxm,
-                        "closePhoneNum":ip_mqlxrdh,
-                        "closeIdentityId":ip_mqlxrsfzh
+                    params = {
+                        "userName"       : userName,
+                        "closeUserName"  : ip_mqlxrxm,
+                        "closePhoneNum"  : ip_mqlxrdh,
+                        "closeIdentityId": ip_mqlxrsfzh
                     };
-                    sendBackpwdRequest(closerRequestUrl,params);
+                    sendBackpwdRequest(closerRequestUrl, params);
+                } else {
+                    backpwdBtn.on('click', backpwdListener);
                 }
                 break;
         }
@@ -125,10 +131,13 @@ $(function () {
                     repwdBtn.on('click', repwdListener);
                 }
             })
+        }else{
+            repwdBtn.on('click', repwdListener);
         }
     }
+
     //发送密码修改请求
-    function sendBackpwdRequest(url,data){
+    function sendBackpwdRequest(url, data) {
         Wisp.UI.progressDialog.show('找回密码中，请稍后！');
         //提交表单
         App.getAjaxData(url, data, function (data) {
@@ -149,6 +158,7 @@ $(function () {
             }
         })
     }
+
     $('#repwd_new').on('blur', function () {
         var v1 = $(this).val(),
             v2 = $('#repwd_new2').val();
