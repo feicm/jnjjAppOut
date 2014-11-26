@@ -31,7 +31,15 @@ $(function () {
     var repwdPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/repwd.jsp';//修改密码页url
+    var loginPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/loginnoskip.jsp';//修改密码页url
     console.log('用户名：' + userName);
+    if(!userName){
+        alert('请先登录！');
+        window.open(loginPageUrl);
+        return;
+    }
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
         "registerName": userName
