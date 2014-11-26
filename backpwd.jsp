@@ -38,9 +38,9 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">邮 箱</div>
+                        <div class="item-title label">手 机</div>
                         <div class="item-input">
-                            <input id="email" data-type="mail" type="text" placeholder="请输入邮箱名">
+                            <input id="email" data-type="mobile" type="text" placeholder="请输入您的手机号码">
                         </div>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">手 机</div>
+                        <div class="item-title label">邮 箱</div>
                         <div class="item-input">
-                            <input id="phone" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
+                            <input id="phone" data-type="mail" type="text" placeholder="请输入您的注册邮箱">
                         </div>
                     </div>
                 </div>
