@@ -264,7 +264,14 @@ i.icon {
 .list-block .item-title.w_auto {
     width : auto;
 }
-
+.list-block .item-input .preText{
+    position: absolute;
+    left: 5.7em;
+    top: .5em;
+}
+.list-block .item-input .preText+input{
+    padding-left: 7em;
+}
 .list-block .item-title {
     -webkit-flex-shrink : 1;
     -ms-flex            : 0 1 auto;
