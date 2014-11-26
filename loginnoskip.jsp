@@ -46,8 +46,8 @@
         <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
             快速注册
         </a>
-        <a class="ui_btn ui_btn_02 ui_radius fr" id="skip">
-            跳过
+        <a class="ui_btn ui_btn_02 ui_radius fr" id="backpwd">
+            忘记密码
         </a>
     </div>
 </form>

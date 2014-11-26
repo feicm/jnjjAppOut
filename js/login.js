@@ -14,6 +14,7 @@ $(function () {
     var loginSubmit = $('#login-submit');//登录
     var rigisterBtn = $('#rigister');//注册
     var skipBtn = $('#skip'); //跳过
+    var backpwdBtn = $('#backpwd'); //忘记密码
     var username;
     var password;
     var roleId = '0001';
@@ -24,25 +25,17 @@ $(function () {
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/getUserInfo.json';//用户信息请求地址
-    var rigisterPageUrl=urlPre
-        +jnjjApp.config.requestUrl
-        +'/jnpublic/config/html/rigister.jsp';
+    var rigisterPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/rigister.jsp';  //注册页地址
+    var backpwdPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/backpwd.jsp'; //找回密码页地址
     loginSubmit.on('click', loginSubmitListener);
     rigisterBtn.on('click', rigisterListener);
-    skipBtn.on('click', skipListener);
-    //rigisterBtn.attr('href',rigisterPageUrl);//注册按钮初始化跳转
-    App.UI('buttonHover',{//添加按钮点击效果
-        "dom":loginSubmit,
-        "hoverClassName":'ui_btn_01_hover'
-    });
-    App.UI('buttonHover',{//添加按钮点击效果
-        "dom":rigisterBtn,
-        "hoverClassName":'ui_btn_hover'
-    });
-    App.UI('buttonHover',{//添加按钮点击效果
-        "dom":skipBtn,
-        "hoverClassName":'ui_btn_02_hover'
-    });
+    skipBtn.length && skipBtn.on('click', skipListener);
+    backpwdBtn.length && backpwdBtn.on('click', backpwdListener);
+
     //登录事件函数
     function loginSubmitListener() {
         username = $('#username').val();
@@ -81,21 +74,33 @@ $(function () {
             });
         }
     }
+
     //注册事件函数
-    function rigisterListener(){
-         window.open(rigisterPageUrl);
-     }
+    function rigisterListener() {
+        rigisterBtn.off('click');
+        window.open(rigisterPageUrl);
+        rigisterBtn.on('click', rigisterListener);
+    }
+
+    //找回密码事件
+    function backpwdListener() {
+        backpwdBtn.off('click');
+        window.open(backpwdPageUrl);
+        backpwdBtn.on('click', backpwdListener);
+    }
+
     //跳过事件函数
-    function skipListener(){
+    function skipListener() {
         console.dir(jnjjApp.footbarDatas);
         console.dir(jnjjApp.siderDatas);
         Wisp.UI.progressDialog.show('数据加载中，请稍后！');
         skipBtn.off('click');
-        sendClientUIdata( jnjjApp.footbarDatas, jnjjApp.siderDatas);//发送默认配置按钮
+        sendClientUIdata(jnjjApp.footbarDatas, jnjjApp.siderDatas);//发送默认配置按钮
         Wisp.UI.progressDialog.remove();
         Wisp.UI.loginResult.success();
         skipBtn.on('click', skipListener);
     }
+
     //登录成功回调函数
     function loginSuccessCallback(data, footbarDatas) {
         console.dir(data);
@@ -132,7 +137,7 @@ $(function () {
         sendClientUIdata(jnjjApp.footbarDatas, siderDatas);//发送客户端ui数据
         Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
         Wisp.UI.loginResult.success();
-        App.Cookie.SetCookie('username',username);
+        App.Cookie.SetCookie('username', username);
         console.log('login END!!!!');
 
     }
@@ -153,7 +158,7 @@ $(function () {
     function refreshMoreViewData(defaultdata, resdata) {
         console.dir(defaultdata);
         console.dir(resdata);
-        var l=defaultdata.footbar.length-1;
+        var l = defaultdata.footbar.length - 1;
         console.dir(l);
         var more_btns = defaultdata.footbar[l].shortcutBtns;
         var cur_btn;
@@ -180,5 +185,23 @@ $(function () {
         }
     }
 
-
-})
+    /*
+     * --------------------页面效果------------------------
+     * */
+    App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : loginSubmit,
+        "hoverClassName": 'ui_btn_01_hover'
+    });
+    App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : rigisterBtn,
+        "hoverClassName": 'ui_btn_hover'
+    });
+    skipBtn.length && App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : skipBtn,
+        "hoverClassName": 'ui_btn_02_hover'
+    });
+    backpwdBtn.length && App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : backpwdBtn,
+        "hoverClassName": 'ui_btn_02_hover'
+    });
+});

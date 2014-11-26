@@ -322,12 +322,38 @@ var App = (function () {
                 });
             }
         };
+        var toggleSelectBlock = {
+            "curBlock"   : null,
+            "init"       : function () {
+                this.dom = opts.dom;
+                this.bindEvent();
+            },
+            "bindEvent"  : function () {
+                var _self = this;
+                var _val = _self.dom.val();
+                _self.dom.on('change', function (e) {
+                    var selcetVal = $(this).val();
+                    _self.toggleBlock(selcetVal);
+                });
+                _val && _self.toggleBlock(_val);
+            },
+            "toggleBlock": function (targetid) {
+                if ( !targetid ) return;
+                var _self = this;
+                var _targetBlock = $('#' + targetid);
+                if ( this.curBlock && (this.curBlock.selector === _targetBlock.selector) ) return;
+                this.curBlock && this.curBlock.hide('linear');
+                _targetBlock.show('linear');
+                this.curBlock = _targetBlock;
+            }
+        };
         var moduleNameMap = {
-            "changePage" : changePage,
-            "inputClose" : inputClose,
-            "buttonHover": buttonHover,
-            "tabToggle"  : tabToggle,
-            "select"     : select
+            "changePage"       : changePage,
+            "inputClose"       : inputClose,
+            "buttonHover"      : buttonHover,
+            "tabToggle"        : tabToggle,
+            "select"           : select,
+            "toggleSelectBlock": toggleSelectBlock
         };
         name && moduleNameMap[name].init();
     }

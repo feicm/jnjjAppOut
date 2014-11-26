@@ -181,7 +181,7 @@ jnjjApp.siderDatas = {
             "id"  : '',
             "img" : '',
             "name": '',
-            "url" : 'adapter?url=' + jnjjApp.config.requestUrl + '/wispcms/config/html/login.jsp'
+            "url" : 'adapter?url=' + jnjjApp.config.requestUrl + '/wispcms/config/html/loginnoskip.jsp'
         },
         "list": [
             {
