@@ -107,7 +107,7 @@ $(function () {
             };//校验字段
             updataInfo(edituserinfoRequestUrl, params, opts);
         }
-        if ( params.movecarname !== cur_ip_y_name ) {
+        if ( params.movecarphone !== cur_ip_y_phone ) {
             opts = {
                 "movecarphone": ip_y_phone
             };//校验字段
