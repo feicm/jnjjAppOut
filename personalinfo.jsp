@@ -17,7 +17,7 @@
                     <div class="item-inner">
                         <div class="item-title label">用 户 名</div>
                         <div class="item-input">
-                            <input id="username" disabled type="text" value="金毛狮王">
+                            <input id="username" disabled type="text">
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="item-inner">
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
-                            <input id="name" disabled type="text" value="谢逊">
+                            <input id="name" disabled type="text">
                             <a id='go_repwd' class="ui_btn ui_btn_02 ui_radius repwd">密码修改</a>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="item-inner">
                         <div class="item-title label">性 别</div>
                         <div class="item-input">
-                            <input id="gender" disabled type="text" value="男"/>
+                            <input id="gender" disabled type="text"/>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="item-inner">
                         <div class="item-title label">手 机</div>
                         <div class="item-input">
-                            <input id="phone" type="text" value="12345678900">
+                            <input id="phone" data-type="mobile" type="text">
                             <b class="edit"></b>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                     <div class="item-inner">
                         <div class="item-title label">身份证号</div>
                         <div class="item-input">
-                            <input id="idnum" disabled type="text" value="123456789098765432">
+                            <input id="idnum" disabled type="text" >
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <div class="item-inner">
                         <div class="item-title label">邮 箱</div>
                         <div class="item-input">
-                            <input id="email" disabled type="text" value="admin@hostname.com">
+                            <input id="email" disabled type="text">
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                     <div class="item-inner">
                         <div class="item-title label">注册时间</div>
                         <div class="item-input">
-                            <input id="time" disabled type="text" value="2014-1-1">
+                            <input id="time" disabled type="text">
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                     <div class="item-inner">
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
-                            <input id="y_name" type="text" placeholder="+点击添加">
+                            <input id="y_name" data-type="cnuser" type="text" placeholder="+点击添加">
                             <b class="edit"></b>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                     <div class="item-inner">
                         <div class="item-title label">电 话</div>
                         <div class="item-input">
-                            <input id="y_phone" type="text" placeholder="+点击添加">
+                            <input id="y_phone" data-type="mobile" type="text" placeholder="+点击添加">
                             <b class="edit"></b>
                         </div>
                     </div>

@@ -18,6 +18,9 @@ $(function () {
     var ip_m_name = $('#m_name'); //密切联系姓名
     var ip_m_phone = $('#m_phone'); //密切联系人电话
     var ip_m_innum = $('#m_innum');//密切联系人身份证
+    var cur_ip_phone;//手机号初始值
+    var cur_ip_y_name;//移车人姓名初始值
+    var cur_ip_y_phone;//移车人电话初始值
     var urlPre = 'adapter?open&url=';
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -55,11 +58,16 @@ $(function () {
         data.closeUserName && ip_m_name.val(data.closeUserName);
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
+        cur_ip_phone = data.phoneNum;//手机号初始值
+        cur_ip_y_name = data.moveCarName;//移车人姓名初始值
+        cur_ip_y_phone = data.moveCarPhone;//移车人电话初始值
     }
+
     gorepwdBtn.on('click', gorepwdListener);
     saveinfoBtn.on('click', saveinfoListener);
     //保存按钮事件函数
     function saveinfoListener() {
+
         //registerName=测试用户2A
         // &phonenum=18555555555
         // &movecarname=吗1
@@ -70,33 +78,58 @@ $(function () {
             "movecarname" : ip_y_name.val(),
             "movecarphone": ip_y_phone.val()
         };
+        var opts;
         saveinfoBtn.off('click');
-        if ( !params.phonenum ) {
-            alert('手机号码不能为空！');
+        if ( params.phonenum === cur_ip_phone
+            && params.movecarname === cur_ip_y_name
+            && params.movecarphone === cur_ip_y_phone ) {
+            alert('信息未修改！');
             saveinfoBtn.on('click', saveinfoListener);
             return;
         }
-        Wisp.UI.progressDialog.show('信息保存中，请稍后！');
-        App.getAjaxData(edituserinfoRequestUrl, params, function (data) {
-            var msg = data.userUpdateResponse;
-            if ( msg ) {
-                console.log('更新成功！');
-                alert('信息已保存！');
-                Wisp.UI.progressDialog.remove();
-                saveinfoBtn.on('click', saveinfoListener);
-            } else {
-                alert('保存失败！');
-                saveinfoBtn.on('click', saveinfoListener);
-                Wisp.UI.progressDialog.remove();
-            }
-        });
+        if ( params.phonenum !== cur_ip_phone ) {//修改过的项视为必填项，经过校验
+            opts.phone = params.phonenum;//校验字段
+            updataInfo(edituserinfoRequestUrl, params, opts);
+        }
+        if ( params.movecarname !== cur_ip_y_name ) {
+            opts.movecarname = params.movecarname;
+            updataInfo(edituserinfoRequestUrl, params, opts);
+        }
+        if ( params.movecarname !== cur_ip_y_name ) {
+            opts.movecarphone = params.movecarphone;
+            updataInfo(edituserinfoRequestUrl, params, opts);
+        }
     }
-    //修改密码时间函数
-    function gorepwdListener(){
+
+    // 更新修改信息函数
+    function updataInfo(url, data, opts) {
+        if ( App.verify(opts) ) {
+            Wisp.UI.progressDialog.show('信息保存中，请稍后！');
+            App.getAjaxData(url, data, function (data) {
+                var msg = data.userUpdateResponse;
+                if ( msg ) {
+                    console.log('更新成功！');
+                    alert('信息已保存！');
+                    Wisp.UI.progressDialog.remove();
+                    saveinfoBtn.on('click', saveinfoListener);
+                } else {
+                    alert('保存失败！');
+                    saveinfoBtn.on('click', saveinfoListener);
+                    Wisp.UI.progressDialog.remove();
+                }
+            });
+        } else {
+            saveinfoBtn.on('click', saveinfoListener);
+        }
+    }
+
+    //修改密码事件函数
+    function gorepwdListener() {
         gorepwdBtn.off('click');
         window.open(repwdPageUrl);
         gorepwdBtn.on('click', gorepwdListener);
     }
+
     /*
      * --------------------页面效果------------------------
      * */

@@ -608,6 +608,14 @@ var App = (function () {
             alert('提交失败！（请检查您的密切联系人身份证号）');
             return false;
         }
+        if ( opts.movecarname && (opts.movecarname.val() === '' || opts.movecarname.find('.tips').length) ) {
+            alert('提交失败！（请检查您的移车联系人姓名）');
+            return false;
+        }
+        if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.find('.tips').length) ) {
+            alert('提交失败！（请检查您的移车联系人电话）');
+            return false;
+        }
         return true;
     }
     return {
