@@ -56,7 +56,7 @@
     <div class="item-inner">
     <div class="item-title label">档案编号</div>
     <div class="item-input">
-    <input id="dabh" data-type="archive" type="text" placeholder="请输入驾驶证档案编号">
+    <input id="dabh" data-type="archive" type="text" value="3701" placeholder="请输入驾驶证档案编号">
     </div>
     </div>
     </div>

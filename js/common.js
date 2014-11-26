@@ -87,7 +87,7 @@ var App = (function () {
                 "psd"    : '请输入6-20位的密码！',
                 "mobile" : '手机号码格式错误！',
                 "car"    : '车牌号码格式错误',
-                "archive": '档案编号8位纯数字',
+                "archive": '档案编号12位纯数字',
                 "car2"   : '车辆识别代号18位'
             },
             "init"        : function () {
@@ -440,7 +440,7 @@ var App = (function () {
 
     //档案号检测
     function isArchiveid(str) {
-        var reg = /^\d{8}$/;
+        var reg = /^\d{12}$/;
         return reg.test(str);
     }
 
