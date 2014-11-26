@@ -40,7 +40,7 @@
                     <div class="item-inner">
                         <div class="item-title label">手 机</div>
                         <div class="item-input">
-                            <input id="email" data-type="mobile" type="text" placeholder="请输入您的手机号码">
+                            <input id="phone" data-type="mobile" type="text" placeholder="请输入您的手机号码">
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     <div class="item-inner">
                         <div class="item-title label">邮 箱</div>
                         <div class="item-input">
-                            <input id="phone" data-type="mail" type="text" placeholder="请输入您的注册邮箱">
+                            <input id="email" data-type="mail" type="text" placeholder="请输入您的注册邮箱">
                         </div>
                     </div>
                 </div>
