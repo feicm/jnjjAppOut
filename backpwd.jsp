@@ -7,6 +7,11 @@
     <title>找回密码</title>
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
+    <!--select组件 css-->
+    <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mobiscroll.scroller.ios7.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css"/>
+    <!--select组件 css end-->
 </head>
 <body>
 <form class="rigister_f" action="" method="post" id="backpwd_form">
