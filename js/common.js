@@ -452,7 +452,7 @@ var App = (function () {
 
     //手机号
     function isMonbile(str) {
-        var reg=/^(13[0-9]|15[0|2|3|5|6|7|8|9]|18[0|5|6|8|9]|177)\d{8}$/;
+        var reg = /^(13[0-9]|15[0|2|3|5|6|7|8|9]|18[0|5|6|8|9]|177)\d{8}$/;
         return reg.test(str);
     }
 
@@ -526,11 +526,12 @@ var App = (function () {
         if ( aCity[parseInt(sId.substr(0, 2))] == null )return false;
         sBirthday = sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2));
         var d = new Date(sBirthday.replace(/-/g, "/"));
-        if ( sBirthday != (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()) )return "Error:非法生日";
+        if ( sBirthday != (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()) )return false;
         for ( var i = 17; i >= 0; i-- )iSum += (Math.pow(2, i) % 11) * parseInt(sId.charAt(17 - i), 11);
         if ( iSum % 11 != 1 )return false;
         return true;
     }
+
     //验证必填项
     /*var opts = {
      "username": $('#setusername'),//用户名
@@ -618,11 +619,12 @@ var App = (function () {
         }
         return true;
     }
+
     return {
         "UI"         : UI,
         "getAjaxData": getAjaxData,
         "getHash"    : getHash,
-        "verify"    : verify,
+        "verify"     : verify,
         "Cookie"     : Cookie
     };
 })();
