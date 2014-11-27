@@ -7,6 +7,11 @@
     <title>违章查询页</title>
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
+    <!--select组件 css-->
+    <link href="config/html/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css"/>
+    <link href="config/html/css/mobiscroll.scroller.ios7.css" rel="stylesheet" type="text/css"/>
+    <link href="config/html/css/mobiscroll.animation.css" rel="stylesheet" type="text/css"/>
+    <!--select组件 css end-->
 </head>
 <body>
 <div class="ui-grid-a tab" id="tab_violation">
@@ -66,9 +71,12 @@
     </div>
 </div>
 </body>
-<script src="config/html/js/zepto.min.js"></script>
-<script src="config/html/js/WISPComponents_v3.0.js"></script>
-<script src="config/html/js/appConfig.js"></script>
-<script src="config/html/js/common.js"></script>
-<script src="config/html/js/violationmsg.js"></script>
+    <script src="config/html/js/zepto.min.js"></script>
+    <script src="config/html/js/WISPComponents_v3.0.js"></script>
+    <script src="config/html/js/appConfig.js"></script>
+    <script src="config/html/js/common.js"></script>
+    <script src="config/html/js/violationmsg.js"></script>
+    <!--select组件-->
+    <script src="config/html/js/mobiscroll.all.js" type="text/javascript"></script>
+    <!--select组件 end-->
 </html>
