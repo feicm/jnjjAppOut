@@ -427,9 +427,9 @@ var App = (function () {
         l = aHash.length;
         for ( var i = 1; i < l; i++ ) {
             aItem = aHash[i].split('=');
-            oHash[aItem[0]] = aItem[1];
+            oHash[aItem[0]] = $.trim(aItem[1]);
         }
-        return aHash;
+        return oHash;
     }
 
     //车辆识别代号号检测
