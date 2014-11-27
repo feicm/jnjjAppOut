@@ -258,10 +258,9 @@ var App = (function () {
                     }
                 }
                 if ( _module ) {
-                    list = data[_module + 'QueryResponse'][_module + 'List'];
                     if ( _module === 'car' ) {  //按车辆
                         for ( var j in list ) {
-                            selectArr.push("<option value='" + list[j].msg.hpzl + "'>" + list[j].carid + "</option>");
+                            selectArr.push("<option value='" + list[j].carNumType + "'>" + list[j].carid + "</option>");
                         }
                     }
                     if ( _module === 'card' ) {
