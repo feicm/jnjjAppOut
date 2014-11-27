@@ -61,7 +61,7 @@ $(function () {
     App.UI('select', {
         "dom"   : $('#hphm'),
         "url"   : carlistRequestUrl,
-        "data"  : {'rigister': userName, 'axisFlag': true},
+        "data"  : {'register': userName, 'axisFlag': true},
         "module": 'car'
     }, function () {
         alert('未绑定车辆！');
@@ -69,7 +69,7 @@ $(function () {
     App.UI('select', {
         "dom"   : $('#jzxm'),
         "url"   : cardlistRequestUrl,
-        "data"  : {'rigister': userName, 'axisFlag': true},
+        "data"  : {'register': userName, 'axisFlag': true},
         "module": 'license'
     }, function () {
         alert('未绑定驾照！');
