@@ -261,15 +261,13 @@ $(function () {
             var _paramsArr = _self.params;
             var _tabs;
             var _blockid;
-            if ( _type === 'card' ) {
-                _tabs = _dom.children();
-                _tabs.each(function (index) {
-                    _blockid = $(this).attr('data-for');
-                    for ( var i = _urlArr.length - 1; i >= 0; i-- ) {
-                        _self.load($('#' + _blockid), _urlArr[i], _paramsArr[i]);
-                    }
-                })
-            }
+            _tabs = _dom.children();
+            _tabs.each(function (index) {
+                _blockid = $(this).attr('data-for');
+                for ( var i = _urlArr.length - 1; i >= 0; i-- ) {
+                    _self.load($('#' + _blockid), _urlArr[i], _paramsArr[i]);
+                }
+            })
         }
     };
     if ( hash ) {
