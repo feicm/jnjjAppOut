@@ -50,8 +50,14 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
-                data.violationInfoResponse && (msg = data.violationInfoResponse);//驾照违法
-                data.vioforceResponse && (msg = data.vioforceResponse);//驾照违法-强制措施
+                if(data.violationInfoResponse){
+                    msg = data.violationInfoResponse;
+                    this.type='wf_card_t1';
+                }//驾照违法
+                if(data.vioforceResponse){
+                    msg = data.vioforceResponse;
+                    this.type='wf_card_t2';
+                } //驾照违法-强制措施
                 if ( msg ) {
                     _self.render(msg, _dom);
                 } else {
@@ -202,7 +208,7 @@ $(function () {
                     }
                     html = '<h1>' + data.carNum + '</h1>' + liArr.join("");
                     break;
-                case 'wf_card':
+                case 'wf_card_t1':
                     msg = data.msg;//Array
                     var l = msg.length;
                     var li = '';
@@ -235,6 +241,37 @@ $(function () {
                             '    <h1>罚款金额：测试</h1>',
                             '</li>'].join("");
                         liArr.push(li);
+                    }
+                    html = liArr.join("");
+                    break;
+                case 'wf_card_t2':
+                    msg = data.msg;//Array
+                    var l = msg.length;
+                    var li = '';
+                    var liArr = [];
+                    if ( msg instanceof Array ) {
+                        for ( var i = 0; i < l; i++ ) {
+                            li = [
+                                '<li>',
+                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
+                                '    <h1>接受处理时间：' + msg[i].jsclsj + '</h1>',
+                                '    <h1>裁决时间：' + msg[i].cjbj + '</h1>',
+                                '    <h1>裁决时间：' + msg[i].cjsj + '</h1>',
+                                '</li>'].join("");
+                            liArr.push(li);
+                        }
+                    } else {
+                        li = [
+                            '<li>',
+                            '    <h1>违法行为：测试测试</h1>',
+                            '    <h1>违法地点：测试测试</h1>',
+                            '    <h1>违法时间：测试测试</h1>',
+                            '    <h1>接受处理时间：测试</h1>',
+                            '    <h1>裁决时间：测试测试</h1>',
+                            '    <h1>裁决时间：测试测试</h1>',
+                            '</li>'].join("");
                     }
                     html = liArr.join("");
                     break;
