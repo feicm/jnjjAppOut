@@ -264,14 +264,17 @@ i.icon {
 .list-block .item-title.w_auto {
     width : auto;
 }
-.list-block .item-input .preText{
-    position: absolute;
-    left: 5.7em;
-    top: .5em;
+
+.list-block .item-input .preText {
+    position : absolute;
+    left     : 5.7em;
+    top      : .5em;
 }
-.list-block .item-input .preText+input{
-    padding-left: 2.5em;
+
+.list-block .item-input .preText + input {
+    padding-left : 2.5em;
 }
+
 .list-block .item-title {
     -webkit-flex-shrink : 1;
     -ms-flex            : 0 1 auto;
@@ -655,28 +658,37 @@ i.icon {
 #fromcloser {
     display : none;
 }
+
 /*repwd*/
-.repwd{
-    position: absolute;
-    top: 8px;
-    right: .5em;
-    height: 2em;
-    line-height: 2;
-    width: 5em;
-    font-size: .8em;
+.repwd {
+    position    : absolute;
+    top         : 8px;
+    right       : .5em;
+    height      : 2em;
+    line-height : 2;
+    width       : 5em;
+    font-size   : .8em;
 }
-.details_list{overflow: hidden}
-.details_list li{
-    width: 100%;
-    margin-top: .5em;
-    background: #FFF;
+
+.details_list {
+    overflow      : hidden;
+    border-bottom : 1px solid #AAA;
 }
-.details_list li h1{
-    padding: .5em;
-    border-bottom: 1px solid #EEE;
+
+.details_list li {
+    width      : 100%;
+    margin-top : 24px;
+    background : #FFF;
 }
-.details_list h1{
-    text-align: center;
-    height: 2.5em;
-    line-height: 2.5;
+
+.details_list li h1 {
+    padding       : .5em;
+    border-bottom : 1px solid #EEE;
+}
+
+.details_list > h1 {
+    text-align  : center;
+    height      : 2em;
+    line-height : 2.5;
+    font-weight : bold;
 }
