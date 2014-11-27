@@ -336,7 +336,7 @@ $(function () {
                 if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
                     //&register=user2A&indentyid=370181199403014414&jkbj=1
                     //&register=user2A&indentyid=370181199001012475&cjbj=1
-                    if ( oHash.jkbj ) {
+                    if ( oHash.jkbj !== '0' ) {
                         params = [
                             {
                                 "register" : userName,
