@@ -13,12 +13,12 @@
         <a class="ui-block-a active" data-for="tab-item-01">驾照违法</a>
         <a class="ui-block-b" data-for="tab-item-02">驾照强制措施</a>
     </div>
-    <div id="tab-item-01">
+    <ul id="tab-item-01">
 
-    </div>
-    <div style="display: none" id="tab-item-02">
+    </ul>
+    <ul style="display: none" id="tab-item-02">
 
-    </div>
+    </ul>
 </body>
     <script src="config/html/js/zepto.min.js"></script>
     <script src="config/html/js/WISPComponents_v3.0.js"></script>
