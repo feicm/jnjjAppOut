@@ -263,7 +263,7 @@ var App = (function () {
                             selectArr.push("<option value='" + list[j].carNumType + "'>" + list[j].carid + "</option>");
                         }
                     }
-                    if ( _module === 'card' ) {
+                    if ( _module === 'license' ) {
                         for ( var j in list ) { //按驾照
                             selectArr.push("<option value='" + list[j].licenseid + "'>" + list[j].licenseName + "</option>");
                         }
