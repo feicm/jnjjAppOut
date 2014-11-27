@@ -30,6 +30,7 @@ $(function () {
         if ( hpzl !== '未绑定' ) {
             var params = '#mode=wf_car#cartype=' + hpzl + '#carid=' + hphm + '#jkbj=' + jkbj;
             window.open(infoPageUrl + params);//通过url hash传参
+            clxcSubmit.on('click', clxcListener);
         } else {
             alert('未绑定车辆！');
             clxcSubmit.on('click', clxcListener);
@@ -45,6 +46,7 @@ $(function () {
         if ( licenseid !== '未绑定' ) {
             var params = '#mode=wf_card#licenseid=' + licenseid + '#jkbj=' + jkbj;
             window.open(infoPageUrl + params);//通过url hash传参
+            jzcxSubmit.on('click', jzcxListener);
         } else {
             alert('未绑定驾照！');
             jzcxSubmit.on('click', jzcxListener);
