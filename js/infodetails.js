@@ -267,8 +267,7 @@ $(function () {
                         "register": userName,
                         "cartype" : oHash.cartype,
                         "carid"   : oHash.carid,
-                        "jkbj"    : oHash.jkbj,
-                        "data"    : params
+                        "jkbj"    : oHash.jkbj
                     };
                     detailsBlock.init({
                         "dom" : $('#violation-list'),
