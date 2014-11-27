@@ -669,7 +669,14 @@ i.icon {
 .details_list li{
     width: 100%;
     margin-top: .5em;
+    background: #FFF;
 }
 .details_list li h1{
     padding: .5em;
+    border-bottom: 1px solid #EEE;
+}
+.details_list h1{
+    text-align: center;
+    height: 2.5em;
+    line-height: 2.5;
 }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-   <ul id='violation-list'></ul>
+   <ul id='violation-list' class='details_list'></ul>
 </body>
     <script src="config/html/js/zepto.min.js"></script>
     <script src="config/html/js/WISPComponents_v3.0.js"></script>
