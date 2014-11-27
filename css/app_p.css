@@ -665,3 +665,11 @@ i.icon {
     width: 5em;
     font-size: .8em;
 }
+.details_list{overflow: hidden}
+.details_list li{
+    width: 100%;
+    margin-top: .5em;
+}
+.details_list li h1{
+    padding: .5em;
+}

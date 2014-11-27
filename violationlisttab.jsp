@@ -13,10 +13,10 @@
         <a class="ui-block-a active" data-for="tab-item-01">驾照违法</a>
         <a class="ui-block-b" data-for="tab-item-02">驾照强制措施</a>
     </div>
-    <ul id="tab-item-01">
+    <ul class='details_list' id="tab-item-01">
 
     </ul>
-    <ul style="display: none" id="tab-item-02">
+    <ul class='details_list' style="display: none" id="tab-item-02">
 
     </ul>
 </body>
