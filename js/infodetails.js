@@ -51,6 +51,7 @@ $(function () {
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
                 data.violationInfoResponse && (msg = data.violationInfoResponse);//驾照违法
+                data.vioforceResponse && (msg = data.vioforceResponse);//驾照违法-强制措施
                 if ( msg ) {
                     _self.render(msg, _dom);
                 } else {
@@ -373,4 +374,11 @@ $(function () {
     function hasKey(keyname, o) {
         return keyname in o;
     }
+    /*
+     * --------------------页面效果------------------------
+     * */
+    App.UI('tabToggle', {
+        "dom"        : $('#tab_violation'),
+        "activeClass": 'active'
+    });
 });
