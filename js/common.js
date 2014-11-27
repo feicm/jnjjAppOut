@@ -88,7 +88,7 @@ var App = (function () {
                 "mobile" : '手机号码格式错误！',
                 "car"    : '车牌号码格式错误',
                 "archive": '档案编号12位纯数字',
-                "car2"   : '车辆识别代号18位'
+                "car2"   : '车辆识别代号17位'
             },
             "init"        : function () {
                 this.doms = opts.doms;
@@ -434,7 +434,7 @@ var App = (function () {
 
     //车辆识别代号号检测
     function iscarid2(str) {
-        var reg = /^[a-zA-Z0-9]{18}$/;
+        var reg = /^[a-zA-Z0-9]{17}$/;
         return reg.test(str);
     }
 
