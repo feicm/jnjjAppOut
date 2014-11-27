@@ -47,30 +47,31 @@ $(function () {
             var _dom = dom || _self.dom;
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
+                var type;
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
-                if(data.violationInfoResponse){
+                if ( data.violationInfoResponse ) {
                     msg = data.violationInfoResponse;
-                    this.type='wf_card_t1';
+                    type = 'wf_card_t1';
                 }//驾照违法
-                if(data.vioforceResponse){
+                if ( data.vioforceResponse ) {
                     msg = data.vioforceResponse;
-                    this.type='wf_card_t2';
+                    type = 'wf_card_t2';
                 } //驾照违法-强制措施
                 if ( msg ) {
-                    _self.render(msg, _dom);
+                    _self.render(msg, _dom, type);
                 } else {
                     alert('加载失败!');
                 }
             });
         },
-        "render"   : function (data, selector) {
+        "render"   : function (data, selector, type) {
             console.dir(data);
             var _self = this;
             var _selector = selector;
             var _trStr;
-            var type = _self.type;
+            var type = type || _self.type;
             _trStr = _self.getHtml(type, data);
             _selector.append(_trStr);
         },
@@ -411,6 +412,7 @@ $(function () {
     function hasKey(keyname, o) {
         return keyname in o;
     }
+
     /*
      * --------------------页面效果------------------------
      * */
