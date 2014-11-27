@@ -309,13 +309,13 @@ var App = (function () {
                             _defaultClass && me.removeClass(_defaultClass);
                         }
                         me.addClass(_activeClass);
-                        currentTabContent.show('linner');
+                        currentTabContent.show();
                         tabItem.each(function (index) {
                             var me = $(this);
                             if ( me.attr('data-for') !== dataFor ) {
                                 me.removeClass(_activeClass);
                                 _defaultClass && me.addClass(_defaultClass);
-                                $('#' + me.attr('data-for')).hide('linner');
+                                $('#' + me.attr('data-for')).hide();
                             }
                         });
                     });
