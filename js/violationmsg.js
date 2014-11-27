@@ -68,6 +68,6 @@ $(function () {
         "dom"   : $('#jzxm'),
         "url"   : cardlistRequestUrl,
         "data"  : {'register': userName, 'axisFlag': true},
-        "module": 'license'
+        "module": 'card'
     });
 });
