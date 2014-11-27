@@ -9,6 +9,9 @@ $(function () {
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/violationlist.jsp';//查询结果页地址
+    var infoTabPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/violationlisttab.jsp';//查询结果页地址(带选项卡)
     var userName = App.Cookie.GetCookie('username');
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
@@ -45,7 +48,7 @@ $(function () {
         $('#nodo02').prop('checked') ? jkbj = 1 : jkbj = 0;
         if ( licenseid !== '未绑定' ) {
             var params = '#mode=wf_card#licenseid=' + licenseid + '#jkbj=' + jkbj;
-            window.open(infoPageUrl + params);//通过url hash传参
+            window.open(infoTabPageUrl + params);//通过url hash传参
             jzcxSubmit.on('click', jzcxListener);
         } else {
             alert('未绑定驾照！');

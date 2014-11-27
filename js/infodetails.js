@@ -29,17 +29,22 @@ $(function () {
     console.dir(hash);
     //内容块加载对象
     var detailsBlock = {
-        "init"   : function (opts) {
+        "init"     : function (opts) {
             this.dom = opts.dom;
             this.type = opts.type;
             this.url = opts.url;
             this.params = opts.data;
-            this.load();
+            if ( this.type === 'card' ) {
+                this.loadMulti();
+            } else {
+                this.load();
+            }
         },
-        "load"   : function () {
+        "load"     : function (dom, url, params) {
             var _self = this;
-            var _url = _self.url;
-            var _params = _self.params;
+            var _url = url || _self.url;
+            var _params = params || _self.params;
+            var _dom = dom || _self.dom;
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
@@ -47,22 +52,22 @@ $(function () {
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
                 data.violationInfoResponse && (msg = data.violationInfoResponse);//驾照违法
                 if ( msg ) {
-                    _self.render(msg);
+                    _self.render(msg, _dom);
                 } else {
                     alert('加载失败!');
                 }
             });
         },
-        "render" : function (data) {
+        "render"   : function (data, selector) {
             console.dir(data);
             var _self = this;
-            var _dom = _self.dom;
+            var _selector = selector;
             var _trStr;
             var type = _self.type;
             _trStr = _self.getHtml(type, data);
-            _dom.append(_trStr);
+            _selector.append(_trStr);
         },
-        "getHtml": function (type, data) {
+        "getHtml"  : function (type, data) {
             var html;
             var msg;
             switch ( type ) {
@@ -167,7 +172,7 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    if(msg instanceof Array){
+                    if ( msg instanceof Array ) {
                         for ( var i = 0; i < l; i++ ) {
                             li = [
                                 '<li>',
@@ -181,10 +186,16 @@ $(function () {
                                 '</li>'].join("");
                             liArr.push(li);
                         }
-                    }else{
+                    } else {
                         li = [
                             '<li>',
-                            '    <h1>无记录！</h1>',
+                            '    <h1>违法行为：测试测试</h1>',
+                            '    <h1>违法地点：测试测试</h1>',
+                            '    <h1>违法时间：测试测试</h1>',
+                            '    <h1>处理时间：测试测试</h1>',
+                            '    <h1>处理情况：测试测试</h1>',
+                            '    <h1>交款情况：测试测试</h1>',
+                            '    <h1>交款时间：测试测试</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -195,7 +206,7 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    if(msg instanceof Array){
+                    if ( msg instanceof Array ) {
                         for ( var i = 0; i < l; i++ ) {
                             li = [
                                 '<li>',
@@ -210,10 +221,17 @@ $(function () {
                                 '</li>'].join("");
                             liArr.push(li);
                         }
-                    }else{
+                    } else {
                         li = [
                             '<li>',
-                            '    <h1>无记录！</h1>',
+                            '    <h1>违法行为：测试</h1>',
+                            '    <h1>违法地点：测试</h1>',
+                            '    <h1>违法时间：测试</h1>',
+                            '    <h1>交款时间：测试</h1>',
+                            '    <h1>交款情况：测试</h1>',
+                            '    <h1>处理时间：测试</h1>',
+                            '    <h1>违法记分数：测试</h1>',
+                            '    <h1>罚款金额：测试</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -234,6 +252,24 @@ $(function () {
              '</div>'].join("");
              }*/
             return html;
+        },
+        "loadMulti": function () {
+            var _self = this;
+            var _type = _self.type;
+            var _dom = _self.dom;
+            var _urlArr = _self.url.split('@@');
+            var _paramsArr = _self.params;
+            var _tabs;
+            var _blockid;
+            if ( _type === 'card' ) {
+                _tabs = _dom.children();
+                _tabs.each(function (index) {
+                    _blockid = $(this).attr('data-for');
+                    for ( var i = _urlArr.length - 1; i >= 0; i-- ) {
+                        _self.load($('#' + _blockid), _urlArr[i], _paramsArr[i]);
+                    }
+                })
+            }
         }
     };
     if ( hash ) {
@@ -281,12 +317,12 @@ $(function () {
                 break;
             case 'wf_car'://违法信息-按车辆-内容结果加载
                 if ( hasKey('cartype', oHash) && hasKey('carid', oHash) && hasKey('jkbj', oHash) ) {
-                //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
+                    //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
                     params = {
-                        "register": userName,
-                        "carNumType" : oHash.cartype,
-                        "carNum"   : oHash.carid,
-                        "jkbj"    : oHash.jkbj
+                        "register"  : userName,
+                        "carNumType": oHash.cartype,
+                        "carNum"    : oHash.carid,
+                        "jkbj"      : oHash.jkbj
                     };
                     detailsBlock.init({
                         "dom" : $('#violation-list'),
@@ -299,15 +335,36 @@ $(function () {
             case 'wf_card'://违法信息-按驾照-内容结果加载
                 if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
                     //&register=user2A&indentyid=370181199403014414&jkbj=1
-                    params = {
-                        "register" : userName,
-                        "indentyid": oHash.licenseid,
-                        "jkbj"     : oHash.jkbj
-                    };
+                    //&register=user2A&indentyid=370181199001012475&cjbj=1
+                    if ( oHash.jkbj ) {
+                        params = [
+                            {
+                                "register" : userName,
+                                "indentyid": oHash.licenseid,
+                                "jkbj"     : oHash.jkbj
+                            }, {
+                                "register" : userName,
+                                "indentyid": oHash.licenseid,
+                                "cjbj"     : oHash.jkbj
+                            }
+                        ];
+                    } else {
+                        params = [
+                            {
+                                "register" : userName,
+                                "indentyid": oHash.licenseid,
+                                "jkbj"     : oHash.jkbj
+                            }, {
+                                "register" : userName,
+                                "indentyid": oHash.licenseid,
+                                "cjbj"     : null
+                            }
+                        ];
+                    }
                     detailsBlock.init({
-                        "dom" : $('#violation-list'),
+                        "dom" : $('#tab_violation'),
                         "type": 'wf_card',
-                        "url" : wf_card_url,
+                        "url" : wf_card_url + '@@' + wf_card_url02,
                         "data": params
                     });
                 }
