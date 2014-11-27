@@ -54,7 +54,7 @@ $(function () {
             });
         },
         "render" : function (data) {
-            console.dir(datas);
+            console.dir(data);
             var _self = this;
             var _dom = _self.dom;
             var _trStr;
@@ -167,16 +167,24 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    for ( var i = 0; i < l; i++ ) {
+                    if(msg instanceof Array){
+                        for ( var i = 0; i < l; i++ ) {
+                            li = [
+                                '<li>',
+                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
+                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
+                                '    <h1>处理情况：' + msg[i].clqk + '</h1>',
+                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
+                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
+                                '</li>'].join("");
+                            liArr.push(li);
+                        }
+                    }else{
                         li = [
                             '<li>',
-                            '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                            '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
-                            '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                            '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                            '    <h1>处理情况：' + msg[i].clqk + '</h1>',
-                            '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                            '    <h1>交款时间：' + msg[i].jksj + '</h1>',
+                            '    <h1>无记录！</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -187,17 +195,25 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    for ( var i = 0; i < l; i++ ) {
+                    if(msg instanceof Array){
+                        for ( var i = 0; i < l; i++ ) {
+                            li = [
+                                '<li>',
+                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
+                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
+                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
+                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
+                                '    <h1>违法记分数：' + msg[i].wfjfs + '</h1>',
+                                '    <h1>罚款金额：' + msg[i].fkje + '</h1>',
+                                '</li>'].join("");
+                            liArr.push(li);
+                        }
+                    }else{
                         li = [
                             '<li>',
-                            '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                            '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
-                            '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                            '    <h1>交款时间：' + msg[i].jksj + '</h1>',
-                            '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                            '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                            '    <h1>违法记分数：' + msg[i].wfjfs + '</h1>',
-                            '    <h1>罚款金额：' + msg[i].fkje + '</h1>',
+                            '    <h1>无记录！</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
