@@ -33,7 +33,7 @@ $(function () {
             this.dom = opts.dom;
             this.type = opts.type;
             this.url = opts.url;
-            this.params = this.data;
+            this.params = opts.data;
             this.load();
         },
         "load"   : function () {
