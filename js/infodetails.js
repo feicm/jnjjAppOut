@@ -233,6 +233,7 @@ $(function () {
             case 'carquery': //单绑定车辆内容加载
                 if ( hasKey('cartype', oHash) && hasKey('carid', oHash) ) {
                     //加载单车辆信息
+                    //&register=user2A&cartype=01&carid=AR0327
                     params = {
                         "register": userName,
                         "cartype" : oHash.cartype,
@@ -249,6 +250,7 @@ $(function () {
             case 'cardquery': //单绑定驾照内容加载
                 if ( hasKey('licenserecord', oHash) ) {
                     //加载单驾照信息
+                    //&register=user2A&licenceRecord=370102335479
                     params = {
                         "register"     : userName,
                         "licenceRecord": oHash.licenserecord
@@ -263,10 +265,11 @@ $(function () {
                 break;
             case 'wf_car'://违法信息-按车辆-内容结果加载
                 if ( hasKey('cartype', oHash) && hasKey('carid', oHash) && hasKey('jkbj', oHash) ) {
+                //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
                     params = {
                         "register": userName,
-                        "cartype" : oHash.cartype,
-                        "carid"   : oHash.carid,
+                        "carNumType" : oHash.cartype,
+                        "carNum"   : oHash.carid,
                         "jkbj"    : oHash.jkbj
                     };
                     detailsBlock.init({
@@ -279,9 +282,10 @@ $(function () {
                 break;
             case 'wf_card'://违法信息-按驾照-内容结果加载
                 if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
+                    //&register=user2A&indentyid=370181199403014414&jkbj=1
                     params = {
                         "register" : userName,
-                        "licenseid": oHash.licenseid,
+                        "indentyid": oHash.licenseid,
                         "jkbj"     : oHash.jkbj
                     };
                     detailsBlock.init({
