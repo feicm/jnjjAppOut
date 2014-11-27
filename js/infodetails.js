@@ -273,6 +273,7 @@ $(function () {
                             '    <h1>裁决时间：测试测试</h1>',
                             '    <h1>裁决时间：测试测试</h1>',
                             '</li>'].join("");
+                        liArr.push(li);
                     }
                     html = liArr.join("");
                     break;
