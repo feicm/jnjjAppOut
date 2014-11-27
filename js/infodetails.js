@@ -264,9 +264,7 @@ $(function () {
             _tabs = _dom.children();
             _tabs.each(function (index) {
                 _blockid = $(this).attr('data-for');
-                for ( var i = _urlArr.length - 1; i >= 0; i-- ) {
-                    _self.load($('#' + _blockid), _urlArr[i], _paramsArr[i]);
-                }
+                _self.load($('#' + _blockid), _urlArr[index], _paramsArr[index]);
             })
         }
     };
