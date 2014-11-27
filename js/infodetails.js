@@ -34,7 +34,7 @@ $(function () {
             this.type = opts.type;
             this.url = opts.url;
             this.params = opts.data;
-            if ( this.type === 'card' ) {
+            if ( this.type === 'wf_card' ) {
                 this.loadMulti();
             } else {
                 this.load();
