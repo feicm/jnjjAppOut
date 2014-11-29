@@ -99,7 +99,7 @@ $(function () {
             var html;
             var l = data.length;
             var listhtml;
-            var listArr;
+            var listArr=[];
             switch ( mode ) {
                 case 'car':
                     for ( var i = 0; i < l; i++ ) {
