@@ -1,7 +1,7 @@
 $(function () {
     /*
-    * 绑定模块列表
-    * */
+     * 绑定模块列表
+     * */
     var userName = App.Cookie.GetCookie('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -19,9 +19,10 @@ $(function () {
     var carTypeRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
+    //&register=user2A&axisFlag=true
     var params = {
-        "registerName": userName,
-        "axisFlag"    : true
+        "register": userName,
+        "axisFlag": true
     };
     //绑定（车辆、驾照）列表对象
     var listModule = {
