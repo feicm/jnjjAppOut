@@ -80,7 +80,7 @@ $(function () {
             var msg;
             switch ( type ) {
                 case 'carquery': //车辆查询结果内容模板
-                    msg = data.carList[0];//Object
+                    msg = data.carList[0].msg;//Object
                     html = [
                         '<tr>',
                         '     <td>姓名</td>',
@@ -128,7 +128,7 @@ $(function () {
                         ' </tr>'].join("");
                     break;
                 case 'cardquery': //驾照查询结果内容模板
-                    msg = data.licenseList[0];//Object
+                    msg = data.licenseList[0].msg;//Object
                     html = [
                         '<tr>',
                         '     <td>姓名</td>',
