@@ -329,7 +329,7 @@ $(function () {
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
-                        "type": 'car',
+                        "type": 'carquery',
                         "url" : carOnlyUrl,
                         "data": params
                     });
@@ -345,7 +345,7 @@ $(function () {
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
-                        "type": 'card',
+                        "type": 'cardquery',
                         "url" : cardOnlyUrl,
                         "data": params
                     });
