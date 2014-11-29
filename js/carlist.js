@@ -109,7 +109,7 @@ $(function () {
                          "carid"   : "AR0327"
                          }];*/
                         listhtml = [
-                            '<li data-cartype="' + data[i].msg.hpzl + '" data-carid="' + data[i].carid + '">',
+                            '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
                             '    <section class="ui-g-fly0-b">',
                             '        <p>',
                             '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
