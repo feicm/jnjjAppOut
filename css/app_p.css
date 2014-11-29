@@ -548,7 +548,6 @@ i.icon {
 /*details*/
 .details {
     overflow   : hidden;
-    height     : 100%;
     background : #F6F6F6;
 }
 
