@@ -339,17 +339,17 @@ i.icon {
     border-bottom : 1px solid #D9D9D9;
 }
 
-#c_Table_b tbody tr {
+#c_Table_b tr {
     line-height      : 2;
     border-bottom    : 1px solid #E1E1E1;
     background-color : #FFF;
 }
 
-#c_Table_b tbody tr:nth-child(2n) {
+#c_Table_b tr:nth-child(2n) {
     background : #EDEDED;
 }
 
-#c_Table_b tbody tr td:first-child {
+#c_Table_b tr td:first-child {
     width         : 5em;
     border-right  : 1px solid #E1E1E1;
     text-align    : right;
@@ -359,11 +359,11 @@ i.icon {
     color         : #407C41;
 }
 
-#c_Table_b tbody tr:nth-child(2n) td:first-child {
+#c_Table_b tr:nth-child(2n) td:first-child {
     color : #555;
 }
 
-#c_Table_b tbody tr td:last-child {
+#c_Table_b tr td:last-child {
     padding-left : .5em;
 }
 
