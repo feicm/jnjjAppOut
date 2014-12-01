@@ -413,6 +413,7 @@ var App = (function () {
             }
         }).fail(function (data) {
             alert('数据请求失败，请检查网络连接！');
+            Wisp.UI.progressDialog.remove();
             //history.go(0);
         });
     }
