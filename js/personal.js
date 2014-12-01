@@ -116,19 +116,19 @@ $(function () {
     }
 
     // 更新修改信息函数
-    function updataInfo(url, data, opts) {
+    function updataInfo(url, params, opts) {
         if ( App.verify(opts) ) {
             Wisp.UI.progressDialog.show('信息保存中，请稍后！');
-            App.getAjaxData(url, data, function (data) {
+            App.getAjaxData(url, params, function (data) {
                 var msg = data.userUpdateResponse;
                 if ( msg ) {
                     console.log('更新成功！');
                     alert('信息已保存！');
                     Wisp.UI.progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
-                    data.phone && (cur_ip_phone=data.phone);
-                    data.movecarname && (cur_ip_y_name=data.phone);
-                    data.movecarphone && (cur_ip_y_phone=data.phone);
+                    params.phone && (cur_ip_phone=data.phone);
+                    params.movecarname && (cur_ip_y_name=data.phone);
+                    params.movecarphone && (cur_ip_y_phone=data.phone);
                 } else {
                     alert('保存失败！');
                     saveinfoBtn.on('click', saveinfoListener);
