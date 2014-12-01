@@ -14,6 +14,8 @@
             <div class="tips">
 
             </div>
+            <ul class="ui-list">
+            </ul>
             <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='next' id="go_cardbindpage">
                 添加绑定
             </a>
