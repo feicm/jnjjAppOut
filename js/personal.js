@@ -127,8 +127,8 @@ $(function () {
                     Wisp.UI.progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
                     data.phone && (cur_ip_phone=data.phone);
-                    data.movecarname && (ip_y_name=data.phone);
-                    data.movecarphone && (ip_y_phone=data.phone);
+                    data.movecarname && (cur_ip_y_name=data.phone);
+                    data.movecarphone && (cur_ip_y_phone=data.phone);
                 } else {
                     alert('保存失败！');
                     saveinfoBtn.on('click', saveinfoListener);
