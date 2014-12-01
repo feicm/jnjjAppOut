@@ -90,7 +90,7 @@ $(function () {
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
-                    var params = '#mode=cardquery#licenseRecord=' + licenseRecord;
+                    var params = '#mode=cardquery#licenserecord=' + licenseRecord;
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
