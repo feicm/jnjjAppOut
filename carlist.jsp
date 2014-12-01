@@ -14,7 +14,7 @@
     <!--select组件 css end-->
 </head>
 <body>
-    <div class="c"  data-mode='car' data-issinglepage='false'>
+    <div class="c"  data-mode='car'>
         <div class="carlist_c">
             <div class="tips">
             </div>
