@@ -71,7 +71,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "驾照信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/violation.jsp"
+                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/cardlist.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
