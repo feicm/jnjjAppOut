@@ -99,7 +99,7 @@ $(function () {
             var html;
             var l = data.length;
             var listhtml;
-            var listArr=[];
+            var listArr = [];
             switch ( mode ) {
                 case 'car':
                     for ( var i = 0; i < l; i++ ) {
@@ -120,7 +120,7 @@ $(function () {
                             '    </section>',
                             '    <aside class="ui-g-fly0-b-l">',
                             '        <img src="config/html/images/ico_car.png"></br>',
-                            '        <b>车辆' + (i+0+1) + '</b>',
+                            '        <b>车辆' + (i + 0 + 1) + '</b>',
                             '    </aside>',
                             '    <aside class="ui-g-fly0-b-r">',
                             '        <i class="icon01 icon01_arr_r"></i>',
@@ -151,7 +151,7 @@ $(function () {
                             '    </section>',
                             '    <aside class="ui-g-fly0-b-l">',
                             '        <img src="config/html/images/ico_card.png"></br>',
-                            '        <b>驾照' + (i+0+1) + '</b>',
+                            '        <b>驾照' + (i + 0 + 1) + '</b>',
                             '    </aside>',
                             '    <aside class="ui-g-fly0-b-r">',
                             '        <i class="icon01 icon01_arr_r"></i>',
@@ -185,6 +185,7 @@ $(function () {
         }
     };
     var module = $('.c').attr('data-mode');//模块名获取
+    var isSinglePage = $('.c').attr('data-issinglepage');//是否为单一绑定页
     var opts = {};
     if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
@@ -196,7 +197,7 @@ $(function () {
         var ip_idnum;
         var ip_phone;
         bindinfoBtn.on('click', bindcarListerner);
-        listModule.init({
+        !isSinglePage && listModule.init({
             "listWrap"  : $('.ui-list'),
             "tipsWrap"  : $('.tips'),
             "module"    : module,
@@ -212,7 +213,7 @@ $(function () {
         var ip_idnum;
         var ip_dabh;
         bindcardBtn.on('click', bindcardListerner);
-        listModule.init({
+        !isSinglePage && listModule.init({
             "listWrap"  : $('.ui-list'),
             "tipsWrap"  : $('.tips'),
             "module"    : module,
