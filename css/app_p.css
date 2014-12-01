@@ -410,7 +410,7 @@ i.icon {
     float   : left;
     width   : 100%;
     height  : 4.5em;
-    padding : .7em 2em .7em 3em;
+    padding : .7em 1em .7em 3em;
 }
 
 .ui-g-fly0-b-l {
@@ -425,8 +425,8 @@ i.icon {
 
 .ui-g-fly0-b-r {
     float       : right;
-    width       : 2em;
-    margin-left : -2em;
+    width       : 1em;
+    margin-left : -1em;
 }
 
 .ui-grid-a {
@@ -558,8 +558,8 @@ i.icon {
 
 /*carlist*/
 .carlist_c {
-    padding-left  : .5em;
-    padding-right : .5em;
+    padding-left  : .3em;
+    padding-right : .3em;
     margin-bottom : .5em;
     width         : 100%;
 }
@@ -594,7 +594,7 @@ i.icon {
 
 .carlist_c .ui-g-fly0-b p {
     color        : #838383;
-    padding-left : 1em;
+    padding-left : .5em;
     line-height  : 1.5;
 }
 
