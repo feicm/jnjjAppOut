@@ -486,7 +486,7 @@ i.icon {
     top             : 1.5em;
     margin-right    : .2em;
     background-size : cover;
-    left            : 1em;
+    left            : 0;
 }
 
 .icon01_arr_r {
