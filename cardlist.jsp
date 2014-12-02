@@ -66,8 +66,11 @@
     </ul>
     </div>
     <div class="ft w100">
-    <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='pre' id="bindcard_btn">
-    确认
+    <a class="ui_btn ui_btn_01 ui_radius fl" data-rel='pre'>
+    暂不绑定
+    </a>
+    <a class="ui_btn ui_btn_01 ui_radius fr" id="bindcard_btn">
+    提交绑定
     </a>
     </div>
     </form>
