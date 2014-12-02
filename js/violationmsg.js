@@ -19,9 +19,10 @@ $(function () {
     jzcxSubmit.on('click', jzcxListener);
     //按车辆 提交事件
     function clxcListener() {
-        var ip_hphm = $('#hphm');
-        var hphm = ip_hphm.text();
-        var hpzl = ip_hphm.val();
+        var ip_hphm = document.getElementById('hphm');
+        var index=ip_hphm.selectedIndex;
+        var hphm = ip_hphm.options[index].text;
+        var hpzl = ip_hphm.options[index].value;
         var jkbj;
         $('#nodo01').prop('checked') ? jkbj = 1 : jkbj = 0;
         /*var params = {
