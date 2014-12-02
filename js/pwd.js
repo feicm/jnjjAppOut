@@ -118,6 +118,10 @@ $(function () {
             Wisp.UI.progressDialog.show('密码修改中，请稍后！');
             //提交表单
             App.getAjaxData(repwdRequestUrl, params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    repwdBtn.on('click', repwdListener);
+                    return;
+                }
                 var msg = data.passwordRestResponse;
                 console.dir(msg);
                 if ( msg.result === 'success' ) {
@@ -144,6 +148,10 @@ $(function () {
         Wisp.UI.progressDialog.show('找回密码中，请稍后！');
         //提交表单
         App.getAjaxData(url, data, function (data) {
+            if ( data === 'error' ) {//ajax 失败回调
+                backpwdBtn.on('click', backpwdListener);
+                return;
+            }
             var msg = data.passwordRestResponse;
             console.dir(msg);
             if ( msg.result === 'true' ) {

@@ -64,17 +64,23 @@ $(function () {
             Wisp.UI.progressDialog.show('注册中，请稍后！');
             //提交表单
             App.getAjaxData(rigisterRequestUrl, params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    rigisterSubmit.on('click', rigisterListener);
+                    return;
+                }
                 var msg = data.registerResponse;
                 console.dir(msg);
                 if ( msg.loginSuccess === 'true' ) {
                     loginSuccessCallback(msg, jnjjApp.footbarDatas);
+                    rigisterSubmit.on('click', rigisterListener);
                 } else if ( msg.loginSuccess === 'false' ) {
                     Wisp.UI.progressDialog.remove();
                     alert(msg.loginContent + '!');
+                    rigisterSubmit.on('click', rigisterListener);
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('提交失败!');
-
+                    rigisterSubmit.on('click', rigisterListener);
                 }
             })
         }

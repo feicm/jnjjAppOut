@@ -254,6 +254,10 @@ $(function () {
             Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
             //提交表单
             App.getAjaxData(carbindRequestUrl, params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    bindinfoBtn && bindinfoBtn.on('click', bindcarListerner);
+                    return;
+                }
                 var msg = data.carBandResponse;
                 console.dir(msg);
                 if ( msg.bandSuccess === 'true' ) {
@@ -301,6 +305,10 @@ $(function () {
             Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
             //提交表单
             App.getAjaxData(cardbindRequestUrl, params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    bindcardBtn && bindcardBtn.on('click', bindcardListerner);
+                    return;
+                }
                 var msg = data.licenseBandResponse;
                 console.dir(msg);
                 if ( msg.bandSuccess === 'true' ) {

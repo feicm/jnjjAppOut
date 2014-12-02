@@ -59,6 +59,10 @@ $(function () {
                 "password": password,
                 "roleId"  : roleId
             }, function (data) {//登录请求回调
+                if(data==='error'){//ajax 失败回调
+                    loginSubmit.on('click', loginSubmitListener);
+                    return;
+                }
                 var msg = data.loginResponse;
                 if ( msg.loginSuccess === 'true' ) {
                     loginSuccessCallback(msg, jnjjApp.footbarDatas);

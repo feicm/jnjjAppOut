@@ -120,6 +120,10 @@ $(function () {
         if ( App.verify(opts) ) {
             Wisp.UI.progressDialog.show('信息保存中，请稍后！');
             App.getAjaxData(url, params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    saveinfoBtn.on('click', saveinfoListener);
+                    return;
+                }
                 var msg = data.userUpdateResponse;
                 if ( msg ) {
                     console.log('更新成功！');
