@@ -142,7 +142,6 @@ $(function () {
         for(var i=0;i<l;i++){
             siderDatas.sider.list[i].enable='true';
         }
-        alert('卧槽！'+siderDatas.sider.list[0].enable);
         sendClientUIdata(jnjjApp.footbarDatas, siderDatas);//发送客户端ui数据
         Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
         Wisp.UI.loginResult.success();
