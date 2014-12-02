@@ -29,7 +29,7 @@ $(function () {
     console.dir(hash);
     //内容块加载对象
     var detailsBlock = {
-        "init"     : function (opts) {
+        "init"      : function (opts) {
             this.dom = opts.dom;
             this.type = opts.type;
             this.url = opts.url;
@@ -40,7 +40,7 @@ $(function () {
                 this.load();
             }
         },
-        "load"     : function (dom, url, params) {
+        "load"      : function (dom, url, params) {
             var _self = this;
             var _url = url || _self.url;
             var _params = params || _self.params;
@@ -66,7 +66,7 @@ $(function () {
                 }
             });
         },
-        "render"   : function (data, selector, type) {
+        "render"    : function (data, selector, type) {
             console.dir(data);
             var _self = this;
             var _selector = selector;
@@ -75,7 +75,8 @@ $(function () {
             _trStr = _self.getHtml(type, data);
             _selector.append(_trStr);
         },
-        "getHtml"  : function (type, data) {
+        "getHtml"   : function (type, data) {
+            var _self = this;
             var html;
             var msg;
             switch ( type ) {
@@ -161,7 +162,8 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    if ( msg instanceof Array ) {
+                    if ( l > 2 ) {
+                        msg = _self.formatData(msg);
                         for ( var i = 0; i < l; i++ ) {
                             li = [
                                 '<li>',
@@ -195,7 +197,8 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    if ( msg instanceof Array ) {
+                    if ( l > 2 ) {
+                        msg = _self.formatData(msg);
                         for ( var i = 0; i < l; i++ ) {
                             li = [
                                 '<li>',
@@ -231,7 +234,8 @@ $(function () {
                     var l = msg.length;
                     var li = '';
                     var liArr = [];
-                    if ( msg instanceof Array ) {
+                    if ( l > 2 ) {
+                        msg = _self.formatData(msg);
                         for ( var i = 0; i < l; i++ ) {
                             li = [
                                 '<li>',
@@ -274,7 +278,7 @@ $(function () {
              }*/
             return html;
         },
-        "loadMulti": function () {
+        "loadMulti" : function () {
             var _self = this;
             var _type = _self.type;
             var _dom = _self.dom;
@@ -287,6 +291,17 @@ $(function () {
                 _blockid = $(this).attr('data-for');
                 _self.load($('#' + _blockid), _urlArr[index], _paramsArr[index]);
             })
+        },
+        "formatData": function (data) {
+            var sData = data.substring(1, data.length - 1);
+            var aData = sData.split(',{');
+            var l = aData.length;
+            for ( var i = 0; i < l; i++ ) {
+                i && (aData[i] = '{' + aData[i]);
+                aData[i] = $.parseJSON(aData[i]);
+            }
+            console.dir(aData);
+            return aData;
         }
     };
     if ( hash ) {
