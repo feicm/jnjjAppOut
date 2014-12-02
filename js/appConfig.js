@@ -178,7 +178,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "车管所位置",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "requestUrl"       : "/jnpublic/cgsquery.json?action=map"
+                            "url"       : "/jnpublic/cgsquery.json?action=map"
                         }
                     ]
                 }
