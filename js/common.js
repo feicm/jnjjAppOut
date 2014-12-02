@@ -260,7 +260,7 @@ var App = (function () {
                 if ( _module ) {
                     if ( _module === 'car' ) {  //按车辆
                         for ( var j in list ) {
-                            selectArr.push("<option data-type'" + list[j].carNumType + "' value='" + list[j].carid + "'>" + list[j].carid + "</option>");
+                            selectArr.push("<option data-type='" + list[j].carNumType + "' value='" + list[j].carid + "'>" + list[j].carid + "</option>");
                         }
                     }
                     if ( _module === 'license' ) {
