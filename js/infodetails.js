@@ -170,7 +170,7 @@ $(function () {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
                                 '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
                                 '    <h1>处理时间：' + msg[i].clsj + '</h1>',
                                 '    <h1>处理情况：' + msg[i].clqk + '</h1>',
@@ -207,7 +207,7 @@ $(function () {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
                                 '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
                                 '    <h1>交款时间：' + msg[i].jksj + '</h1>',
                                 '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
@@ -246,7 +246,7 @@ $(function () {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdz + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
                                 '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
                                 '    <h1>接受处理时间：' + msg[i].jsclsj + '</h1>',
                                 '    <h1>裁决时间：' + msg[i].cjbj + '</h1>',
