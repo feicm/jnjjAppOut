@@ -160,11 +160,13 @@ $(function () {
                 case 'wf_car':
                     msg = data.msg;//Array
                     var l = msg.length;
+                    var al;
                     var li = '';
                     var liArr = [];
                     if ( l > 2 ) {
                         msg = _self.formatData(msg);
-                        for ( var i = 0; i < l; i++ ) {
+                        al=msg.length;
+                        for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
@@ -195,11 +197,13 @@ $(function () {
                 case 'wf_card_t1':
                     msg = data.msg;//Array
                     var l = msg.length;
+                    var al;
                     var li = '';
                     var liArr = [];
                     if ( l > 2 ) {
                         msg = _self.formatData(msg);
-                        for ( var i = 0; i < l; i++ ) {
+                        al=msg.length;
+                        for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
@@ -232,11 +236,13 @@ $(function () {
                 case 'wf_card_t2':
                     msg = data.msg;//Array
                     var l = msg.length;
+                    var al;
                     var li = '';
                     var liArr = [];
                     if ( l > 2 ) {
                         msg = _self.formatData(msg);
-                        for ( var i = 0; i < l; i++ ) {
+                        al=msg.length;
+                        for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
                                 '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
