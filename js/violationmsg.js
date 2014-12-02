@@ -22,7 +22,7 @@ $(function () {
         var ip_hphm = document.getElementById('hphm');
         var index=ip_hphm.selectedIndex;
         var hphm = ip_hphm.options[index].text;
-        var hpzl = ip_hphm.options[index].value;
+        var hpzl = ip_hphm.options[index].getAttribute('data-type');
         var jkbj;
         $('#nodo01').prop('checked') ? jkbj = 1 : jkbj = 0;
         /*var params = {

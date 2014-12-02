@@ -245,7 +245,7 @@ var App = (function () {
                 var selectStr;
                 var _module = _self.module;
                 data.msg && (list = data.msg);
-                data[_module+'QueryResponse'] && (list = data[_module+'QueryResponse'][_module+'List']);
+                data[_module + 'QueryResponse'] && (list = data[_module + 'QueryResponse'][_module + 'List']);
                 if ( _self.dataType === 'Object' ) {
                     for ( var j in list ) {
                         selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
@@ -260,7 +260,7 @@ var App = (function () {
                 if ( _module ) {
                     if ( _module === 'car' ) {  //按车辆
                         for ( var j in list ) {
-                            selectArr.push("<option value='" + list[j].carNumType + "'>" + list[j].carid + "</option>");
+                            selectArr.push("<option data-type'" + list[j].carNumType + "' value='" + list[j].carid + "'>" + list[j].carid + "</option>");
                         }
                     }
                     if ( _module === 'license' ) {
