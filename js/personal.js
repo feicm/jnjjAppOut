@@ -130,9 +130,9 @@ $(function () {
                     alert('信息已保存！');
                     Wisp.UI.progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
-                    params.phone && (cur_ip_phone=data.phone);
-                    params.movecarname && (cur_ip_y_name=data.phone);
-                    params.movecarphone && (cur_ip_y_phone=data.phone);
+                    params.phonenum && (cur_ip_phone=params.phonenum);
+                    params.movecarname && (cur_ip_y_name=params.movecarname);
+                    params.movecarphone && (cur_ip_y_phone=params.movecarphone);
                 } else {
                     alert('保存失败！');
                     saveinfoBtn.on('click', saveinfoListener);
