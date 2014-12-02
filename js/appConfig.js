@@ -175,10 +175,10 @@ jnjjApp.footbarDatas= {
                             "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/kscjcx_dis.png",
                             "enable"    : "true",
-                            "name"      : "地图",
+                            "name"      : "车管所位置",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "/jnpublic/cgsquery.json?action=map"
+                            "requestUrl"       : "/jnpublic/cgsquery.json?action=map"
                         }
                     ]
                 }
@@ -196,45 +196,59 @@ jnjjApp.siderDatas = {
         },
         "list": [
             {
-                "beforeImg" : "config/html/images/wispui/personal_normal.png",
-                "afterImg"  : "config/html/images/wispui/hover.png",
-                "name"      : "个人资料维护",
+                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                "beforeImg" : "config/html/images/wispui/personal_normal.png",//点击前图标
+                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "disableImg": "config/html/images/wispui/personal_dis.png",
+                "enable"    : "false",
+                "name"      : "个人资料",
+                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/personalinfo.jsp",
-                "subBtns"   : []
+                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/personalinfo.jsp"
             },
             {
-                "beforeImg" : "config/html/images/wispui/mycar_normal.png",
-                "afterImg"  : "config/html/images/wispui/hover.png",
+                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                "beforeImg" : "config/html/images/wispui/mycar_normal.png",//点击前图标
+                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "disableImg": "config/html/images/wispui/mycar_dis.png",
+                "enable"    : "false",
                 "name"      : "我的车辆",
+                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/carlist.jsp",
-                "subBtns"   : []
+                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
             },
             {
-                "beforeImg" : "config/html/images/wispui/mycard_normal.png",
-                "afterImg"  : "config/html/images/wispui/hover.png",
+                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                "beforeImg" : "config/html/images/wispui/mycard_normal.png",//点击前图标
+                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "disableImg": "config/html/images/wispui/mycard_dis.png",
+                "enable"    : "false",
                 "name"      : "我的驾照",
+                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp",
-                "subBtns"   : []
+                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/cardlist.jsp"
             },
             {
-                "beforeImg" : "config/html/images/wispui/myviolation_normal.png",
-                "afterImg"  : "config/html/images/wispui/hover.png",
+                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                "beforeImg" : "config/html/images/wispui/myviolation_normal.png",//点击前图标
+                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "disableImg": "config/html/images/wispui/myviolation_dis.png",
+                "enable"    : "false",
                 "name"      : "我的违法",
+                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violation.jsp",
-                "subBtns"   : []
+                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/violation.jsp"
             },
             {
-                "beforeImg" : "config/html/images/wispui/msg_normal.png",
-                "afterImg"  : "config/html/images/wispui/hover.png",
+                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                "beforeImg" : "config/html/images/wispui/msg_normal.png",//点击前图标
+                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "disableImg": "",
+                "enable"    : "true",
                 "name"      : "消息查看",
+                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "",
-                "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android",
-                "subBtns"   : []
+                "url"       : jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android&action=message"
             }
         ]
     }
