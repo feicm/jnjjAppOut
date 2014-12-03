@@ -425,7 +425,7 @@ var App = (function () {
             aHash = [],
             aItem,
             l;
-        aHash = str.split('#');
+        aHash = str.substring(1,str.length).split('@');
         l = aHash.length;
         for ( var i = 0; i < l; i++ ) {
             aItem = aHash[i].split('=');
