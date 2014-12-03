@@ -50,7 +50,7 @@ $(function () {
         "url"   : identityTypeRequestUrl,
         "dataType": 'Object'
     });
-   /* App.UI('select', {
+    App.UI('select', {
         "dom"   : $('#ksyy_ksyy'),
         "url"   : ksreasonRequestUrl,
         "data"  : {'register': userName},
@@ -61,5 +61,5 @@ $(function () {
         "url"   : kscourseRequestUrl,
         "data"  : {'register': userName},
         "module": 'query'
-    });*/
+    });
 });
