@@ -93,9 +93,9 @@ $(function () {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
                     var params = '#mode=cardquery#licenserecord=' + licenseRecord;
-                    //window.open(_self.resultUrl + params);//通过url hash传参
-                    var newPage=window.open("");//通过url hash传参
-                    newPage.location=_self.resultUrl + params;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                    //var newPage=window.open("");//通过url hash传参
+                    //newPage.location=_self.resultUrl + params;
                 })
             }
         },
