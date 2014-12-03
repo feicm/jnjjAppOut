@@ -327,7 +327,7 @@ $(function () {
                     params = {
                         "register": userName,
                         "cartype" : oHash.cartype,
-                        "carid"   : oHash.carid
+                        "carid"   : decodeURI(oHash.carid)
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
@@ -374,7 +374,7 @@ $(function () {
                 if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
                     //&register=user2A&indentyid=370181199403014414&jkbj=1
                     //&register=user2A&indentyid=370181199001012475&cjbj=1
-                    if ( oHash.jkbj !== '0' ) {
+                    if ( oHash.jkbj !== null ) {
                         params = [
                             {
                                 "register" : userName,

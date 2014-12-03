@@ -24,7 +24,7 @@ $(function () {
         var hphm = ip_hphm.options[index].text;
         var hpzl = ip_hphm.options[index].getAttribute('data-type');
         var jkbj;
-        $('#nodo01').prop('checked') ? jkbj = 1 : jkbj = 0;
+        $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = null;
         /*var params = {
          "register": userName,
          "cartype" : hpzl,
@@ -32,7 +32,7 @@ $(function () {
          };*/
         clxcSubmit.off('click');
         if ( hpzl !== '未绑定' ) {
-            var params = '#mode=wf_car#cartype=' + hpzl + '#carid=' + hphm + '#jkbj=' + jkbj;
+            var params = '#mode=wf_car@cartype=' + hpzl + '@carid=' + hphm + '@jkbj=' + jkbj;
             window.open(infoPageUrl + params);//通过url hash传参
             clxcSubmit.on('click', clxcListener);
         } else {
@@ -46,9 +46,9 @@ $(function () {
         var licenseid = ip_jzxm.val();
         var jkbj;
         jzcxSubmit.off('click');
-        $('#nodo02').prop('checked') ? jkbj = 1 : jkbj = 0;
+        $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = null;
         if ( licenseid !== '未绑定' ) {
-            var params = '#mode=wf_card#licenseid=' + licenseid + '#jkbj=' + jkbj;
+            var params = '#mode=wf_card#licenseid=' + licenseid + '@jkbj=' + jkbj;
             window.open(infoTabPageUrl + params);//通过url hash传参
             jzcxSubmit.on('click', jzcxListener);
         } else {
