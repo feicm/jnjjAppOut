@@ -427,7 +427,7 @@ var App = (function () {
             l;
         aHash = str.split('#');
         l = aHash.length;
-        for ( var i = 1; i < l; i++ ) {
+        for ( var i = 0; i < l; i++ ) {
             aItem = aHash[i].split('=');
             oHash[aItem[0]] = $.trim(aItem[1]);
         }
