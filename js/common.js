@@ -236,7 +236,7 @@ var App = (function () {
                 var _self = this;
                 getAjaxData(_self.url, _self.params, function (data) {
                     _self.initSelect(data);
-                });
+                },"POST");
             },
             "initSelect": function (data) {
                 var _self = this;
@@ -439,7 +439,7 @@ var App = (function () {
     };
     //ajax 请求封装
     function getAjaxData(url, params, callback, type) {
-        $.ajax({ //登录验证请求
+        $.ajax({ //通用请求
             type    : type || 'GET',
             url     : url,
             data    : params,
