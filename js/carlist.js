@@ -83,7 +83,9 @@ $(function () {
                     var cartype = _me.attr('data-cartype');
                     var carid = _me.attr('data-carid');
                     var params = '#mode=carquery#cartype=' + cartype + '#carid=' + carid;
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    //var newPage=window.open(_self.resultUrl + params);//通过url hash传参
+                    var newPage=window.open("", "_blank");//通过url hash传参
+                    newPage.location=_self.resultUrl + params;
                 })
             }
             if ( _mode === 'card' ) {
@@ -91,7 +93,9 @@ $(function () {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
                     var params = '#mode=cardquery#licenserecord=' + licenseRecord;
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    //window.open(_self.resultUrl + params);//通过url hash传参
+                    var newPage=window.open("", "_blank");//通过url hash传参
+                    newPage.location=_self.resultUrl + params;
                 })
             }
         },
