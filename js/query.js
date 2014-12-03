@@ -10,7 +10,7 @@ $(function () {
         + '/jnpublic/ksreason.json';//考试原因获取接口
     var kscourseRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/kscourse.jsp';//考试科目获取接口
+        + '/jnpublic/kscourse.json';//考试科目获取接口
     var ksyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/ksyyquery.jsp';//考试预约查询提交接口

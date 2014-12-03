@@ -236,7 +236,7 @@ var App = (function () {
                 var _self = this;
                 getAjaxData(_self.url, _self.params, function (data) {
                     _self.initSelect(data);
-                },"POST");
+                });
             },
             "initSelect": function (data) {
                 var _self = this;
