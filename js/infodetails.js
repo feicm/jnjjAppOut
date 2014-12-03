@@ -1,6 +1,6 @@
 $(function () {
     /*
-     * 单个车辆、驾照信息内容，通过列表页传过来的hash 作为请求参数
+     * 单个车辆、驾照信息、违法信息、考试预约/成绩查询、年鉴预约查询等内容，通过列表页传过来的hash 作为请求参数
      * */
     //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('username');
@@ -20,6 +20,9 @@ $(function () {
     var wf_card_url02 = urlPre
         + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
+    var kscjqueryRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/kscjquery.jsp';//考试成绩查询提交接口
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码

@@ -32,7 +32,9 @@ body {
 .mt01 {
     margin-top : 24px;
 }
-
+.w6{
+    width: 6em !important;
+}
 .ui_radius {
     border-radius         : 4px;
     -webkit-border-radius : 4px;
