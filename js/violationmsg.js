@@ -49,7 +49,7 @@ $(function () {
         jzcxSubmit.off('click');
         $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = null;
         if ( licenseid !== '未绑定' ) {
-            var params = '#mode=wf_card#licenseid=' + licenseid + '@jkbj=' + jkbj;
+            var params = '#mode=wf_card@licenseid=' + licenseid + '@jkbj=' + jkbj;
             window.open(infoTabPageUrl + params);//通过url hash传参
             jzcxSubmit.on('click', jzcxListener);
         } else {
