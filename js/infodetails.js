@@ -2,6 +2,8 @@ $(function () {
     /*
      * 单个车辆、驾照信息内容，通过列表页传过来的hash 作为请求参数
      * */
+    //var userName = App.Cookie.GetCookie('username');
+    var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
     var carOnlyUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -18,7 +20,6 @@ $(function () {
     var wf_card_url02 = urlPre
         + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
-    var userName = App.Cookie.GetCookie('username');
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码

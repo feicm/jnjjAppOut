@@ -180,7 +180,8 @@ $(function () {
         sendClientUIdata(jnjjApp.footbarDatas, siderDatas);//发送客户端ui数据
         Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
         Wisp.UI.loginResult.success();
-        App.Cookie.SetCookie('username', username);
+        //App.Cookie.SetCookie('username', username);
+        App.LS.set('username',opts.username.val());//用户名写入本地存储
         console.log('login END!!!!');
     }
 

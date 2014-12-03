@@ -2,7 +2,8 @@ $(function () {
     /*
      * 绑定模块列表
      * */
-    var userName = App.Cookie.GetCookie('username');
+    //var userName = App.Cookie.GetCookie('username');
+    var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl

@@ -1,6 +1,7 @@
 $(function () {
     console.log('module pwd js');
-    var userName = App.Cookie.GetCookie('username');
+    //var userName = App.Cookie.GetCookie('username');
+    var userName = App.LS.get('username');
     var backpwdMethonSelect = $('#backpwd_methon'); //找回密码——下拉
     var backpwdBtn = $('#backpwd_btn');//找回密码——提交按钮
     var repwdBtn = $('#repwd_btn'); //密码修改--提交按钮
@@ -17,7 +18,6 @@ $(function () {
     var closerRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/closeSetPass.json';//密切联系人找回
-    //TODO 流程代码
     repwdBtn.length && repwdBtn.on('click', repwdListener);
     backpwdBtn.length && backpwdBtn.on('click', backpwdListener);
 

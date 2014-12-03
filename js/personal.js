@@ -4,7 +4,8 @@ $(function () {
      * */
     var saveinfoBtn = $('#saveinfo_btn');//保存
     var gorepwdBtn = $('#go_repwd');//修改密码
-    var userName = App.Cookie.GetCookie('username');
+    //var userName = App.Cookie.GetCookie('username');
+    var userName = App.LS.get('username');
     var ip_username = $('#username');//用户名
     var ip_name = $('#name');//姓名
     var ip_photo = $('#photo');//手机

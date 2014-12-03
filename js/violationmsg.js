@@ -1,4 +1,6 @@
 $(function () {
+    //var userName = App.Cookie.GetCookie('username');
+    var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -12,7 +14,6 @@ $(function () {
     var infoTabPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/violationlisttab.jsp';//查询结果页地址(带选项卡)
-    var userName = App.Cookie.GetCookie('username');
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
     clxcSubmit.on('click', clxcListener);

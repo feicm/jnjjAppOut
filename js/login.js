@@ -145,7 +145,8 @@ $(function () {
         sendClientUIdata(jnjjApp.footbarDatas, siderDatas);//发送客户端ui数据
         Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
         Wisp.UI.loginResult.success();
-        App.Cookie.SetCookie('username', username);
+        //App.Cookie.SetCookie('username', username); //原cookie储存无法实现退出应用保存
+        App.LS.set('username',username);
         console.log('login END!!!!');
     }
 
