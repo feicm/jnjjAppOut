@@ -442,8 +442,7 @@ var App = (function () {
         $.ajax({ //通用请求
             type    : type || 'GET',
             url     : url,
-            data    : params,
-            dataType: 'json'
+            data    : params
         }).done(function (data) {//登录表单提交
             if ( data ) {//验证返回数据
                 callback && callback(data);
