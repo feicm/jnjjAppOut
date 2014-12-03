@@ -164,7 +164,7 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( l > 2 ) {
+                    if ( msg!=='NO_RESULT' ) {
                         msg = _self.formatData(msg);
                         al=msg.length;
                         for ( var i = 0; i < al; i++ ) {
@@ -201,7 +201,7 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( l > 2 ) {
+                    if ( msg!=='NO_RESULT' ) {
                         msg = _self.formatData(msg);
                         al=msg.length;
                         for ( var i = 0; i < al; i++ ) {
@@ -240,7 +240,7 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( l > 2 ) {
+                    if ( msg!=='NO_RESULT' ) {
                         msg = _self.formatData(msg);
                         al=msg.length;
                         for ( var i = 0; i < al; i++ ) {
