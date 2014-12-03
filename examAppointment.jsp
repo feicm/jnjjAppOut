@@ -85,7 +85,7 @@
 <script src="config/html/js/WISPComponents_v3.0.js"></script>
 <script src="config/html/js/appConfig.js"></script>
 <script src="config/html/js/common.js"></script>
-<script src="config/html/js/violationmsg.js"></script>
+<script src="config/html/js/query.js"></script>
 <!--select组件-->
 <script src="config/html/js/mobiscroll.all.js" type="text/javascript"></script>
 <!--select组件 end-->
