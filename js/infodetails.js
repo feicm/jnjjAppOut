@@ -359,7 +359,7 @@ $(function () {
                     params = {
                         "register"  : userName,
                         "carNumType": oHash.cartype,
-                        "carNum"    : oHash.carid,
+                        "carNum"    : decodeURI(oHash.carid),
                         "jkbj"      : oHash.jkbj
                     };
                     detailsBlock.init({
