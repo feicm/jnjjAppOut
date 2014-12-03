@@ -48,7 +48,6 @@ $(function () {
     App.UI('select', {
         "dom"   : $('#ksyy_sfzmmc'),
         "url"   : identityTypeRequestUrl,
-        "data"  : {'register': userName},
         "dataType": 'Object'
     });
     App.UI('select', {
