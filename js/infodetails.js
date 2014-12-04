@@ -249,7 +249,7 @@ $(function () {
                     html = liArr.join("");
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
-                    //msg = $.parseJSON(data.carList[0].msg);//Object
+                    msg = data;
                     if(msg.success){
                         html = [
                             '<tr>',
@@ -277,7 +277,7 @@ $(function () {
                     }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
-                    //msg = $.parseJSON(data.carList[0].msg);//Object
+                    msg = data;
                     if(msg.success){
                         html = [
                             '<tr>',
