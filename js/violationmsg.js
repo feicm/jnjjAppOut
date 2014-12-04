@@ -10,10 +10,10 @@ $(function () {
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址 select
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/violationlist.jsp';//查询结果页地址
+        + '/jnpublic/config/html/resultlist.jsp';//查询结果页地址
     var infoTabPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/violationlisttab.jsp';//查询结果页地址(带选项卡)
+        + '/jnpublic/config/html/resultlisttab.jsp';//查询结果页地址(带选项卡)
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
     clxcSubmit.on('click', clxcListener);

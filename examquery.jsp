@@ -34,7 +34,7 @@
                     <div class="item-inner">
                         <div class="item-title label">证件号码</div>
                         <div class="item-input">
-                            <input id="ksyy_sfzmhm" type="text" placeholder="请输入身份证明号码">
+                            <input id="ksyy_sfzmhm" data-type="card" type="text" placeholder="请输入身份证明号码">
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="item-inner">
                         <div class="item-title label">流 水 号</div>
                         <div class="item-input">
-                            <input id="ksyy_lsh" type="text" placeholder="请输入流水号">
+                            <input id="ksyy_lsh" data-type="lsh" type="text" placeholder="请输入流水号">
                         </div>
                     </div>
                 </div>
@@ -75,8 +75,8 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="ksyy_btn">
-            查询
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="ksquery_btn">
+            立即查询
         </a>
     </div>
 </form>

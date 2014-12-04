@@ -88,7 +88,8 @@ var App = (function () {
                 "mobile" : '手机号码格式错误！',
                 "car"    : '车牌号码格式错误',
                 "archive": '档案编号12位纯数字',
-                "car2"   : '车辆识别代号17位'
+                "car2"   : '车辆识别代号17位',
+                "lsh"    : '流水号1-13位'
             },
             "init"        : function () {
                 this.doms = opts.doms;
@@ -179,6 +180,9 @@ var App = (function () {
                         break;
                     case "car2":
                         result = iscarid2(value);
+                        break;
+                    case "lsh":
+                        result = islsh(value);
                         break;
                     default:
                         console.log('这是一个彩蛋，买彩票去吧！');
@@ -463,16 +467,16 @@ var App = (function () {
             aItem,
             str_sub,
             l;
-        str_sub=str.substring(1, str.length);
-        aHash=str_sub.split('@');
+        str_sub = str.substring(1, str.length);
+        aHash = str_sub.split('@');
         //aHash = str.substring(1, str.length).split('@');
         l = aHash.length;
-        if(l){
+        if ( l ) {
             for ( var i = 0; i < l; i++ ) {
                 aItem = aHash[i].split('=');
                 oHash[aItem[0]] = $.trim(aItem[1]);
             }
-        }else{
+        } else {
             aItem = str_sub.split('=');
             oHash[aItem[0]] = $.trim(aItem[1]);
         }
@@ -579,6 +583,12 @@ var App = (function () {
         return true;
     }
 
+    //流水号
+    function islsh(str) {
+        var reg = /^\S{1,13}$/;
+        return reg.test(str);
+    }
+
     //验证必填项
     /*var opts = {
      "username": $('#setusername'),//用户名
@@ -662,6 +672,14 @@ var App = (function () {
         }
         if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.parent().find('.tips').length) ) {
             alert('提交失败！（请检查您的移车联系人电话）');
+            return false;
+        }
+        if ( opts.sfzmhm && (opts.sfzmhm.val() === '' || opts.sfzmhm.parent().find('.tips').length) ) {
+            alert('提交失败！（请检查您的身份证明号码）');
+            return false;
+        }
+        if ( opts.lsh && (opts.lsh.val() === '' || opts.lsh.parent().find('.tips').length) ) {
+            alert('提交失败！（请检查您的流水号）');
             return false;
         }
         return true;

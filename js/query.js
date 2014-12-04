@@ -1,4 +1,7 @@
 $(function () {
+    /*
+    * 考试预约查询、考试成绩查询
+    * */
     //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
@@ -11,12 +14,9 @@ $(function () {
     var kscourseRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/kscourse.json';//考试科目获取接口
-    var ksyyqueryRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/ksyyquery.jsp';//考试预约查询提交接口
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/violationlist.jsp';//查询结果页地址
+        + '/jnpublic/config/html/infodetails.jsp';//查询结果页地址
     var hash = window.location.hash;
     var modeName;
     if ( hash ) {
@@ -30,7 +30,7 @@ $(function () {
         console.log('传参失败！');
     }
     //TODO 考试预约 年鉴预约 年鉴预约查询
-    var ksquerySubmit = $('#ksyy_btn');//考试预约提交按钮
+    var ksquerySubmit = $('#ksquery_btn');//考试预约提交按钮
     ksquerySubmit.on('click', function(){
         ksqueryListener(modeName);
     });
@@ -41,8 +41,13 @@ $(function () {
         var ip_lsh = $('#ksyy_lsh').val();
         var ip_ksyy = $('#ksyy_ksyy').val();
         var ip_kskm = $('#ksyy_kskm').val();
+        var opts={};
         ksquerySubmit.off('click');
-        if ( true ) { //TODO　表单验证
+        opts = {
+            "sfzmhm": $('#ksyy_sfzmhm'),//身份证明号码
+            "lsh": $('#ksyy_lsh')//流水号
+        };
+        if ( App.verify(opts) ) {
             //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
             var params = '#mode='+mode+'@sfzmmc=' + ip_sfzmmc
                 + '@sfzmhm=' + ip_sfzmhm
@@ -51,11 +56,11 @@ $(function () {
                 + '@kskm=' + ip_kskm;
             window.open(infoPageUrl + params);//通过url hash传参
             ksquerySubmit.on('click', function(){
-                ksqueryListener('query_ks');
+                ksqueryListener(modeName);
             });
         } else {
             ksquerySubmit.on('click', function(){
-                ksqueryListener('query_ks');
+                ksqueryListener(modeName);
             });
         }
     }
@@ -80,5 +85,12 @@ $(function () {
         "url"   : kscourseRequestUrl,
         "data"  : {'register': userName},
         "dataType": 'Object'
+    });
+    App.UI('inputClose', {//页面输入校验
+        "doms": $('.list-block')
+    });
+    App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : ksquerySubmit,
+        "hoverClassName": 'ui_btn_01_hover'
     });
 });

@@ -20,6 +20,9 @@ $(function () {
     var wf_card_url02 = urlPre
         + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
+    var ksyyqueryRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/ksyyquery.jsp';//考试预约查询提交接口
     var kscjqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/kscjquery.jsp';//考试成绩查询提交接口
@@ -55,6 +58,7 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
+                data.success && (msg = data);//考试成绩/预约查询
                 if ( data.violationInfoResponse ) {
                     msg = data.violationInfoResponse;
                     type = 'wf_card_t1';
@@ -166,9 +170,9 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( msg!=='NO_RESULT' ) {
+                    if ( msg !== 'NO_RESULT' ) {
                         msg = _self.formatData(msg);
-                        al=msg.length;
+                        al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
@@ -197,9 +201,9 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( msg!=='NO_RESULT' ) {
+                    if ( msg !== 'NO_RESULT' ) {
                         msg = _self.formatData(msg);
-                        al=msg.length;
+                        al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
@@ -229,9 +233,9 @@ $(function () {
                     var al;
                     var li = '';
                     var liArr = [];
-                    if ( msg!=='NO_RESULT' ) {
+                    if ( msg !== 'NO_RESULT' ) {
                         msg = _self.formatData(msg);
-                        al=msg.length;
+                        al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
                             li = [
                                 '<li>',
@@ -252,6 +256,62 @@ $(function () {
                         liArr.push(li);
                     }
                     html = liArr.join("");
+                    break;
+                case 'query_ksyy': //考试预约查询结果内容模板
+                    //msg = $.parseJSON(data.carList[0].msg);//Object
+                    html = [
+                        '<tr>',
+                        '     <td>姓名</td>',
+                        '     <td>' + msg.xm + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>身份证明号码</td>',
+                        '     <td>' + msg.sfzmhm + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>预约日期</td>',
+                        '     <td>' + msg.yyrq + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试日期</td>',
+                        '     <td>' + msg.ksrq + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试地点</td>',
+                        '     <td>' + msg.kcmc + '</td>',
+                        ' </tr>'].join("");
+                    break;
+                case 'query_kscj': //考试预约查询结果内容模板
+                    //msg = $.parseJSON(data.carList[0].msg);//Object
+                    html = [
+                        '<tr>',
+                        '     <td>姓名</td>',
+                        '     <td>' + msg.xm + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>身份证明号码</td>',
+                        '     <td>' + msg.sfzmhm + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试成绩</td>',
+                        '     <td>' + msg.kscj + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>是否合格</td>',
+                        '     <td>' + (msg.zt+0===1 ? '合格' : '不合格') + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试日期</td>',
+                        '     <td>' + msg.ksrq + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试场次</td>',
+                        '     <td>' + (msg.kscc+0===1 ? '上午' : '下午') + '</td>',
+                        ' </tr>',
+                        ' <tr>',
+                        '     <td>考试地点</td>',
+                        '     <td>' + msg.kcmc + '</td>',
+                        ' </tr>'].join("");
                     break;
                 default:
                     html = [
@@ -332,7 +392,9 @@ $(function () {
                 }
                 break;
             case 'wf_car'://违法信息-按车辆-内容结果加载
-                if ( hasKey('cartype', oHash) && hasKey('carid', oHash) && hasKey('jkbj', oHash) ) {
+                if ( hasKey('cartype', oHash)
+                    && hasKey('carid', oHash)
+                    && hasKey('jkbj', oHash) ) {
                     //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
                     params = {
                         "register"  : userName,
@@ -385,6 +447,43 @@ $(function () {
                     });
                 }
                 break;
+            case 'query_ksyy'://考试预约查询-结果
+            case 'query_kscj'://考试预约查询-结果
+                if ( hasKey('sfzmmc', oHash)
+                    && hasKey('sfzmhm', oHash)
+                    && hasKey('lsh', oHash)
+                    && hasKey('ksyy', oHash)
+                    && hasKey('kskm', oHash) ) {
+
+                    //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
+                    params = {
+                        "register": userName,
+                        "sfzmmc"  : oHash.sfzmmc,
+                        "sfzmhm"  : oHash.sfzmhm,
+                        "lsh"     : oHash.lsh,
+                        "ksyy"    : oHash.ksyy,
+                        "kskm"    : oHash.kskm
+                    };
+                    if ( modename === 'query_ksyy' ) {//加载考试预约结果
+                        detailsBlock.init({
+                            "dom" : $('#c_Table_b'),
+                            "type": 'query_ksyy',
+                            "url" : ksyyqueryRequestUrl,
+                            "data": params
+                        });
+                    }
+                    if ( modename === 'query_kscj' ) {//加载考试成绩结果
+                        detailsBlock.init({
+                            "dom" : $('#c_Table_b'),
+                            "type": 'query_kscj',
+                            "url" : kscjqueryRequestUrl,
+                            "data": params
+                        });
+                    }
+                }
+                break;
+            default :
+                console.log("it's not this mode!!");
         }
 
     }
