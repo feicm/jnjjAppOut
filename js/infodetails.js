@@ -58,7 +58,7 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
-                data.success && (msg = data);//考试成绩/预约查询
+                data.success ? (msg = data) : (msg = data);//考试成绩/预约查询,卧槽，这样的返回格式真的是醉了
                 if ( data.violationInfoResponse ) {
                     msg = data.violationInfoResponse;
                     type = 'wf_card_t1';
@@ -187,10 +187,7 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li = [
-                            '<li>',
-                            '    <h1>无记录！</h1>',
-                            '</li>'].join("");
+                        li=_self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = '<h1>' + data.carNum + '</h1>' + liArr.join("");
@@ -219,10 +216,7 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li = [
-                            '<li>',
-                            '    <h1>无记录！</h1>',
-                            '</li>'].join("");
+                        li=_self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = liArr.join("");
@@ -249,78 +243,87 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li = [
-                            '<li>',
-                            '    <h1>无记录！</h1>',
-                            '</li>'].join("");
+                        li=_self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = liArr.join("");
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
                     //msg = $.parseJSON(data.carList[0].msg);//Object
-                    html = [
-                        '<tr>',
-                        '     <td>姓名</td>',
-                        '     <td>' + msg.xm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>身份证明号码</td>',
-                        '     <td>' + msg.sfzmhm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>预约日期</td>',
-                        '     <td>' + msg.yyrq + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试日期</td>',
-                        '     <td>' + msg.ksrq + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试地点</td>',
-                        '     <td>' + msg.kcmc + '</td>',
-                        ' </tr>'].join("");
+                    if(msg.success){
+                        html = [
+                            '<tr>',
+                            '     <td>姓名</td>',
+                            '     <td>' + msg.xm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>身份证明号码</td>',
+                            '     <td>' + msg.sfzmhm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>预约日期</td>',
+                            '     <td>' + msg.yyrq + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试日期</td>',
+                            '     <td>' + msg.ksrq + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试地点</td>',
+                            '     <td>' + msg.kcmc + '</td>',
+                            ' </tr>'].join("");
+                    }else{
+                        html=_self.getHtmlNoResult();
+                    }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
                     //msg = $.parseJSON(data.carList[0].msg);//Object
-                    html = [
-                        '<tr>',
-                        '     <td>姓名</td>',
-                        '     <td>' + msg.xm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>身份证明号码</td>',
-                        '     <td>' + msg.sfzmhm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试成绩</td>',
-                        '     <td>' + msg.kscj + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>是否合格</td>',
-                        '     <td>' + (msg.zt+0===1 ? '合格' : '不合格') + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试日期</td>',
-                        '     <td>' + msg.ksrq + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试场次</td>',
-                        '     <td>' + (msg.kscc+0===1 ? '上午' : '下午') + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>考试地点</td>',
-                        '     <td>' + msg.kcmc + '</td>',
-                        ' </tr>'].join("");
+                    if(msg.success){
+                        html = [
+                            '<tr>',
+                            '     <td>姓名</td>',
+                            '     <td>' + msg.xm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>身份证明号码</td>',
+                            '     <td>' + msg.sfzmhm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试成绩</td>',
+                            '     <td>' + msg.kscj + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>是否合格</td>',
+                            '     <td>' + (msg.zt + 0 === 1 ? '合格' : '不合格') + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试日期</td>',
+                            '     <td>' + msg.ksrq + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试场次</td>',
+                            '     <td>' + (msg.kscc + 0 === 1 ? '上午' : '下午') + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>考试地点</td>',
+                            '     <td>' + msg.kcmc + '</td>',
+                            ' </tr>'].join("");
+                    }else{
+                        html=_self.getHtmlNoResult();
+                    }
                     break;
                 default:
-                    html = [
-                        ' <div>',
-                        '     <b>无记录！</b>',
-                        ' </div>'].join("");
+                    html=_self.getHtmlNoResult();
                     break;
             }
             return html;
+        },
+        "getHtmlNoResult":function(){
+            var _html = [
+                ' <div>',
+                '     <b>无记录！</b>',
+                ' </div>'].join("");
+            return _html;
         },
         "loadMulti" : function () {
             var _self = this;
