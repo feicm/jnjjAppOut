@@ -27,6 +27,10 @@ $(function () {
     };
     //绑定（车辆、驾照）列表对象
     var listModule = {
+        "moduleCH"   : {
+            "car" : '车辆',
+            "card": '驾照'
+        },
         "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"       : function (opts) {
             this.listWrap = opts.listWrap;
@@ -68,7 +72,7 @@ $(function () {
                     '<div class="carimg">',
                     '    <img src="config/html/images/' + _self.module + '.png" />',
                     '</div>',
-                    '<h2>您还未绑定' + _self.module + '，快去绑定吧！</h2>'].join("");
+                    '<h2>您还未绑定' + _self.moduleCH[_self.module] + '，快去绑定吧！</h2>'].join("");
                 tipsWrap.append(defautlhtml);
                 Wisp.UI.progressDialog.remove();
             }
@@ -85,8 +89,8 @@ $(function () {
                     var carid = _me.attr('data-carid');
                     var params = '#mode=carquery@cartype=' + cartype + '@carid=' + carid;
                     window.open(_self.resultUrl + params);//通过url hash传参
-                   /* var newPage=window.open("");//通过url hash传参
-                    newPage.location=_self.resultUrl + params;*/
+                    /* var newPage=window.open("");//通过url hash传参
+                     newPage.location=_self.resultUrl + params;*/
                 })
             }
             if ( _mode === 'card' ) {
