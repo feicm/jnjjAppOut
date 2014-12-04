@@ -22,10 +22,10 @@ $(function () {
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
     var ksyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/ksyyquery.jsp';//考试预约查询提交接口
+        + '/jnpublic/ksyyquery.json';//考试预约查询提交接口
     var kscjqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/kscjquery.jsp';//考试成绩查询提交接口
+        + '/jnpublic/kscjquery.json';//考试成绩查询提交接口
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码
