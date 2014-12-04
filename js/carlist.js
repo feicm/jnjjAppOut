@@ -179,7 +179,7 @@ $(function () {
             var _params = params;
             var _callback = callback;
             var _module = _self.module;
-            Wisp.UI.progressDialog.show('请求' + _module + '列表中，请稍后！');
+            Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
                 var msg;
                 data.carQueryResponse && (msg = data.carQueryResponse);
@@ -188,7 +188,7 @@ $(function () {
                     _callback && _callback(msg);
                 } else {
                     Wisp.UI.progressDialog.remove();
-                    alert(_module + '列表初始化失败！');
+                    alert(_self.moduleCH[_self.module] + '列表初始化失败！');
                 }
             });
         }
