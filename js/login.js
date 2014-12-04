@@ -175,7 +175,7 @@ $(function () {
                 "phone"   : $('#setphone'),//手机
                 "idnum"   : $('#setidnum')//身份证
             };
-
+            _btn.off('click');
             if ( App.verify(_opts) ) {
                 //registerName=测试用户2A
                 // &userName=测试2
