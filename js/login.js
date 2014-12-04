@@ -15,11 +15,10 @@ $(function () {
         "roleId"                 : '0001',//角色标识 默认0001
         "username"               : null,
         "password"               : null,
-        "urlPre"                 : urlPre,
-        "loginRequestUrl"        : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
-        "userinfoRequestUrl"     : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
-        "rigisterPageUrl"        : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
-        "backpwdPageUrl"         : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
+        "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
+        "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
+        "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
+        "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "init"                   : function (opts) {
             this.btn = opts.btn;
             this.mode = opts.mode;
