@@ -461,11 +461,19 @@ var App = (function () {
         var oHash = {},
             aHash = [],
             aItem,
+            str_sub,
             l;
-        aHash = str.substring(1, str.length).split('@');
+        str_sub=str.substring(1, str.length);
+        aHash=str_sub.split('@');
+        //aHash = str.substring(1, str.length).split('@');
         l = aHash.length;
-        for ( var i = 0; i < l; i++ ) {
-            aItem = aHash[i].split('=');
+        if(l){
+            for ( var i = 0; i < l; i++ ) {
+                aItem = aHash[i].split('=');
+                oHash[aItem[0]] = $.trim(aItem[1]);
+            }
+        }else{
+            aItem = str_sub.split('=');
             oHash[aItem[0]] = $.trim(aItem[1]);
         }
         return oHash;
