@@ -27,7 +27,7 @@ $(function () {
         //事件移除函数
         "removeEvent"            : function () {
             var _self = this;
-            _self.dom.off('click');
+            _self.btn.off('click');
         },
         /*
          * mode login 登录按钮事件函数
