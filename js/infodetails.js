@@ -36,7 +36,7 @@ $(function () {
     console.dir(hash);
     //内容块加载对象
     var detailsBlock = {
-        "init"      : function (opts) {
+        "init"           : function (opts) {
             this.dom = opts.dom;
             this.type = opts.type;
             this.url = opts.url;
@@ -47,7 +47,7 @@ $(function () {
                 this.load();
             }
         },
-        "load"      : function (dom, url, params) {
+        "load"           : function (dom, url, params) {
             var _self = this;
             var _url = url || _self.url;
             var _params = params || _self.params;
@@ -58,7 +58,9 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
-                data.success ? (msg = data) : (msg = data);//考试成绩/预约查询,卧槽，这样的返回格式真的是醉了
+                if ( data.success === true || data.success === false ) {
+                    msg = data
+                }//考试成绩/预约查询,操蛋，这样的返回格式真的是醉了
                 if ( data.violationInfoResponse ) {
                     msg = data.violationInfoResponse;
                     type = 'wf_card_t1';
@@ -74,7 +76,7 @@ $(function () {
                 }
             });
         },
-        "render"    : function (data, selector, type) {
+        "render"         : function (data, selector, type) {
             console.dir(data);
             var _self = this;
             var _selector = selector;
@@ -83,7 +85,7 @@ $(function () {
             _trStr = _self.getHtml(type, data);
             _selector.append(_trStr);
         },
-        "getHtml"   : function (type, data) {
+        "getHtml"        : function (type, data) {
             var _self = this;
             var html;
             var msg;
@@ -187,7 +189,7 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li=_self.getHtmlNoResult();
+                        li = _self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = '<h1>' + data.carNum + '</h1>' + liArr.join("");
@@ -216,7 +218,7 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li=_self.getHtmlNoResult();
+                        li = _self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = liArr.join("");
@@ -243,14 +245,14 @@ $(function () {
                             liArr.push(li);
                         }
                     } else {
-                        li=_self.getHtmlNoResult();
+                        li = _self.getHtmlNoResult();
                         liArr.push(li);
                     }
                     html = liArr.join("");
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
                     msg = data;
-                    if(msg.success){
+                    if ( msg.success ) {
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
@@ -272,13 +274,13 @@ $(function () {
                             '     <td>考试地点</td>',
                             '     <td>' + msg.kcmc + '</td>',
                             ' </tr>'].join("");
-                    }else{
-                        html=_self.getHtmlNoResult();
+                    } else {
+                        html = _self.getHtmlNoResult();
                     }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
                     msg = data;
-                    if(msg.success){
+                    if ( msg.success ) {
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
@@ -308,24 +310,24 @@ $(function () {
                             '     <td>考试地点</td>',
                             '     <td>' + msg.kcmc + '</td>',
                             ' </tr>'].join("");
-                    }else{
-                        html=_self.getHtmlNoResult();
+                    } else {
+                        html = _self.getHtmlNoResult();
                     }
                     break;
                 default:
-                    html=_self.getHtmlNoResult();
+                    html = _self.getHtmlNoResult();
                     break;
             }
             return html;
         },
-        "getHtmlNoResult":function(){
+        "getHtmlNoResult": function () {
             var _html = [
                 ' <div class="noresult">',
                 '     <b>无记录！</b>',
                 ' </div>'].join("");
             return _html;
         },
-        "loadMulti" : function () {
+        "loadMulti"      : function () {
             var _self = this;
             var _type = _self.type;
             var _dom = _self.dom;
@@ -339,7 +341,7 @@ $(function () {
                 _self.load($('#' + _blockid), _urlArr[index], _paramsArr[index]);
             })
         },
-        "formatData": function (data) {
+        "formatData"     : function (data) {
             var sData = data.substring(1, data.length - 1);
             var aData = sData.split(',{');
             var l = aData.length;
