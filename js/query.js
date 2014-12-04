@@ -17,28 +17,46 @@ $(function () {
     var infoPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/violationlist.jsp';//查询结果页地址
+    var hash = window.location.hash;
+    var modeName;
+    if ( hash ) {
+        oHash = App.getHash(hash); //格式化hash 对象
+        /*
+        * 考试预约查询 modeName='query_ksyy';
+        * 考试成绩查询 modeName='query_kscj'
+        * */
+        modeName = oHash.mode;
+    } else {
+        console.log('传参失败！');
+    }
     //TODO 考试预约 年鉴预约 年鉴预约查询
-    var ksyySubmit = $('#ksyy_btn');//考试预约提交按钮
-    ksyySubmit.on('click', ksyyListener);
-    //考试预约查询 提交事件
-    function ksyyListener() {
+    var ksquerySubmit = $('#ksyy_btn');//考试预约提交按钮
+    ksquerySubmit.on('click', function(){
+        ksqueryListener(modeName);
+    });
+    //考试预约/成绩查询 提交事件
+    function ksqueryListener(mode) {
         var ip_sfzmmc = $('#ksyy_sfzmmc').val();
         var ip_sfzmhm = $('#ksyy_sfzmhm').val();
         var ip_lsh = $('#ksyy_lsh').val();
         var ip_ksyy = $('#ksyy_ksyy').val();
         var ip_kskm = $('#ksyy_kskm').val();
-        ksyySubmit.off('click');
+        ksquerySubmit.off('click');
         if ( true ) { //TODO　表单验证
             //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
-            var params = '#mode=query_ks@sfzmmc=' + ip_sfzmmc
+            var params = '#mode='+mode+'@sfzmmc=' + ip_sfzmmc
                 + '@sfzmhm=' + ip_sfzmhm
                 + '@lsh=' + ip_lsh
                 + '@ksyy=' + ip_ksyy
                 + '@kskm=' + ip_kskm;
             window.open(infoPageUrl + params);//通过url hash传参
-            ksyySubmit.on('click', ksyyListener);
+            ksquerySubmit.on('click', function(){
+                ksqueryListener('query_ks');
+            });
         } else {
-            ksyySubmit.on('click', ksyyListener);
+            ksquerySubmit.on('click', function(){
+                ksqueryListener('query_ks');
+            });
         }
     }
 
