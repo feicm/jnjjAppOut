@@ -163,7 +163,6 @@ $(function () {
                     break;
                 case 'wf_car':
                     msg = data.msg;//Array
-                    var l = msg.length;
                     var al;
                     var li = '';
                     var liArr = [];
@@ -186,13 +185,7 @@ $(function () {
                     } else {
                         li = [
                             '<li>',
-                            '    <h1>违法行为：无记录</h1>',
-                            '    <h1>违法地点：无记录</h1>',
-                            '    <h1>违法时间：无记录</h1>',
-                            '    <h1>处理时间：无记录</h1>',
-                            '    <h1>处理情况：无记录</h1>',
-                            '    <h1>交款情况：无记录</h1>',
-                            '    <h1>交款时间：无记录</h1>',
+                            '    <h1>无记录！</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -224,14 +217,7 @@ $(function () {
                     } else {
                         li = [
                             '<li>',
-                            '    <h1>违法行为：无记录</h1>',
-                            '    <h1>违法地点：无记录</h1>',
-                            '    <h1>违法时间：无记录</h1>',
-                            '    <h1>交款时间：无记录</h1>',
-                            '    <h1>交款情况：无记录</h1>',
-                            '    <h1>处理时间：无记录</h1>',
-                            '    <h1>违法记分数：无记录</h1>',
-                            '    <h1>罚款金额：无记录</h1>',
+                            '    <h1>无记录！</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -261,12 +247,7 @@ $(function () {
                     } else {
                         li = [
                             '<li>',
-                            '    <h1>违法行为：无记录</h1>',
-                            '    <h1>违法地点：无记录</h1>',
-                            '    <h1>违法时间：无记录</h1>',
-                            '    <h1>接受处理时间：无记录</h1>',
-                            '    <h1>裁决时间：无记录</h1>',
-                            '    <h1>裁决时间：无记录</h1>',
+                            '    <h1>无记录！</h1>',
                             '</li>'].join("");
                         liArr.push(li);
                     }
@@ -279,13 +260,6 @@ $(function () {
                         ' </div>'].join("");
                     break;
             }
-            /*if(type==='wf_card'){ // 强制措施
-             var tabnav='';
-             tabnav=['<div class="ui-grid-a tab" id="tab_content">',
-             '    <a class="ui-block-a active" data-for="tab-item-01">驾照违法</a>',
-             '    <a class="ui-block-b" data-for="tab-item-02">驾照强制措施</a>',
-             '</div>'].join("");
-             }*/
             return html;
         },
         "loadMulti" : function () {

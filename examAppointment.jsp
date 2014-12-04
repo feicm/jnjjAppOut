@@ -76,7 +76,7 @@
     </div>
     <div class="ft w100">
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="ksyy_btn">
-            确认预约
+            查询
         </a>
     </div>
 </form>

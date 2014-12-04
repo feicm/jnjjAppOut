@@ -48,18 +48,19 @@ $(function () {
     App.UI('select', {
         "dom"   : $('#ksyy_sfzmmc'),
         "url"   : identityTypeRequestUrl,
+        "data"  : {'register': userName},
         "dataType": 'Object'
     });
     App.UI('select', {
         "dom"   : $('#ksyy_ksyy'),
         "url"   : ksreasonRequestUrl,
         "data"  : {'register': userName},
-        "module": 'query'
+        "dataType": 'Object'
     });
     App.UI('select', {
         "dom"   : $('#ksyy_kskm'),
         "url"   : kscourseRequestUrl,
         "data"  : {'register': userName},
-        "module": 'query'
+        "dataType": 'Object'
     });
 });
