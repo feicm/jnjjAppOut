@@ -20,7 +20,9 @@ $(function () {
         "bindEvent"              : function () {
             var _self = this;
             var _btn = _self.btn;
-            _btn.on('click', _self[_self.mode + 'Listener']);
+            _btn.on('click', function(){
+                _self[_self.mode + 'Listener']();
+            });
         },
         //事件移除函数
         "removeEvent"            : function () {
