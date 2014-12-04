@@ -8,7 +8,7 @@ $(function () {
     var c2_btn = $('#c2_btn');
     var urlPre = 'adapter?open&url=';
     //定义登录对象
-    var loginPage = {
+    var Loginer = {
         "loginBtn"               : loginSubmit || null,
         "rigisterBtn"            : rigisterBtn || null,
         "skipBtn"                : skipBtn || null,
@@ -319,45 +319,47 @@ $(function () {
             return pwd1 === pwd2;
         }
     };
-    loginPage.init({ //初始化登录流程
+    Loginer.init({ //初始化登录流程
         "btn" : loginSubmit,
         "mode": 'login'
     });
-    loginPage.init({ //初始化登陆页跳转注册流程
+    Loginer.init({ //初始化登陆页跳转注册流程
         "btn" : rigisterBtn,
         "mode": 'rigister'
     });
-    skipBtn.length && loginPage.init({//初始化登陆页跳过流程
+    Loginer.length && Loginer.init({//初始化登陆页跳过流程
         "btn" : skipBtn,
         "mode": 'skip'
     });
-    backpwdBtn.length && loginPage.init({//初始化登陆页找回密码流程
+    backpwdBtn.length && Loginer.init({//初始化登陆页找回密码流程
         "btn" : backpwdBtn,
         "mode": 'backpwd'
     });
-    rigisterSubmit.length && loginPage.init({//注册流程
+    rigisterSubmit.length && Loginer.init({//注册流程
         "btn" : rigisterSubmit,
         "mode": 'rigisterSubmit'
     });
     /*
      * --------------------页面效果------------------------
      * */
-    App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : loginSubmit,
-        "hoverClassName": 'ui_btn_01_hover'
-    });
-    App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : rigisterBtn,
-        "hoverClassName": 'ui_btn_hover'
-    });
-    skipBtn.length && App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : skipBtn,
-        "hoverClassName": 'ui_btn_02_hover'
-    });
-    backpwdBtn.length && App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : backpwdBtn,
-        "hoverClassName": 'ui_btn_02_hover'
-    });
+    if(loginSubmit.length){ //登陆页
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : loginSubmit,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : rigisterBtn,
+            "hoverClassName": 'ui_btn_hover'
+        });
+        skipBtn.length && App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : skipBtn,
+            "hoverClassName": 'ui_btn_02_hover'
+        });
+        backpwdBtn.length && App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : backpwdBtn,
+            "hoverClassName": 'ui_btn_02_hover'
+        });
+    }
     if(rigisterSubmit.length){//注册流程页特有
         App.UI('changePage', {//注册页面切换效果
             "wrap": $('#rigister_form')
@@ -378,5 +380,4 @@ $(function () {
             "hoverClassName": 'ui_btn_01_hover'
         });
     }
-
 });
