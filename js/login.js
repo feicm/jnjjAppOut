@@ -3,13 +3,17 @@ $(function () {
     var rigisterBtn = $('#rigister');//注册
     var skipBtn = $('#skip'); //跳过
     var backpwdBtn = $('#backpwd'); //忘记密码
-    var urlPre='adapter?open&url=';
+    var rigisterSubmit = $('#submit_rigister'); //注册提交
+    var c1_btn = $('#c1_btn');
+    var c2_btn = $('#c2_btn');
+    var urlPre = 'adapter?open&url=';
     //定义登录对象
     var loginPage = {
-        "loginBtn"               : loginSubmit,
-        "rigisterBtn"            : rigisterBtn,
-        "skipBtn"                : skipBtn,
-        "backpwdBtn"             : backpwdBtn,
+        "loginBtn"               : loginSubmit || null,
+        "rigisterBtn"            : rigisterBtn || null,
+        "skipBtn"                : skipBtn || null,
+        "backpwdBtn"             : backpwdBtn || null,
+        "rigisterSubmitBtn"      : rigisterSubmit || null,
         "footbarDatas"           : jnjjApp.footbarDatas,
         "siderDatas"             : jnjjApp.siderDatas,
         "roleId"                 : '0001',//角色标识 默认0001
@@ -19,19 +23,36 @@ $(function () {
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
+        "rigisterRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
             this.mode = opts.mode;
             this.bindEvent();
         },
         //事件绑定函数
-        "bindEvent"              : function (btn,mode) {
+        "bindEvent"              : function (btn, mode) {
             var _self = this;
-            var _btn = btn||_self.btn;
+            var _btn = btn || _self.btn;
             var _mode = mode || _self.mode;
             _btn.on('click', function () {
                 _self[_mode + 'Listener']();
             });
+            if(_mode==='rigisterSubmit'){ //注册流程特有双密码验证
+                $('#setpwd_01').on('blur', function () {
+                    var v1 = $(this).val(),
+                        v2 = $('#setpwd_02').val();
+                    if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
+                        alert('两次密码输入不一致！');
+                    }
+                });
+                $('#setpwd_02').on('blur', function () {
+                    var v1 = $(this).val(),
+                        v2 = $('#setpwd_01').val();
+                    if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
+                        alert('两次密码输入不一致！');
+                    }
+                });
+            }
         },
         /*
          * mode login 登录按钮事件函数
@@ -53,10 +74,10 @@ $(function () {
             _btn.off('click')
             if ( _username === '' ) {
                 alert('用户名不能为空！');
-                _self.bindEvent(_btn,'login');
+                _self.bindEvent(_btn, 'login');
             } else if ( _password === '' ) {
                 alert('密码不能为空！');
-                _self.bindEvent(_btn,'login');
+                _self.bindEvent(_btn, 'login');
             } else {
                 Wisp.UI.progressDialog.show('登录中，请稍后！');
                 _params = {
@@ -68,7 +89,7 @@ $(function () {
                 //发起登录请求
                 App.getAjaxData(_self.loginRequestUrl, _params, function (data) {//登录请求回调
                     if ( data === 'error' ) {//ajax 失败回调
-                        _self.bindEvent(_btn,'login');
+                        _self.bindEvent(_btn, 'login');
                         return;
                     }
                     var msg = data.loginResponse;
@@ -77,11 +98,11 @@ $(function () {
                     } else if ( msg.loginSuccess === 'false' ) {
                         Wisp.UI.progressDialog.remove();
                         alert(msg.loginContent + '!');
-                        _self.bindEvent(_btn,'login');
+                        _self.bindEvent(_btn, 'login');
                     } else {
                         Wisp.UI.progressDialog.remove();
                         alert('登录失败!');
-                        _self.bindEvent(_btn,'login');
+                        _self.bindEvent(_btn, 'login');
                     }
                 });
             }
@@ -95,7 +116,7 @@ $(function () {
             var _btn = _self.rigisterBtn;
             _btn.off('click');
             window.open(_self.rigisterPageUrl);
-            _self.bindEvent(_btn,'rigister');
+            _self.bindEvent(_btn, 'rigister');
         },
         /*
          * mode backpwd  找回密码事件函数
@@ -106,7 +127,7 @@ $(function () {
             var _btn = _self.backpwdBtn;
             _btn.off('click');
             window.open(_self.backpwdPageUrl);
-            _self.bindEvent(_btn,'backpwd');
+            _self.bindEvent(_btn, 'backpwd');
         },
         /*
          * mode skip  跳过按钮事件函数
@@ -122,7 +143,87 @@ $(function () {
             _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送默认配置按钮
             Wisp.UI.progressDialog.remove();
             Wisp.UI.loginResult.success();
-            _self.bindEvent(_btn,'skip');
+            _self.bindEvent(_btn, 'skip');
+        },
+        /*
+        * mode rigisterSubmit 注册提交事件
+        * 流程：校验——提交表单——注册成功后回调登录成功逻辑
+        * */
+        "rigisterSubmitListener" : function () {
+            var _self=this;
+            var _btn=_self.rigisterSubmitBtn;
+            var _setusername = $('#setusername').val(),//设置用户名
+                _setpwd_01 = $('#setpwd_01').val(),//设置密码
+                _setpwd_02 = $('#setpwd_02').val(),//设置密码02
+                _setname = $('#setname').val(),//设置姓名
+                _setphone = $('#setphone').val(),//设置手机号
+                _setidnum = $('#setidnum').val(), //设置身份证号
+                _yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
+                _yclxdh = $('#yclxdh').val(), //设置移车联系人电话
+                _setemail = $('#setemail').val(), //设置邮箱
+                _mqlxrxm = $('#mqlxrxm').val(), //设置密切联系人姓名
+                _mqlxrdh = $('#mqlxrdh').val(), //设置密切联系人电话
+                _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号
+                _roleId = _self.roleId,
+                _opts={},
+                _params;//注册表单提交参数对象
+            _opts = {
+                "username": $('#setusername'),//用户名
+                "pwd1"    : $('#setpwd_01'),//密码1
+                "pwd2"    : $('#setpwd_02'),//密码2
+                "name"    : $('#setname'),//姓名
+                "phone"   : $('#setphone'),//手机
+                "idnum"   : $('#setidnum')//身份证
+            };
+
+            if ( App.verify(_opts) ) {
+                //registerName=测试用户2A
+                // &userName=测试2
+                // &password=1111
+                // &identityId=35071111111111111
+                // &phoneNum=18888888888
+                // &email=xx@xx.com
+                // &closeUserName=closeUserName
+                // &closeIdentityId=closeIdentityId
+                // &closePhoneNum=closePhoneNum
+                // &roleId=0001
+                _params = {
+                    "registerName"   : _setusername,
+                    "userName"       : _setname,
+                    "password"       : _setpwd_02,
+                    "identityId"     : _setidnum,
+                    "phoneNum"       : _setphone,
+                    "email"          : _setemail || '',
+                    "moveCarName "   : _yclxxm || '',
+                    "moveCarPhone"   : _yclxdh || '',
+                    "closeUserName"  : _mqlxrxm || '',
+                    "closeIdentityId": _mqlxrsfzh || '',
+                    "closePhoneNum"  : _mqlxrdh || '',
+                    "roleId"         : _roleId
+                };
+                Wisp.UI.progressDialog.show('注册中，请稍后！');
+                //提交表单
+                App.getAjaxData(_self.rigisterRequestUrl, _params, function (data) {
+                    if ( data === 'error' ) {//ajax 失败回调
+                        _self.bindEvent(_btn,'rigisterSubmit');
+                        return;
+                    }
+                    var msg = data.registerResponse;
+                    console.dir(msg);
+                    if ( msg.loginSuccess === 'true' ) {
+                        _self.loginSuccessCallback(msg);
+                        _self.bindEvent(_btn,'rigisterSubmit');
+                    } else if ( msg.loginSuccess === 'false' ) {
+                        Wisp.UI.progressDialog.remove();
+                        alert(msg.loginContent + '!');
+                        _self.bindEvent(_btn,'rigisterSubmit');
+                    } else {
+                        Wisp.UI.progressDialog.remove();
+                        alert('提交失败!');
+                        _self.bindEvent(_btn,'rigisterSubmit');
+                    }
+                })
+            }
         },
         //登录成功回调函数
         "loginSuccessCallback"   : function (data) {
@@ -143,7 +244,7 @@ $(function () {
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败!(个人信息初始化失败)');
-                    _self.bindEvent(_btn,'login');
+                    _self.bindEvent(_btn, 'login');
                 }
             });
         },
@@ -175,8 +276,8 @@ $(function () {
                 'type' : 'sider',
                 'datas': siderDatas
             });
-            this.footbarDatas=jnjjApp.footbarDatas;
-            this.siderDatas=jnjjApp.siderDatas;
+            this.footbarDatas = jnjjApp.footbarDatas;
+            this.siderDatas = jnjjApp.siderDatas;
         },
         /*
          * 刷新更多视图数据函数
@@ -212,13 +313,17 @@ $(function () {
                     }
                 }
             }
+        },
+        //验证两次密码一致性
+        "ispwdAgreement"         : function (pwd1, pwd2) {
+            return pwd1 === pwd2;
         }
     };
     loginPage.init({ //初始化登录流程
         "btn" : loginSubmit,
         "mode": 'login'
     });
-    loginPage.init({ //初始化登陆页注册流程
+    loginPage.init({ //初始化登陆页跳转注册流程
         "btn" : rigisterBtn,
         "mode": 'rigister'
     });
@@ -230,7 +335,10 @@ $(function () {
         "btn" : backpwdBtn,
         "mode": 'backpwd'
     });
-
+    rigisterSubmit.length && loginPage.init({//注册流程
+        "btn" : rigisterSubmit,
+        "mode": 'rigisterSubmit'
+    });
     /*
      * --------------------页面效果------------------------
      * */
@@ -250,4 +358,25 @@ $(function () {
         "dom"           : backpwdBtn,
         "hoverClassName": 'ui_btn_02_hover'
     });
+    if(rigisterSubmit.length){//注册流程页特有
+        App.UI('changePage', {//注册页面切换效果
+            "wrap": $('#rigister_form')
+        });
+        App.UI('inputClose', {//注册页面输入校验
+            "doms": $('.list-block')
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : rigisterSubmit,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : c1_btn,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : c2_btn,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
+    }
+
 });
