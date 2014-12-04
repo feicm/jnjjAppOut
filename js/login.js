@@ -1,11 +1,19 @@
 $(function () {
+    var loginSubmit = $('#login-submit');//登录
+    var rigisterBtn = $('#rigister');//注册
+    var skipBtn = $('#skip'); //跳过
+    var backpwdBtn = $('#backpwd'); //忘记密码
     //定义登录对象
     var loginPage = {
+        "loginBtn"               : loginSubmit,
+        "rigisterBtn"            : rigisterBtn,
+        "skipBtn"                : skipBtn,
+        "backpwdBtn"             : backpwdBtn,
+        "footbarDatas"           : jnjjApp.footbarDatas,
+        "siderDatas"             : jnjjApp.siderDatas,
         "roleId"                 : '0001',//角色标识 默认0001
         "username"               : null,
         "password"               : null,
-        "footbarDatas"           : jnjjApp.footbarDatas,
-        "siderDatas"             : jnjjApp.siderDatas,
         "urlPre"                 : 'adapter?open&url=',
         "loginRequestUrl"        : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : this.urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
@@ -17,17 +25,13 @@ $(function () {
             this.bindEvent();
         },
         //事件绑定函数
-        "bindEvent"              : function () {
+        "bindEvent"              : function (mode) {
             var _self = this;
             var _btn = _self.btn;
-            _btn.on('click', function(){
-                _self[_self.mode + 'Listener']();
+            var _mode = mode || _self.mode;
+            _btn.on('click', function () {
+                _self[_mode + 'Listener']();
             });
-        },
-        //事件移除函数
-        "removeEvent"            : function () {
-            var _self = this;
-            _self.btn.off('click');
         },
         /*
          * mode login 登录按钮事件函数
@@ -42,16 +46,17 @@ $(function () {
          * */
         "loginListener"          : function () {
             var _self = this;
+            var _btn = _self.loginBtn;
             var _username = $('#username').val();
             var _password = $('#password').val();
             var _params;
-            _self.removeEvent();
+            _btn.off('click')
             if ( _username === '' ) {
                 alert('用户名不能为空！');
-                _self.bindEvent();
+                _self.bindEvent('login');
             } else if ( _password === '' ) {
                 alert('密码不能为空！');
-                _self.bindEvent();
+                _self.bindEvent('login');
             } else {
                 Wisp.UI.progressDialog.show('登录中，请稍后！');
                 _params = {
@@ -63,7 +68,7 @@ $(function () {
                 //发起登录请求
                 App.getAjaxData(_self.loginRequestUrl, _params, function (data) {//登录请求回调
                     if ( data === 'error' ) {//ajax 失败回调
-                        _self.bindEvent();
+                        _self.bindEvent('login');
                         return;
                     }
                     var msg = data.loginResponse;
@@ -72,11 +77,11 @@ $(function () {
                     } else if ( msg.loginSuccess === 'false' ) {
                         Wisp.UI.progressDialog.remove();
                         alert(msg.loginContent + '!');
-                        _self.bindEvent();
+                        _self.bindEvent('login');
                     } else {
                         Wisp.UI.progressDialog.remove();
                         alert('登录失败!');
-                        _self.bindEvent();
+                        _self.bindEvent('login');
                     }
                 });
             }
@@ -87,9 +92,10 @@ $(function () {
          * */
         "rigisterListener"       : function () {
             var _self = this;
-            _self.removeEvent();
+            var _btn = _self.rigisterBtn;
+            _btn.off('click');
             window.open(_self.rigisterPageUrl);
-            _self.bindEvent();
+            _self.bindEvent('rigister');
         },
         /*
          * mode backpwd  找回密码事件函数
@@ -97,9 +103,10 @@ $(function () {
          * */
         "backpwdListener"        : function () {
             var _self = this;
-            _self.removeEvent();
+            var _btn = _self.backpwdBtn;
+            _btn.off('click');
             window.open(_self.backpwdPageUrl);
-            _self.bindEvent();
+            _self.bindEvent('backpwd');
         },
         /*
          * mode skip  跳过按钮事件函数
@@ -107,14 +114,15 @@ $(function () {
          * */
         "skipListener"           : function () {
             var _self = this;
+            var _btn = _self.skipBtn;
             console.dir(jnjjApp.footbarDatas);
             console.dir(jnjjApp.siderDatas);
             Wisp.UI.progressDialog.show('数据加载中，请稍后！');
-            _self.removeEvent();
+            _btn.off('click');
             _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送默认配置按钮
             Wisp.UI.progressDialog.remove();
             Wisp.UI.loginResult.success();
-            _self.bindEvent();
+            _self.bindEvent('skip');
         },
         //登录成功回调函数
         "loginSuccessCallback"   : function (data) {
@@ -126,7 +134,7 @@ $(function () {
             console.dir(_MoreViewData);
             _params = {
                 "registerName": _self.username
-            }
+            };
             //请求用户信息
             App.getAjaxData(_self.userinfoRequestUrl, _params, function (data) {//用户信息请求回调
                 var msg = data.userCenterResponse;
@@ -135,7 +143,7 @@ $(function () {
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败!(个人信息初始化失败)');
-                    _self.bindEvent();
+                    _self.bindEvent('login');
                 }
             });
         },
@@ -167,6 +175,8 @@ $(function () {
                 'type' : 'sider',
                 'datas': siderDatas
             });
+            this.footbarDatas=jnjjApp.footbarDatas;
+            this.siderDatas=jnjjApp.siderDatas;
         },
         /*
          * 刷新更多视图数据函数
@@ -204,10 +214,6 @@ $(function () {
             }
         }
     };
-    var loginSubmit = $('#login-submit');//登录
-    var rigisterBtn = $('#rigister');//注册
-    var skipBtn = $('#skip'); //跳过
-    var backpwdBtn = $('#backpwd'); //忘记密码
     loginPage.init({ //初始化登录流程
         "btn" : loginSubmit,
         "mode": 'login'
