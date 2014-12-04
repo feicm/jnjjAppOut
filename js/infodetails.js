@@ -320,7 +320,7 @@ $(function () {
         },
         "getHtmlNoResult":function(){
             var _html = [
-                ' <div>',
+                ' <div class="noresult">',
                 '     <b>无记录！</b>',
                 ' </div>'].join("");
             return _html;

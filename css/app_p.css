@@ -693,3 +693,12 @@ i.icon {
     line-height : 2.5;
     font-weight : bold;
 }
+.noresult{
+    text-align: center;
+}
+.noresult b{
+    line-height: 2.5;
+    font-size: 1.5em;
+    color: #AAA;
+    text-shadow: 1px 1px 1px #FFF,1px -1px 1px #FFF,-1px 1px 1px #FFF,-1px -1px 1px #FFF;
+}
