@@ -81,5 +81,5 @@
 <script src="config/html/js/WISPComponents_v3.0.js"></script>
 <script src="config/html/js/appConfig.js"></script>
 <script src="config/html/js/common.js"></script>
-<script src="config/html/js/carlist.js"></script>
+<script src="config/html/js/carlist.js?v=0"></script>
 </html>
