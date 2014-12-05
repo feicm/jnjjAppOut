@@ -55,6 +55,10 @@ var App = (function () {
                         self.toggle(cur_page, go_page, "left");
                     });
                 }
+                $(window).on('resize',function(){
+                      alert(self.wrap.width());
+                    $(this).off('resize')
+                })
             },
             "toggle"     : function (curpage, gopage, action) {
                 switch ( action ) {
