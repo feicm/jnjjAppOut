@@ -67,7 +67,7 @@
     </ul>
     </div>
     <div class="ft w100">
-    <a class="ui_btn ui_btn_01 ui_radius fl" data-rel='pre'>
+    <a class="ui_btn ui_btn_01 ui_radius fl" data-rel='pre' id='cancel_btn'>
     暂不绑定
     </a>
     <a class="ui_btn ui_btn_01 ui_radius fr" id="bindcard_btn">

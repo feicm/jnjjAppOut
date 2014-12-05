@@ -88,6 +88,9 @@ var App = (function () {
                 this.currentpage = gopage;
                 this.setCurPageHeight();
             },
+            //android webview中软键盘弹出后父容器随最高子容器高度决定是否出现滚动条，如果当前显示容器高度小于最高子容器高度
+            // 而父容器又因为弹出键盘而随最高子容器高度出现滚动条，导致出现父容器overflowX属性失效 bug,表现为可左右拖动页面
+            //在父容器设置overflow:hidden前提下，通过切面切换时重置父容器高度为当前显示容器高度规避该bug
             "setCurPageHeight": function () {
                 var _self = this;
                 _self.curHeight = _self.currentpage.height();

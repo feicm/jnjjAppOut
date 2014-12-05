@@ -195,6 +195,7 @@ $(function () {
     };
     var module = $('.c').attr('data-mode');//模块名获取
     var isSinglePage = $('.c').attr('data-issinglepage');//是否为单一绑定页
+    var cancelbindBtn = $('#cancel_btn');
     var opts = {};
     if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
@@ -370,6 +371,10 @@ $(function () {
     });
     bindcardBtn && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : bindcardBtn,
+        "hoverClassName": 'ui_btn_01_hover'
+    });
+    cancelbindBtn && App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : cancelbindBtn,
         "hoverClassName": 'ui_btn_01_hover'
     });
     var type = $('#hpzl');
