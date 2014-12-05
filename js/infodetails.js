@@ -146,7 +146,7 @@ $(function () {
                     }
                     break;
                 case 'cardquery': //驾照查询结果内容模板
-                    if(data.carList[0].msg!=='NO_RESULT'){
+                    if(data.licenseList[0].msg!=='NO_RESULT'){
                         msg = $.parseJSON(data.licenseList[0].msg);//Object
                         //{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}
                         html = [
