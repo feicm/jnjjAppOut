@@ -55,8 +55,12 @@ var App = (function () {
                         self.toggle(cur_page, go_page, "left");
                     });
                 }
-                $(window).on('resize',function(){
-                      alert(self.wrap.width());
+                $(window).on('resize', function () {
+                    alert(self.wrap.width());
+                    self.wrap.css({
+                        overflow: 'hidden',
+                        border  : '1px solid #a22'
+                    })
                     $(this).off('resize')
                 })
             },
