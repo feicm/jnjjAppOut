@@ -707,6 +707,40 @@ i.icon {
     text-shadow : 1px 1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, -1px -1px 1px #FFF;
 }
 
+
+@media
+only screen and (device-aspect-ratio: 2/3),/*iPhone < 5:*/
+only screen and (device-aspect-ratio: 40/71),/*iPhone 5:*/
+only screen and (device-aspect-ratio: 667/375),/*iPhone 6:*/
+only screen and (device-aspect-ratio: 16/9) {/*iPhone 6 Plus:*/
+    .list-block ul {
+        border-top    : .5px solid #E1E1E1;
+        border-bottom : .5px solid #E1E1E1;
+    }
+
+    .list-block .item-inner,
+    .list-block-title,
+    .ui-list li,
+    .tab a,
+    .tab a.active,
+    #c_Table_b,
+    #c_Table_b tr,
+    .login_f .list-block li:first-child,
+    .details_list,
+    .details_list li h1 {
+        border-bottom-width : .5px;
+    }
+
+    #c_Table_b tr td:first-child {
+        border-right : .5px solid #E1E1E1;
+    }
+
+    .print input:checked + label:after, .print input + label:after {
+        border : .5px solid #0C79BE;
+    }
+}
+/*
+
 @media
 only screen and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2),
 only screen and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2),
@@ -737,4 +771,4 @@ only screen and (min-device-width : 320px) and (max-device-width : 568px) and (-
     .print input:checked + label:after, .print input + label:after {
         border : .5px solid #0C79BE;
     }
-}
+}*/
