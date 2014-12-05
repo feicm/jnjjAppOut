@@ -26,6 +26,9 @@ $(function () {
     var kscjqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/kscjquery.json';//考试成绩查询提交接口
+    var njyyqueryRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/njyycx.json.json';//年检预约查询提交接口
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码
@@ -91,81 +94,89 @@ $(function () {
             var msg;
             switch ( type ) {
                 case 'carquery': //车辆查询结果内容模板
-                    msg = $.parseJSON(data.carList[0].msg);//Object
-                    html = [
-                        '<tr>',
-                        '     <td>姓名</td>',
-                        '     <td>' + msg.xm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>更新时间</td>',
-                        '     <td>' + msg.gxsj + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>号牌号码</td>',
-                        '     <td>' + msg.hphm + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>号牌种类</td>',
-                        '     <td>' + msg.hpzl + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>车辆状态</td>',
-                        '     <td>' + msg.clzt + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>检验有效期止</td>',
-                        '     <td>' + msg.jyyxqz + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>强制报废期止</td>',
-                        '     <td>' + msg.qzbfqz + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>逾期检验强制报废期止</td>',
-                        '     <td>' + msg.yqjyqzbfqz + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>逾期2个检验周期期止</td>',
-                        '     <td>' + msg.yqjybfqz2 + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>环保达标情况</td>',
-                        '     <td>' + msg.hbdbqk + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>保险终止日期</td>',
-                        '     <td>' + msg.bxzzrq + '</td>',
-                        ' </tr>'].join("");
+                    if(data.carList[0].msg!=='NO_RESULT'){
+                        msg = $.parseJSON(data.carList[0].msg);//Object
+                        html = [
+                            '<tr>',
+                            '     <td>姓名</td>',
+                            '     <td>' + msg.xm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>更新时间</td>',
+                            '     <td>' + msg.gxsj + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>号牌号码</td>',
+                            '     <td>' + msg.hphm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>号牌种类</td>',
+                            '     <td>' + msg.hpzl + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>车辆状态</td>',
+                            '     <td>' + msg.clzt + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>检验有效期止</td>',
+                            '     <td>' + msg.jyyxqz + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>强制报废期止</td>',
+                            '     <td>' + msg.qzbfqz + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>逾期检验强制报废期止</td>',
+                            '     <td>' + msg.yqjyqzbfqz + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>逾期2个检验周期期止</td>',
+                            '     <td>' + msg.yqjybfqz2 + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>环保达标情况</td>',
+                            '     <td>' + msg.hbdbqk + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>保险终止日期</td>',
+                            '     <td>' + msg.bxzzrq + '</td>',
+                            ' </tr>'].join("");
+                    }else{
+                        html = _self.getHtmlNoResult();
+                    }
                     break;
                 case 'cardquery': //驾照查询结果内容模板
-                    msg = $.parseJSON(data.licenseList[0].msg);//Object
-                    //{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}
-                    html = [
-                        '<tr>',
-                        '     <td>更新时间</td>',
-                        '     <td>' + msg.gxsj + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>准驾车型</td>',
-                        '     <td>' + msg.zjcx + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>驾驶证状态</td>',
-                        '     <td>' + msg.jszzt + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>累积记分</td>',
-                        '     <td>' + msg.ljjf + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>下一清分日期</td>',
-                        '     <td>' + msg.xyqfrq + '</td>',
-                        ' </tr>',
-                        ' <tr>',
-                        '     <td>下一审验日期</td>',
-                        '     <td>' + msg.xysyrq + '</td>',
-                        ' </tr>'].join("");
+                    if(data.carList[0].msg!=='NO_RESULT'){
+                        msg = $.parseJSON(data.licenseList[0].msg);//Object
+                        //{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}
+                        html = [
+                            '<tr>',
+                            '     <td>更新时间</td>',
+                            '     <td>' + msg.gxsj + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>准驾车型</td>',
+                            '     <td>' + msg.zjcx + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>驾驶证状态</td>',
+                            '     <td>' + msg.jszzt + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>累积记分</td>',
+                            '     <td>' + msg.ljjf + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>下一清分日期</td>',
+                            '     <td>' + msg.xyqfrq + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>下一审验日期</td>',
+                            '     <td>' + msg.xysyrq + '</td>',
+                            ' </tr>'].join("");
+                    }else{
+                        html = _self.getHtmlNoResult();
+                    }
                     break;
                 case 'wf_car':
                     msg = data.msg;//Array
@@ -309,6 +320,38 @@ $(function () {
                             ' <tr>',
                             '     <td>考试地点</td>',
                             '     <td>' + msg.kcmc + '</td>',
+                            ' </tr>'].join("");
+                    } else {
+                        html = _self.getHtmlNoResult();
+                    }
+                    break;
+                case 'query_njyy': //考试预约查询结果内容模板
+                    msg = data;
+                    if ( msg.success ) {
+                        html = [
+                            ' <tr>',
+                            '     <td>预约编号</td>',
+                            '     <td>' + msg.yybh + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>号牌种类</td>',
+                            '     <td>' + msg.hpzl + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>号牌号码</td>',
+                            '     <td>' + msg.hphm + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>业务类型</td>',
+                            '     <td>' + msg.ywlx + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>预约办理日期</td>',
+                            '     <td>' + msg.yyblrq + '</td>',
+                            ' </tr>',
+                            ' <tr>',
+                            '     <td>预约办理时间</td>',
+                            '     <td>' + msg.yyblsj + '</td>',
                             ' </tr>'].join("");
                     } else {
                         html = _self.getHtmlNoResult();
@@ -485,6 +528,26 @@ $(function () {
                             "data": params
                         });
                     }
+                }
+                break;
+            case 'query_njyy':
+                if ( hasKey('hpzl', oHash)
+                    && hasKey('hphm', oHash)
+                    && hasKey('clsbdh', oHash) ) {
+
+                    //。。。
+                    params = { //TODO 参数确认
+                        "register": userName,
+                        "hpzl"  : oHash.hpzl,
+                        "hphm"  : oHash.hphm,
+                        "clsbdh"     : oHash.clsbdh
+                    };
+                    detailsBlock.init({
+                        "dom" : $('#c_Table_b'),
+                        "type": 'query_njyy',
+                        "url" : njyyqueryRequestUrl,
+                        "data": params
+                    });
                 }
                 break;
             default :
