@@ -1,19 +1,21 @@
 var App = (function () {
     function UI(name, opts, callback) {
         var changePage = {
-            "init"       : function () {
+            "curHeight"       : null,
+            "init"            : function () {
                 this.name = name;
                 opts.wrap && (this.wrap = opts.wrap);
                 this.currentpage = this.wrap.children().eq(0);
                 this.initDomFlag();
                 callback && (this.callback = callback);
             },
-            "initDomFlag": function () {
+            "initDomFlag"     : function () {
                 var self = this;
                 var wrap = self.wrap;
                 var childrenList = wrap.children();
                 var l = childrenList.length;
                 wrap.css('position', 'relative');
+                self.setCurPageHeight();
                 childrenList.each(function (index) {
                     var Index = index - 0;
                     var left = Index * 100 + '%';
@@ -37,7 +39,7 @@ var App = (function () {
                     });
                 });
             },
-            "bindEvent"  : function (dom, currentpage, gopage) {
+            "bindEvent"       : function (dom, currentpage, gopage) {
                 var self = this;
                 var btn = dom;
                 var cur_page = $('#page_' + currentpage);
@@ -55,16 +57,16 @@ var App = (function () {
                         self.toggle(cur_page, go_page, "left");
                     });
                 }
-                $(window).on('resize', function () {
-                    alert(self.wrap.width());
-                    self.wrap.css({
-                        'overflow-x': 'hidden',
-                        'border'    : '1px solid #a22'
-                    })
-                    $(this).off('resize')
-                })
+                /* $(window).on('resize', function () {
+                 alert(self.wrap.width());
+                 self.wrap.css({
+                 'overflow-x': 'hidden',
+                 'border'    : '1px solid #a22'
+                 })
+                 $(this).off('resize')
+                 })*/
             },
-            "toggle"     : function (curpage, gopage, action) {
+            "toggle"          : function (curpage, gopage, action) {
                 switch ( action ) {
                     case 'left':
                         curpage.animate({
@@ -83,7 +85,15 @@ var App = (function () {
                         }, 500, 'ease-out');
                         break;
                 }
-
+                this.currentpage = gopage;
+                this.setCurPageHeight();
+            },
+            "setCurPageHeight": function () {
+                var _self = this;
+                _self.curHeight = _self.currentpage.height();
+                _self.wrap.css({
+                    'height': _self.curHeight
+                })
             }
         };
         var inputClose = {
