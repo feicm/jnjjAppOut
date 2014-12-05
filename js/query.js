@@ -32,7 +32,7 @@ $(function () {
     } else {
         console.log('传参失败！');
     }
-    //TODO 考试预约 年鉴预约 年鉴预约查询
+    //TODO 年鉴预约
     var ksquerySubmit = $('#ksquery_btn');//考试预约、成绩查询提交按钮
     var njyycxquerySubmit = $('#njyycx_btn');//年检预约查询提交按钮
     ksquerySubmit.length && ksquerySubmit.on('click', function () {
@@ -47,7 +47,7 @@ $(function () {
             ip_hpzl = $('#hpzl').val(),
             ip_clsbdh = $('#clsbdh').val();
         var opts;
-        njyyqueryListener.off('click');
+        njyycxquerySubmit.off('click');
         opts = {
             "hphm"  : $('#hphm'),//号牌号码
             "clsbdh": $('#clsbdh')//车辆识别代号
