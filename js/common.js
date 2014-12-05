@@ -58,8 +58,8 @@ var App = (function () {
                 $(window).on('resize', function () {
                     alert(self.wrap.width());
                     self.wrap.css({
-                        overflow: 'hidden',
-                        border  : '1px solid #a22'
+                        'overflow-x': 'hidden',
+                        'border'    : '1px solid #a22'
                     })
                     $(this).off('resize')
                 })
