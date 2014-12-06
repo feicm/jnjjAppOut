@@ -101,6 +101,7 @@ $(function () {
                             mode    : 'scroller',
                             minWidth: 200
                         });
+                        Wisp.UI.progressDialog.remove();
                         _self.bindEvent('last');
                     } else {
                         console.log('data格式错误');
@@ -203,6 +204,7 @@ $(function () {
             Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
             App.getAjaxData(njyypcRequestUrl, _params, function (data) {
                 if ( data.success ) {
+                    Wisp.UI.progressDialog.remove();
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
                 } else {
