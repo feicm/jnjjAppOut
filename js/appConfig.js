@@ -156,7 +156,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/insepectionquery.jsp#mode=query_njyy"
+                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/inspectionquery.jsp#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
