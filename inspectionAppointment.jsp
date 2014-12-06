@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+    <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -55,7 +56,7 @@
                         <div class="item-inner">
                             <div class="item-title label">联 系 人</div>
                             <div class="item-input">
-                                <input id="name" type="text" placeholder="请输入联系人姓名">
+                                <input id="name" data-type="cnuser" type="text" placeholder="请输入联系人姓名">
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
                         <div class="item-inner">
                             <div class="item-title label">联系电话</div>
                             <div class="item-input">
-                                <input id="phone" type="text" placeholder="请输入联系电话">
+                                <input id="phone" data-type="mobile" type="text" placeholder="请输入联系电话">
                             </div>
                         </div>
                     </div>
