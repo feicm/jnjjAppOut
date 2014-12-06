@@ -58,6 +58,10 @@ $(function () {
                     App.UI('changePage', {//年检预约切换效果
                         "wrap": $('#inspectionAppointment_form')
                     });
+                    App.UI('buttonHover', {//添加按钮点击效果
+                        "dom"           : c1_btn,
+                        "hoverClassName": 'ui_btn_01_hover'
+                    });
                     c1_btn.trigger('click');
                     //进入第二页
                     secInit();
@@ -217,10 +221,7 @@ $(function () {
     App.UI('changePage', {//年检预约切换效果初始化
         "wrap": $('#inspectionAppointment_form')
     });
-    App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : c1_btn,
-        "hoverClassName": 'ui_btn_01_hover'
-    });
+
     App.UI('btnHighlightWithInput', {
         "btn"         : c1_btn,
         "inputs"      : $('.J_btnHighlightWithInput input'),
