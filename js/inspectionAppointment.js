@@ -54,7 +54,7 @@ $(function () {
                     c1_btn.on('click', c1_btnListener);
                     return;
                 }
-                if ( true ) {//审查通过
+                if ( data.success ) {//审查通过
                     App.UI('changePage', {//年检预约切换效果
                         "wrap": $('#inspectionAppointment_form')
                     });
