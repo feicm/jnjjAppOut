@@ -28,7 +28,7 @@ $(function () {
         + '/jnpublic/kscjquery.json';//考试成绩查询提交接口
     var njyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/njyycx.json.json';//年检预约查询提交接口
+        + '/jnpublic/njyycx.json';//年检预约查询提交接口
     var hash = window.location.hash,
         cartype, //车辆类型
         carid, //车牌号码
@@ -61,9 +61,10 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
+                //data.success && (msg = data.msg); //年检预约查询、考试成绩/预约查询
                 if ( data.success === true || data.success === false ) {
-                    msg = data
-                }//考试成绩/预约查询,操蛋，这样的返回格式真的是醉了
+                    msg = data.msg;
+                }//考试成绩/预约查询/年检预约查询
                 if ( data.violationInfoResponse ) {
                     msg = data.violationInfoResponse;
                     type = 'wf_card_t1';
@@ -73,7 +74,7 @@ $(function () {
                     type = 'wf_card_t2';
                 } //驾照违法-强制措施
                 if ( msg ) {
-                    _self.render(msg, _dom, type);
+                    _self.render(msg, _dom, type);//渲染结果
                 } else {
                     alert('加载失败!');
                 }
@@ -94,7 +95,7 @@ $(function () {
             var msg;
             switch ( type ) {
                 case 'carquery': //车辆查询结果内容模板
-                    if(data.carList[0].msg!=='NO_RESULT'){
+                    if ( data.carList[0].msg !== 'NO_RESULT' ) {
                         msg = $.parseJSON(data.carList[0].msg);//Object
                         html = [
                             '<tr>',
@@ -141,12 +142,12 @@ $(function () {
                             '     <td>保险终止日期</td>',
                             '     <td>' + msg.bxzzrq + '</td>',
                             ' </tr>'].join("");
-                    }else{
+                    } else {
                         html = _self.getHtmlNoResult();
                     }
                     break;
                 case 'cardquery': //驾照查询结果内容模板
-                    if(data.licenseList[0].msg!=='NO_RESULT'){
+                    if ( data.licenseList[0].msg !== 'NO_RESULT' ) {
                         msg = $.parseJSON(data.licenseList[0].msg);//Object
                         //{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}
                         html = [
@@ -174,7 +175,7 @@ $(function () {
                             '     <td>下一审验日期</td>',
                             '     <td>' + msg.xysyrq + '</td>',
                             ' </tr>'].join("");
-                    }else{
+                    } else {
                         html = _self.getHtmlNoResult();
                     }
                     break;
@@ -262,8 +263,9 @@ $(function () {
                     html = liArr.join("");
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
-                    msg = data;
-                    if ( msg.success ) {
+                    data;
+                    if ( data instanceof Array) {
+                        msg = $.parseJSON(data[0].msg);//Object
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
@@ -286,12 +288,13 @@ $(function () {
                             '     <td>' + msg.kcmc + '</td>',
                             ' </tr>'].join("");
                     } else {
-                        html = _self.getHtmlNoResult();
+                        html = _self.getHtmlNoResult(data);
                     }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
-                    msg = data;
-                    if ( msg.success ) {
+                    data;
+                    if ( data instanceof Array) {
+                        msg = $.parseJSON(data[0].msg);//Object
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
@@ -322,12 +325,13 @@ $(function () {
                             '     <td>' + msg.kcmc + '</td>',
                             ' </tr>'].join("");
                     } else {
-                        html = _self.getHtmlNoResult();
+                        html = _self.getHtmlNoResult(data);
                     }
                     break;
-                case 'query_njyy': //考试预约查询结果内容模板
-                    msg = data;
-                    if ( msg.success ) {
+                case 'query_njyy': //年检预约查询结果内容模板
+                    data;//Array
+                    if ( data instanceof Array ) {
+                        msg = $.parseJSON(data[0].msg);//Object
                         html = [
                             ' <tr>',
                             '     <td>预约编号</td>',
@@ -354,7 +358,7 @@ $(function () {
                             '     <td>' + msg.yyblsj + '</td>',
                             ' </tr>'].join("");
                     } else {
-                        html = _self.getHtmlNoResult();
+                        html = _self.getHtmlNoResult(data);
                     }
                     break;
                 default:
@@ -363,10 +367,16 @@ $(function () {
             }
             return html;
         },
-        "getHtmlNoResult": function () {
+        "getHtmlNoResult": function (msg) {
+            var text;
+            if ( msg === 'NO_RESULT' || msg === undefined ) {
+                text = '无记录！';
+            } else {
+                text = msg;
+            }
             var _html = [
                 ' <div class="noresult">',
-                '     <b>无记录！</b>',
+                '     <b>' + text + '</b>',
                 ' </div>'].join("");
             return _html;
         },
@@ -538,9 +548,9 @@ $(function () {
                     //。。。
                     params = { //TODO 参数确认
                         "register": userName,
-                        "hpzl"  : oHash.hpzl,
-                        "hphm"  : oHash.hphm,
-                        "clsbdh"     : oHash.clsbdh
+                        "hpzl"    : oHash.hpzl,
+                        "hphm"    : oHash.hphm,
+                        "clsbdh"  : oHash.clsbdh
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),

@@ -54,7 +54,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓 名</div>
                             <div class="item-input">
-                                <input id="setname" data-type="cnuser" type="text" placeholder="请输入密切联系人姓名">
+                                <input id="setname" data-type="cnuser" type="text" placeholder="请输入您的姓名">
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div class="item-inner">
                             <div class="item-title label">手 机</div>
                             <div class="item-input">
-                                <input id="setphone" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
+                                <input id="setphone" data-type="mobile" type="text" placeholder="请输入您的手机号码">
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="item-inner">
                             <div class="item-title label">身份证号</div>
                             <div class="item-input">
-                                <input id="setidnum" data-type="card" type="text" placeholder="请输入密切联系人身份证号">
+                                <input id="setidnum" data-type="card" type="text" placeholder="请输入您的身份证号">
                             </div>
                         </div>
                     </div>
