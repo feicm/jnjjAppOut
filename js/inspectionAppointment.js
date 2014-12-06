@@ -100,7 +100,7 @@ $(function () {
     function renderList(data){
         var l,
             slist,
-            alist;
+            alist=[];
         var listWrap=$('#njyypc_list');
         if(data instanceof Array){
              l=data.length;
@@ -149,7 +149,7 @@ $(function () {
     //渲染批次项返回结果
     function renderContent(data){
         var l;
-        var aOption;
+        var aOption=[];
         var kxsjd=$('#kxsjd');
         var ip_jcxdz=$('#jcxdz');
         var ip_yyrq=$('#yyrq');
