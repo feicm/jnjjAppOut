@@ -57,32 +57,24 @@ var App = (function () {
                         self.toggle(cur_page, go_page, "left");
                     });
                 }
-                /* $(window).on('resize', function () {
-                 alert(self.wrap.width());
-                 self.wrap.css({
-                 'overflow-x': 'hidden',
-                 'border'    : '1px solid #a22'
-                 })
-                 $(this).off('resize')
-                 })*/
             },
             "toggle"          : function (curpage, gopage, action) {
                 switch ( action ) {
                     case 'left':
                         curpage.animate({
                             left: '-100%'
-                        }, 500, 'ease-out');
+                        }, 200, 'ease-out');
                         gopage.animate({
                             left: '0'
-                        }, 500, 'ease-out');
+                        }, 200, 'ease-out');
                         break;
                     case 'right':
                         curpage.animate({
                             left: '100%'
-                        }, 500, 'ease-out');
+                        }, 200, 'ease-out');
                         gopage.animate({
                             left: '0'
-                        }, 500, 'ease-out');
+                        }, 200, 'ease-out');
                         break;
                 }
                 this.currentpage = gopage;
@@ -155,22 +147,32 @@ var App = (function () {
                             close.css('display', 'block');
                         })
                         input.on('blur', function (e) {
-                            //console.log('blur')
-                            type = $(this).attr('data-type');
-                            value = $(this).val();
-                            if ( type ) {
-                                result = self.validationer(type, value);
-                                if ( !result ) { //没验证通过，弹出提示
-                                    tipstxt = self.tipsMap[type];
-                                    self.popTips($(this), tipstxt);
-                                } else {//验证通过，原有提示，则移除
-                                    self.removeTips($(this));
-                                }
-                            }
-                            !value && close.css('display', 'none');
+                            self.verify($(this), close);
+                        })
+                        input.on('input', function (e) {
+                            self.verify($(this), close);
                         })
                     })
                 });
+            },
+            "verify"      : function (target, closeDom) {
+                var self = this;
+                var result,
+                    value,
+                    tipstxt,
+                    type;
+                type = target.attr('data-type');
+                value = target.val();
+                if ( type ) {
+                    result = self.validationer(type, value);
+                    if ( !result ) { //没验证通过，弹出提示
+                        tipstxt = self.tipsMap[type];
+                        self.popTips(target, tipstxt);
+                    } else {//验证通过，原有提示，则移除
+                        self.removeTips(target);
+                    }
+                }
+                !value && closeDom.css('display', 'none');
             },
             "validationer": function (type, value) {
                 var result;
@@ -372,13 +374,100 @@ var App = (function () {
                 this.curBlock = _targetBlock;
             }
         };
+        var btnHighlightWithInput = {
+            "init"              : function () {
+                this.btn = opts.btn;
+                this.inputs = opts.inputs;
+                this.disableClass = opts.disableClass;
+                this.callback = callback;
+                this.disableBtn();
+                this.bindEvent();
+            },
+            "bindEvent"         : function () {
+                var self = this;
+                var value;
+                var _curInput;
+                var _curInputVal;
+                //console.dir(self.doms);
+                self.inputs.each(function (index) {
+                    _curInput = $(this);
+                    _curInputVal = _curInput.val();
+                    _curInput.on('focus', function () {
+                        self.toggleBtnHighlight();
+                    })
+                    _curInput.on('blur', function () {
+                        self.toggleBtnHighlight();
+                    })
+                    /*_curInput.on('input', function () {
+                     self.toggleBtnHighlight();
+                     })*/// input 值长度为1时，有bug
+                });
+            },
+            "toggleBtnHighlight": function () {
+                var self = this;
+                var btnStauts = self.getBtnStatus();
+                if ( self.getInputsStatus() ) {//按钮需可用
+                    if ( btnStauts === 'active' ) { //本来就可以用，则返回
+                        return;
+                    } else { //本来不可用，则点亮并绑定事件
+                        self.enableBtn();
+                    }
+                } else {//按钮需不可用
+                    if ( btnStauts === '' ) { //本来不可用，则返回
+                        return;
+                    } else { //本来可用，则转为不可用并绑定事件
+                        self.disableBtn();
+                    }
+                }
+            },
+            "enableBtn"         : function () {
+                var self = this;
+                var _btn = self.btn;
+                var _disableClass = self.disableClass;
+                var _callback = self.callback;
+                _btn.removeClass(_disableClass);
+                _btn.attr('data-status', 'active');
+                _callback('enable', _btn);//回调函数中添加绑定事件
+            },
+            "disableBtn"        : function () {
+                var self = this;
+                var _btn = self.btn;
+                var _disableClass = self.disableClass;
+                var _callback = self.callback;
+                _btn.addClass(_disableClass);
+                _btn.attr('data-status', '');
+                _callback('disable', _btn);//回调函数中移除绑定事件
+            },
+            "getBtnStatus"      : function () {
+                return this.btn.attr('data-status');
+            },
+            "getInputsStatus"   : function () {
+                var self = this;
+                var _inputs = self.inputs;
+                var result = false;
+                var l;
+                var curVal;
+                _inputs.each(function (index) {
+                    l = $(this).parent().find('.tips').length;
+                    curVal = $(this).val();
+                    if ( curVal && !l ) {
+                        result = true;
+                    } else {
+                        result = false;
+                        return result;
+                    }
+                })
+                return result;
+            }
+        };
         var moduleNameMap = {
-            "changePage"       : changePage,
-            "inputClose"       : inputClose,
-            "buttonHover"      : buttonHover,
-            "tabToggle"        : tabToggle,
-            "select"           : select,
-            "toggleSelectBlock": toggleSelectBlock
+            "changePage"           : changePage,
+            "inputClose"           : inputClose,
+            "buttonHover"          : buttonHover,
+            "tabToggle"            : tabToggle,
+            "select"               : select,
+            "toggleSelectBlock"    : toggleSelectBlock,
+            "btnHighlightWithInput": btnHighlightWithInput
         };
         name && moduleNameMap[name].init();
     }
