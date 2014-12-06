@@ -488,7 +488,7 @@ $(function () {
             App.UI('changePage', {//注册页面切换效果
                 "wrap": $('#rigister_form')
             });
-            btn.on('click', c1_btnListener);//第一步按钮，可用之后立即绑定事件
+            njyyLogic.bindEvent('first');
         }
         if ( status === 'disable' ) {
             App.UI('buttonHover', {//移除按钮点击效果
