@@ -62,18 +62,26 @@ var App = (function () {
                 switch ( action ) {
                     case 'left':
                         curpage.animate({
-                            left: '-100%'
+                            left   : '-100%',
+                            opacity: '.5',
+                            display: 'none'
                         }, 200, 'ease-out');
                         gopage.animate({
-                            left: '0'
+                            left   : '0',
+                            opacity: '1',
+                            display: 'block'
                         }, 200, 'ease-out');
                         break;
                     case 'right':
                         curpage.animate({
-                            left: '100%'
+                            left   : '100%',
+                            opacity: '.5',
+                            display: 'none'
                         }, 200, 'ease-out');
                         gopage.animate({
-                            left: '0'
+                            left   : '0',
+                            opacity: '1',
+                            display: 'block'
                         }, 200, 'ease-out');
                         break;
                 }
