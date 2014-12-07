@@ -568,7 +568,7 @@ var App = (function () {
             }
         }).fail(function (data) {
             Wisp.UI.progressDialog.remove();
-            alert('数据请求失败，请检查网络连接！');
+            //alert('数据请求失败，请检查网络连接！');
             callback && callback('error');
             //history.go(0);
         });
