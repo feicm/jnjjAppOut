@@ -13,7 +13,7 @@
 
 <form class="c" action="" method="post" id="rigister_form">
     <div class="rigister_f">
-        <div class="list-block">
+        <div class="list-block J_btnHighlightWithInput">
             <ul>
                 <li>
                     <div class="item-content">
@@ -47,7 +47,7 @@
                 </li>
             </ul>
         </div>
-        <div class="list-block">
+        <div class="list-block J_btnHighlightWithInput">
             <ul>
                 <li>
                     <div class="item-content">

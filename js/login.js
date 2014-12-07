@@ -366,6 +366,29 @@ $(function () {
         App.UI('changePage', {//注册页面切换效果
             "wrap": $('#rigister_form')
         });
+        App.UI('btnHighlightWithInput', {
+            "btn"         : c1_btn,
+            "inputs"      : $('.J_btnHighlightWithInput input'),
+            "disableClass": 'ui_btn_01_disable'
+        }, function (status, btn) {
+            if ( status === 'enable' ) {
+                App.UI('buttonHover', {//添加按钮点击效果
+                    "dom"           : btn,
+                    "hoverClassName": 'ui_btn_01_hover'
+                });
+                App.UI('changePage', {//注册页面切换效果
+                    "wrap": $('#rigister_form')
+                });
+            }
+            if ( status === 'disable' ) {
+                App.UI('buttonHover', {//移除按钮点击效果
+                    "dom"           : btn,
+                    "hoverClassName": 'ui_btn_01_hover',
+                    "off"           : true
+                });
+                btn.off('click');
+            }
+        });
         App.UI('inputClose', {//注册页面输入校验
             "doms": $('.list-block')
         });
