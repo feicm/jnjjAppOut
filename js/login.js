@@ -223,6 +223,8 @@ $(function () {
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     }
                 })
+            }else{
+                _self.bindEvent(_btn, 'rigisterSubmit');
             }
         },
         //登录成功回调函数
