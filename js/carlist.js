@@ -342,9 +342,9 @@ $(function () {
     //绑定成功回调函数
     function bindSuccessCallback(data) {
         console.dir(data);
-        //history.go(0); //直接刷新获取最新列表
         Wisp.UI.progressDialog.remove();
         alert('绑定成功！');
+        history.go(0); //直接刷新获取最新列表
     }
 
     //表单与提交按钮联动效果函数
