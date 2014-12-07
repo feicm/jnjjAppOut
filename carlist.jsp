@@ -25,7 +25,7 @@
                 添加绑定
             </a>
         </div>
-        <form class="rigister_f" action="" method="post" id="bindinfo_form">
+        <form class="rigister_f" style="display:none" action="" method="post" id="bindinfo_form">
             <div class="list-block J_btnHighlightWithInput">
                 <ul>
                     <li>
