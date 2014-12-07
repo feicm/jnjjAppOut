@@ -12,7 +12,7 @@
 <body>
     <div class="c"  data-mode='card' data-issinglepage='true'>
     <form class="rigister_f" action="" method="post" id="bindcard_form">
-    <div class="list-block">
+    <div class="list-block J_btnHighlightWithInput">
     <ul>
     <li>
     <div class="item-content">
