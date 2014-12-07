@@ -347,7 +347,32 @@ $(function () {
         alert('绑定成功！');
     }
 
-
+    //表单与提交按钮联动效果函数
+    function initBtnHighlightWithInput(btn,listener){
+        var _btn=btn;
+        var _listener=listener;
+        App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+            "btn"         : _btn,
+            "inputs"      : $('.J_btnHighlightWithInput input'),
+            "disableClass": 'ui_btn_01_disable'
+        }, function (status, btn) { //btnHighlightWithInput控件回调
+            if ( status === 'enable' ) {//激活按钮
+                App.UI('buttonHover', {//添加按钮点击效果
+                    "dom"           : btn,
+                    "hoverClassName": 'ui_btn_01_hover'
+                });
+                btn.on('click', _listener);//注册事件
+            }
+            if ( status === 'disable' ) {//按钮置为不可用
+                App.UI('buttonHover', {//移除按钮点击效果
+                    "dom"           : btn,
+                    "hoverClassName": 'ui_btn_01_hover',
+                    "off"           : true
+                });
+                btn.off('click'); //移除事件
+            }
+        });
+    }
     /*
      * --------------------页面效果------------------------
      * */
@@ -361,52 +386,12 @@ $(function () {
         "dom"           : goCarbindpage,
         "hoverClassName": 'ui_btn_01_hover'
     });
-    bindinfoBtn && App.UI('btnHighlightWithInput', {
-        "btn"         : bindinfoBtn,
-        "inputs"      : $('.J_btnHighlightWithInput input'),
-        "disableClass": 'ui_btn_01_disable'
-    }, function (status, btn) {
-        if ( status === 'enable' ) {
-            App.UI('buttonHover', {//添加按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover'
-            });
-            btn.on('click', bindcarListerner);
-        }
-        if ( status === 'disable' ) {
-            App.UI('buttonHover', {//移除按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover',
-                "off"           : true
-            });
-            btn.off('click');
-        }
-    });
+    bindinfoBtn && initBtnHighlightWithInput(bindinfoBtn,bindcarListerner);
     goCardbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCardbindpage,
         "hoverClassName": 'ui_btn_01_hover'
     });
-    bindcardBtn && App.UI('btnHighlightWithInput', {
-        "btn"         : bindcardBtn,
-        "inputs"      : $('.J_btnHighlightWithInput input'),
-        "disableClass": 'ui_btn_01_disable'
-    }, function (status, btn) {
-        if ( status === 'enable' ) {
-            App.UI('buttonHover', {//添加按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover'
-            });
-            btn.on('click', bindcardListerner);
-        }
-        if ( status === 'disable' ) {
-            App.UI('buttonHover', {//移除按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover',
-                "off"           : true
-            });
-            btn.off('click');
-        }
-    });
+    bindcardBtn && initBtnHighlightWithInput(bindcardBtn,bindcardListerner);
     cancelbindBtn && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : cancelbindBtn,
         "hoverClassName": 'ui_btn_01_hover'
