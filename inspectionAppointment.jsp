@@ -79,7 +79,7 @@
             </a>
         </div>
     </div>
-    <div class="rigister_f" style="display:none">
+    <div class="rigister_f" style="opacity: 0">
         <div class="list-block">
             <ul>
                 <li>
@@ -106,7 +106,7 @@
             </a>
         </div>
     </div>
-    <div class="rigister_f" style="display:none">
+    <div class="rigister_f" style="opacity: 0">
         <div class="list-block">
             <ul>
                 <li>

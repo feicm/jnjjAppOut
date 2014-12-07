@@ -87,7 +87,7 @@
             </a>
         </div>
     </div>
-    <div class="rigister_f" style="display:none">
+    <div class="rigister_f" style="opacity: 0">
         <div class="ipt_lable">
             移车联系人信息<b class="color_01">(选填)</b>
         </div>

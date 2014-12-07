@@ -63,25 +63,21 @@ var App = (function () {
                     case 'left':
                         curpage.animate({
                             left   : '-100%',
-                            opacity: '.5',
-                            display: 'none'
+                            opacity: '0'
                         }, 200, 'ease-out');
                         gopage.animate({
                             left   : '0',
-                            opacity: '1',
-                            display: 'block'
+                            opacity: '1'
                         }, 200, 'ease-out');
                         break;
                     case 'right':
                         curpage.animate({
                             left   : '100%',
-                            opacity: '.5',
-                            display: 'none'
+                            opacity: '0'
                         }, 200, 'ease-out');
                         gopage.animate({
                             left   : '0',
-                            opacity: '1',
-                            display: 'block'
+                            opacity: '1'
                         }, 200, 'ease-out');
                         break;
                 }
