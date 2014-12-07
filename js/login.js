@@ -366,6 +366,17 @@ $(function () {
         App.UI('changePage', {//注册页面切换效果
             "wrap": $('#rigister_form')
         });
+        App.UI('inputClose', {//注册页面输入校验
+            "doms": $('.list-block')
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : rigisterSubmit,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : c2_btn,
+            "hoverClassName": 'ui_btn_01_hover'
+        });
         App.UI('btnHighlightWithInput', {
             "btn"         : c1_btn,
             "inputs"      : $('.J_btnHighlightWithInput input'),
@@ -388,21 +399,6 @@ $(function () {
                 });
                 btn.off('click');
             }
-        });
-        App.UI('inputClose', {//注册页面输入校验
-            "doms": $('.list-block')
-        });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : rigisterSubmit,
-            "hoverClassName": 'ui_btn_01_hover'
-        });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : c1_btn,
-            "hoverClassName": 'ui_btn_01_hover'
-        });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : c2_btn,
-            "hoverClassName": 'ui_btn_01_hover'
         });
     }
 });
