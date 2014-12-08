@@ -417,8 +417,9 @@ var App = (function () {
             "toggleBtnHighlight": function () {
                 var self = this;
                 var btnStauts = self.getBtnStatus();
-                if ( self.getInputsStatus()
-                    && self.hasChangeVal(self.oldVal, self.newVal) ) {//按钮需可用
+                var toActive=self.getInputsStatus();
+                var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
+                if ( toActive && hasChangeVal ) {//按钮需可用
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
                     } else { //本来不可用，则点亮并绑定事件
