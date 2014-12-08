@@ -18,7 +18,6 @@ $(function () {
     var closerRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/closeSetPass.json';//密切联系人找回
-    repwdBtn.length && repwdBtn.on('click', repwdListener);
     backpwdBtn.length && backpwdBtn.on('click', backpwdListener);
 
     //密码找回事件函数
@@ -212,9 +211,12 @@ $(function () {
         });
     }
     if ( repwdBtn.length ) {  //密码修改
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : repwdBtn,
-            "hoverClassName": 'ui_btn_01_hover'
+        App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+            "btn"         : repwdBtn,
+            "listener"    : repwdListener,
+            "inputs"      : $('.J_btnHighlightWithInput input'),
+            "hoverClass"  : 'ui_btn_01_hover',
+            "disableClass": 'ui_btn_01_disable'
         });
     }
 });
