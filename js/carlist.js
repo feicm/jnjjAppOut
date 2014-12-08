@@ -361,7 +361,9 @@ $(function () {
                     "dom"           : btn,
                     "hoverClassName": 'ui_btn_01_hover'
                 });
-                btn.on('click', _listener);//注册事件
+                btn.on('click', function(){
+                    _listener();
+                });//注册事件
             }
             if ( status === 'disable' ) {//按钮置为不可用
                 App.UI('buttonHover', {//移除按钮点击效果
