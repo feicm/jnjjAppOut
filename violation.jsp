@@ -15,10 +15,10 @@
     <!--select组件 css end-->
 </head>
 <body>
-<div class="ui-grid-a tab" id="tab_violation">
-    <a class="ui-block-a active" data-for="tab-item-01">车辆</a>
-    <a class="ui-block-b" data-for="tab-item-02">驾照</a>
-</div>
+    <div class="ui-buttons-row" id="tab_violation">
+        <a class="button active" data-for="tab-item-01">车辆</a>
+        <a class="button" data-for="tab-item-02">驾照</a>
+    </div>
 <div id="tab-item-01">
     <div class="list-block mt01">
         <ul>

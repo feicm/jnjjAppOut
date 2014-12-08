@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="ui-grid-a tab" id="tab_violation">
-        <a class="ui-block-a active" data-for="tab-item-01">驾照违法</a>
-        <a class="ui-block-b" data-for="tab-item-02">驾照强制措施</a>
+    <div class="ui-buttons-row" id="tab_violation">
+        <a class="button active" data-for="tab-item-01">驾照违法</a>
+        <a class="button" data-for="tab-item-02">驾照强制措施</a>
     </div>
+
     <ul class='details_list' id="tab-item-01">
 
     </ul>
