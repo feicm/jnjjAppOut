@@ -818,12 +818,11 @@ var App = (function () {
     }
 
     return {
-        "UI"                       : UI,
-        "getAjaxData"              : getAjaxData,
-        "getHash"                  : getHash,
-        "verify"                   : verify,
-        "Cookie"                   : Cookie,
-        "LS"                       : LS,   //本地存储
-        "initBtnHighlightWithInput": initBtnHighlightWithInput
+        "UI"         : UI,
+        "getAjaxData": getAjaxData,
+        "getHash"    : getHash,
+        "verify"     : verify,
+        "Cookie"     : Cookie,
+        "LS"         : LS   //本地存储
     };
 })();
