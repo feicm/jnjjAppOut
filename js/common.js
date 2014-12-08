@@ -402,11 +402,11 @@ var App = (function () {
                     _curInput = $(this);
                     _curInputVal = _curInput.val();
                     _curInput.on('focus', function () {
-                        self.oldVal = _curInput.val();
+                        self.oldVal = $(this).val();
                         self.toggleBtnHighlight();
                     })
                     _curInput.on('blur', function () {
-                        self.newVal = _curInput.val();
+                        self.newVal = $(this).val();
                         self.toggleBtnHighlight();
                     })
                     /*_curInput.on('input', function () {
