@@ -379,6 +379,8 @@ var App = (function () {
             }
         };
         var btnHighlightWithInput = {
+            "oldVal"            : null,
+            "newVal"            : null,
             "init"              : function () {
                 this.btn = opts.btn;
                 this.listener = opts.listener || null;
@@ -400,9 +402,11 @@ var App = (function () {
                     _curInput = $(this);
                     _curInputVal = _curInput.val();
                     _curInput.on('focus', function () {
+                        self.oldVal = _curInput.val();
                         self.toggleBtnHighlight();
                     })
                     _curInput.on('blur', function () {
+                        self.newVal = _curInput.val();
                         self.toggleBtnHighlight();
                     })
                     /*_curInput.on('input', function () {
@@ -413,7 +417,8 @@ var App = (function () {
             "toggleBtnHighlight": function () {
                 var self = this;
                 var btnStauts = self.getBtnStatus();
-                if ( self.getInputsStatus() ) {//按钮需可用
+                if ( self.getInputsStatus()
+                    && self.hasChangeVal(self.oldVal, self.newVal) ) {//按钮需可用
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
                     } else { //本来不可用，则点亮并绑定事件
@@ -480,6 +485,9 @@ var App = (function () {
                     }
                 })
                 return result;
+            },
+            "hasChangeVal"      : function (oldval, newval) {
+                return oldval === newval;
             }
         };
         var moduleNameMap = {
