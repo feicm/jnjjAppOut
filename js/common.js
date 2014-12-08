@@ -411,9 +411,9 @@ var App = (function () {
                         self.toggleBtnHighlight();
                         self.oldVal=self.newVal;
                     })
-                    /*_curInput.on('input', function () {
+                    _curInput.on('input', function () {
                      self.toggleBtnHighlight();
-                     })*/// input 值长度为1时，有bug
+                     })/**/// input 值长度为1时，有bug
                 });
             },
             "toggleBtnHighlight": function () {
@@ -421,10 +421,6 @@ var App = (function () {
                 var btnStauts = self.getBtnStatus();
                 var toActive=self.getInputsStatus();
                 var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
-                console.log(toActive);
-                console.log(hasChangeVal);
-                console.log('oldval:'+self.oldVal);
-                console.log('newval:'+self.newVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
                     self.newVal='';
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
