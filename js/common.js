@@ -420,6 +420,8 @@ var App = (function () {
                 var btnStauts = self.getBtnStatus();
                 var toActive=self.getInputsStatus();
                 var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
+                console.log(toActive);
+                console.log(hasChangeVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
