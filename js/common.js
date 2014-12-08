@@ -379,8 +379,8 @@ var App = (function () {
             }
         };
         var btnHighlightWithInput = {
-            "oldVal"            : null,
-            "newVal"            : null,
+            "oldVal"            : '',
+            "newVal"            : '',
             "init"              : function () {
                 this.btn = opts.btn;
                 this.listener = opts.listener || null;
@@ -404,7 +404,6 @@ var App = (function () {
                     _curInput.on('focus', function () {
                         self.oldVal = $(this).val();
                         self.toggleBtnHighlight();
-                        self.newVal=self.oldVal;
                     })
                     _curInput.on('blur', function () {
                         self.newVal = $(this).val();
@@ -423,8 +422,8 @@ var App = (function () {
                 var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
                 console.log(toActive);
                 console.log(hasChangeVal);
-                console.log('oldval'+self.oldVal);
-                console.log('newval'+self.newVal);
+                console.log('oldval:'+self.oldVal);
+                console.log('newval:'+self.newVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
