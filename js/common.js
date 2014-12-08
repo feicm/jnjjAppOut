@@ -431,6 +431,7 @@ var App = (function () {
                         self.enableBtn();
                     }
                 } else {//按钮需不可用
+                    self.newVal='';
                     if ( btnStauts === '' ) { //本来不可用，则返回
                         return;
                     } else { //本来可用，则转为不可用并绑定事件
