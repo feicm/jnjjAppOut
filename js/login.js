@@ -262,6 +262,7 @@ $(function () {
             console.dir(data);
             data.userName && (_self.siderDatas.sider.info.name = data.userName);
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
+            _self.siderDatas.sider.info.roleid=_self.roleId;
             _self.siderDatas.sider.info.url = '';
             var l = _self.siderDatas.sider.list.length;
             for ( var i = 0; i < l; i++ ) {

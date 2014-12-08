@@ -5,7 +5,7 @@ jnjjApp.config = {
     "requestUrl"   : "http://rjsoft.gnway.cc:9087",
     "msgRequestUrl": "http://rjsoft.gnway.cc:9093"
 };
-jnjjApp.footbarDatas= {
+jnjjApp.footbarDatas = {
     "footbar": [
         {
             "beforeImg" : "config/html/images/wispui/xinxi_normal.png",
@@ -49,7 +49,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "违法信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/violation.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violation.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -60,7 +60,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "车辆信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/carlist.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -71,7 +71,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "驾照信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/cardlist.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -82,7 +82,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "事故快处",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/tips.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -93,7 +93,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "车辆绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/bindcar.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/bindcar.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -104,7 +104,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "驾照绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/bindcard.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/bindcard.jsp"
                         }
                     ]
                 },
@@ -115,16 +115,16 @@ jnjjApp.footbarDatas= {
                     },//用于分组，为空时不显示
                     "data"   : [
                         /*{
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/ksyy_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
-                            "disableImg": "config/html/images/wispui/ksyy_dis.png",
-                            "enable"    : "false",
-                            "name"      : "考试预约",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/tips.jsp"
-                        },*/
+                         "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                         "beforeImg" : "config/html/images/wispui/ksyy_normal.png",//点击前图标
+                         "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                         "disableImg": "config/html/images/wispui/ksyy_dis.png",
+                         "enable"    : "false",
+                         "name"      : "考试预约",
+                         "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                         "clickEvent": "",
+                         "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/tips.jsp"
+                         },*/
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/njyy_normal.png",//点击前图标
@@ -134,7 +134,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "年检预约",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/inspectionAppointment.jsp"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/inspectionAppointment.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -145,7 +145,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/examquery.jsp#mode=query_ksyy"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/examquery.jsp#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -156,7 +156,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/inspectionquery.jsp#mode=query_njyy"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/inspectionquery.jsp#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -167,7 +167,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "考试成绩查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/examquery.jsp#mode=query_kscj"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/examquery.jsp#mode=query_kscj"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -178,7 +178,7 @@ jnjjApp.footbarDatas= {
                             "name"      : "车管所位置",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : jnjjApp.config.requestUrl+"/jnpublic/cgsquery.json?action=map"
+                            "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
                         }
                     ]
                 }
@@ -189,10 +189,11 @@ jnjjApp.footbarDatas= {
 jnjjApp.siderDatas = {
     "sider": {
         "info": {
-            "id"  : '',
-            "img" : '',
-            "name": '',
-            "url" : 'adapter?url=' + jnjjApp.config.requestUrl + '/wispcms/config/html/loginnoskip.jsp'
+            "id"    : '',
+            "img"   : '',
+            "name"  : '',
+            "url"   : 'adapter?url=' + jnjjApp.config.requestUrl + '/wispcms/config/html/loginnoskip.jsp',
+            "roleid": '0000'//角色权限标识
         },
         "list": [
             {
@@ -204,7 +205,7 @@ jnjjApp.siderDatas = {
                 "name"      : "个人资料",
                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/personalinfo.jsp"
+                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/personalinfo.jsp"
             },
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -215,7 +216,7 @@ jnjjApp.siderDatas = {
                 "name"      : "我的车辆",
                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/carlist.jsp"
+                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/carlist.jsp"
             },
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -226,7 +227,7 @@ jnjjApp.siderDatas = {
                 "name"      : "我的驾照",
                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/cardlist.jsp"
+                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/cardlist.jsp"
             },
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -237,7 +238,7 @@ jnjjApp.siderDatas = {
                 "name"      : "我的违法",
                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                 "clickEvent": "",
-                "url"       : "adapter?open&url="+jnjjApp.config.requestUrl+"/wispcms/config/html/violation.jsp"
+                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/violation.jsp"
             },
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
