@@ -348,9 +348,9 @@ $(function () {
     }
 
     //表单与提交按钮联动效果函数
-    function initBtnHighlightWithInput(btn,listener){
-        var _btn=btn;
-        var _listener=listener;
+    function initBtnHighlightWithInput(btn, listener, arg) {
+        var _btn = btn;
+        var _listener = listener;
         App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
             "btn"         : _btn,
             "inputs"      : $('.J_btnHighlightWithInput input'),
@@ -361,8 +361,9 @@ $(function () {
                     "dom"           : btn,
                     "hoverClassName": 'ui_btn_01_hover'
                 });
-                btn.on('click', function(){
-                    _listener();
+
+                btn.on('click', function () {
+                    args ? _listener(arg) : _listener();
                 });//注册事件
             }
             if ( status === 'disable' ) {//按钮置为不可用
@@ -375,6 +376,7 @@ $(function () {
             }
         });
     }
+
     /*
      * --------------------页面效果------------------------
      * */
@@ -388,12 +390,24 @@ $(function () {
         "dom"           : goCarbindpage,
         "hoverClassName": 'ui_btn_01_hover'
     });
-    bindinfoBtn && initBtnHighlightWithInput(bindinfoBtn,bindcarListerner);
+    bindinfoBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+        "btn"         : bindinfoBtn,
+        "listener"    : bindcarListerner,
+        "inputs"      : $('.J_btnHighlightWithInput input'),
+        "hoverClass"  : 'ui_btn_01_hover',
+        "disableClass": 'ui_btn_01_disable'
+    });
     goCardbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCardbindpage,
         "hoverClassName": 'ui_btn_01_hover'
     });
-    bindcardBtn && initBtnHighlightWithInput(bindcardBtn,bindcardListerner);
+    bindcardBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+        "btn"         : bindcardBtn,
+        "listener"    : bindcardListerner,
+        "inputs"      : $('.J_btnHighlightWithInput input'),
+        "hoverClass"  : 'ui_btn_01_hover',
+        "disableClass": 'ui_btn_01_disable'
+    });
     cancelbindBtn && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : cancelbindBtn,
         "hoverClassName": 'ui_btn_01_hover'

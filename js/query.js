@@ -32,15 +32,24 @@ $(function () {
     } else {
         console.log('传参失败！');
     }
-    //TODO 年鉴预约
     var ksquerySubmit = $('#ksquery_btn');//考试预约、成绩查询提交按钮
     var njyycxquerySubmit = $('#njyycx_btn');//年检预约查询提交按钮
-    ksquerySubmit.length && ksquerySubmit.on('click', function () {
-        ksqueryListener(modeName);
+    ksquerySubmit.length && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+        "btn"         : ksquerySubmit,
+        "listener"    : ksqueryListener,
+        "listenerArg" : modeName,
+        "inputs"      : $('.J_btnHighlightWithInput input'),
+        "hoverClass"  : 'ui_btn_01_hover',
+        "disableClass": 'ui_btn_01_disable'
     });
-    njyycxquerySubmit.length && njyycxquerySubmit.on('click', function () {
-        njyyqueryListener(modeName);
-    })
+    njyycxquerySubmit.length && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+        "btn"         : njyycxquerySubmit,
+        "listener"    : njyyqueryListener,
+        "listenerArg" : modeName,
+        "inputs"      : $('.J_btnHighlightWithInput input'),
+        "hoverClass"  : 'ui_btn_01_hover',
+        "disableClass": 'ui_btn_01_disable'
+    });
     //年检预约查询提交事件
     function njyyqueryListener(mode) {
         var ip_hphm = $('#hphm').val(),
@@ -98,6 +107,7 @@ $(function () {
             });
         }
     }
+
 
     /*
      * --------------------页面效果------------------------

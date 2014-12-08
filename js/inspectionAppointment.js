@@ -286,26 +286,13 @@ $(function () {
     App.UI('btnHighlightWithInput', {
         "btn"         : c1_btn,
         "inputs"      : $('.J_btnHighlightWithInput input'),
-        "disableClass": 'ui_btn_01_disable'
-    }, function (status, btn) {
-        if ( status === 'enable' ) {
-            App.UI('buttonHover', {//添加按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover'
-            });
+        "disableClass": 'ui_btn_01_disable',
+        "hoverClass": 'ui_btn_01_hover'
+    }, function (btn) {
             App.UI('changePage', {//注册页面切换效果
                 "wrap": $('#rigister_form')
             });
             njyyLogic.bindEvent('first');
-        }
-        if ( status === 'disable' ) {
-            App.UI('buttonHover', {//移除按钮点击效果
-                "dom"           : btn,
-                "hoverClassName": 'ui_btn_01_hover',
-                "off"           : true
-            });
-            btn.off('click');
-        }
     });
     var curr = new Date().getFullYear();
     $('#date').mobiscroll().date({

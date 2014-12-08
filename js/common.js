@@ -381,8 +381,11 @@ var App = (function () {
         var btnHighlightWithInput = {
             "init"              : function () {
                 this.btn = opts.btn;
+                this.listener = opts.listener || null;
+                this.listenerArg = opts.listenerArg || null;
                 this.inputs = opts.inputs;
                 this.disableClass = opts.disableClass;
+                this.hoverClass = opts.hoverClass;
                 this.callback = callback;
                 this.disableBtn();
                 this.bindEvent();
@@ -427,20 +430,35 @@ var App = (function () {
             "enableBtn"         : function () {
                 var self = this;
                 var _btn = self.btn;
+                var _listener = self.listener;
+                var _listenerArg = self.listenerArg;
                 var _disableClass = self.disableClass;
+                var _hoverClass = self.hoverClass;
                 var _callback = self.callback;
                 _btn.removeClass(_disableClass);
                 _btn.attr('data-status', 'active');
-                _callback('enable', _btn);//回调函数中添加绑定事件
+                App.UI('buttonHover', {//添加按钮点击效果
+                    "dom"           : _btn,
+                    "hoverClassName": _hoverClass
+                });
+                _listener && _btn.on('click', function () {
+                    _listenerArg ? _listener(_listenerArg) : _listener();
+                });//注册事件
+                _callback && _callback(_btn);//回调函数中添加其他绑定事件
             },
             "disableBtn"        : function () {
                 var self = this;
                 var _btn = self.btn;
                 var _disableClass = self.disableClass;
-                var _callback = self.callback;
+                var _hoverClass = self.hoverClass;
                 _btn.addClass(_disableClass);
                 _btn.attr('data-status', '');
-                _callback('disable', _btn);//回调函数中移除绑定事件
+                App.UI('buttonHover', {//移除按钮点击效果
+                    "dom"           : _btn,
+                    "hoverClassName": _hoverClass,
+                    "off"           : true
+                });
+                _btn.off('click'); //移除事件
             },
             "getBtnStatus"      : function () {
                 return this.btn.attr('data-status');
@@ -800,11 +818,12 @@ var App = (function () {
     }
 
     return {
-        "UI"         : UI,
-        "getAjaxData": getAjaxData,
-        "getHash"    : getHash,
-        "verify"     : verify,
-        "Cookie"     : Cookie,
-        "LS"         : LS   //本地存储
+        "UI"                       : UI,
+        "getAjaxData"              : getAjaxData,
+        "getHash"                  : getHash,
+        "verify"                   : verify,
+        "Cookie"                   : Cookie,
+        "LS"                       : LS,   //本地存储
+        "initBtnHighlightWithInput": initBtnHighlightWithInput
     };
 })();
