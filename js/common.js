@@ -493,7 +493,7 @@ var App = (function () {
                 return result;
             },
             "hasChangeVal"      : function (oldval, newval) {
-                return oldval === newval;
+                return !(oldval === newval);
             }
         };
         var moduleNameMap = {
