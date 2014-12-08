@@ -77,4 +77,12 @@ $(function () {
         "data"  : {'register': userName, 'axisFlag': true},
         "module": 'license'
     });
+    App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : clxcSubmit,
+        "hoverClassName": 'ui_btn_01_hover'
+    });
+    App.UI('buttonHover', {//添加按钮点击效果
+        "dom"           : jzcxSubmit,
+        "hoverClassName": 'ui_btn_01_hover'
+    });
 });
