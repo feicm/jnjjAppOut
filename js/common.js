@@ -422,6 +422,8 @@ var App = (function () {
                 var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
                 console.log(toActive);
                 console.log(hasChangeVal);
+                console.log('oldval'+self.oldVal);
+                console.log('newval'+self.newVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
