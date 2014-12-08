@@ -766,7 +766,7 @@ i.icon {
 
 
 @media
-only screen and (device-aspect-ratio: 2/3),/*iPhone < 5:*/
+    /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: 不支持0.5px*/
 only screen and (device-aspect-ratio: 40/71),/*iPhone 5:*/
 only screen and (device-aspect-ratio: 667/375),/*iPhone 6:*/
 only screen and (device-aspect-ratio: 16/9) {/*iPhone 6 Plus:*/
