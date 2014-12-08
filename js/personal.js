@@ -57,7 +57,7 @@ $(function () {
         data.userName && ip_username.val(data.userName);
         data.registerName && ip_name.val(data.registerName);
         data.userImage && ip_photo.attr('src', data.userImage);
-        data.sex && ip_gender.val(data.sex);
+        ip_gender.val(getGender(data.identityId));
         data.phoneNum && ip_phone.val(data.phoneNum);
         data.identityId && ip_idnum.val(data.identityId);
         data.email && ip_email.val(data.email);
@@ -151,7 +151,13 @@ $(function () {
         window.open(repwdPageUrl);
         gorepwdBtn.on('click', gorepwdListener);
     }
-
+    function getGender(UUserCard){
+        if (parseInt(UUserCard.substr(16, 1)) % 2 == 1) {
+            return '男';
+        } else {
+            return '女';
+        }
+    }
     /*
      * --------------------页面效果------------------------
      * */
