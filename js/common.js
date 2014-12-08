@@ -404,6 +404,7 @@ var App = (function () {
                     _curInput.on('focus', function () {
                         self.oldVal = $(this).val();
                         self.toggleBtnHighlight();
+                        self.newVal=self.oldVal;
                     })
                     _curInput.on('blur', function () {
                         self.newVal = $(this).val();
