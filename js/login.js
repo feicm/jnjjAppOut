@@ -23,6 +23,7 @@ $(function () {
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
+        "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',//找回密码页地址
         "rigisterRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
@@ -211,7 +212,11 @@ $(function () {
                     var msg = data.registerResponse;
                     console.dir(msg);
                     if ( msg.loginSuccess === 'true' ) {
-                        _self.loginSuccessCallback(msg);
+                        if ( confirm('注册成功，直接登录？') ) {
+                            _self.loginSuccessCallback(msg);
+                        } else {
+                            window.open(_self.loginPageUrl);
+                        }
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else if ( msg.loginSuccess === 'false' ) {
                         Wisp.UI.progressDialog.remove();
@@ -223,7 +228,7 @@ $(function () {
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     }
                 })
-            }else{
+            } else {
                 _self.bindEvent(_btn, 'rigisterSubmit');
             }
         },
