@@ -171,6 +171,7 @@ $(function () {
         var input;
         $(this).on('click', function (e) {
             input = $(this).parent().find('input');
+            input.focus();
             input.css('border', '1px dashed #e00');
             input.on('blur', function (e) {
                 $(this).css('border', 'none')
