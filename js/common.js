@@ -403,6 +403,7 @@ var App = (function () {
                     _curInputVal = _curInput.val();
                     _curInput.on('focus', function () {
                         self.oldVal = $(this).val();
+                        self.newVal = self.oldVal;
                         self.toggleBtnHighlight();
                     })
                     _curInput.on('blur', function () {
@@ -425,6 +426,7 @@ var App = (function () {
                 console.log('oldval:'+self.oldVal);
                 console.log('newval:'+self.newVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
+                    self.newVal='';
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
                     } else { //本来不可用，则点亮并绑定事件
