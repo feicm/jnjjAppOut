@@ -411,10 +411,9 @@ var App = (function () {
                         self.toggleBtnHighlight();
                         self.oldVal=self.newVal;
                     })
-                    _curInput.on('input', function () {
-                        self.newVal = $(this).val();
+                    /*_curInput.on('input', function () {
                         self.toggleBtnHighlight();
-                     })/**/// input 值长度为1时，有bug
+                     })*/// input 值长度为1时，有bug
                 });
             },
             "toggleBtnHighlight": function () {
