@@ -261,7 +261,12 @@ body {
     -webkit-align-items     : center;
     align-items             : center;
 }
-
+.list-block .select{
+    background-image: url(../images/arr_d.png);
+    background-size: 1em .5em;
+    background-position: 95% center;
+    background-repeat: no-repeat;
+}
 .list-block .item-media + .item-inner {
     margin-left : 15px;
 }

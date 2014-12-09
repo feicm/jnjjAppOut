@@ -21,7 +21,7 @@
             <ul>
                 <li>
                     <div class="item-content">
-                        <div class="item-inner">
+                        <div class="item-inner select">
                             <div class="item-title label">号牌种类</div>
                             <div class="item-input">
                                 <select id="hpzl">
@@ -84,7 +84,7 @@
             <ul>
                 <li>
                     <div class="item-content">
-                        <div class="item-inner">
+                        <div class="item-inner select">
                             <div class="item-title label">预约日期</div>
                             <div class="item-input">
                                 <input id="date" type="text" placeholder="请选择预约日期">
@@ -131,7 +131,7 @@
                 </li>
                 <li>
                     <div class="item-content">
-                        <div class="item-inner">
+                        <div class="item-inner select">
                             <div class="item-title label w6">可选时间段</div>
                             <div class="item-input">
                                 <select id="kxsjd"></select>

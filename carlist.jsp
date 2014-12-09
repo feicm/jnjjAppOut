@@ -51,7 +51,7 @@
                     </li>
                     <li>
                         <div class="item-content">
-                            <div class="item-inner">
+                            <div class="item-inner select">
                                 <div class="item-title label">号牌种类</div>
                                 <div class="item-input">
                                     <select id="hpzl">
