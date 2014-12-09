@@ -493,6 +493,9 @@ i.icon {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
+.ui-list-01 li:hover{
+    background-color: #f2f2ff;
+}
 /*双翼*/
 .ui-g-fly0-b {
     float   : left;
