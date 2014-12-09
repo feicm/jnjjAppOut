@@ -278,7 +278,11 @@ i.icon.icon-form-password {
     background-image : url(../images/pwd.png);
 }
 i.icon.icon-car{
-    background-image: url("../images/carico.png");
+    background-image: url("../images/ico_car.png");
+    width: 35px;
+}
+i.icon.icon-card{
+    background-image: url("../images/ico_card.png");
 }
 i.icon {
     display             : inline-block;
