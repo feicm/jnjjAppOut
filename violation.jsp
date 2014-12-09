@@ -24,7 +24,7 @@
         <ul>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label">号牌号码</div>
                         <div class="item-input">
                             <select id="hphm">
@@ -50,7 +50,7 @@
         <ul>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label">驾照姓名</div>
                         <div class="item-input">
                             <select id="jzxm">
