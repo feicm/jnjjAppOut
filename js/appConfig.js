@@ -43,7 +43,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/wzxx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/wzxx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/wzxx_dis.png",
                             "enable"    : "false",
                             "name"      : "违法信息",
@@ -54,7 +54,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/clxx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/clxx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/clxx_dis.png",
                             "enable"    : "false",
                             "name"      : "车辆信息",
@@ -65,7 +65,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/ryxx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/ryxx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/ryxx_dis.png",
                             "enable"    : "false",
                             "name"      : "驾照信息",
@@ -76,7 +76,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/sgkc_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/sgkc_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/sgkc_dis.png",
                             "enable"    : "false",
                             "name"      : "事故快处",
@@ -87,7 +87,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/clbd_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/clbd_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/clbd_dis.png",
                             "enable"    : "false",
                             "name"      : "车辆绑定",
@@ -98,7 +98,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/jzbd_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/jzbd_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/jzbd_dis.png",
                             "enable"    : "false",
                             "name"      : "驾照绑定",
@@ -128,7 +128,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/njyy_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/njyy_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/njyy_dis.png",
                             "enable"    : "false",
                             "name"      : "年检预约",
@@ -139,7 +139,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/ksyycx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/ksyycx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/ksyycx_dis.png",
                             "enable"    : "false",
                             "name"      : "考试预约查询",
@@ -150,7 +150,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/njyycx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/njyycx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/njyycx_dis.png",
                             "enable"    : "false",
                             "name"      : "年检预约查询",
@@ -161,7 +161,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/kscjcx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/kscjcx_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/kscjcx_dis.png",
                             "enable"    : "false",
                             "name"      : "考试成绩查询",
@@ -171,9 +171,9 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/kscjcx_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
-                            "disableImg": "config/html/images/wispui/kscjcx_dis.png",
+                            "beforeImg" : "config/html/images/wispui/cgswz_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/cgswz_hover.png", //点击时图标
+                            "disableImg": "config/html/images/wispui/cgswz_dis.png",
                             "enable"    : "true",
                             "name"      : "车管所位置",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
@@ -199,7 +199,7 @@ jnjjApp.siderDatas = {
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                 "beforeImg" : "config/html/images/wispui/personal_normal.png",//点击前图标
-                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "afterImg"  : "config/html/images/wispui/personal_hover.png", //点击时图标
                 "disableImg": "config/html/images/wispui/personal_dis.png",
                 "enable"    : "false",
                 "name"      : "个人资料",
@@ -210,7 +210,7 @@ jnjjApp.siderDatas = {
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                 "beforeImg" : "config/html/images/wispui/mycar_normal.png",//点击前图标
-                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "afterImg"  : "config/html/images/wispui/mycar_hover.png", //点击时图标
                 "disableImg": "config/html/images/wispui/mycar_dis.png",
                 "enable"    : "false",
                 "name"      : "我的车辆",
@@ -221,7 +221,7 @@ jnjjApp.siderDatas = {
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                 "beforeImg" : "config/html/images/wispui/mycard_normal.png",//点击前图标
-                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "afterImg"  : "config/html/images/wispui/mycard_hover.png", //点击时图标
                 "disableImg": "config/html/images/wispui/mycard_dis.png",
                 "enable"    : "false",
                 "name"      : "我的驾照",
@@ -232,7 +232,7 @@ jnjjApp.siderDatas = {
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                 "beforeImg" : "config/html/images/wispui/myviolation_normal.png",//点击前图标
-                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "afterImg"  : "config/html/images/wispui/myviolation_hover.png", //点击时图标
                 "disableImg": "config/html/images/wispui/myviolation_dis.png",
                 "enable"    : "false",
                 "name"      : "我的违法",
@@ -243,7 +243,7 @@ jnjjApp.siderDatas = {
             {
                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                 "beforeImg" : "config/html/images/wispui/msg_normal.png",//点击前图标
-                "afterImg"  : "config/html/images/wispui/hover.png", //点击时图标
+                "afterImg"  : "config/html/images/wispui/msg_hover.png", //点击时图标
                 "disableImg": "",
                 "enable"    : "true",
                 "name"      : "消息查看",
