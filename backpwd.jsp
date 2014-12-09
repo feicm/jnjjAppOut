@@ -20,7 +20,7 @@
         <ul>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label">找回方式</div>
                         <div class="item-input">
                             <select id="backpwd_methon">

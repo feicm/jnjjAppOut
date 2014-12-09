@@ -20,7 +20,7 @@
         <ul>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label w6">身份证明名称</div>
                         <div class="item-input">
                             <select id="ksyy_sfzmmc">
@@ -51,7 +51,7 @@
             </li>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label">考试原因</div>
                         <div class="item-input">
                             <select id="ksyy_ksyy">
@@ -62,7 +62,7 @@
             </li>
             <li>
                 <div class="item-content">
-                    <div class="item-inner">
+                    <div class="item-inner select">
                         <div class="item-title label">考试科目</div>
                         <div class="item-input">
                             <select id="ksyy_kskm">
