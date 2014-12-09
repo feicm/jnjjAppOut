@@ -173,6 +173,9 @@ body {
 .color_01 {
     color : green;
 }
+.color_02 {
+    color : #000;
+}
 .label01{
     font-size: .9em;
 }
@@ -501,6 +504,11 @@ i.icon {
 .ui-list-01 li:hover{
     background-color: #f2f2ff;
 }
+.ui-list-02 li{
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
 /*双翼*/
 .ui-g-fly0-b {
     float   : left;
@@ -529,7 +537,7 @@ i.icon {
 .ui-g-fly2-b {
     float: left;
     width: 100%;
-    padding: 0 3em 0 0;
+    padding: .5em 1.5em .5em .5em;
 }
 .ui-g-fly2-b-r {
     float:right;
@@ -725,6 +733,31 @@ i.icon {
     left: auto;
     width: .4em;
     height: .8em;
+}
+/*njyy*/
+.ui-list-02 li .ui-g-fly2-b h1.txt02{
+    line-height: 2;
+}
+.ui-list-02 li .ui-g-fly2-b div.txt02>h2{
+    position: relative;
+    float: left;
+    margin-right: -5em;
+    min-width: 5em;
+    text-align: left;
+}
+.ui-list-02 li .ui-g-fly2-b div.txt02>h2:after{
+    content: ":";
+    position: absolute;
+    right: -.5em;
+}
+.ui-list-02 li .ui-g-fly2-b div.txt02>p{
+    display: inline-block;
+    margin-left: 6em;
+    color: #555;
+}
+.ui-list-02 li .ui-g-fly0-b-r .icon01{
+    top: 2.5em;
+
 }
 /*violation*/
 .print {
