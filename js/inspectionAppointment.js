@@ -119,12 +119,15 @@ $(function () {
                     if ( data instanceof Array ) {
                         _l = data.length;
                         for ( var i = 0; i < _l; i++ ) {
-                            _slist = [
+                            _slist=[
                                 '<li data-code=' + data[i].jcxcode + '>',
                                 '    <section class="ui-g-fly2-b">',
-                                '        <h1>检测线地点：<b>' + data[i].jcx + '</b></h1>',
-                                '        <h1>预约人数：<b>' + data[i].yyrs + '人</b></h1>',
-                                '        <h1>人数限制：<b>' + data[i].rsxz + '人</b></h1>',
+                                '        <h1 class="txt02">预约人数<b class="fr">' + data[i].yyrs + '人</b></h1>',
+                                '        <h1 class="txt02">人数限制<b class="fr">' + data[i].rsxz + '人</b></h1>',
+                                '        <div class="txt02">',
+                                '            <h2>检测线地点</h2>',
+                                '            <p>' + data[i].jcx + '</p>',
+                                '        </div>',
                                 '    </section>',
                                 '    <aside class="ui-g-fly0-b-r">',
                                 '        <i class="icon01 icon01_arr_r"></i>',
