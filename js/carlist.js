@@ -167,7 +167,7 @@ $(function () {
                         listhtml=[
                             '<li data-licenserecord="' + data[i].licenseRecord + '">',
                             '    <h1 class="t1">',
-                            '        <i class="icon icon-car fl"></i>',
+                            '        <i class="icon icon-card fl"></i>',
                             '        <b>' + data[i].licenseRecord + '</b>',
                             '    </h1>',
                             '    <p class="p1">',
