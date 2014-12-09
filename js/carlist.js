@@ -164,7 +164,23 @@ $(function () {
                      "licenseName"  : "李莹"
                      }];*/
                     for ( var i = 0; i < l; i++ ) {
-                        listhtml = [
+                        listhtml=[
+                            '<li data-licenserecord="' + data[i].licenseRecord + '">',
+                            '    <h1 class="t1">',
+                            '        <i class="icon icon-car fl"></i>',
+                            '        <b>' + data[i].licenseRecord + '</b>',
+                            '    </h1>',
+                            '    <p class="p1">',
+                            '        <b class="label01 fl">驾驶人</b>',
+                            '        <b class="txt02 fr">' + data[i].licenseName + '</b>',
+                            '    </p>',
+                            '    <p class="p1">',
+                            '        <b class="label01 fl">身份证</b>',
+                            '        <b class="txt02 fr">'+data[i].licenseid.substring(0,4)+'******'+data[i].licenseid.substring(16,18)+'</b>',
+                            '    </p>',
+                            '    <i class="icon01 icon01_arr_r"></i>',
+                            '</li>'].join("");
+                        /*listhtml = [//old list style
                             '<li data-licenserecord="' + data[i].licenseRecord + '">',
                             '    <section class="ui-g-fly0-b">',
                             '        <p>',
@@ -181,7 +197,7 @@ $(function () {
                             '    <aside class="ui-g-fly0-b-r">',
                             '        <i class="icon01 icon01_arr_r"></i>',
                             '    </aside>',
-                            '</li>'].join("");
+                            '</li>'].join("");*/
                         listArr.push(listhtml);
                     }
                     html = listArr.join("");
