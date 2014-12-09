@@ -57,7 +57,13 @@ $(function () {
             jzcxSubmit.on('click', jzcxListener);
         }
     }
-
+    //bindEvent
+    function bindEvent(input,btn,listener){
+        return;
+         var _btn=btn;
+        var _listener=listener;
+        _btn.on('click',_listener);
+    }
     /*
      * --------------------页面效果------------------------
      * */
@@ -70,12 +76,16 @@ $(function () {
         "url"   : carlistRequestUrl,
         "data"  : {'register': userName, 'axisFlag': true},
         "module": 'car'
+    },function(){
+         bindEvent(clxcSubmit,clxcListener);
     });
     App.UI('select', {
         "dom"   : $('#jzxm'),
         "url"   : cardlistRequestUrl,
         "data"  : {'register': userName, 'axisFlag': true},
         "module": 'license'
+    },function(){
+        bindEvent($('#jzxm'),jzcxSubmit,jzcxListener);
     });
     App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : clxcSubmit,
