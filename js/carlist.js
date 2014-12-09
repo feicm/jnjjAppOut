@@ -117,7 +117,23 @@ $(function () {
                          "carowner": "山东中寰网络科技有限公司",
                          "carid"   : "AR0327"
                          }];*/
-                        listhtml = [
+                        listhtml=[
+                            '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
+                            '    <h1 class="t1">',
+                            '        <i class="icon icon-car fl"></i>',
+                            '        <b>' + data[i].carid + '</b>',
+                            '    </h1>',
+                            '    <p class="p1">',
+                            '        <b class="label01 fl">车主</b>',
+                            '        <b class="txt02 fr">' + data[i].carowner + '</b>',
+                            '    </p>',
+                            '    <p class="p1">',
+                            '        <b class="label01 fl">身份证</b>',
+                            '        <b class="txt02 fr">'+data[i].indentityid.substring(0,4)+'******'+data[i].indentityid.substring(16,18)+'</b>',
+                            '    </p>',
+                            '    <i class="icon01 icon01_arr_r"></i>',
+                            '</li>'].join("");
+                        /*listhtml = [//old list stype
                             '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
                             '    <section class="ui-g-fly0-b">',
                             '        <p>',
@@ -134,7 +150,7 @@ $(function () {
                             '    <aside class="ui-g-fly0-b-r">',
                             '        <i class="icon01 icon01_arr_r"></i>',
                             '    </aside>',
-                            '</li>'].join("");
+                            '</li>'].join("");*/
                         listArr.push(listhtml);
                     }
                     html = listArr.join("");

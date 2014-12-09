@@ -19,7 +19,7 @@
         <div class="carlist_c">
             <div class="tips">
             </div>
-            <ul class="ui-list">
+            <ul class="ui-list ui-list-01">
             </ul>
             <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='next' id="go_carbindpage">
                 添加绑定

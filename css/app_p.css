@@ -18,7 +18,7 @@ body {
 }
 
 .fl {
-    /* float: left; */
+    float: left;
 }
 
 .fr {
@@ -166,11 +166,16 @@ body {
     color       : #777;
     white-space : nowrap;
 }
-
+.txt02{
+    color : #555;
+    font-size: .9em;
+}
 .color_01 {
     color : green;
 }
-
+.label01{
+    font-size: .9em;
+}
 .c {
     min-height : 100%;
     width      : 100%;
@@ -272,7 +277,9 @@ i.icon.icon-form-name {
 i.icon.icon-form-password {
     background-image : url(../images/pwd.png);
 }
-
+i.icon.icon-car{
+    background-image: url("../images/carico.png");
+}
 i.icon {
     display             : inline-block;
     vertical-align      : middle;
@@ -477,7 +484,11 @@ i.icon {
     margin-bottom : .5em;
     border-radius : 3px;
 }
-
+.ui-list-01 li{
+    border-top: 4px solid #505E74;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 /*双翼*/
 .ui-g-fly0-b {
     float   : left;
@@ -685,7 +696,24 @@ i.icon {
 .carlist_c .ui-g-fly0-b p .name {
     color : #000;
 }
-
+.ui-list-01 li .t1{
+    border-bottom: 1px solid #EEE;
+    text-align: right;
+    padding: 2px 1.5em 2px 0;
+    margin-left: .5em;
+}
+.ui-list-01 li .p1{
+    overflow: hidden;
+    padding: 5px 1.5em 5px .5em;
+}
+.ui-list-01 li .icon01{
+    position: absolute;
+    right: .2em;
+    top: .5em;
+    left: auto;
+    width: .4em;
+    height: .8em;
+}
 /*violation*/
 .print {
     overflow      : hidden;
