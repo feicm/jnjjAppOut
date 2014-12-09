@@ -821,10 +821,6 @@ only screen and (device-aspect-ratio: 16/9) {/*iPhone 6 Plus:*/
         border-bottom-width : .5px;
     }
 
-    #c_Table_b tr td:first-child {
-        border-right : .5px solid #E1E1E1;
-    }
-
     .print input:checked + label:after, .print input + label:after {
         border : .5px solid #0C79BE;
     }
