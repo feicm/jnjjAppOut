@@ -67,6 +67,7 @@ $(function () {
                 "dom"           : _btn,
                 "hoverClassName": 'ui_btn_01_hover'
             });
+            _btn.removeClass('ui_btn_01_disable');
             _btn.on('click', _listener);
         }
     }
