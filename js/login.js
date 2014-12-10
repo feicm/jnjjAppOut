@@ -249,6 +249,7 @@ $(function () {
                 var msg = data.userCenterResponse;
                 if ( msg ) {
                     _self.userInfoSuccessCallback(msg);
+                    _self.bindEvent(_btn, 'login');
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败!(个人信息初始化失败)');
