@@ -300,8 +300,8 @@ i.icon {
     background-repeat   : no-repeat;
     font-style          : normal;
     position            : relative;
-    width               : 25px;
-    height              : 25px;
+    width: 20px;
+    height: 20px;
 }
 
 .list-block .item-input {
@@ -407,11 +407,11 @@ i.icon {
 
 .list-block .item-input .edit {
     position        : absolute;
-    right           : 0;
-    top             : 6px;
+    right: 5px;
+    top: 11px;
     display         : inline-block;
-    width           : 28px;
-    height          : 28px;
+    width: 20px;
+    height: 20px;
     background      : url("../images/edit_normal.png");
     background-size : cover;
 }
