@@ -17,7 +17,7 @@ $(function () {
         "footbarDatas"           : jnjjApp.footbarDatas, //客户端ui数据 页脚
         "siderDatas"             : jnjjApp.siderDatas,//客户端ui数据 个人中心
         "roleId"                 : '0001',//角色标识 默认0001
-        "username"               : null, //用户名 存入本地存储
+        "username"               : App.LS.get('username') || null, //用户名 存入本地存储
         "password"               : null, //密码
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
@@ -213,7 +213,7 @@ $(function () {
                     console.dir(msg);
                     if ( msg.loginSuccess === 'true' ) {
                         if ( confirm('注册成功，直接登录？') ) {
-                            _self.username=_params.registerName;
+                            _self.username = _params.registerName;
                             _self.loginSuccessCallback(msg);
                         } else {
                             window.open(_self.loginPageUrl);
@@ -264,7 +264,7 @@ $(function () {
             console.dir(data);
             data.userName && (_self.siderDatas.sider.info.name = data.userName);
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
-            _self.siderDatas.sider.info.roleid=_self.roleId;
+            _self.siderDatas.sider.info.roleid = _self.roleId;
             _self.siderDatas.sider.info.url = '';
             var l = _self.siderDatas.sider.list.length;
             for ( var i = 0; i < l; i++ ) {
@@ -328,6 +328,13 @@ $(function () {
         //验证两次密码一致性
         "ispwdAgreement"         : function (pwd1, pwd2) {
             return pwd1 === pwd2;
+        },
+        //用户名自动填充
+        "autoFill"               : function () {
+            var _self = this;
+            var _usernameInput = $('#username');
+            var _username = _self.username;
+            _username && _usernameInput.val(_username);
         }
     };
     loginSubmit.length && Loginer.init({ //初始化登录流程
