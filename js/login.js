@@ -237,6 +237,7 @@ $(function () {
         "loginSuccessCallback"   : function (data) {
             var _self = this;
             var _params;
+            var _btn = _self.loginBtn;
             console.dir(data);
             //初始化footbarDatas
             var _MoreViewData = _self.refreshMoreViewData(_self.footbarDatas, data.authList);//刷新更多按钮
