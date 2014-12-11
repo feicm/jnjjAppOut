@@ -144,6 +144,7 @@ var App = (function () {
                         close.on('click', function () {
                             var curInput = $(this).parent().children('input');
                             curInput.val('');
+                            curInput.focus();
                             $(this).css('display', 'none');
                         })
                         input.on('focus', function (e) {
