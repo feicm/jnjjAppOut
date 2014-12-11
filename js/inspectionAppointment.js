@@ -163,7 +163,7 @@ $(function () {
             if ( App.verify(_opts) ) {
                 _params = {
                     "hpzl"    : _ip_hpzl,
-                    "hphm"    : _ip_hphm,
+                    "hphm"    : 'A'+_ip_hphm,
                     "clsbdh"  : _ip_clsbdh,
                     "register": userName
                 };
