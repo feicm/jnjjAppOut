@@ -28,6 +28,7 @@ $(function () {
         "init"                   : function (opts) {
             this.btn = opts.btn;
             this.mode = opts.mode;
+            this.autoFill();
             this.bindEvent();
         },
         //事件绑定函数
