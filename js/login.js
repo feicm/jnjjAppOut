@@ -91,6 +91,7 @@ $(function () {
                 //发起登录请求
                 App.getAjaxData(_self.loginRequestUrl, _params, function (data) {//登录请求回调
                     if ( data === 'error' ) {//ajax 失败回调
+                        alert('登录失败！');
                         _self.bindEvent(_btn, 'login');
                         return;
                     }
