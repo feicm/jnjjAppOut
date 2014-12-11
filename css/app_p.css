@@ -18,7 +18,7 @@ body {
 }
 
 .fl {
-    float: left;
+    float : left;
 }
 
 .fr {
@@ -61,73 +61,77 @@ body {
     display : block;
     width   : 100%;
 }
+
 .ui-buttons-row {
-    padding: .5em .5em 0 .5em;
-    -ms-flex-item-align: center;
-    -webkit-align-self: center;
-    align-self: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-lines: single;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap
+    padding             : .5em .5em 0 .5em;
+    -ms-flex-item-align : center;
+    -webkit-align-self  : center;
+    align-self          : center;
+    display             : -webkit-box;
+    display             : -ms-flexbox;
+    display             : -webkit-flex;
+    display             : flex;
+    -webkit-box-lines   : single;
+    -webkit-flex-wrap   : nowrap;
+    -ms-flex-wrap       : nowrap;
+    flex-wrap           : nowrap
 }
 
 .ui-buttons-row .button {
-    border-radius: 0;
-    border-left-width: 0;
-    width: 100%;
-    -webkit-box-flex: 1;
-    -ms-flex: 1
+    border-radius     : 0;
+    border-left-width : 0;
+    width             : 100%;
+    -webkit-box-flex  : 1;
+    -ms-flex          : 1
 }
 
 .ui-buttons-row .button:first-child {
-    border-radius: 5px 0 0 5px;
-    border-left-width: 1px;
-    border-left-style: solid
+    border-radius     : 5px 0 0 5px;
+    border-left-width : 1px;
+    border-left-style : solid
 }
 
 .ui-buttons-row .button:last-child {
-    border-radius: 0 5px 5px 0
+    border-radius : 0 5px 5px 0
 }
 
 .ui-buttons-row .button.button-round:first-child {
-    border-radius: 27px 0 0 27px
+    border-radius : 27px 0 0 27px
 }
 
 .ui-buttons-row .button.button-round:last-child {
-    border-radius: 0 27px 27px 0
+    border-radius : 0 27px 27px 0
 }
+
 .button {
-    border: 1px solid #0C79BE;
-    color: #0C79BE;
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    border-radius: 5px;
-    line-height: 2;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    background: 0 0;
-    padding: 0 10px;
-    margin: 0;
-    height: 2.1em;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
+    border             : 1px solid #0C79BE;
+    color              : #0C79BE;
+    text-decoration    : none;
+    text-align         : center;
+    display            : block;
+    border-radius      : 5px;
+    line-height        : 2;
+    -webkit-appearance : none;
+    -ms-appearance     : none;
+    appearance         : none;
+    background         : 0 0;
+    padding            : 0 10px;
+    margin             : 0;
+    height             : 2.1em;
+    white-space        : nowrap;
+    position           : relative;
+    overflow           : hidden;
+    text-overflow      : ellipsis;
+    font-size          : 16px;
+    font-family        : inherit;
+    cursor             : pointer;
 }
+
 .button.active {
-    background: #0C79BE;
-    color: #FFF;
+    background : #0C79BE;
+    color      : #FFF;
 }
+
 .ui_btn_01 {
     background : #F4760E;
 }
@@ -135,10 +139,12 @@ body {
 .ui_btn_01_hover {
     background : #B4580A;
 }
-.ui_btn_01_disable{
-    background: #eee;
-    color: #bbb;
+
+.ui_btn_01_disable {
+    background : #eee;
+    color      : #bbb;
 }
+
 .ui_btn_02 {
     background : #fff;
     border     : 1px solid #0C79BE;
@@ -166,19 +172,24 @@ body {
     color       : #777;
     white-space : nowrap;
 }
-.txt02{
-    color : #555;
-    font-size: .9em;
+
+.txt02 {
+    color     : #555;
+    font-size : .9em;
 }
+
 .color_01 {
     color : green;
 }
+
 .color_02 {
     color : #000;
 }
-.label01{
-    font-size: .9em;
+
+.label01 {
+    font-size : .9em;
 }
+
 .c {
     min-height : 100%;
     width      : 100%;
@@ -264,12 +275,14 @@ body {
     -webkit-align-items     : center;
     align-items             : center;
 }
-.list-block .select{
-    background-image: url(../images/arr_d.png);
-    background-size: 1em .5em;
-    background-position: 95% center;
-    background-repeat: no-repeat;
+
+.list-block .select {
+    background-image    : url(../images/arr_d.png);
+    background-size     : 1em .5em;
+    background-position : 95% center;
+    background-repeat   : no-repeat;
 }
+
 .list-block .item-media + .item-inner {
     margin-left : 15px;
 }
@@ -285,13 +298,16 @@ i.icon.icon-form-name {
 i.icon.icon-form-password {
     background-image : url(../images/pwd.png);
 }
-i.icon.icon-car{
-    background-image: url("../images/ico_car.png");
-    width: 35px;
+
+i.icon.icon-car {
+    background-image : url("../images/ico_car.png");
+    width            : 35px;
 }
-i.icon.icon-card{
-    background-image: url("../images/ico_card.png");
+
+i.icon.icon-card {
+    background-image : url("../images/ico_card.png");
 }
+
 i.icon {
     display             : inline-block;
     vertical-align      : middle;
@@ -300,8 +316,8 @@ i.icon {
     background-repeat   : no-repeat;
     font-style          : normal;
     position            : relative;
-    width: 20px;
-    height: 20px;
+    width               : 20px;
+    height              : 20px;
 }
 
 .list-block .item-input {
@@ -407,11 +423,11 @@ i.icon {
 
 .list-block .item-input .edit {
     position        : absolute;
-    right: 5px;
-    top: 11px;
+    right           : 5px;
+    top             : 11px;
     display         : inline-block;
-    width: 20px;
-    height: 20px;
+    width           : 20px;
+    height          : 20px;
     background      : url("../images/edit_normal.png");
     background-size : cover;
 }
@@ -447,7 +463,7 @@ i.icon {
     text-align    : right;
     padding-right : .5em;
     padding-left  : .5em;
-    color         : #555;
+    line-height   : 1.5;
     color         : #407C41;
 }
 
@@ -496,19 +512,23 @@ i.icon {
     margin-bottom : .5em;
     border-radius : 3px;
 }
-.ui-list-01 li{
-    border-top: 3px solid #0C79BE;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
+.ui-list-01 li {
+    border-top              : 3px solid #0C79BE;
+    border-top-left-radius  : 8px;
+    border-top-right-radius : 8px;
 }
-.ui-list-01 li:hover{
-    background-color: #f2f2ff;
+
+.ui-list-01 li:hover {
+    background-color : #f2f2ff;
 }
-.ui-list-02 li{
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
+
+.ui-list-02 li {
+    border-left   : none;
+    border-right  : none;
+    border-radius : 0;
 }
+
 /*双翼*/
 .ui-g-fly0-b {
     float   : left;
@@ -535,15 +555,17 @@ i.icon {
 
 /*折翼（单翼）布局——右宽度固定*/
 .ui-g-fly2-b {
-    float: left;
-    width: 100%;
-    padding: .5em 1.5em .5em .5em;
+    float   : left;
+    width   : 100%;
+    padding : .5em 1.5em .5em .5em;
 }
+
 .ui-g-fly2-b-r {
-    float:right;
-    width: 3em;
-    margin-left: -3em;
+    float       : right;
+    width       : 3em;
+    margin-left : -3em;
 }
+
 .ui-grid-a {
     overflow : hidden;
 }
@@ -716,49 +738,58 @@ i.icon {
 .carlist_c .ui-g-fly0-b p .name {
     color : #000;
 }
-.ui-list-01 li .t1{
-    border-bottom: 1px solid #EEE;
-    text-align: right;
-    padding: 2px 1.5em 2px 0;
-    margin-left: .5em;
+
+.ui-list-01 li .t1 {
+    border-bottom : 1px solid #EEE;
+    text-align    : right;
+    padding       : 2px 1.5em 2px 0;
+    margin-left   : .5em;
 }
-.ui-list-01 li .p1{
-    overflow: hidden;
-    padding: 5px 1.5em 5px .5em;
+
+.ui-list-01 li .p1 {
+    overflow : hidden;
+    padding  : 5px 1.5em 5px .5em;
 }
-.ui-list-01 li .icon01{
-    position: absolute;
-    right: .2em;
-    top: .5em;
-    left: auto;
-    width: .4em;
-    height: .8em;
+
+.ui-list-01 li .icon01 {
+    position : absolute;
+    right    : .2em;
+    top      : .5em;
+    left     : auto;
+    width    : .4em;
+    height   : .8em;
 }
+
 /*njyy*/
-.ui-list-02 li .ui-g-fly2-b h1.txt02{
-    line-height: 2;
+.ui-list-02 li .ui-g-fly2-b h1.txt02 {
+    line-height : 1.5;
 }
-.ui-list-02 li .ui-g-fly2-b div.txt02>h2{
-    position: relative;
-    float: left;
-    margin-right: -5em;
-    min-width: 5em;
-    text-align: left;
+
+.ui-list-02 li .ui-g-fly2-b div.txt02 > h2 {
+    position     : relative;
+    float        : left;
+    margin-right : -5em;
+    min-width    : 5em;
+    text-align   : left;
 }
-.ui-list-02 li .ui-g-fly2-b div.txt02>h2:after{
-    content: ":";
-    position: absolute;
-    right: -.5em;
+
+.ui-list-02 li .ui-g-fly2-b div.txt02 > h2:after {
+    content  : ":";
+    position : absolute;
+    right    : -.5em;
 }
-.ui-list-02 li .ui-g-fly2-b div.txt02>p{
-    display: inline-block;
-    margin-left: 6em;
-    color: #555;
+
+.ui-list-02 li .ui-g-fly2-b div.txt02 > p {
+    display     : inline-block;
+    margin-left : 6em;
+    color       : #555;
 }
-.ui-list-02 li .ui-g-fly0-b-r .icon01{
-    top: 2.5em;
+
+.ui-list-02 li .ui-g-fly0-b-r .icon01 {
+    top : 2.5em;
 
 }
+
 /*violation*/
 .print {
     overflow      : hidden;
@@ -860,12 +891,11 @@ i.icon {
     text-shadow : 1px 1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, -1px -1px 1px #FFF;
 }
 
-
-@media
-    /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: 不支持0.5px*/
-only screen and (device-aspect-ratio: 40/71),/*iPhone 5:*/
-only screen and (device-aspect-ratio: 667/375),/*iPhone 6:*/
-only screen and (device-aspect-ratio: 16/9) {/*iPhone 6 Plus:*/
+@media /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: 不支持0.5px*/
+only screen and (device-aspect-ratio : 40/71),/*iPhone 5:*/
+only screen and (device-aspect-ratio : 667/375),/*iPhone 6:*/
+only screen and (device-aspect-ratio : 16/9) {
+    /*iPhone 6 Plus:*/
     .list-block ul {
         border-top    : .5px solid #E1E1E1;
         border-bottom : .5px solid #E1E1E1;
