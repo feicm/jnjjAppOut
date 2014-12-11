@@ -355,6 +355,7 @@ $(function () {
                 "register": _self.username
             };
             App.getAjaxData(_url, _params, function (data) {//信息请求回调
+                console.dir(data);
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.isColInfoGetSuccess = false;
                     return;
@@ -367,7 +368,7 @@ $(function () {
                 } else {
                     _self.isColInfoGetSuccess = false;
                 }
-            });
+            },'','jsonp');
         },
         //格式化栏目数据源函数
         "formatColInfoData"      : function (data) {
