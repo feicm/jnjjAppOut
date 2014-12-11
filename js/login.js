@@ -7,6 +7,7 @@ $(function () {
     var c1_btn = $('#c1_btn');
     var c2_btn = $('#c2_btn');
     var urlPre = 'adapter?open&url=';
+    var cmsUrlPre = jnjjApp.config.msgRequestUrl + '/wispcms/';
     //定义登录对象
     var Loginer = {
         "loginBtn"               : loginSubmit || null, //登录按钮
@@ -22,7 +23,7 @@ $(function () {
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
-        "colInfoRequestUrl"      : urlPre + jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
+        "colInfoRequestUrl"      : cmsUrlPre + urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',//找回密码页地址
@@ -275,10 +276,10 @@ $(function () {
                 _self.siderDatas.sider.list[i].enable = 'true';
             }
             if ( !_self.isColInfoGetSuccess ) {//初始化时获取栏目信息失败则在登录流程最后一步再次获取，否则跳过
-                _self.initColInfo(function(){
+                _self.initColInfo(function () {
                     _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 });
-            }else{
+            } else {
                 _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
             }
             Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
