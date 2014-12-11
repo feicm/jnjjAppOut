@@ -216,7 +216,7 @@ $(function () {
                     Wisp.UI.progressDialog.remove();
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
-                    _self.resetHeight();
+                    _self.resetHeight(_wrap);
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert(data.msg);
@@ -279,9 +279,9 @@ $(function () {
                 }
             })
         },
-        "resetHeight"          : function () {
+        "resetHeight"          : function (wrap) {
             var _self = this;
-            var _h = _self.wrap.height();
+            var _h = wrap.height()-0+200;
             var _form = _self.wrap.parent('form');
             _form.height(_h);
         }
