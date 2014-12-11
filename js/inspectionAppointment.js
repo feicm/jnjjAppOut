@@ -282,7 +282,7 @@ $(function () {
         "resetHeight"          : function (wrap) {
             var _self = this;
             var _h = wrap.height()-0+200;
-            var _form = wrap.parent('form');
+            var _form = wrap.parents('form');
             _form.height(_h);
         }
     };
