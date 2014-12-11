@@ -519,7 +519,7 @@ i.icon {
     border-top-right-radius : 8px;
 }
 
-.ui-list-01 li:hover {
+.ui-list-01 li:hover,.ui-list-02 li:hover {
     background-color : #f2f2ff;
 }
 
