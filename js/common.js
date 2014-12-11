@@ -410,27 +410,27 @@ var App = (function () {
                     _curInput.on('blur', function () {
                         self.newVal = $(this).val();
                         self.toggleBtnHighlight();
-                        self.oldVal=self.newVal;
+                        self.oldVal = self.newVal;
                     })
                     /*_curInput.on('input', function () {
-                        self.toggleBtnHighlight();
+                     self.toggleBtnHighlight();
                      })*/// input 值长度为1时，有bug
                 });
             },
             "toggleBtnHighlight": function () {
                 var self = this;
                 var btnStauts = self.getBtnStatus();
-                var toActive=self.getInputsStatus();
-                var hasChangeVal=self.hasChangeVal(self.oldVal, self.newVal);
+                var toActive = self.getInputsStatus();
+                var hasChangeVal = self.hasChangeVal(self.oldVal, self.newVal);
                 if ( toActive && hasChangeVal ) {//按钮需可用
-                    self.newVal='';
+                    self.newVal = '';
                     if ( btnStauts === 'active' ) { //本来就可以用，则返回
                         return;
                     } else { //本来不可用，则点亮并绑定事件
                         self.enableBtn();
                     }
                 } else {//按钮需不可用
-                    self.newVal='';
+                    self.newVal = '';
                     if ( btnStauts === '' ) { //本来不可用，则返回
                         return;
                     } else { //本来可用，则转为不可用并绑定事件
@@ -588,13 +588,23 @@ var App = (function () {
         }
     };
     //ajax 请求封装
-    function getAjaxData(url, params, callback, type) {
-        $.ajax({ //通用请求
+    function getAjaxData(url, params, callback, type, jsonp) {
+        if ( jsonp ) {
+            var _params = { //通用请求
+                type    : type || 'GET',
+                url     : url,
+                data    : params,
+                dataType: 'json',
+                jsonp   : 'callback'
+            };
+        }
+        var _params = { //通用请求
             type    : type || 'GET',
             url     : url,
             data    : params,
             dataType: 'json'
-        }).done(function (data) {//登录表单提交
+        };
+        $.ajax(_params).done(function (data) {//登录表单提交
             if ( data ) {//验证返回数据
                 callback && callback(data);
             }
