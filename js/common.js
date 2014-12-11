@@ -589,8 +589,14 @@ var App = (function () {
     };
     //ajax 请求封装
     function getAjaxData(url, params, callback, type, jsonp) {
+        var _params = { //通用请求
+            type    : type || 'GET',
+            url     : url,
+            data    : params,
+            dataType: 'json'
+        };
         if ( jsonp ) {
-            var _params = { //通用请求
+            _params = { //通用请求
                 type    : type || 'GET',
                 url     : url,
                 data    : params,
@@ -598,12 +604,6 @@ var App = (function () {
                 jsonp   : 'callback'
             };
         }
-        var _params = { //通用请求
-            type    : type || 'GET',
-            url     : url,
-            data    : params,
-            dataType: 'json'
-        };
         $.ajax(_params).done(function (data) {//登录表单提交
             if ( data ) {//验证返回数据
                 callback && callback(data);
