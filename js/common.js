@@ -594,7 +594,7 @@ var App = (function () {
                 type    : type || 'GET',
                 url     : url,
                 data    : params,
-                dataType: 'json',
+                dataType: 'jsonp',
                 jsonp   : 'callback'
             };
         }
