@@ -119,7 +119,7 @@ $(function () {
                     if ( data instanceof Array ) {
                         _l = data.length;
                         for ( var i = 0; i < _l; i++ ) {
-                            _slist=[
+                            _slist = [
                                 '<li data-code=' + data[i].jcxcode + '>',
                                 '    <section class="ui-g-fly2-b">',
                                 '        <h1 class="txt02">预约人数<b class="fr">' + data[i].yyrs + '人</b></h1>',
@@ -163,7 +163,7 @@ $(function () {
             if ( App.verify(_opts) ) {
                 _params = {
                     "hpzl"    : _ip_hpzl,
-                    "hphm"    : 'A'+_ip_hphm,
+                    "hphm"    : 'A' + _ip_hphm,
                     "clsbdh"  : _ip_clsbdh,
                     "register": userName
                 };
@@ -171,6 +171,7 @@ $(function () {
                 //提交表单
                 App.getAjaxData(ksyytjRequestUrl, _params, function (data) {
                     if ( data === 'error' ) {//ajax 失败回调
+                        alert('资格审查失败！');
                         _self.bindEvent('first');
                         return;
                     }
@@ -206,10 +207,16 @@ $(function () {
             };
             Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
             App.getAjaxData(njyypcRequestUrl, _params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    alert('批次查询失败！');
+                    _self.bindEvent('dateItem');
+                    return;
+                }
                 if ( data.success ) {
                     Wisp.UI.progressDialog.remove();
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
+                    _self.resetHeight();
                 } else {
                     Wisp.UI.progressDialog.remove();
                     alert(data.msg);
@@ -271,6 +278,12 @@ $(function () {
                     _self.bindEvent('last');
                 }
             })
+        },
+        "resetHeight"          : function () {
+            var _self = this;
+            var _h = _self.wrap.height();
+            var _form = _self.wrap.parent('form');
+            _form.height(_h);
         }
     };
     njyyLogic.init({
@@ -290,12 +303,12 @@ $(function () {
         "btn"         : c1_btn,
         "inputs"      : $('.J_btnHighlightWithInput input'),
         "disableClass": 'ui_btn_01_disable',
-        "hoverClass": 'ui_btn_01_hover'
+        "hoverClass"  : 'ui_btn_01_hover'
     }, function (btn) {
-            App.UI('changePage', {//注册页面切换效果
-                "wrap": $('#rigister_form')
-            });
-            njyyLogic.bindEvent('first');
+        App.UI('changePage', {//注册页面切换效果
+            "wrap": $('#rigister_form')
+        });
+        njyyLogic.bindEvent('first');
     });
     var curr = new Date().getFullYear();
     $('#date').mobiscroll().date({
