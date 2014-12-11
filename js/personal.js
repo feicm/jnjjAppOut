@@ -19,9 +19,9 @@ $(function () {
     var ip_m_name = $('#m_name'); //密切联系姓名
     var ip_m_phone = $('#m_phone'); //密切联系人电话
     var ip_m_innum = $('#m_innum');//密切联系人身份证
-    var cur_ip_phone='';//手机号初始值
-    var cur_ip_y_name='';//移车人姓名初始值
-    var cur_ip_y_phone='';//移车人电话初始值
+    var cur_ip_phone = '';//手机号初始值
+    var cur_ip_y_name = '';//移车人姓名初始值
+    var cur_ip_y_phone = '';//移车人电话初始值
     var urlPre = 'adapter?open&url=';
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -36,7 +36,7 @@ $(function () {
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/loginnoskip.jsp';//修改密码页url
     console.log('用户名：' + userName);
-    if(!userName){
+    if ( !userName ) {
         alert('请先登录！');
         window.open(loginPageUrl);
         return;
@@ -54,7 +54,7 @@ $(function () {
     });
     //填充个人信息
     function renderPersonalInfoPage(data) {
-        data.userName && ip_username.val(data.userName);
+        ip_username.val(App.LS.get('username'));
         data.registerName && ip_name.val(data.registerName);
         data.userImage && ip_photo.attr('src', data.userImage);
         ip_gender.val(getGender(data.identityId));
@@ -67,7 +67,7 @@ $(function () {
         data.closeUserName && ip_m_name.val(data.closeUserName);
         data.closePhoneNum && ip_m_phone.val(data.closePhoneNum);
         data.closeIdentityId && ip_m_innum.val(data.closeIdentityId);
-        cur_ip_phone =ip_phone.val();//手机号初始值
+        cur_ip_phone = ip_phone.val();//手机号初始值
         cur_ip_y_name = ip_y_name.val();//移车人姓名初始值
         cur_ip_y_phone = ip_y_phone.val();//移车人电话初始值
     }
@@ -131,9 +131,9 @@ $(function () {
                     alert('信息已保存！');
                     Wisp.UI.progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
-                    params.phonenum && (cur_ip_phone=params.phonenum);
-                    params.movecarname && (cur_ip_y_name=params.movecarname);
-                    params.movecarphone && (cur_ip_y_phone=params.movecarphone);
+                    params.phonenum && (cur_ip_phone = params.phonenum);
+                    params.movecarname && (cur_ip_y_name = params.movecarname);
+                    params.movecarphone && (cur_ip_y_phone = params.movecarphone);
                 } else {
                     alert('保存失败！');
                     saveinfoBtn.on('click', saveinfoListener);
@@ -151,13 +151,15 @@ $(function () {
         window.open(repwdPageUrl);
         gorepwdBtn.on('click', gorepwdListener);
     }
-    function getGender(UUserCard){
-        if (parseInt(UUserCard.substr(16, 1)) % 2 == 1) {
+
+    function getGender(UUserCard) {
+        if ( parseInt(UUserCard.substr(16, 1)) % 2 == 1 ) {
             return '男';
         } else {
             return '女';
         }
     }
+
     /*
      * --------------------页面效果------------------------
      * */

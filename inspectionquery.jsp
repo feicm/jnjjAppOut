@@ -16,7 +16,7 @@
 </head>
 <body>
 <form class="rigister_f" action="" method="post" id="qInspectionAppointment_form">
-    <div class="list-block">
+    <div class="list-block J_btnHighlightWithInput">
         <ul>
             <li>
                 <div class="item-content">
