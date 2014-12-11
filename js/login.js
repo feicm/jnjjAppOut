@@ -19,8 +19,10 @@ $(function () {
         "roleId"                 : '0001',//角色标识 默认0001
         "username"               : App.LS.get('username') || null, //用户名 存入本地存储
         "password"               : null, //密码
+        "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
+        "colInfoRequestUrl"      : urlPre + jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',//找回密码页地址
@@ -30,6 +32,7 @@ $(function () {
             this.mode = opts.mode;
             this.autoFill();
             this.bindEvent();
+            this.initColInfo();
         },
         //事件绑定函数
         "bindEvent"              : function (btn, mode) {
@@ -263,7 +266,6 @@ $(function () {
         //获取个人信息成功回调函数
         "userInfoSuccessCallback": function (data) {
             var _self = this;
-            console.dir(data);
             data.userName && (_self.siderDatas.sider.info.name = data.userName);
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
@@ -272,12 +274,18 @@ $(function () {
             for ( var i = 0; i < l; i++ ) {
                 _self.siderDatas.sider.list[i].enable = 'true';
             }
-            _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+            if ( !_self.isColInfoGetSuccess ) {//初始化时获取栏目信息失败则在登录流程最后一步再次获取，否则跳过
+                _self.initColInfo(function(){
+                    _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+                });
+            }else{
+                _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+            }
             Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
             Wisp.UI.loginResult.success();
             //App.Cookie.SetCookie('username', username); //原cookie储存无法实现退出应用保存
             App.LS.set('username', _self.username);
-            console.log('login END!!!!');
+            console.log('login success END!!!!');
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
@@ -337,6 +345,41 @@ $(function () {
             var _usernameInput = $('#username');
             var _username = _self.username;
             _username && _usernameInput.val(_username);
+        },
+        //初始化信息栏目数据
+        "initColInfo"            : function (callback) {
+            var _self = this;
+            var _url = _self.colInfoRequestUrl;
+            var _params = {
+                "register": _self.username
+            };
+            App.getAjaxData(_url, _params, function (data) {//信息请求回调
+                if ( data === 'error' ) {//ajax 失败回调
+                    _self.isColInfoGetSuccess = false;
+                    return;
+                }
+                if ( data.success ) {
+                    _self.isColInfoGetSuccess = true;
+                    var datas = _self.formatColInfoData(data.msg);//格式化栏目数据源
+                    _self.footbarDatas.footbar[1].subBtns = datas;
+                    callback && callback();
+                } else {
+                    _self.isColInfoGetSuccess = false;
+                }
+            });
+        },
+        //格式化栏目数据源函数
+        "formatColInfoData"      : function (data) {
+            var colDate = [],//栏目数据，即二级菜单数据
+                colItem;//栏目数据项
+            for ( var i in data ) {
+                colItem = {
+                    "name"      : data[i].name,
+                    "requestUrl": data[i].url + "Android"
+                };
+                colDate.push(colItem);
+            }
+            return colDate;
         }
     };
     loginSubmit.length && Loginer.init({ //初始化登录流程
