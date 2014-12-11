@@ -94,7 +94,7 @@
                 </li>
             </ul>
         </div>
-        <ul class="ui-list" id='njyypc_list'>
+        <ul class="ui-list ui-list-02" id='njyypc_list'>
 
         </ul>
         <div class="ft w100">
