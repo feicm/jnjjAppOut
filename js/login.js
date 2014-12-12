@@ -275,18 +275,14 @@ $(function () {
             for ( var i = 0; i < l; i++ ) {
                 _self.siderDatas.sider.list[i].enable = 'true';
             }
-            if ( !_self.isColInfoGetSuccess ) {//初始化时获取栏目信息失败则在登录流程最后一步再次获取，否则跳过
-                _self.initColInfo(function () {
-                    _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
-                });
-            } else {
+            _self.initColInfo(function () {
                 _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
-            }
-            Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
-            Wisp.UI.loginResult.success();
-            //App.Cookie.SetCookie('username', username); //原cookie储存无法实现退出应用保存
-            App.LS.set('username', _self.username);
-            console.log('login success END!!!!');
+                Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+                Wisp.UI.loginResult.success();
+                //App.Cookie.SetCookie('username', username); //原cookie储存无法实现退出应用保存
+                App.LS.set('username', _self.username);
+                console.log('login success END!!!!');
+            });
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
