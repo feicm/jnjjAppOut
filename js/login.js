@@ -23,7 +23,7 @@ $(function () {
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
-        "colInfoRequestUrl"      : cmsUrlPre + urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
+        "colInfoRequestUrl"      : cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',//找回密码页地址
@@ -77,7 +77,7 @@ $(function () {
             var _username = $('#username').val();
             var _password = $('#password').val();
             var _params;
-            _btn.off('click')
+            _btn.off('click');
             if ( _username === '' ) {
                 alert('用户名不能为空！');
                 _self.bindEvent(_btn, 'login');
