@@ -33,7 +33,7 @@ $(function () {
             this.mode = opts.mode;
             this.autoFill();
             this.bindEvent();
-            if ( this.mode === 'login' ) this.initColInfo();
+            //if ( this.mode === 'login' ) this.initColInfo();
         },
         //事件绑定函数
         "bindEvent"              : function (btn, mode) {
