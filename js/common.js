@@ -588,22 +588,13 @@ var App = (function () {
         }
     };
     //ajax 请求封装
-    function getAjaxData(url, params, callback, type, jsonp) {
+    function getAjaxData(url, params, callback, type) {
         var _params = { //通用请求
             type    : type || 'GET',
             url     : url,
             data    : params,
             dataType: 'json'
         };
-        if ( jsonp ) {
-            _params = { //通用请求
-                type    : type || 'GET',
-                url     : url,
-                data    : params,
-                dataType: 'jsonp',
-                jsonp   : 'callback'
-            };
-        }
         $.ajax(_params).done(function (data) {//登录表单提交
             if ( data ) {//验证返回数据
                 callback && callback(data);
