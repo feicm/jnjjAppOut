@@ -253,6 +253,11 @@ $(function () {
             };
             //请求用户信息
             App.getAjaxData(_self.userinfoRequestUrl, _params, function (data) {//用户信息请求回调
+                if ( data === 'error' ) {//ajax 失败回调
+                    alert('登录失败！');
+                    _self.bindEvent(_btn, 'login');
+                    return;
+                }
                 var msg = data.userCenterResponse;
                 if ( msg ) {
                     _self.userInfoSuccessCallback(msg);
@@ -267,6 +272,7 @@ $(function () {
         //获取个人信息成功回调函数
         "userInfoSuccessCallback": function (data) {
             var _self = this;
+            var _btn = _self.loginBtn;
             data.userName && (_self.siderDatas.sider.info.name = data.userName);
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
@@ -275,7 +281,7 @@ $(function () {
             for ( var i = 0; i < l; i++ ) {
                 _self.siderDatas.sider.list[i].enable = 'true';
             }
-            _self.initColInfo(function () {
+            _self.initColInfo(function (data) {
                 _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
                 Wisp.UI.loginResult.success();
@@ -346,11 +352,12 @@ $(function () {
         //初始化信息栏目数据
         "initColInfo"            : function (callback) {
             var _self = this;
+            var _btn = _self.loginBtn;
             var _url = _self.colInfoRequestUrl;
             App.getAjaxData(_url, null, function (data) {//信息请求回调
-                console.dir(data);
-                if ( data === 'error' ) {//ajax 失败回调
-                    _self.isColInfoGetSuccess = false;
+                if ( data === 'error' || !data.success ) {//ajax 失败回调
+                    alert('登录失败！');
+                    _self.bindEvent(_btn, 'login');
                     return;
                 }
                 if ( data.success ) {
@@ -358,8 +365,6 @@ $(function () {
                     var datas = _self.formatColInfoData(data.msg);//格式化栏目数据源
                     _self.footbarDatas.footbar[0].subBtns = datas;
                     callback && callback();
-                } else {
-                    _self.isColInfoGetSuccess = false;
                 }
             });
         },
