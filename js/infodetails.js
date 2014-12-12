@@ -265,7 +265,7 @@ $(function () {
                 case 'query_ksyy': //考试预约查询结果内容模板
                     data;
                     if ( data instanceof Array) {
-                        msg = $.parseJSON(data[0].msg);//Object
+                        msg = data[0];//Object
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
@@ -294,7 +294,7 @@ $(function () {
                 case 'query_kscj': //考试预约查询结果内容模板
                     data;
                     if ( data instanceof Array) {
-                        msg = $.parseJSON(data[0].msg);//Object
+                        msg = data[0];//Object
                         html = [
                             '<tr>',
                             '     <td>姓名</td>',
