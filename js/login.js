@@ -368,7 +368,7 @@ $(function () {
                 } else {
                     _self.isColInfoGetSuccess = false;
                 }
-            },'','jsonp');
+            });
         },
         //格式化栏目数据源函数
         "formatColInfoData"      : function (data) {
