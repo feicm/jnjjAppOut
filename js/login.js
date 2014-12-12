@@ -351,10 +351,7 @@ $(function () {
         "initColInfo"            : function (callback) {
             var _self = this;
             var _url = _self.colInfoRequestUrl;
-            var _params = {
-                "register": _self.username
-            };
-            App.getAjaxData(_url, _params, function (data) {//信息请求回调
+            App.getAjaxData(_url, null, function (data) {//信息请求回调
                 console.dir(data);
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.isColInfoGetSuccess = false;
