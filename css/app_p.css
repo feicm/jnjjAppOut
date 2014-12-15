@@ -399,16 +399,18 @@ i.icon {
 }
 
 .list-block .item-input .close {
-    display       : none;
-    background    : #C9C9C9;
-    position      : absolute;
-    right         : 10px;
-    top           : 10px;
-    width         : 25px;
-    height        : 25px;
-    text-align    : center;
-    border-radius : 9999px;
-    color         : #fff;
+    display: none;
+    background: #C9C9C9;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 8px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 9999px;
+    color: #FFF;
 }
 
 .list-block .item-input .tips {
