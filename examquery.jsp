@@ -75,7 +75,7 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="ksquery_btn">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="ksquery_btn">
             立即查询
         </a>
     </div>

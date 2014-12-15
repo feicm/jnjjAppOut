@@ -57,7 +57,7 @@
     </ul>
     </div>
     <div class="ft w100">
-    <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='pre' id="bindcard_btn">
+    <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" data-rel='pre' id="bindcard_btn">
     确认
     </a>
     </div>

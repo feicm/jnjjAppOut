@@ -53,7 +53,7 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="njyycx_btn">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="njyycx_btn">
             立即查询
         </a>
     </div>
