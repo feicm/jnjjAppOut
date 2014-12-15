@@ -72,7 +72,6 @@ $(function () {
          *      ——登录结束
          * */
         "loginListener"          : function () {
-            Wisp.UI.progressDialog.show('登录中，请稍后！');
             var _self = this;
             var _btn = _self.loginBtn;
             var _username = $('#username').val();
@@ -80,14 +79,13 @@ $(function () {
             var _params;
             _btn.off('click');
             if ( _username === '' ) {
-                Wisp.UI.progressDialog.remove();
                 alert('用户名不能为空！');
                 _self.bindEvent(_btn, 'login');
             } else if ( _password === '' ) {
-                Wisp.UI.progressDialog.remove();
                 alert('密码不能为空！');
                 _self.bindEvent(_btn, 'login');
             } else {
+                Wisp.UI.progressDialog.show('登录中，请稍后！');
                 _params = {
                     "userName": _username,
                     "password": _password,
