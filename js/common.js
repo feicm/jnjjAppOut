@@ -407,7 +407,7 @@ var App = (function () {
                         self.newVal = self.oldVal;
                         self.toggleBtnHighlight();
                     })
-                    _curInput.on('blur', function () {
+                    _curInput.on('change', function () {
                         self.newVal = $(this).val();
                         self.toggleBtnHighlight();
                         self.oldVal = self.newVal;
@@ -595,15 +595,13 @@ var App = (function () {
             data    : params,
             dataType: 'json'
         };
-        $.ajax(_params).done(function (data) {//登录表单提交
+        $.ajax(_params).done(function (data) {
             if ( data ) {//验证返回数据
                 callback && callback(data);
             }
         }).fail(function (data) {
             Wisp.UI.progressDialog.remove();
-            //alert('数据请求失败，请检查网络连接！');
             callback && callback('error');
-            //history.go(0);
         });
     }
 
