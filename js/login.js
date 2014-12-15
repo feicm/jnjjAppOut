@@ -312,7 +312,7 @@ $(function () {
             this.siderDatas = jnjjApp.siderDatas;
             Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
             Wisp.UI.loginResult.success();
-            App.LS.set('username', _self.username);
+            App.LS.set('username', this.username);
         },
         /*
          * 刷新更多视图数据函数
