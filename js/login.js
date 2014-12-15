@@ -222,7 +222,9 @@ $(function () {
                     var msg = data.registerResponse;
                     console.dir(msg);
                     if ( msg.loginSuccess === 'true' ) {
+                        Wisp.UI.progressDialog.remove();
                         if ( confirm('注册成功，直接登录？') ) {
+                            Wisp.UI.progressDialog.show('正在登录，请稍后！');
                             _self.username = _params.registerName;
                             _self.loginSuccessCallback(msg);
                         } else {
