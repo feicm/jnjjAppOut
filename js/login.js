@@ -147,9 +147,13 @@ $(function () {
             console.dir(jnjjApp.siderDatas);
             Wisp.UI.progressDialog.show('数据加载中，请稍后！');
             _btn.off('click');
-            _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送默认配置按钮
-            Wisp.UI.progressDialog.remove();
-            Wisp.UI.loginResult.success();
+            if ( _self.isColInfoGetSuccess ) { //加载登陆页时已请求到，则直接发送，否则再次请求
+                _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+            } else {
+                _self.initColInfo(function () {
+                    _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+                });
+            }
             _self.bindEvent(_btn, 'skip');
         },
         /*
