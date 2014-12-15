@@ -41,10 +41,9 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit">
-            登录
-        </a>
-        <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
+    <input onclick="return false" class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit" type="submit" value="登录" />
+
+    <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
             快速注册
         </a>
         <a class="ui_btn ui_btn_02 ui_radius fr" id="skip">
