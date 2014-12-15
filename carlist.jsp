@@ -100,7 +100,7 @@
                 <a class="ui_btn ui_btn_01 ui_radius fl" data-rel='pre' id='cancel_btn'>
                     暂不绑定
                 </a>
-                <a class="ui_btn ui_btn_01 ui_radius fr" id="bindinfo_btn">
+                <a class="ui_btn ui_btn_01 ui_radius fr ui_btn_01_disable" id="bindinfo_btn">
                     提交绑定
                 </a>
             </div>

@@ -46,7 +46,7 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="repwd_btn">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="repwd_btn">
             确认修改
         </a>
     </div>

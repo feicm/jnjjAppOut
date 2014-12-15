@@ -82,7 +82,7 @@
             </ul>
         </div>
         <div class="ft w100">
-            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='next' id="c1_btn">
+            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" data-rel='next' id="c1_btn">
                 下一步
             </a>
         </div>
