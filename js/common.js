@@ -404,10 +404,10 @@ var App = (function () {
                     _curInputVal = _curInput.val();
                     _curInput.on('focus', function () {
                         self.oldVal = $(this).val();
-                        self.newVal = self.oldVal;
+                        //self.newVal = self.oldVal;
                         self.toggleBtnHighlight();
                     })
-                    _curInput.on('change', function () {
+                    _curInput.on('blur', function () {
                         self.newVal = $(this).val();
                         self.toggleBtnHighlight();
                         self.oldVal = self.newVal;
