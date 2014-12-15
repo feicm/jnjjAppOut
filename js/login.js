@@ -33,7 +33,7 @@ $(function () {
             this.mode = opts.mode;
             this.autoFill();
             this.bindEvent();
-            //if ( this.mode === 'login' ) this.initColInfo();
+            if ( this.mode === 'login' ) this.initColInfo();
         },
         //事件绑定函数
         "bindEvent"              : function (btn, mode) {
@@ -272,23 +272,27 @@ $(function () {
         //获取个人信息成功回调函数
         "userInfoSuccessCallback": function (data) {
             var _self = this;
-            var _btn = _self.loginBtn;
+            _self.updataPersonalInfo(data);//更新个人中心按钮属性
+            if ( _self.isColInfoGetSuccess ) { //加载登陆页时已请求到，则直接发送，否则再次请求
+                _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+            } else {
+                _self.initColInfo(function () {
+                    _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+                });
+                console.log('login success END!!!!');
+            }
+        },
+        //更新个人中心属性
+        "updataPersonalInfo"     : function (data) {
+            var _self = this;
             data.userName && (_self.siderDatas.sider.info.name = data.userName);
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
             _self.siderDatas.sider.info.url = '';
             var l = _self.siderDatas.sider.list.length;
-            for ( var i = 0; i < l; i++ ) {
+            for ( var i = 0; i < l; i++ ) {//更新个人中心按钮属性
                 _self.siderDatas.sider.list[i].enable = 'true';
             }
-            _self.initColInfo(function (data) {
-                _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
-                Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
-                Wisp.UI.loginResult.success();
-                //App.Cookie.SetCookie('username', username); //原cookie储存无法实现退出应用保存
-                App.LS.set('username', _self.username);
-                console.log('login success END!!!!');
-            });
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
@@ -302,6 +306,9 @@ $(function () {
             });
             this.footbarDatas = jnjjApp.footbarDatas;
             this.siderDatas = jnjjApp.siderDatas;
+            Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+            Wisp.UI.loginResult.success();
+            App.LS.set('username', _self.username);
         },
         /*
          * 刷新更多视图数据函数
@@ -355,7 +362,7 @@ $(function () {
             var _btn = _self.loginBtn;
             var _url = _self.colInfoRequestUrl;
             App.getAjaxData(_url, null, function (data) {//信息请求回调
-                if ( data === 'error' || !data.success ) {//ajax 失败回调
+                if ( data === 'error' || !data.success && callback ) {//ajax 失败回调
                     alert('登录失败！');
                     _self.bindEvent(_btn, 'login');
                     return;
