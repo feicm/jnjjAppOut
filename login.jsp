@@ -41,7 +41,9 @@
         </ul>
     </div>
     <div class="ft w100">
-    <input onclick="return false" class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit" type="submit" value="登录" />
+    <button onclick="return false" class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit" type="submit">
+    登录
+    </button>
 
     <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
             快速注册
