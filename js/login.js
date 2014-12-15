@@ -18,7 +18,7 @@ $(function () {
         "footbarDatas"           : jnjjApp.footbarDatas, //客户端ui数据 页脚
         "siderDatas"             : jnjjApp.siderDatas,//客户端ui数据 个人中心
         "roleId"                 : '0001',//角色标识 默认0001
-        "username"               : App.LS.get('username') || null, //用户名 存入本地存储
+        "username"               : App.LS.get('username') || '', //用户名 存入本地存储
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
