@@ -283,8 +283,8 @@ $(function () {
                 _self.initColInfo(function () {
                     _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 });
-                console.log('login success END!!!!');
             }
+            console.log('login success END!!!!');
         },
         //更新个人中心属性
         "updataPersonalInfo"     : function (data) {
@@ -366,7 +366,7 @@ $(function () {
             var _btn = _self.loginBtn;
             var _url = _self.colInfoRequestUrl;
             App.getAjaxData(_url, null, function (data) {//信息请求回调
-                if ( data === 'error' || !data.success && callback ) {//ajax 失败回调
+                if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
                     alert('登录失败！');
                     _self.bindEvent(_btn, 'login');
                     return;
