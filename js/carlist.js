@@ -23,7 +23,7 @@ $(function () {
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,
-        "axisFlag": true
+        "axisFlag": false
     };
     //绑定（车辆、驾照）列表对象
     var listModule = {
