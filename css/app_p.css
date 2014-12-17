@@ -447,9 +447,9 @@ i.icon {
     position: absolute;
     left: 50%;
     top: 20%;
-    width: 50%;
+    width: 70%;
     min-height : 5em;
-    margin-left: -25%;
+    margin-left: -35%;
     z-index: 100;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 10px;
