@@ -569,7 +569,7 @@ var App = (function () {
                 this.id=_id;
             },
             "remove":function(){
-                $('#'+this.id).hide();
+                $('#'+this.id).remove();
             }
         };
         var moduleNameMap = {
@@ -677,7 +677,7 @@ var App = (function () {
                 callback && callback(data);
             }
         }).fail(function (data) {
-            Wisp.UI.progressDialog.remove();
+            //Wisp.UI.progressDialog.remove();
             callback && callback('error');
         });
     }

@@ -21,6 +21,7 @@ $(function () {
         "username"               : App.LS.get('username') || '', //用户名 存入本地存储
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
+        "progressDialog"         : null,
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
@@ -85,7 +86,8 @@ $(function () {
                 alert('密码不能为空！');
                 _self.bindEvent(_btn, 'login');
             } else {
-                Wisp.UI.progressDialog.show('登录中，请稍后！');
+                //Wisp.UI.progressDialog.show('登录中，请稍后！');
+                _self.progressDialog = App.UI('dialog', {msg: '登录中，请稍后！'});
                 _params = {
                     "userName": _username,
                     "password": _password,
@@ -95,6 +97,7 @@ $(function () {
                 //发起登录请求
                 App.getAjaxData(_self.loginRequestUrl, _params, function (data) {//登录请求回调
                     if ( data === 'error' ) {//ajax 失败回调
+                        _self.progressDialog.remove();
                         alert('登录失败！');
                         _self.bindEvent(_btn, 'login');
                         return;
@@ -103,11 +106,13 @@ $(function () {
                     if ( msg.loginSuccess === 'true' ) {
                         _self.loginSuccessCallback(msg);
                     } else if ( msg.loginSuccess === 'false' ) {
-                        Wisp.UI.progressDialog.remove();
+                        //Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         alert(msg.loginContent + '!');
                         _self.bindEvent(_btn, 'login');
                     } else {
-                        Wisp.UI.progressDialog.remove();
+                       // Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         alert('登录失败!');
                         _self.bindEvent(_btn, 'login');
                     }
@@ -145,7 +150,8 @@ $(function () {
             var _btn = _self.skipBtn;
             console.dir(jnjjApp.footbarDatas);
             console.dir(jnjjApp.siderDatas);
-            Wisp.UI.progressDialog.show('数据加载中，请稍后！');
+            //Wisp.UI.progressDialog.show('数据加载中，请稍后！');
+            _self.progressDialog = App.UI('dialog', {msg: '数据加载中，请稍后！'});
             _btn.off('click');
             if ( _self.isColInfoGetSuccess ) { //加载登陆页时已请求到，则直接发送，否则再次请求
                 _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
@@ -212,19 +218,23 @@ $(function () {
                     "closePhoneNum"  : _mqlxrdh || '',
                     "roleId"         : _roleId
                 };
-                Wisp.UI.progressDialog.show('注册中，请稍后！');
+                //Wisp.UI.progressDialog.show('注册中，请稍后！');
+                _self.progressDialog = App.UI('dialog', {msg: '注册中，请稍后！'});
                 //提交表单
                 App.getAjaxData(_self.rigisterRequestUrl, _params, function (data) {
                     if ( data === 'error' ) {//ajax 失败回调
+                        _self.progressDialog.remove();
                         _self.bindEvent(_btn, 'rigisterSubmit');
                         return;
                     }
                     var msg = data.registerResponse;
                     console.dir(msg);
                     if ( msg.loginSuccess === 'true' ) {
-                        Wisp.UI.progressDialog.remove();
+                        //Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         if ( confirm('注册成功，直接登录？') ) {
-                            Wisp.UI.progressDialog.show('正在登录，请稍后！');
+                           // Wisp.UI.progressDialog.show('正在登录，请稍后！');
+                            _self.progressDialog = App.UI('dialog', {msg: '正在登录，请稍后！'});
                             _self.username = _params.registerName;
                             _self.loginSuccessCallback(msg);
                         } else {
@@ -232,11 +242,13 @@ $(function () {
                         }
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else if ( msg.loginSuccess === 'false' ) {
-                        Wisp.UI.progressDialog.remove();
+                        //Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         alert(msg.loginContent + '!');
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else {
-                        Wisp.UI.progressDialog.remove();
+                        //Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         alert('提交失败!');
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     }
@@ -260,6 +272,7 @@ $(function () {
             //请求用户信息
             App.getAjaxData(_self.userinfoRequestUrl, _params, function (data) {//用户信息请求回调
                 if ( data === 'error' ) {//ajax 失败回调
+                    _self.progressDialog.remove();
                     alert('登录失败！');
                     _self.bindEvent(_btn, 'login');
                     return;
@@ -269,7 +282,8 @@ $(function () {
                     _self.userInfoSuccessCallback(msg);
                     _self.bindEvent(_btn, 'login');
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     alert('登录失败!(个人信息初始化失败)');
                     _self.bindEvent(_btn, 'login');
                 }
@@ -302,6 +316,7 @@ $(function () {
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
+            var _self=this;
             Wisp.UI.Init({
                 'type' : 'footbar',
                 'datas': footbarDatas
@@ -312,7 +327,8 @@ $(function () {
             });
             this.footbarDatas = jnjjApp.footbarDatas;
             this.siderDatas = jnjjApp.siderDatas;
-            Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+            //Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+            _self.progressDialog.remove();
             Wisp.UI.loginResult.success();
             App.LS.set('username', this.username);
         },
@@ -369,6 +385,7 @@ $(function () {
             var _url = _self.colInfoRequestUrl;
             App.getAjaxData(_url, null, function (data) {//信息请求回调
                 if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
+                    _self.progressDialog.remove();
                     alert('登录失败！');
                     _self.bindEvent(_btn, 'login');
                     return;

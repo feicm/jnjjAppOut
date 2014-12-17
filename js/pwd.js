@@ -6,6 +6,7 @@ $(function () {
     var backpwdBtn = $('#backpwd_btn');//找回密码——提交按钮
     var repwdBtn = $('#repwd_btn'); //密码修改--提交按钮
     var urlPre = 'adapter?open&url=';
+    var progressDialog;
     var repwdRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/oldPassSetPass.json';//密码修改
@@ -114,25 +115,30 @@ $(function () {
                 "oldPass" : pwdOld,
                 "newPass" : pwdNew
             };
-            Wisp.UI.progressDialog.show('密码修改中，请稍后！');
+            //Wisp.UI.progressDialog.show('密码修改中，请稍后！');
+            progressDialog = App.UI('dialog', {msg: '密码修改中，请稍后！'});
             //提交表单
             App.getAjaxData(repwdRequestUrl, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
+                    progressDialog.remove();
                     repwdBtn.on('click', repwdListener);
                     return;
                 }
                 var msg = data.passwordRestResponse;
                 console.dir(msg);
                 if ( msg.result === 'success' ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert(msg.resultContent + '!');
                     repwdBtn.on('click', repwdListener);
                 } else if ( msg.result === 'false' ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert(msg.resultContent + '!');
                     repwdBtn.on('click', repwdListener);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert('密码修改失败!');
                     repwdBtn.on('click', repwdListener);
                 }
@@ -144,7 +150,8 @@ $(function () {
 
     //发送密码修改请求
     function sendBackpwdRequest(url, data) {
-        Wisp.UI.progressDialog.show('找回密码中，请稍后！');
+        //Wisp.UI.progressDialog.show('找回密码中，请稍后！');
+        progressDialog = App.UI('dialog', {msg: '找回密码中，请稍后！'});
         //提交表单
         App.getAjaxData(url, data, function (data) {
             if ( data === 'error' ) {//ajax 失败回调
@@ -154,15 +161,18 @@ $(function () {
             var msg = data.passwordRestResponse;
             console.dir(msg);
             if ( msg.result === 'true' ) {
-                Wisp.UI.progressDialog.remove();
+                //Wisp.UI.progressDialog.remove();
+                progressDialog.remove();
                 alert(msg.resultContent + '!');
                 backpwdBtn.on('click', backpwdListener);
             } else if ( msg.result === 'false' ) {
-                Wisp.UI.progressDialog.remove();
+                //Wisp.UI.progressDialog.remove();
+                progressDialog.remove();
                 alert(msg.resultContent + '!');
                 backpwdBtn.on('click', backpwdListener);
             } else {
-                Wisp.UI.progressDialog.remove();
+                //Wisp.UI.progressDialog.remove();
+                progressDialog.remove();
                 alert('找回密码失败!');
                 backpwdBtn.on('click', backpwdListener);
             }

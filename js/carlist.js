@@ -200,6 +200,7 @@ $(function () {
     var isSinglePage = $('.c').attr('data-issinglepage');//是否为单一绑定页
     var cancelbindBtn = $('#cancel_btn');
     var opts = {};
+    var progressDialog;
     if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
         var bindinfoBtn = $('#bindinfo_btn');
@@ -264,10 +265,12 @@ $(function () {
                 "carFramId"  : ip_clsbdh,
                 "optiontype" : optiontype
             };
-            Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
+            //Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
+            progressDialog=App.UI('dialog',{msg:'车辆绑定中，请稍后！'});
             //提交表单
             App.getAjaxData(carbindRequestUrl, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
+                    progressDialog.remove();
                     bindinfoBtn && bindinfoBtn.on('click', bindcarListerner);
                     return;
                 }
@@ -277,11 +280,13 @@ $(function () {
                     bindSuccessCallback(msg);
                     bindinfoBtn.on('click', bindcarListerner);
                 } else if ( msg.bandSuccess === 'false' ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert(msg.bandContent + '!');
                     bindinfoBtn.on('click', bindcarListerner);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert('提交失败!');
                     bindinfoBtn.on('click', bindcarListerner);
                 }
@@ -315,10 +320,12 @@ $(function () {
                 "licenseRecord": ip_dabh,
                 "dotype"       : dotype
             };
-            Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
+            //Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
+            progressDialog=App.UI('dialog',{msg:'驾照绑定中，请稍后！'});
             //提交表单
             App.getAjaxData(cardbindRequestUrl, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
+                    progressDialog.remove();
                     bindcardBtn && bindcardBtn.on('click', bindcardListerner);
                     return;
                 }
@@ -328,11 +335,13 @@ $(function () {
                     bindSuccessCallback(msg);
                     bindcardBtn.on('click', bindcardListerner);
                 } else if ( msg.bandSuccess === 'false' ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert(msg.bandContent + '!');
                     bindcardBtn.on('click', bindcardListerner);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     alert('提交失败!');
                     bindcardBtn.on('click', bindcardListerner);
                 }
@@ -345,7 +354,8 @@ $(function () {
     //绑定成功回调函数
     function bindSuccessCallback(data) {
         console.dir(data);
-        Wisp.UI.progressDialog.remove();
+        //Wisp.UI.progressDialog.remove();
+        progressDialog.remove();
         alert('绑定成功！');
         history.go(0); //直接刷新获取最新列表
     }

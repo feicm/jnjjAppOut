@@ -23,6 +23,7 @@ $(function () {
     var cur_ip_y_name = '';//移车人姓名初始值
     var cur_ip_y_phone = '';//移车人电话初始值
     var urlPre = 'adapter?open&url=';
+    var progressDialog;
     var userinfoRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/getUserInfo.json';//用户信息请求地址
@@ -35,12 +36,7 @@ $(function () {
     var loginPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/loginnoskip.jsp';//修改密码页url
-    console.log('用户名：' + userName);
-    if ( !userName ) {
-        alert('请先登录！');
-        window.open(loginPageUrl);
-        return;
-    }
+    console.log('username：' + userName);
     //请求用户信息
     App.getAjaxData(userinfoRequestUrl, {
         "registerName": userName
@@ -119,9 +115,11 @@ $(function () {
     // 更新修改信息函数
     function updataInfo(url, params, opts) {
         if ( App.verify(opts) ) {
-            Wisp.UI.progressDialog.show('信息保存中，请稍后！');
+            //Wisp.UI.progressDialog.show('信息保存中，请稍后！');
+            progressDialog = App.UI('dialog', {msg: '信息保存中，请稍后！'});
             App.getAjaxData(url, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
+                    progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
                     return;
                 }
@@ -129,7 +127,8 @@ $(function () {
                 if ( msg ) {
                     console.log('更新成功！');
                     alert('信息已保存！');
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
                     params.phonenum && (cur_ip_phone = params.phonenum);
                     params.movecarname && (cur_ip_y_name = params.movecarname);
@@ -137,7 +136,8 @@ $(function () {
                 } else {
                     alert('保存失败！');
                     saveinfoBtn.on('click', saveinfoListener);
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    progressDialog.remove();
                 }
             });
         } else {
