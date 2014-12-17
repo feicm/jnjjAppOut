@@ -31,6 +31,7 @@ $(function () {
             "car" : '车辆',
             "card": '驾照'
         },
+        "dialog":null,
         "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"       : function (opts) {
             this.listWrap = opts.listWrap;
@@ -65,7 +66,8 @@ $(function () {
                 //渲染列表
                 listStr = _self.getListHtml(data, _self.module);
                 listWrap.append(listStr);
-                Wisp.UI.progressDialog.remove();
+                //Wisp.UI.progressDialog.remove();
+                _self.dialog.remove();
             } else {
                 //渲染默认
                 defautlhtml = [
@@ -74,7 +76,8 @@ $(function () {
                     '</div>',
                     '<h2>您还未绑定' + _self.moduleCH[_self.module] + '，快去绑定吧！</h2>'].join("");
                 tipsWrap.append(defautlhtml);
-                Wisp.UI.progressDialog.remove();
+                //Wisp.UI.progressDialog.remove();
+                _self.dialog.remove();
             }
         },
         "bindEvent"  : function () {
@@ -133,24 +136,6 @@ $(function () {
                             '    </p>',
                             '    <i class="icon01 icon01_arr_r"></i>',
                             '</li>'].join("");
-                        /*listhtml = [//old list stype
-                            '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
-                            '    <section class="ui-g-fly0-b">',
-                            '        <p>',
-                            '            车主姓名：<em class="name">' + data[i].carowner + '</em>',
-                            '        </p>',
-                            '        <p>',
-                            '            号牌号码：<em class="name">' + data[i].carid + '</em>',
-                            '        </p>',
-                            '    </section>',
-                            '    <aside class="ui-g-fly0-b-l">',
-                            '        <img src="config/html/images/ico_car.png"></br>',
-                            '        <b>车辆' + (i + 0 + 1) + '</b>',
-                            '    </aside>',
-                            '    <aside class="ui-g-fly0-b-r">',
-                            '        <i class="icon01 icon01_arr_r"></i>',
-                            '    </aside>',
-                            '</li>'].join("");*/
                         listArr.push(listhtml);
                     }
                     html = listArr.join("");
@@ -180,24 +165,6 @@ $(function () {
                             '    </p>',
                             '    <i class="icon01 icon01_arr_r"></i>',
                             '</li>'].join("");
-                        /*listhtml = [//old list style
-                            '<li data-licenserecord="' + data[i].licenseRecord + '">',
-                            '    <section class="ui-g-fly0-b">',
-                            '        <p>',
-                            '            姓名：<em class="name">' + data[i].licenseName + '</em>',
-                            '        </p>',
-                            '        <p>',
-                            '            身份证号：<em class="name">' + data[i].licenseid + '</em>',
-                            '        </p>',
-                            '    </section>',
-                            '    <aside class="ui-g-fly0-b-l">',
-                            '        <img src="config/html/images/ico_card.png"></br>',
-                            '        <b>驾照' + (i + 0 + 1) + '</b>',
-                            '    </aside>',
-                            '    <aside class="ui-g-fly0-b-r">',
-                            '        <i class="icon01 icon01_arr_r"></i>',
-                            '    </aside>',
-                            '</li>'].join("");*/
                         listArr.push(listhtml);
                     }
                     html = listArr.join("");
@@ -211,7 +178,10 @@ $(function () {
             var _params = params;
             var _callback = callback;
             var _module = _self.module;
-            Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
+            _self.dialog=App.UI('dialog',{
+                msg:'请求' + _self.moduleCH[_self.module] + '列表中，请稍后！'
+            });
+            //Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
                 var msg;
                 data.carQueryResponse && (msg = data.carQueryResponse);
@@ -219,7 +189,8 @@ $(function () {
                 if ( msg ) {
                     _callback && _callback(msg);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    _self.dialog.remove();
+                    //Wisp.UI.progressDialog.remove();
                     alert(_self.moduleCH[_self.module] + '列表初始化失败！');
                 }
             });
