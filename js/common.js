@@ -1,51 +1,51 @@
 /*
-* js异常监控，语法、运行时错误
-* */
+ * js异常监控，语法、运行时错误
+ * */
 /*window.onerror = function(msg,url,line,col,error){
-    //没有URL不上报！上报也不知道错误
-    if (msg != "Script error." && !url){
-        return true;
-    }
-    //采用异步的方式
-    //我遇到过在window.onunload进行ajax的堵塞上报
-    //由于客户端强制关闭webview导致这次堵塞上报有Network Error
-    //我猜测这里window.onerror的执行流在关闭前是必然执行的
-    //而离开文章之后的上报对于业务来说是可丢失的
-    //所以我把这里的执行流放到异步事件去执行
-    //脚本的异常数降低了10倍
-    setTimeout(function(){
-        var data = {};
-        //不一定所有浏览器都支持col参数
-        col = col || (window.event && window.event.errorCharacter) || 0;
+ //没有URL不上报！上报也不知道错误
+ if (msg != "Script error." && !url){
+ return true;
+ }
+ //采用异步的方式
+ //我遇到过在window.onunload进行ajax的堵塞上报
+ //由于客户端强制关闭webview导致这次堵塞上报有Network Error
+ //我猜测这里window.onerror的执行流在关闭前是必然执行的
+ //而离开文章之后的上报对于业务来说是可丢失的
+ //所以我把这里的执行流放到异步事件去执行
+ //脚本的异常数降低了10倍
+ setTimeout(function(){
+ var data = {};
+ //不一定所有浏览器都支持col参数
+ col = col || (window.event && window.event.errorCharacter) || 0;
 
-        data.url = url;
-        data.line = line;
-        data.col = col;
-        if (!!error && !!error.stack){
-            //如果浏览器有堆栈信息
-            //直接使用
-            data.msg = error.stack.toString();
-        }else if (!!arguments.callee){
-            //尝试通过callee拿堆栈信息
-            var ext = [];
-            var f = arguments.callee.caller, c = 3;
-            //这里只拿三层堆栈信息
-            while (f && (--c>0)) {
-                ext.push(f.toString());
-                if (f  === f.caller) {
-                    break;//如果有环
-                }
-                f = f.caller;
-            }
-            ext = ext.join(",");
-            data.msg = ext;
-        }
-        //把data上报到后台！
+ data.url = url;
+ data.line = line;
+ data.col = col;
+ if (!!error && !!error.stack){
+ //如果浏览器有堆栈信息
+ //直接使用
+ data.msg = error.stack.toString();
+ }else if (!!arguments.callee){
+ //尝试通过callee拿堆栈信息
+ var ext = [];
+ var f = arguments.callee.caller, c = 3;
+ //这里只拿三层堆栈信息
+ while (f && (--c>0)) {
+ ext.push(f.toString());
+ if (f  === f.caller) {
+ break;//如果有环
+ }
+ f = f.caller;
+ }
+ ext = ext.join(",");
+ data.msg = ext;
+ }
+ //把data上报到后台！
 
-    },0);
+ },0);
 
-    return true;
-};*/
+ return true;
+ };*/
 var App = (function () {
     function UI(name, opts, callback) {
         var changePage = {
@@ -544,6 +544,34 @@ var App = (function () {
                 return !(oldval === newval);
             }
         };
+        var dialog = {
+            "id":null,
+            "init": function () {
+                this.title = opts.title || null;
+                this.msg = opts.msg || '';
+                this.show();
+                return this;
+            },
+            "show": function () {
+                var _self = this;
+                var _msg = _self.msg;
+                var date=new Date();
+                var _id='dialog_'+date.getTime();
+                var _html = [
+                    '<div id="'+_id+'">',
+                    '<div class="ui-loading">',
+                    '    <div class="ico-loading"></div>',
+                    '    <b class="msg">' + _msg + '</b>',
+                    '</div>',
+                    '<div class="ui-layer"></div>',
+                    '</div>'].join("");
+                $(document.body).append(_html);
+                this.id=_id;
+            },
+            "remove":function(){
+                $('#'+this.id).hide();
+            }
+        };
         var moduleNameMap = {
             "changePage"           : changePage,
             "inputClose"           : inputClose,
@@ -551,9 +579,10 @@ var App = (function () {
             "tabToggle"            : tabToggle,
             "select"               : select,
             "toggleSelectBlock"    : toggleSelectBlock,
-            "btnHighlightWithInput": btnHighlightWithInput
+            "btnHighlightWithInput": btnHighlightWithInput,
+            "dialog"               : dialog
         };
-        name && moduleNameMap[name].init();
+        return name && moduleNameMap[name].init();
     }
 
     /*
@@ -674,6 +703,14 @@ var App = (function () {
             oHash[aItem[0]] = $.trim(aItem[1]);
         }
         return oHash;
+    }
+
+    //单例抽象
+    function singleton(fn) {
+        var result;
+        return function () {
+            return result || (result = fn.apply(this, arguments));
+        }
     }
 
     //车辆识别代号号检测
