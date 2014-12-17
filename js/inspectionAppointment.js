@@ -34,6 +34,7 @@ $(function () {
         "yyrq"                 : $('#yyrq'), //预约日期
         "kxsjd"                : $('#kxsjd'), //可选时间段
         "date"                 : $('#date'), //日期
+        "progressDialog"       : null,
         "init"                 : function (opts) {
             this.firstBtn = opts.firstBtn || null;
             this.secondBtn = opts.secondsBtn || null;
@@ -167,16 +168,19 @@ $(function () {
                     "clsbdh"  : _ip_clsbdh,
                     "register": userName
                 };
-                Wisp.UI.progressDialog.show('预约资格审查中，请稍后！');
+                //Wisp.UI.progressDialog.show('预约资格审查中，请稍后！');
+                _self.progressDialog=App.UI('dialog',{msg:'预约资格审查中，请稍后！'});
                 //提交表单
                 App.getAjaxData(ksyytjRequestUrl, _params, function (data) {
                     if ( data === 'error' ) {//ajax 失败回调
+                        _self.progressDialog.remove();
                         alert('资格审查失败！');
                         _self.bindEvent('first');
                         return;
                     }
                     if ( data.success ) {//审查通过
-                        Wisp.UI.progressDialog.remove();//debug
+                        //Wisp.UI.progressDialog.remove();//debug
+                        _self.progressDialog.remove();
                         App.UI('changePage', {//年检预约切换效果
                             "wrap": $('#inspectionAppointment_form')
                         });
@@ -190,7 +194,8 @@ $(function () {
                             _self.dateChangeValListener();
                         });
                     } else {//审查被拒
-                        Wisp.UI.progressDialog.remove();
+                        //Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         alert(data.msg);
                         _self.bindEvent('first');
                     }
@@ -205,20 +210,24 @@ $(function () {
                 'register': userName,
                 'yyrq'    : _curVal
             };
-            Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
+            //Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
+            _self.progressDialog=App.UI('dialog',{msg:'预约批次查询中，请稍后！'});
             App.getAjaxData(njyypcRequestUrl, _params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
+                    _self.progressDialog.remove();
                     alert('批次查询失败！');
                     _self.bindEvent('dateItem');
                     return;
                 }
                 if ( data.success ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
                     _self.resetHeight(_wrap);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     alert(data.msg);
                 }
             })
@@ -233,12 +242,14 @@ $(function () {
                 'yyrq'   : _self.date.val(),
                 'jcxcode': _li.attr('data-code')
             };
-            Wisp.UI.progressDialog.show('预约时间段查询中，请稍后！');
+           // Wisp.UI.progressDialog.show('预约时间段查询中，请稍后！');
+            _self.progressDialog=App.UI('dialog',{msg:'预约时间段查询中，请稍后！'});
             App.getAjaxData(njyysjdRequestUrl, _params, function (data) {
                 if ( data.success ) {
                     _self.render('inputs', '', data.msg);
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     alert(data.msg);
                 }
             })
@@ -266,14 +277,17 @@ $(function () {
                 'yyblsj': _self.kxsjd.val()
             };
             _btn.off('click');
-            Wisp.UI.progressDialog.show('提交预约信息中，请稍后！');
+            //Wisp.UI.progressDialog.show('提交预约信息中，请稍后！');
+            _self.progressDialog=App.UI('dialog',{msg:'提交预约信息中，请稍后！'});
             App.getAjaxData(njyyrkRequestUrl, _params, function (data) {
                 if ( data.success ) {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     alert(data.msg);
                     _self.bindEvent('last');
                 } else {
-                    Wisp.UI.progressDialog.remove();
+                    //Wisp.UI.progressDialog.remove();
+                    _self.progressDialog.remove();
                     alert(data.msg);
                     _self.bindEvent('last');
                 }
@@ -281,7 +295,7 @@ $(function () {
         },
         "resetHeight"          : function (wrap) {
             var _self = this;
-            var _h = wrap.height()-0+200;
+            var _h = wrap.height() - 0 + 200;
             var _form = wrap.parents('form');
             _form.height(_h);
         }
