@@ -191,7 +191,7 @@ $(function () {
                 } else {
                     _self.dialog.remove();
                     //Wisp.UI.progressDialog.remove();
-                    //alert(_self.moduleCH[_self.module] + '列表初始化失败！');
+                    alert(_self.moduleCH[_self.module] + '列表初始化失败！');
                 }
             });
         }
