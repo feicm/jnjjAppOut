@@ -27,7 +27,7 @@ $(function () {
         "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
-        "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',//找回密码页地址
+        "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/login.jsp',//找回密码页地址
         "rigisterRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
