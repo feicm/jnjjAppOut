@@ -568,10 +568,12 @@ var App = (function () {
                 if ( !_btn.length ) return;
                 _btn.on('click', function (e) {
                     var $this = $(this);
-                    if ( $this.data('action') === 'OK' ) {
-                        _self.callback && _self.callback();
+                    var _action = $this.data('action');
+                    if ( _action === 'OK' ) {
+                        _self.callback && _self.callback('OK');
                         _self.remove();
-                    }else{
+                    } else if ( _action === 'CANCEL' ) {
+                        _self.callback && _self.callback('CANCEL');
                         _self.remove();
                     }
                     return true;
@@ -601,7 +603,7 @@ var App = (function () {
                             '<div class="ui-layer ui-layer-01"></div>'].join("");
                         break;
                     case 'confirm':
-                        result=[
+                        result = [
                             '<div class="modal modal-in">',
                             '    <div class="modal-inner">',
                             '        <div class="modal-title">' + _title + '</div>',
