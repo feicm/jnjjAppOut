@@ -76,7 +76,11 @@ $(function () {
                 if ( msg ) {
                     _self.render(msg, _dom, type);//渲染结果
                 } else {
-                    alert('加载失败!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '加载失败！'
+                    });
                 }
             });
         },

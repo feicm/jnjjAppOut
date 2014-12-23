@@ -545,31 +545,85 @@ var App = (function () {
             }
         };
         var dialog = {
-            "id":null,
-            "init": function () {
+            "current"  : null,
+            "init"     : function () {
+                this.type = opts.type || null;
                 this.title = opts.title || null;
                 this.msg = opts.msg || '';
+                this.callback = callback || null;
                 this.show();
+                this.bindEvent();
                 return this;
             },
-            "show": function () {
+            "show"     : function () {
                 var _self = this;
-                var _msg = _self.msg;
-                var date=new Date();
-                var _id='dialog_'+date.getTime();
-                var _html = [
-                    '<div id="'+_id+'">',
-                    '<div class="ui-loading">',
-                    '    <div class="ico-loading"></div>',
-                    '    <b class="msg">' + _msg + '</b>',
-                    '</div>',
-                    '<div class="ui-layer"></div>',
-                    '</div>'].join("");
+                var _html = $(_self.getHtml());
                 $(document.body).append(_html);
-                this.id=_id;
+                this.current = _html;
             },
-            "remove":function(){
-                $('#'+this.id).remove();
+            "bindEvent": function () {
+                var _self = this;
+                var _current = _self.current;
+                var _btn = _current.find('.modal-button');
+                if ( !_btn.length ) return;
+                _btn.on('click', function (e) {
+                    var $this = $(this);
+                    if ( $this.data('action') === 'OK' ) {
+                        _self.callback && _self.callback();
+                        _self.remove();
+                    }else{
+                        _self.remove();
+                    }
+                    return true;
+                })
+            },
+            "remove"   : function () {
+                this.current.remove();
+            },
+            "getHtml"  : function () {
+                var _self = this;
+                var _type = _self.type;
+                var _title = _self.title;
+                var _msg = _self.msg;
+                var result;
+                switch ( _type ) {
+                    case 'alert':
+                        result = [
+                            '<div class="modal modal-in">',
+                            '    <div class="modal-inner">',
+                            '        <div class="modal-title">' + _title + '</div>',
+                            '        <div class="modal-text">' + _msg + '</div>',
+                            '    </div>',
+                            '    <div class="modal-buttons ">' +
+                            '        <span class="modal-button modal-button-bold" data-action="OK">确定</span>' +
+                            '    </div>',
+                            '</div>',
+                            '<div class="ui-layer ui-layer-01"></div>'].join("");
+                        break;
+                    case 'confirm':
+                        result=[
+                            '<div class="modal modal-in">',
+                            '    <div class="modal-inner">',
+                            '        <div class="modal-title">' + _title + '</div>',
+                            '        <div class="modal-text">' + _msg + '</div>',
+                            '    </div>',
+                            '    <div class="modal-buttons ">',
+                            '        <span class="modal-button modal-button-bold" data-action="OK">确定</span>',
+                            '        <span class="modal-button modal-button-bold" data-action="CANCEL">取消</span>',
+                            '    </div>',
+                            '</div>',
+                            '<div class="ui-layer ui-layer-01"></div>'].join("");
+                        break;
+                    default :
+                        result = [
+                            '<div class="ui-loading">',
+                            '    <div class="ico-loading"></div>',
+                            '    <b class="msg">' + _msg + '</b>',
+                            '</div>',
+                            '<div class="ui-layer"></div>'].join("");
+
+                }
+                return result;
             }
         };
         var moduleNameMap = {

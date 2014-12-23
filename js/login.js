@@ -49,14 +49,22 @@ $(function () {
                     var v1 = $(this).val(),
                         v2 = $('#setpwd_02').val();
                     if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
-                        alert('两次密码输入不一致！');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '两次密码输入不一致！'
+                        });
                     }
                 });
                 $('#setpwd_02').on('blur', function () {
                     var v1 = $(this).val(),
                         v2 = $('#setpwd_01').val();
                     if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
-                        alert('两次密码输入不一致！');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '两次密码输入不一致！'
+                        });
                     }
                 });
             }
@@ -80,10 +88,18 @@ $(function () {
             var _params;
             _btn.off('click');
             if ( _username === '' ) {
-                alert('用户名不能为空！');
+                App.UI('dialog', {
+                    type : 'alert',
+                    title: '济南交警',
+                    msg  : '用户名不能为空！'
+                });
                 _self.bindEvent(_btn, 'login');
             } else if ( _password === '' ) {
-                alert('密码不能为空！');
+                App.UI('dialog', {
+                    type : 'alert',
+                    title: '济南交警',
+                    msg  : '密码不能为空！'
+                });
                 _self.bindEvent(_btn, 'login');
             } else {
                 //Wisp.UI.progressDialog.show('登录中，请稍后！');
@@ -98,7 +114,11 @@ $(function () {
                 App.getAjaxData(_self.loginRequestUrl, _params, function (data) {//登录请求回调
                     if ( data === 'error' ) {//ajax 失败回调
                         _self.progressDialog.remove();
-                        alert('登录失败！');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '登录失败！'
+                        });
                         _self.bindEvent(_btn, 'login');
                         return;
                     }
@@ -108,12 +128,20 @@ $(function () {
                     } else if ( msg.loginSuccess === 'false' ) {
                         //Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        alert(msg.loginContent + '!');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : msg.loginContent + '!'
+                        });
                         _self.bindEvent(_btn, 'login');
                     } else {
                        // Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        alert('登录失败!');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '登录失败！'
+                        });
                         _self.bindEvent(_btn, 'login');
                     }
                 });
@@ -244,12 +272,20 @@ $(function () {
                     } else if ( msg.loginSuccess === 'false' ) {
                         //Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        alert(msg.loginContent + '!');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : msg.loginContent + '!'
+                        });
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else {
                         //Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        alert('提交失败!');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '登录失败！'
+                        });
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     }
                 })
@@ -273,7 +309,11 @@ $(function () {
             App.getAjaxData(_self.userinfoRequestUrl, _params, function (data) {//用户信息请求回调
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.progressDialog.remove();
-                    alert('登录失败！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '登录失败！'
+                    });
                     _self.bindEvent(_btn, 'login');
                     return;
                 }
@@ -284,7 +324,11 @@ $(function () {
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    alert('登录失败!(个人信息初始化失败)');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '登录失败!(个人信息初始化失败)'
+                    });
                     _self.bindEvent(_btn, 'login');
                 }
             });
@@ -386,7 +430,11 @@ $(function () {
             App.getAjaxData(_url, null, function (data) {//信息请求回调
                 if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
                     _self.progressDialog.remove();
-                    alert('登录失败！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '登录失败！'
+                    });
                     _self.bindEvent(_btn, 'login');
                     return;
                 }

@@ -104,7 +104,11 @@ $(function () {
         };
         var params;//注册表单提交参数对象
         if ( !pwdOld ) {
-            alert('请填写旧密码！');
+            App.UI('dialog', {
+                type : 'alert',
+                title: '济南交警',
+                msg  : '请填写旧密码!'
+            });
             repwdBtn.on('click', repwdListener);
         } else if ( App.verify(opts) ) {
             //&userName=测试用户3A
@@ -129,17 +133,29 @@ $(function () {
                 if ( msg.result === 'success' ) {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert(msg.resultContent + '!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : msg.resultContent + '!'
+                    });
                     repwdBtn.on('click', repwdListener);
                 } else if ( msg.result === 'false' ) {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert(msg.resultContent + '!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : msg.resultContent + '!'
+                    });
                     repwdBtn.on('click', repwdListener);
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert('密码修改失败!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '密码修改失败!'
+                    });
                     repwdBtn.on('click', repwdListener);
                 }
             })
@@ -163,17 +179,29 @@ $(function () {
             if ( msg.result === 'true' ) {
                 //Wisp.UI.progressDialog.remove();
                 progressDialog.remove();
-                alert(msg.resultContent + '!');
+                App.UI('dialog', {
+                    type : 'alert',
+                    title: '济南交警',
+                    msg  : msg.resultContent + '!'
+                });
                 backpwdBtn.on('click', backpwdListener);
             } else if ( msg.result === 'false' ) {
                 //Wisp.UI.progressDialog.remove();
                 progressDialog.remove();
-                alert(msg.resultContent + '!');
+                App.UI('dialog', {
+                    type : 'alert',
+                    title: '济南交警',
+                    msg  : msg.resultContent + '!'
+                });
                 backpwdBtn.on('click', backpwdListener);
             } else {
                 //Wisp.UI.progressDialog.remove();
                 progressDialog.remove();
-                alert('找回密码失败!');
+                App.UI('dialog', {
+                    type : 'alert',
+                    title: '济南交警',
+                    msg  : '找回密码失败!'
+                });
                 backpwdBtn.on('click', backpwdListener);
             }
         })
@@ -183,14 +211,22 @@ $(function () {
         var v1 = $(this).val(),
             v2 = $('#repwd_new2').val();
         if ( v2 !== '' && !ispwdAgreement(v1, v2) ) {
-            alert('两次密码输入不一致！');
+            App.UI('dialog', {
+                type : 'alert',
+                title: '济南交警',
+                msg  : '两次密码输入不一致!'
+            });
         }
     });
     $('#repwd_new2').on('blur', function () {
         var v1 = $(this).val(),
             v2 = $('#repwd_new').val();
         if ( v2 !== '' && !ispwdAgreement(v1, v2) ) {
-            alert('两次密码输入不一致！');
+            App.UI('dialog', {
+                type : 'alert',
+                title: '济南交警',
+                msg  : '两次密码输入不一致!'
+            });
         }
     });
     //验证两次密码一致性
