@@ -135,7 +135,7 @@ $(function () {
                         });
                         _self.bindEvent(_btn, 'login');
                     } else {
-                       // Wisp.UI.progressDialog.remove();
+                        // Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
@@ -256,6 +256,7 @@ $(function () {
                         return;
                     }
                     var msg = data.registerResponse;
+                    var _flag = true; //confirm 回调执行标识
                     console.dir(msg);
                     if ( msg.loginSuccess === 'true' ) {
                         //Wisp.UI.progressDialog.remove();
@@ -264,13 +265,13 @@ $(function () {
                             type : 'confirm',
                             title: '济南交警',
                             msg  : '登录失败！'
-                        },function(){
+                        }, function () {
                             _self.progressDialog = App.UI('dialog', {msg: '正在登录，请稍后！'});
                             _self.username = _params.registerName;
                             _self.loginSuccessCallback(msg);
-                            return;
+                            _flag = false;
                         });
-                        window.open(_self.loginPageUrl);
+                        _flag && window.open(_self.loginPageUrl);
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else if ( msg.loginSuccess === 'false' ) {
                         //Wisp.UI.progressDialog.remove();
@@ -363,7 +364,7 @@ $(function () {
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
-            var _self=this;
+            var _self = this;
             Wisp.UI.Init({
                 'type' : 'footbar',
                 'datas': footbarDatas
