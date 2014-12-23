@@ -375,8 +375,8 @@ i.icon {
 
 .list-block .item-input .preText {
     position : absolute;
-    left     : 5.7em;
-    top      : .5em;
+    left     : 6em;
+    top      : .6em;
 }
 
 .list-block .item-input .preText + input {
