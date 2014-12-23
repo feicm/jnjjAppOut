@@ -44,7 +44,7 @@
                                 <div class="item-title label">号牌号码</div>
                                 <div class="item-input">
                                     <em class="preText">鲁A</em>
-                                    <input id="hphm" data-type="car" type="text" value="M2618" placeholder="请输入车牌号码">
+                                    <input id="hphm" data-type="car" type="text" placeholder="请输入车牌号码">
                                 </div>
                             </div>
                         </div>
