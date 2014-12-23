@@ -564,6 +564,110 @@ i.icon {
     background: rgba(0, 0, 0, 0.1);
     z-index: 1100;
 }
+.ui-layer-01{
+    background:rgba(0, 0, 0, 0.3);
+}
+/*model*/
+.modal {
+    width: 270px;
+    position: absolute;
+    z-index: 11000;
+    left: 50%;
+    margin-left: -135px;
+    margin-top: 0;
+    top: 20%;
+    text-align: center;
+    border-radius: 7px;
+    color: #000
+;
+}
+
+.modal.modal-in {
+    opacity: 1;}
+
+.modal.modal-out {
+    opacity: 0;
+    z-index: 10999;
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transform: translate3d(0,0,0) scale(0.815);
+    -ms-transform: translate3d(0,0,0) scale(0.815);
+    transform: translate3d(0,0,0) scale(0.815)
+}
+
+.modal-inner {
+    padding: 15px;
+    border-bottom: 1px solid #b5b5b5;
+    border-radius: 7px 7px 0 0;
+    background: rgba(255,255,255,.95);}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center
+}
+
+.modal-title+.modal-text {
+    margin-top: 5px
+;
+    font-size: .8em;
+}
+
+.modal-buttons {
+    height: 44px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center
+}
+
+.modal-buttons.modal-buttons-vertical {
+    display: block;
+    height: auto
+}
+
+.modal-button {
+    width: 100%;
+    padding: 0 5px;
+    height: 44px;
+    font-size: 17px;
+    line-height: 44px;
+    text-align: center;
+    color: #007aff;
+    background: rgba(255, 255, 255, 0.95);
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    border-right: 1px solid #b5b5b5;
+    -webkit-box-flex: 1;
+    -ms-flex: 1
+;
+}
+
+.modal-button:first-child {
+    border-radius: 0 0 0 7px
+}
+
+.modal-button:last-child {
+    border-right: none;
+    border-radius: 0 0 7px 0
+}
+
+.modal-button:first-child:last-child {
+    border-radius: 0 0 7px 7px
+}
+
+.modal-button.modal-button-bold {
+    font-weight: 600;}
+
 /*table*/
 #c_Table_b {
     width         : 100%;

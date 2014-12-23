@@ -190,8 +190,11 @@ $(function () {
                     _callback && _callback(msg);
                 } else {
                     _self.dialog.remove();
-                    //Wisp.UI.progressDialog.remove();
-                    alert(_self.moduleCH[_self.module] + '列表初始化失败！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : _self.moduleCH[_self.module] + '列表初始化失败！'
+                    });
                 }
             });
         }
@@ -282,12 +285,20 @@ $(function () {
                 } else if ( msg.bandSuccess === 'false' ) {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert(msg.bandContent + '!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : msg.bandContent + '!'
+                    });
                     bindinfoBtn.on('click', bindcarListerner);
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert('提交失败!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '提交失败！'
+                    });
                     bindinfoBtn.on('click', bindcarListerner);
                 }
             })
@@ -337,12 +348,20 @@ $(function () {
                 } else if ( msg.bandSuccess === 'false' ) {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert(msg.bandContent + '!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : msg.bandContent + '!'
+                    });
                     bindcardBtn.on('click', bindcardListerner);
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
-                    alert('提交失败!');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '提交失败！'
+                    });
                     bindcardBtn.on('click', bindcardListerner);
                 }
             })
@@ -356,7 +375,11 @@ $(function () {
         console.dir(data);
         //Wisp.UI.progressDialog.remove();
         progressDialog.remove();
-        alert('绑定成功！');
+        App.UI('dialog', {
+            type : 'alert',
+            title: '济南交警',
+            msg  : '绑定成功！'
+        });
         history.go(0); //直接刷新获取最新列表
     }
 

@@ -45,7 +45,11 @@ $(function () {
         if ( msg ) {
             renderPersonalInfoPage(msg);
         } else {
-            alert('用户信息初始化失败！');
+            App.UI('dialog', {
+                type : 'alert',
+                title: '济南交警',
+                msg  : '用户信息初始化失败!'
+            });
         }
     });
     //填充个人信息
@@ -88,7 +92,11 @@ $(function () {
         if ( params.phonenum === cur_ip_phone
             && params.movecarname === cur_ip_y_name
             && params.movecarphone === cur_ip_y_phone ) {
-            alert('信息未修改！');
+            App.UI('dialog', {
+                type : 'alert',
+                title: '济南交警',
+                msg  : '信息未修改!'
+            });
             saveinfoBtn.on('click', saveinfoListener);
             return;
         }
@@ -126,7 +134,11 @@ $(function () {
                 var msg = data.userUpdateResponse;
                 if ( msg ) {
                     console.log('更新成功！');
-                    alert('信息已保存！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '信息已保存!'
+                    });
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();
                     saveinfoBtn.on('click', saveinfoListener);
@@ -134,7 +146,11 @@ $(function () {
                     params.movecarname && (cur_ip_y_name = params.movecarname);
                     params.movecarphone && (cur_ip_y_phone = params.movecarphone);
                 } else {
-                    alert('保存失败！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '保存失败!'
+                    });
                     saveinfoBtn.on('click', saveinfoListener);
                     //Wisp.UI.progressDialog.remove();
                     progressDialog.remove();

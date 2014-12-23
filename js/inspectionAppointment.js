@@ -174,7 +174,11 @@ $(function () {
                 App.getAjaxData(ksyytjRequestUrl, _params, function (data) {
                     if ( data === 'error' ) {//ajax 失败回调
                         _self.progressDialog.remove();
-                        alert('资格审查失败！');
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : '资格审查失败！'
+                        });
                         _self.bindEvent('first');
                         return;
                     }
@@ -196,7 +200,11 @@ $(function () {
                     } else {//审查被拒
                         //Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        alert(data.msg);
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '济南交警',
+                            msg  : data.msg
+                        });
                         _self.bindEvent('first');
                     }
                 })
@@ -215,7 +223,11 @@ $(function () {
             App.getAjaxData(njyypcRequestUrl, _params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.progressDialog.remove();
-                    alert('批次查询失败！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : '批次查询失败！'
+                    });
                     _self.bindEvent('dateItem');
                     return;
                 }
@@ -228,7 +240,11 @@ $(function () {
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    alert(data.msg);
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : data.msg
+                    });
                 }
             })
         },
@@ -250,7 +266,11 @@ $(function () {
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    alert(data.msg);
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : data.msg
+                    });
                 }
             })
         },
@@ -283,12 +303,20 @@ $(function () {
                 if ( data.success ) {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    alert(data.msg);
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : data.msg
+                    });
                     _self.bindEvent('last');
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    alert(data.msg);
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '济南交警',
+                        msg  : data.msg
+                    });
                     _self.bindEvent('last');
                 }
             })
