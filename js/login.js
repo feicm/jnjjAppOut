@@ -260,14 +260,17 @@ $(function () {
                     if ( msg.loginSuccess === 'true' ) {
                         //Wisp.UI.progressDialog.remove();
                         _self.progressDialog.remove();
-                        if ( confirm('注册成功，直接登录？') ) {
-                           // Wisp.UI.progressDialog.show('正在登录，请稍后！');
+                        App.UI('dialog', {
+                            type : 'confirm',
+                            title: '济南交警',
+                            msg  : '登录失败！'
+                        },function(){
                             _self.progressDialog = App.UI('dialog', {msg: '正在登录，请稍后！'});
                             _self.username = _params.registerName;
                             _self.loginSuccessCallback(msg);
-                        } else {
-                            window.open(_self.loginPageUrl);
-                        }
+                            return;
+                        });
+                        window.open(_self.loginPageUrl);
                         _self.bindEvent(_btn, 'rigisterSubmit');
                     } else if ( msg.loginSuccess === 'false' ) {
                         //Wisp.UI.progressDialog.remove();
