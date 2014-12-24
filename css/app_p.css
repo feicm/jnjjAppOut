@@ -1194,7 +1194,8 @@ only screen and (device-aspect-ratio : 16/9) {
     #c_Table_b tr,
     .login_f .list-block li:first-child,
     .details_list,
-    .details_list li h1 {
+    .details_list li h1,
+    .ios7 .dw .dwbc{
         border-bottom-width : .5px;
     }
 
