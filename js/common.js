@@ -454,6 +454,7 @@ var App = (function () {
                         self.oldVal = $(this).val();
                         //self.newVal = self.oldVal;
                         self.toggleBtnHighlight();
+                        self.newVal = '';
                     });
                     _curInput.on('blur', function () {
                         self.newVal = $(this).val();
@@ -461,8 +462,8 @@ var App = (function () {
                         self.oldVal = self.newVal;
                     });
                     if ( _curInput.attr('type') === 'checkbox' ) {
-                        self.oldVal='';
-                        _curInput.on('change',function(){
+                        self.oldVal = '';
+                        _curInput.on('change', function () {
                             $(this).prop('checked') ? self.newVal = 'checked' : self.newVal = '';
                             self.toggleBtnHighlight();
                         })
@@ -543,10 +544,10 @@ var App = (function () {
                         if ( $this.attr('type') === 'checkbox' ) {
                             if ( $this.prop('checked') ) {
                                 result = true;
-                            }else{
+                            } else {
                                 result = false;
                             }
-                        }else{
+                        } else {
                             result = true;
                         }
                     } else {
