@@ -152,8 +152,8 @@ body {
 
 .ui_btn_02 {
     background : #fff;
-    border     : 1px solid #0C79BE;
-    color      : #0C79BE;
+    border: 1px solid #02A2F3;
+    color: #02A2F3;
 }
 
 .ui_btn_02_hover {
@@ -1219,8 +1219,7 @@ only screen and (device-aspect-ratio : 16/9) {
     #c_Table_b tr,
     .login_f .list-block li:first-child,
     .details_list,
-    .details_list li h1,
-    .ios7 .dw .dwbc{
+    .details_list li h1 {
         border-bottom-width : .5px;
     }
 

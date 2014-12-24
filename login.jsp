@@ -45,7 +45,7 @@
     登录
     </button>
 
-    <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
+    <a class="ui_btn ui_btn_02 ui_radius fl" id="rigister">
             快速注册
         </a>
         <a class="ui_btn ui_btn_02 ui_radius fr" id="skip">
