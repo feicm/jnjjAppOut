@@ -537,13 +537,13 @@ var App = (function () {
                             if ( $this.prop('checked') ) {
                                 result = true;
                             }else{
-                                return false;
+                                result = false;
                             }
                         }else{
                             result = true;
                         }
                     } else {
-                        return false;
+                        result = false;
                     }
                 })
                 return result;
