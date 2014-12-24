@@ -517,7 +517,7 @@ $(function () {
             "hoverClass"  : 'ui_btn_01_hover',
             "disableClass": 'ui_btn_01_disable'
         }, function (btn) {
-            Rigister.bindEvent(btn,rigisterSubmit);
+            Rigister.bindEvent(btn,'rigisterSubmit');
         });
     }
 });
