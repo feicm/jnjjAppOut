@@ -460,6 +460,13 @@ var App = (function () {
                         self.toggleBtnHighlight();
                         self.oldVal = self.newVal;
                     });
+                    if ( _curInput.attr('type') === 'checkbox' ) {
+                        self.oldVal='';
+                        _curInput.on('change',function(){
+                            $(this).prop('checked') ? self.newVal = 'checked' : self.newVal = '';
+                            self.toggleBtnHighlight();
+                        })
+                    }
                     /*_curInput.on('input', function () {
                      self.toggleBtnHighlight();
                      })*/// input 值长度为1时，有bug
