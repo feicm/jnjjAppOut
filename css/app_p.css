@@ -138,7 +138,7 @@ body {
 }
 
 .ui_btn_01 {
-    background: #3371F1;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3D7FF3), to(#276CF0));
 }
 
 .ui_btn_01_hover {
