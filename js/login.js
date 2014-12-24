@@ -496,7 +496,7 @@ $(function () {
         });
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : rigisterBtn,
-            "hoverClassName": 'ui_btn_hover'
+            "hoverClassName": 'ui_btn_02_hover'
         });
         skipBtn.length && App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : skipBtn,
