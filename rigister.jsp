@@ -81,7 +81,7 @@
                 </li>
             </ul>
         </div>
-        <div class="print">
+        <div class="print J_btnHighlightWithInput">
             <input type="checkbox" id="agg">
             <label for="agg">同意<a class="txt01">《济南交警用户注册协议》</a></label>
         </div>
