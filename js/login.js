@@ -4,8 +4,6 @@ $(function () {
     var skipBtn = $('#skip'); //跳过
     var backpwdBtn = $('#backpwd'); //忘记密码
     var rigisterSubmit = $('#submit_rigister'); //注册提交
-    var c1_btn = $('#c1_btn');
-    var c2_btn = $('#c2_btn');
     var urlPre = 'adapter?open&url=';
     var cmsUrlPre = jnjjApp.config.msgRequestUrl + '/wispcms/';
     //定义登录对象
@@ -513,12 +511,8 @@ $(function () {
         App.UI('inputClose', {//注册页面输入校验
             "doms": $('.list-block')
         });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : rigisterSubmit,
-            "hoverClassName": 'ui_btn_01_hover'
-        });
         App.UI('btnHighlightWithInput', {
-            "btn"         : c1_btn,
+            "btn"         : rigisterSubmit,
             "inputs"      : $('.J_btnHighlightWithInput input'),
             "hoverClass"  : 'ui_btn_01_hover',
             "disableClass": 'ui_btn_01_disable'
