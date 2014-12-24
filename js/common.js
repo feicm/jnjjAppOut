@@ -532,13 +532,14 @@ var App = (function () {
                     var $this = $(this);
                     l = $this.parent().find('.tips').length;
                     curVal = $this.val();
-                    if ( $this.attr('type') === 'checkbox' ) {
-                        if ( $this.prop('checked') ) {
+                    if ( curVal && !l ) {
+                        if ( $this.attr('type') === 'checkbox' ) {
+                            if ( $this.prop('checked') ) {
+                                result = true;
+                            }
+                        }else{
                             result = true;
                         }
-                    }
-                    if ( curVal && !l ) {
-                        result = true;
                     } else {
                         result = false;
                         return result;
