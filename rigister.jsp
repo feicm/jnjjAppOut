@@ -82,101 +82,11 @@
             </ul>
         </div>
         <div class="ft w100">
-            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" data-rel='next' id="c1_btn">
-                下一步
-            </a>
-        </div>
-    </div>
-    <div class="rigister_f" style="opacity: 0">
-        <div class="ipt_lable">
-            移车联系人信息<b class="color_01">(选填)</b>
-        </div>
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">姓 名</div>
-                            <div class="item-input">
-                                <input id="yclxxm" data-type="cnuser" type="text" placeholder="请输入移车联系姓名">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">手 机</div>
-                            <div class="item-input">
-                                <input id="yclxdh" data-type="mobile" type="text" placeholder="请输入移车联系人电话">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">邮 箱</div>
-                            <div class="item-input">
-                                <input id="setemail" data-type="mail" type="text" placeholder="请输入邮箱名">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="ipt_lable">
-            密切联系人信息<b class="color_01">(选填)</b>
-        </div>
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">姓 名</div>
-                            <div class="item-input">
-                                <input id="mqlxrxm" data-type="cnuser" type="text" placeholder="请输入密切联系人姓名">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">手 机</div>
-                            <div class="item-input">
-                                <input id="mqlxrdh" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">身份证号</div>
-                            <div class="item-input">
-                                <input id="mqlxrsfzh" data-type="card" type="text" placeholder="请输入密切联系人身份证号">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="ft w100">
-            <a class="ui_btn ui_btn_01 ui_radius fl" data-rel='pre' id="c2_btn">
-                上一步
-            </a>
-            <a class="ui_btn ui_btn_01 ui_radius fr" id="submit_rigister">
+            <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="submit_rigister">
                 提交
             </a>
-            <b class="txt01">注册即视为同意《济南交警用户注册协议》</b>
         </div>
     </div>
-
 </form>
 </body>
 <script src="config/html/js/zepto.min.js"></script>

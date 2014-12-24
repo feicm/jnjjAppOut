@@ -35,6 +35,7 @@ $(function () {
             this.autoFill();
             this.bindEvent();
             if ( this.mode === 'login' ) this.initColInfo();
+            return this;
         },
         //事件绑定函数
         "bindEvent"              : function (btn, mode) {
@@ -203,12 +204,12 @@ $(function () {
                 _setname = $('#setname').val(),//设置姓名
                 _setphone = $('#setphone').val(),//设置手机号
                 _setidnum = $('#setidnum').val(), //设置身份证号
-                _yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
+                /*_yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
                 _yclxdh = $('#yclxdh').val(), //设置移车联系人电话
                 _setemail = $('#setemail').val(), //设置邮箱
                 _mqlxrxm = $('#mqlxrxm').val(), //设置密切联系人姓名
                 _mqlxrdh = $('#mqlxrdh').val(), //设置密切联系人电话
-                _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号
+                _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号*/
                 _roleId = _self.roleId,
                 _opts = {},
                 _params;//注册表单提交参数对象
@@ -238,12 +239,12 @@ $(function () {
                     "password"       : _setpwd_02,
                     "identityId"     : _setidnum,
                     "phoneNum"       : _setphone,
-                    "email"          : _setemail || '',
+                    /*"email"          : _setemail || '',
                     "moveCarName "   : _yclxxm || '',
                     "moveCarPhone"   : _yclxdh || '',
                     "closeUserName"  : _mqlxrxm || '',
                     "closeIdentityId": _mqlxrsfzh || '',
-                    "closePhoneNum"  : _mqlxrdh || '',
+                    "closePhoneNum"  : _mqlxrdh || '',*/
                     "roleId"         : _roleId
                 };
                 //Wisp.UI.progressDialog.show('注册中，请稍后！');
@@ -482,10 +483,11 @@ $(function () {
         "btn" : backpwdBtn,
         "mode": 'backpwd'
     });
-    rigisterSubmit.length && Loginer.init({//注册流程
+    var Rigister;
+    rigisterSubmit.length && (Rigister=Loginer.init({//注册流程
         "btn" : rigisterSubmit,
         "mode": 'rigisterSubmit'
-    });
+    }));
     /*
      * --------------------页面效果------------------------
      * */
@@ -508,18 +510,11 @@ $(function () {
         });
     }
     if ( rigisterSubmit.length ) {//注册流程页特有
-        App.UI('changePage', {//注册页面切换效果
-            "wrap": $('#rigister_form')
-        });
         App.UI('inputClose', {//注册页面输入校验
             "doms": $('.list-block')
         });
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : rigisterSubmit,
-            "hoverClassName": 'ui_btn_01_hover'
-        });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : c2_btn,
             "hoverClassName": 'ui_btn_01_hover'
         });
         App.UI('btnHighlightWithInput', {
@@ -528,9 +523,7 @@ $(function () {
             "hoverClass"  : 'ui_btn_01_hover',
             "disableClass": 'ui_btn_01_disable'
         }, function (btn) {
-            App.UI('changePage', {//注册页面切换效果
-                "wrap": $('#rigister_form')
-            });
+            Rigister.bindEvent(btn,rigisterSubmit);
         });
     }
 });
