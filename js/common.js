@@ -454,12 +454,12 @@ var App = (function () {
                         self.oldVal = $(this).val();
                         //self.newVal = self.oldVal;
                         self.toggleBtnHighlight();
-                    })
+                    });
                     _curInput.on('blur', function () {
                         self.newVal = $(this).val();
                         self.toggleBtnHighlight();
                         self.oldVal = self.newVal;
-                    })
+                    });
                     /*_curInput.on('input', function () {
                      self.toggleBtnHighlight();
                      })*/// input 值长度为1时，有bug
@@ -529,8 +529,14 @@ var App = (function () {
                 var l;
                 var curVal;
                 _inputs.each(function (index) {
-                    l = $(this).parent().find('.tips').length;
-                    curVal = $(this).val();
+                    var $this = $(this);
+                    l = $this.parent().find('.tips').length;
+                    curVal = $this.val();
+                    if ( $this.attr('type') === 'checkbox' ) {
+                        if ( $this.prop('checked') ) {
+                            result = true;
+                        }
+                    }
                     if ( curVal && !l ) {
                         result = true;
                     } else {
