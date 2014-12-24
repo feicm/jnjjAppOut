@@ -81,9 +81,13 @@
                 </li>
             </ul>
         </div>
+        <div class="print">
+            <input type="checkbox" id="agg">
+            <label for="agg">同意</label><a>《济南交警用户注册协议》</a>
+        </div>
         <div class="ft w100">
             <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="submit_rigister">
-                提交
+                确认注册
             </a>
         </div>
     </div>
