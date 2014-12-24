@@ -89,7 +89,7 @@
         </div>
         <div class="print J_btnHighlightWithInput">
             <input type="checkbox" id="agg">
-            <label for="agg">同意<a class="txt01">《济南交警用户注册协议》</a></label>
+            <label for="agg">同意<a class="txt03">《济南交警用户注册协议》</a></label>
         </div>
         <div class="ft w100">
             <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="submit_rigister">
