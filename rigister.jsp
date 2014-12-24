@@ -17,6 +17,7 @@
             <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-user-men"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">用 户 名</div>
                             <div class="item-input">
@@ -27,6 +28,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-pwd"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">密 码</div>
                             <div class="item-input">
@@ -37,6 +39,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-pwd2"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">确认密码</div>
                             <div class="item-input">
@@ -51,6 +54,7 @@
             <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-user"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">姓 名</div>
                             <div class="item-input">
@@ -61,6 +65,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-phone"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">手 机</div>
                             <div class="item-input">
@@ -71,6 +76,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-idcard"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">身份证号</div>
                             <div class="item-input">
