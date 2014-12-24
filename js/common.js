@@ -536,13 +536,14 @@ var App = (function () {
                         if ( $this.attr('type') === 'checkbox' ) {
                             if ( $this.prop('checked') ) {
                                 result = true;
+                            }else{
+                                return false;
                             }
                         }else{
                             result = true;
                         }
                     } else {
-                        result = false;
-                        return result;
+                        return false;
                     }
                 })
                 return result;
