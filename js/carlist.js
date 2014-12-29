@@ -192,7 +192,7 @@ $(function () {
                     _self.dialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : _self.moduleCH[_self.module] + '列表初始化失败！'
                     });
                 }
@@ -287,7 +287,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : msg.bandContent + '!'
                     });
                     bindinfoBtn.on('click', bindcarListerner);
@@ -296,7 +296,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '提交失败！'
                     });
                     bindinfoBtn.on('click', bindcarListerner);
@@ -350,7 +350,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : msg.bandContent + '!'
                     });
                     bindcardBtn.on('click', bindcardListerner);
@@ -359,7 +359,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '提交失败！'
                     });
                     bindcardBtn.on('click', bindcardListerner);
@@ -377,7 +377,7 @@ $(function () {
         progressDialog.remove();
         App.UI('dialog', {
             type : 'alert',
-            title: '济南交警',
+            title: '公众服务平台',
             msg  : '绑定成功！'
         });
         history.go(0); //直接刷新获取最新列表

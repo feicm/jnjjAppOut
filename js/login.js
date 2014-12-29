@@ -16,7 +16,7 @@ $(function () {
         "footbarDatas"           : jnjjApp.footbarDatas, //客户端ui数据 页脚
         "siderDatas"             : jnjjApp.siderDatas,//客户端ui数据 个人中心
         "roleId"                 : '0001',//角色标识 默认0001
-        "username"               : App.LS.get('username') || '', //用户名 存入本地存储
+        "username"               : App.LS.get('username') || '', //用户名
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "progressDialog"         : null,
@@ -50,7 +50,7 @@ $(function () {
                     if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '两次密码输入不一致！'
                         });
                     }
@@ -61,7 +61,7 @@ $(function () {
                     if ( v2 !== '' && !_self.ispwdAgreement(v1, v2) ) {
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '两次密码输入不一致！'
                         });
                     }
@@ -89,14 +89,14 @@ $(function () {
             if ( _username === '' ) {
                 App.UI('dialog', {
                     type : 'alert',
-                    title: '济南交警',
+                    title: '公众服务平台',
                     msg  : '用户名不能为空！'
                 });
                 _self.bindEvent(_btn, 'login');
             } else if ( _password === '' ) {
                 App.UI('dialog', {
                     type : 'alert',
-                    title: '济南交警',
+                    title: '公众服务平台',
                     msg  : '密码不能为空！'
                 });
                 _self.bindEvent(_btn, 'login');
@@ -115,7 +115,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '登录失败！'
                         });
                         _self.bindEvent(_btn, 'login');
@@ -129,7 +129,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : msg.loginContent + '!'
                         });
                         _self.bindEvent(_btn, 'login');
@@ -138,7 +138,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '登录失败！'
                         });
                         _self.bindEvent(_btn, 'login');
@@ -202,12 +202,12 @@ $(function () {
                 _setname = $('#setname').val(),//设置姓名
                 _setphone = $('#setphone').val(),//设置手机号
                 _setidnum = $('#setidnum').val(), //设置身份证号
-                /*_yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
-                _yclxdh = $('#yclxdh').val(), //设置移车联系人电话
-                _setemail = $('#setemail').val(), //设置邮箱
-                _mqlxrxm = $('#mqlxrxm').val(), //设置密切联系人姓名
-                _mqlxrdh = $('#mqlxrdh').val(), //设置密切联系人电话
-                _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号*/
+            /*_yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
+             _yclxdh = $('#yclxdh').val(), //设置移车联系人电话
+             _setemail = $('#setemail').val(), //设置邮箱
+             _mqlxrxm = $('#mqlxrxm').val(), //设置密切联系人姓名
+             _mqlxrdh = $('#mqlxrdh').val(), //设置密切联系人电话
+             _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号*/
                 _roleId = _self.roleId,
                 _opts = {},
                 _params;//注册表单提交参数对象
@@ -232,18 +232,18 @@ $(function () {
                 // &closePhoneNum=closePhoneNum
                 // &roleId=0001
                 _params = {
-                    "registerName"   : _setusername,
-                    "userName"       : _setname,
-                    "password"       : _setpwd_02,
-                    "identityId"     : _setidnum,
-                    "phoneNum"       : _setphone,
+                    "registerName": _setusername,
+                    "userName"    : _setname,
+                    "password"    : _setpwd_02,
+                    "identityId"  : _setidnum,
+                    "phoneNum"    : _setphone,
                     /*"email"          : _setemail || '',
-                    "moveCarName "   : _yclxxm || '',
-                    "moveCarPhone"   : _yclxdh || '',
-                    "closeUserName"  : _mqlxrxm || '',
-                    "closeIdentityId": _mqlxrsfzh || '',
-                    "closePhoneNum"  : _mqlxrdh || '',*/
-                    "roleId"         : _roleId
+                     "moveCarName "   : _yclxxm || '',
+                     "moveCarPhone"   : _yclxdh || '',
+                     "closeUserName"  : _mqlxrxm || '',
+                     "closeIdentityId": _mqlxrsfzh || '',
+                     "closePhoneNum"  : _mqlxrdh || '',*/
+                    "roleId"      : _roleId
                 };
                 //Wisp.UI.progressDialog.show('注册中，请稍后！');
                 _self.progressDialog = App.UI('dialog', {msg: '注册中，请稍后！'});
@@ -261,7 +261,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'confirm',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '注册成功，直接进入应用？'
                         }, function (action) {
                             if ( action === 'OK' ) {
@@ -279,7 +279,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : msg.loginContent + '!'
                         });
                         _self.bindEvent(_btn, 'rigisterSubmit');
@@ -288,7 +288,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '登录失败！'
                         });
                         _self.bindEvent(_btn, 'rigisterSubmit');
@@ -306,7 +306,6 @@ $(function () {
             console.dir(data);
             //初始化footbarDatas
             var _MoreViewData = _self.refreshMoreViewData(_self.footbarDatas, data.authList);//刷新更多按钮
-            console.dir(_MoreViewData);
             _params = {
                 "registerName": _self.username
             };
@@ -316,7 +315,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '登录失败！'
                     });
                     _self.bindEvent(_btn, 'login');
@@ -331,7 +330,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '登录失败!(个人信息初始化失败)'
                     });
                     _self.bindEvent(_btn, 'login');
@@ -358,9 +357,10 @@ $(function () {
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
             _self.siderDatas.sider.info.url = '';
-            var l = _self.siderDatas.sider.list.length;
+            var _data = _self.footbarDatas.footbar[4].siderView[0].data;
+            var l = _data.length;
             for ( var i = 0; i < l; i++ ) {//更新个人中心按钮属性
-                _self.siderDatas.sider.list[i].enable = 'true';
+                _data[i].enable === 'false' ? _data[i].enable = 'true' : true;
             }
         },
         //发送客户端ui数据函数
@@ -383,17 +383,15 @@ $(function () {
         },
         /*
          * 刷新更多视图数据函数
-         * defaultdata 服务器返回数据
-         * resdata 默认数据源
+         * defaultdata 默认数据源
+         * resdata 服务器返回数据
          * return 新数据
          * */
         "refreshMoreViewData"    : function (defaultdata, resdata) {
             var _self = this;
             console.dir(defaultdata);
             console.dir(resdata);
-            var l = defaultdata.footbar.length - 1;
-            console.dir(l);
-            var more_btns = defaultdata.footbar[l].shortcutBtns;
+            var more_btns = defaultdata.footbar[2].shortcutBtns;
             var cur_btn;
             for ( var i = resdata.length - 1; i >= 0; i-- ) {
                 cur_btn = resdata[i].authcontent;
@@ -437,7 +435,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '登录失败！'
                     });
                     _self.bindEvent(_btn, 'login');
@@ -482,7 +480,7 @@ $(function () {
         "mode": 'backpwd'
     });
     var Rigister;
-    rigisterSubmit.length && (Rigister=Loginer.init({//注册流程
+    rigisterSubmit.length && (Rigister = Loginer.init({//注册流程
         "btn" : rigisterSubmit,
         "mode": 'rigisterSubmit'
     }));
@@ -517,7 +515,7 @@ $(function () {
             "hoverClass"  : 'ui_btn_01_hover',
             "disableClass": 'ui_btn_01_disable'
         }, function (btn) {
-            Rigister.bindEvent(btn,'rigisterSubmit');
+            Rigister.bindEvent(btn, 'rigisterSubmit');
         });
     }
 });

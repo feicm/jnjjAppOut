@@ -176,7 +176,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : '资格审查失败！'
                         });
                         _self.bindEvent('first');
@@ -202,7 +202,7 @@ $(function () {
                         _self.progressDialog.remove();
                         App.UI('dialog', {
                             type : 'alert',
-                            title: '济南交警',
+                            title: '公众服务平台',
                             msg  : data.msg
                         });
                         _self.bindEvent('first');
@@ -225,7 +225,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '批次查询失败！'
                     });
                     _self.bindEvent('dateItem');
@@ -242,7 +242,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : data.msg
                     });
                 }
@@ -268,7 +268,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : data.msg
                     });
                 }
@@ -305,7 +305,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : data.msg
                     });
                     _self.bindEvent('last');
@@ -314,7 +314,7 @@ $(function () {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : data.msg
                     });
                     _self.bindEvent('last');

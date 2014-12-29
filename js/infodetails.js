@@ -78,7 +78,7 @@ $(function () {
                 } else {
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '加载失败！'
                     });
                 }
