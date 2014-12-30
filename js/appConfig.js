@@ -13,7 +13,7 @@ jnjjApp.footbarDatas = {
             "name"      : "信息",
             "clickEvent": "",
             "subBtns"   : [   //客户端直接和服务端通信
-                {
+                /*{
                     "name"      : "交管新闻",
                     "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=64&type=Android" //客户端向服务器发起数据请求
                 },
@@ -24,7 +24,7 @@ jnjjApp.footbarDatas = {
                 {
                     "name"      : "交通事故",
                     "requestUrl": jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android"
-                }
+                }*/
             ]
         },
         {
