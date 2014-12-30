@@ -21,6 +21,7 @@
                 <ul>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-user-men"></i></div>
                             <div class="item-inner">
                                 <div class="item-title label">车主姓名</div>
                                 <div class="item-input">
@@ -31,6 +32,7 @@
                     </li>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-carnum"></i></div>
                             <div class="item-inner">
                                 <div class="item-title label">号牌号码</div>
                                 <div class="item-input">
@@ -42,6 +44,7 @@
                     </li>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-cartype"></i></div>
                             <div class="item-inner select">
                                 <div class="item-title label">号牌种类</div>
                                 <div class="item-input">
@@ -53,6 +56,7 @@
                     </li>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-clsbdh"></i></div>
                             <div class="item-inner">
                                 <div class="item-title label">车识别号</div>
                                 <div class="item-input">
@@ -67,6 +71,7 @@
                 <ul>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-cardnum"></i></div>
                             <div class="item-inner">
                                 <div class="item-title label">身份证号</div>
                                 <div class="item-input">
@@ -77,6 +82,7 @@
                     </li>
                     <li>
                         <div class="item-content">
+                        <div class="item-media"><i class="icon icon-phone3"></i></div>
                             <div class="item-inner">
                                 <div class="item-title label">手 机</div>
                                 <div class="item-input">

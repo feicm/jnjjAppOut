@@ -16,6 +16,7 @@
     <ul>
     <li>
     <div class="item-content">
+    <div class="item-media"><i class="icon icon-user-men"></i></div>
     <div class="item-inner">
     <div class="item-title label">姓 名</div>
     <div class="item-input">
@@ -26,6 +27,7 @@
     </li>
     <li>
     <div class="item-content">
+    <div class="item-media"><i class="icon icon-phone2"></i></div>
     <div class="item-inner">
     <div class="item-title label">手 机</div>
     <div class="item-input">
@@ -36,6 +38,7 @@
     </li>
     <li>
     <div class="item-content">
+    <div class="item-media"><i class="icon icon-cardnum"></i></div>
     <div class="item-inner">
     <div class="item-title label">身份证号</div>
     <div class="item-input">
@@ -46,6 +49,7 @@
     </li>
     <li>
     <div class="item-content">
+    <div class="item-media"><i class="icon icon-dabh"></i></div>
     <div class="item-inner">
     <div class="item-title label">档案编号</div>
     <div class="item-input">
