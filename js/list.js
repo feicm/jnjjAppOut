@@ -28,19 +28,20 @@ $(function () {
     //绑定（车辆、驾照）列表对象
     var listModule = {
         "moduleCH"   : {
-            "car" : '车辆',
-            "card": '驾照',
-            "violation_car": '已绑定车辆',
+            "car"           : '车辆',
+            "card"          : '驾照',
+            "violation_car" : '已绑定车辆',
             "violation_card": '已绑定驾照'
         },
         "dialog"     : null,
         "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
-        "init"       : function (opts) {
+        "init"       : function (opts, callback) {
             this.listWrap = opts.listWrap;
             this.tipsWrap = opts.tipsWrap;
             this.module = opts.module;
             this.requestUrl = opts.requestUrl;
             this.params = opts.datas;
+            this.callback = callback || null;
             var _self = this;
             _self.requestData(_self.requestUrl, _self.params, function (data) {
                 var listData;
@@ -50,8 +51,10 @@ $(function () {
                 if ( listData.length ) {
                     _self.renderList(listData);
                     _self.bindEvent();
+                    _self.callback && _self.callback();
                 } else {
                     _self.renderList();
+                    _self.callback && _self.callback();
                 }
             });
         },
@@ -148,12 +151,12 @@ $(function () {
                     break;
                 case 'card':
                     /*var o1 = [{
-                        "licenseid"    : "370122197505086815",
-                        "licensephone" : "13864192246",
-                        "licenseRecord": "370100209596",
-                        "msg"          : null,
-                        "licenseName"  : "于加顺"
-                    }];*/
+                     "licenseid"    : "370122197505086815",
+                     "licensephone" : "13864192246",
+                     "licenseRecord": "370100209596",
+                     "msg"          : null,
+                     "licenseName"  : "于加顺"
+                     }];*/
                     for ( var i = 0; i < l; i++ ) {
                         listhtml = [
                             '<li data-licenserecord="' + data[i].licenseRecord + '">',
@@ -187,14 +190,14 @@ $(function () {
                      }];*/
                     for ( var i = 0; i < l; i++ ) {
                         listhtml = [
-                            '<li class="list_hover" data-opt="@cartype='+data[i].carNumType+'@carid='+data[i].carid+'">',
+                            '<li class="list_hover" data-opt="@cartype=' + data[i].carNumType + '@carid=' + data[i].carid + '">',
                             '    <div class="item-content ovh db">',
                             '        <div class="ui-pic fl">',
                             '            <img src="images/ico_car2.png">',
                             '        </div>',
                             '        <h1 class="h1 bg_arr_r">',
-                            '            <b class="fw f12">车主姓名</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].carowner+'</b><br>',
-                            '            <b class="txt02">号牌号码</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="txt02">'+data[i].carid+'</b>',
+                            '            <b class="fw f12">车主姓名</b>&nbsp;&nbsp;<b class="fw f12">' + data[i].carowner + '</b><br>',
+                            '            <b class="txt02">号牌号码</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="txt02">' + data[i].carid + '</b>',
                             '        </h1>',
                             '    </div>',
                             '</li>'].join("");
@@ -212,13 +215,13 @@ $(function () {
                      }];*/
                     for ( var i = 0; i < l; i++ ) {
                         listhtml = [
-                            '<li class="list_hover" data-opt="@licenseid='+data[i].licenseid+'">',
+                            '<li class="list_hover" data-opt="@licenseid=' + data[i].licenseid + '">',
                             '    <div class="item-content ovh db">',
                             '        <div class="ui-pic fl">',
                             '            <img src="images/ico_card2.png">',
                             '        </div>',
                             '        <h1 class="h1 bg_arr_r">',
-                            '            <b class="fw f12">驾驶人</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].licenseName+'</b><br>',
+                            '            <b class="fw f12">驾驶人</b>&nbsp;&nbsp;<b class="fw f12">' + data[i].licenseName + '</b><br>',
                             '            <b class="txt02">' + data[i].licenseid.substring(0, 4) + '******' + data[i].licenseid.substring(16, 18) + '</b>',
                             '        </h1>',
                             '    </div>',
@@ -303,13 +306,14 @@ $(function () {
             "module"    : 'violation_car',
             "requestUrl": carlistRequestUrl,
             "datas"     : params
-        });
-        listModule.init({
-            "listWrap"  : $('#violation_card'),
-            "tipsWrap"  : $('.tips'),
-            "module"    : 'violation_card',
-            "requestUrl": cardlistRequestUrl,
-            "datas"     : params
+        },function(){
+            listModule.init({
+                "listWrap"  : $('#violation_card'),
+                "tipsWrap"  : $('.tips'),
+                "module"    : 'violation_card',
+                "requestUrl": cardlistRequestUrl,
+                "datas"     : params
+            });
         });
     }
     //车辆绑定事件函数
