@@ -21,6 +21,7 @@
             <ul>
                 <li>
                     <div class="item-content">
+                    <div class="item-media"><i class="icon icon-cartype"></i></div>
                         <div class="item-inner select">
                             <div class="item-title label">号牌种类</div>
                             <div class="item-input">
@@ -32,6 +33,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                    <div class="item-media"><i class="icon icon-carnum2"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">号牌号码</div>
                             <div class="item-input">
@@ -43,6 +45,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-clsbdh"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">车识别号</div>
                             <div class="item-input">
@@ -51,8 +54,13 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+        <div class="list-block J_btnHighlightWithInput">
+            <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-user"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">联 系 人</div>
                             <div class="item-input">
@@ -63,6 +71,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-phone4"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">联系电话</div>
                             <div class="item-input">
@@ -84,6 +93,7 @@
             <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-calendar2"></i></div>
                         <div class="item-inner select">
                             <div class="item-title label">预约日期</div>
                             <div class="item-input">
@@ -111,6 +121,7 @@
             <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-position2"></i></div>
                         <div class="item-inner">
                             <div class="item-title label w6">检测线地址</div>
                             <div class="item-input">
@@ -121,6 +132,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-calendar2"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">预约日期</div>
                             <div class="item-input">
@@ -129,8 +141,13 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+        <div class="list-block">
+            <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-time"></i></div>
                         <div class="item-inner select">
                             <div class="item-title label w6">可选时间段</div>
                             <div class="item-input">
@@ -139,8 +156,13 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+        <div class="list-block">
+            <ul>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-nail"></i></div>
                         <div class="item-inner">
                             <div class="item-title label w6">人数限制</div>
                             <div class="item-input">
@@ -151,6 +173,7 @@
                 </li>
                 <li>
                     <div class="item-content">
+                        <div class="item-media"><i class="icon icon-pen"></i></div>
                         <div class="item-inner">
                             <div class="item-title label">已预约人数</div>
                             <div class="item-input">
