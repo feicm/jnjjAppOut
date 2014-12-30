@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li class="list_hover">
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title label">证件号码</div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li class="list_hover">
                 <div class="item-content">
                     <div class="item-inner">
                         <div class="item-title label">流 水 号</div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li class="list_hover">
                 <div class="item-content">
                     <div class="item-inner select">
                         <div class="item-title label">考试原因</div>
@@ -74,6 +74,7 @@
 
         </ul>
     </div>
+
     <div class="ft w100">
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="ksquery_btn">
             立即查询
