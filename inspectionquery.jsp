@@ -20,7 +20,8 @@
         <ul>
             <li>
                 <div class="item-content">
-                    <div class="item-inner select">
+                    <div class="item-media"><i class="icon icon-cartype"></i></div>
+                        <div class="item-inner select">
                         <div class="item-title label">号牌种类</div>
                         <div class="item-input">
                             <select id="hpzl">
@@ -31,6 +32,7 @@
             </li>
             <li>
                 <div class="item-content">
+                    <div class="item-media"><i class="icon icon-carnum2"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">号牌号码</div>
                         <div class="item-input">
@@ -42,6 +44,7 @@
             </li>
             <li>
                 <div class="item-content">
+                    <div class="item-media"><i class="icon icon-clsbdh"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">车识别号</div>
                         <div class="item-input">
