@@ -20,6 +20,7 @@
         <ul>
             <li>
                 <div class="item-content">
+                <div class="item-media"><i class="icon icon-cardnum"></i></div>
                     <div class="item-inner select">
                         <div class="item-title label w6">身份证明名称</div>
                         <div class="item-input">
@@ -31,6 +32,7 @@
             </li>
             <li class="list_hover">
                 <div class="item-content">
+                <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">证件号码</div>
                         <div class="item-input">
@@ -41,6 +43,7 @@
             </li>
             <li class="list_hover">
                 <div class="item-content">
+                <div class="item-media"><i class="icon icon-list"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">流 水 号</div>
                         <div class="item-input">
@@ -51,6 +54,7 @@
             </li>
             <li class="list_hover">
                 <div class="item-content">
+                <div class="item-media"><i class="icon icon-pen"></i></div>
                     <div class="item-inner select">
                         <div class="item-title label">考试原因</div>
                         <div class="item-input">
@@ -62,6 +66,7 @@
             </li>
             <li>
                 <div class="item-content">
+                <div class="item-media"><i class="icon icon-dabh"></i></div>
                     <div class="item-inner select">
                         <div class="item-title label">考试科目</div>
                         <div class="item-input">
