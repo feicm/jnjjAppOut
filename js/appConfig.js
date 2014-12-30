@@ -14,22 +14,22 @@ jnjjApp.footbarDatas = {
             "clickEvent"  : "",
             "subBtns"     : [],
             "shortcutBtns": [],
-            "view":[
+            "view"        : [
                 {
-                    "type":'picGallary',//图片轮播
-                    "size":'Lager', //尺寸标识 Large middle small
-                    "data":[
+                    "type": 'picGallary',//图片轮播
+                    "size": 'Lager', //尺寸标识 Large middle small
+                    "data": [
                         {
-                            "imgUrl":"http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
                         },
                         {
-                            "imgUrl":"http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2243&uid=&type=Android"
+                            "imgUrl": "http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2243&uid=&type=Android"
                         },
                         {
-                            "imgUrl":"http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
                         }
                     ]
                 },
@@ -116,20 +116,20 @@ jnjjApp.footbarDatas = {
                     ]
                 },
                 {
-                    "type":'picGallary',//图片轮播
-                    "size":'middle', //尺寸标识 Large middle small
-                    "data":[
+                    "type": 'picGallary',//图片轮播
+                    "size": 'middle', //尺寸标识 Large middle small
+                    "data": [
                         {
-                            "imgUrl":"http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
                         },
                         {
-                            "imgUrl":"http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2243&uid=&type=Android"
+                            "imgUrl": "http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2243&uid=&type=Android"
                         },
                         {
-                            "imgUrl":"http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url":"http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
                         }
                     ]
                 }
@@ -286,10 +286,10 @@ jnjjApp.footbarDatas = {
             "clickEvent"  : "",
             "subBtns"     : [],
             "shortcutBtns": [],
-            "view":[ //发现 视图数据
+            "view"        : [ //发现 视图数据
                 {
-                    "type":"RectangleWithIcoLeft",
-                    "data":[
+                    "type": "RectangleWithIcoLeft",
+                    "data": [
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/find/f_wzts.png",//点击前图标
@@ -371,11 +371,11 @@ jnjjApp.footbarDatas = {
             "clickEvent"  : "",
             "subBtns"     : [],
             "shortcutBtns": [],
-            "view":[],
-            "siderView":[
+            "view"        : [],
+            "siderView"   : [
                 {
-                    "type":"list",
-                    "data":[
+                    "type": "list",
+                    "data": [
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/my/m_personal.png",//点击前图标
