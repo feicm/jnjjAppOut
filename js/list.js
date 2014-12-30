@@ -31,7 +31,7 @@ $(function () {
             "car" : '车辆',
             "card": '驾照'
         },
-        "dialog":null,
+        "dialog"     : null,
         "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"       : function (opts) {
             this.listWrap = opts.listWrap;
@@ -114,13 +114,17 @@ $(function () {
             var listArr = [];
             switch ( mode ) {
                 case 'car':
+                    /*var o = [{
+                     "carNumType" : "02",
+                     "indentityid": "370827198902022860",
+                     "phoneNum"   : "13356680181",
+                     "carowner"   : "巩丽纳",
+                     "carFramId"  : "LS5A3ABR4EA114966",
+                     "msg"        : null,
+                     "carid"      : "鲁AG051L"
+                     }];*/
                     for ( var i = 0; i < l; i++ ) {
-                        /*var o = [{ //data 示例
-                         "msg"     : "{\"bxzzrq\":\"2015-01-17 00:00:00\",\"clzt\":\"正常\",\"gxsj\":\"2014-10-09 00:00:00\",\"hbdbqk\":\"GB17691-2005国Ⅳ,GB3847-2005\",\"hphm\":\"AR0327\",\"hpzl\":\"01\",\"jyyxqz\":\"2015-02-28 00:00:00\",\"qzbfqz\":\"2029-02-12 00:00:00\",\"xm\":\"山东中寰网络科技有限公司\",\"yqjybfqz2\":\"2017-02-28 00:00:00\",\"yqjyqzbfqz\":\"2018-02-28 00:00:00\"}",
-                         "carowner": "山东中寰网络科技有限公司",
-                         "carid"   : "AR0327"
-                         }];*/
-                        listhtml=[
+                        listhtml = [
                             '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
                             '    <h1 class="t1">',
                             '        <i class="icon icon-car fl"></i>',
@@ -132,7 +136,7 @@ $(function () {
                             '    </p>',
                             '    <p class="p1">',
                             '        <b class="label01 fl">身份证</b>',
-                            '        <b class="txt02 fr">'+data[i].indentityid.substring(0,4)+'******'+data[i].indentityid.substring(16,18)+'</b>',
+                            '        <b class="txt02 fr">' + data[i].indentityid.substring(0, 4) + '******' + data[i].indentityid.substring(16, 18) + '</b>',
                             '    </p>',
                             '    <i class="icon01 icon01_arr_r"></i>',
                             '</li>'].join("");
@@ -141,15 +145,15 @@ $(function () {
                     html = listArr.join("");
                     break;
                 case 'card':
-                    /*var o1 = [{ //data 示例
-                     "licenseid"    : "370181199403103425",
-                     "licensephone" : "18842657483",
-                     "licenseRecord": "370102335479",
-                     "msg"          : "{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}",
-                     "licenseName"  : "李莹"
-                     }];*/
+                    /*var o1 = [{
+                        "licenseid"    : "370122197505086815",
+                        "licensephone" : "13864192246",
+                        "licenseRecord": "370100209596",
+                        "msg"          : null,
+                        "licenseName"  : "于加顺"
+                    }];*/
                     for ( var i = 0; i < l; i++ ) {
-                        listhtml=[
+                        listhtml = [
                             '<li data-licenserecord="' + data[i].licenseRecord + '">',
                             '    <h1 class="t1">',
                             '        <i class="icon icon-card fl"></i>',
@@ -161,9 +165,61 @@ $(function () {
                             '    </p>',
                             '    <p class="p1">',
                             '        <b class="label01 fl">身份证</b>',
-                            '        <b class="txt02 fr">'+data[i].licenseid.substring(0,4)+'******'+data[i].licenseid.substring(16,18)+'</b>',
+                            '        <b class="txt02 fr">' + data[i].licenseid.substring(0, 4) + '******' + data[i].licenseid.substring(16, 18) + '</b>',
                             '    </p>',
                             '    <i class="icon01 icon01_arr_r"></i>',
+                            '</li>'].join("");
+                        listArr.push(listhtml);
+                    }
+                    html = listArr.join("");
+                    break;
+                case 'violation_car':
+                    /*var o = [{
+                     "carNumType" : "02",
+                     "indentityid": "370827198902022860",
+                     "phoneNum"   : "13356680181",
+                     "carowner"   : "巩丽纳",
+                     "carFramId"  : "LS5A3ABR4EA114966",
+                     "msg"        : null,
+                     "carid"      : "鲁AG051L"
+                     }];*/
+                    for ( var i = 0; i < l; i++ ) {
+                        listhtml = [
+                            '<li class="list_hover" data-opt="@cartype='+data[i].carNumType+'@carid='+data[i].carid+'">',
+                            '    <div class="item-content ovh db">',
+                            '        <div class="ui-pic fl">',
+                            '            <img src="images/ico_car2.png">',
+                            '        </div>',
+                            '        <h1 class="h1 bg_arr_r">',
+                            '            <b class="fw f12">车主姓名</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].carowner+'</b><br>',
+                            '            <b class="txt02">号牌号码</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="txt02">'+data[i].carid+'</b>',
+                            '        </h1>',
+                            '    </div>',
+                            '</li>'].join("");
+                        listArr.push(listhtml);
+                    }
+                    html = listArr.join("");
+                    break;
+                case 'violation_card':
+                    /*var o1 = [{
+                     "licenseid"    : "370122197505086815",
+                     "licensephone" : "13864192246",
+                     "licenseRecord": "370100209596",
+                     "msg"          : null,
+                     "licenseName"  : "于加顺"
+                     }];*/
+                    for ( var i = 0; i < l; i++ ) {
+                        listhtml = [
+                            '<li class="list_hover" data-opt="@licenseid='+data[i].licenseid+'">',
+                            '    <div class="item-content ovh db">',
+                            '        <div class="ui-pic fl">',
+                            '            <img src="images/ico_card2.png">',
+                            '        </div>',
+                            '        <h1 class="h1 bg_arr_r">',
+                            '            <b class="fw f12">驾驶人</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].carowner+'</b><br>',
+                            '            <b class="txt02">' + data[i].licenseid.substring(0, 4) + '******' + data[i].licenseid.substring(16, 18) + '</b>',
+                            '        </h1>',
+                            '    </div>',
                             '</li>'].join("");
                         listArr.push(listhtml);
                     }
@@ -178,8 +234,8 @@ $(function () {
             var _params = params;
             var _callback = callback;
             var _module = _self.module;
-            _self.dialog=App.UI('dialog',{
-                msg:'请求' + _self.moduleCH[_self.module] + '列表中，请稍后！'
+            _self.dialog = App.UI('dialog', {
+                msg: '请求' + _self.moduleCH[_self.module] + '列表中，请稍后！'
             });
             //Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
@@ -238,7 +294,22 @@ $(function () {
             "datas"     : params
         });
     }
-
+    if ( module === 'violation' ) {
+        listModule.init({
+            "listWrap"  : $('#violation_car'),
+            "tipsWrap"  : $('.tips'),
+            "module"    : 'violation_car',
+            "requestUrl": carlistRequestUrl,
+            "datas"     : params
+        });
+        listModule.init({
+            "listWrap"  : $('#violation_card'),
+            "tipsWrap"  : $('.tips'),
+            "module"    : 'violation_card',
+            "requestUrl": cardlistRequestUrl,
+            "datas"     : params
+        });
+    }
     //车辆绑定事件函数
     function bindcarListerner() {
         ip_name = $('#name').val();
@@ -269,7 +340,7 @@ $(function () {
                 "optiontype" : optiontype
             };
             //Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
-            progressDialog=App.UI('dialog',{msg:'车辆绑定中，请稍后！'});
+            progressDialog = App.UI('dialog', {msg: '车辆绑定中，请稍后！'});
             //提交表单
             App.getAjaxData(carbindRequestUrl, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
@@ -332,7 +403,7 @@ $(function () {
                 "dotype"       : dotype
             };
             //Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
-            progressDialog=App.UI('dialog',{msg:'驾照绑定中，请稍后！'});
+            progressDialog = App.UI('dialog', {msg: '驾照绑定中，请稍后！'});
             //提交表单
             App.getAjaxData(cardbindRequestUrl, params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
@@ -416,8 +487,12 @@ $(function () {
     /*
      * --------------------页面效果------------------------
      * */
-    App.UI('changePage', {//注册页面切换效果
+    App.UI('changePage', {//页面切换效果
         "wrap": $('.c')
+    });
+    App.UI('tabToggle', {
+        "dom"        : $('#tab_violation'),
+        "activeClass": 'active'
     });
     App.UI('inputClose', {//绑定页面输入校验
         "doms": $('.list-block')

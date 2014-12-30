@@ -1,5 +1,4 @@
 $(function () {
-    //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -16,8 +15,6 @@ $(function () {
         + '/jnpublic/config/html/resultlisttab.jsp';//查询结果页地址(带选项卡)
     var clxcSubmit = $('#clxc_submit');
     var jzcxSubmit = $('#jzcx_submit');
-    /*clxcSubmit.on('click', clxcListener);
-     jzcxSubmit.on('click', jzcxListener);*/
     //按车辆 提交事件
     function clxcListener() {
         var ip_hphm = document.getElementById('hphm');
@@ -49,14 +46,6 @@ $(function () {
         window.open(infoTabPageUrl + params);//通过url hash传参
         jzcxSubmit.on('click', jzcxListener);
     }
-
-    initSubmitBtn();
-    //init select
-    function initSubmitBtn() {
-        clxcSubmit.addClass('ui_btn_01_disable');
-        jzcxSubmit.addClass('ui_btn_01_disable');
-    }
-
     //bindEvent
     function bindEvent(input, btn, listener) {
         var inputVal = input.val();
