@@ -29,7 +29,9 @@ $(function () {
     var listModule = {
         "moduleCH"   : {
             "car" : '车辆',
-            "card": '驾照'
+            "card": '驾照',
+            "violation_car": '已绑定车辆',
+            "violation_card": '已绑定驾照'
         },
         "dialog"     : null,
         "resultUrl"  : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
@@ -216,7 +218,7 @@ $(function () {
                             '            <img src="images/ico_card2.png">',
                             '        </div>',
                             '        <h1 class="h1 bg_arr_r">',
-                            '            <b class="fw f12">驾驶人</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].carowner+'</b><br>',
+                            '            <b class="fw f12">驾驶人</b>&nbsp;&nbsp;<b class="fw f12">'+data[i].licenseName+'</b><br>',
                             '            <b class="txt02">' + data[i].licenseid.substring(0, 4) + '******' + data[i].licenseid.substring(16, 18) + '</b>',
                             '        </h1>',
                             '    </div>',
