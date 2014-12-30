@@ -444,7 +444,7 @@ $(function () {
                 if ( data.success ) {
                     _self.isColInfoGetSuccess = true;
                     var datas = _self.formatColInfoData(data.msg);//格式化栏目数据源
-                    _self.footbarDatas.footbar[0].subBtns = datas;
+                    _self.footbarDatas.footbar[1].subBtns = datas;
                     callback && callback();
                 }
             });
