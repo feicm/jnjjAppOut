@@ -493,13 +493,16 @@ $(function () {
     /*
      * --------------------页面效果------------------------
      * */
-    App.UI('changePage', {//页面切换效果
-        "wrap": $('.c')
-    });
-    App.UI('tabToggle', {
-        "dom"        : $('#tab_violation'),
-        "activeClass": 'active'
-    });
+    if(module!=="violation"){
+        App.UI('changePage', {//页面切换效果
+            "wrap": $('.c')
+        });
+    }else{
+        App.UI('tabToggle', {
+            "dom"        : $('#tab_violation'),
+            "activeClass": 'active'
+        });
+    }
     App.UI('inputClose', {//绑定页面输入校验
         "doms": $('.list-block')
     });
