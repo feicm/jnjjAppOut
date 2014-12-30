@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </li>
-            <li class="list_hover">
+            <li>
                 <div class="item-content">
                 <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner">
@@ -41,7 +41,11 @@
                     </div>
                 </div>
             </li>
-            <li class="list_hover">
+        </ul>
+    </div>
+    <div class="list-block J_btnHighlightWithInput">
+        <ul>
+            <li>
                 <div class="item-content">
                 <div class="item-media"><i class="icon icon-list"></i></div>
                     <div class="item-inner">
@@ -52,7 +56,11 @@
                     </div>
                 </div>
             </li>
-            <li class="list_hover">
+        </ul>
+    </div>
+    <div class="list-block J_btnHighlightWithInput">
+        <ul>
+            <li>
                 <div class="item-content">
                 <div class="item-media"><i class="icon icon-pen"></i></div>
                     <div class="item-inner select">
@@ -64,6 +72,10 @@
                     </div>
                 </div>
             </li>
+        </ul>
+    </div>
+    <div class="list-block J_btnHighlightWithInput">
+        <ul>
             <li>
                 <div class="item-content">
                 <div class="item-media"><i class="icon icon-dabh"></i></div>
@@ -76,7 +88,6 @@
                     </div>
                 </div>
             </li>
-
         </ul>
     </div>
 
