@@ -79,7 +79,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp#mode=query_ksyy"
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId+"@@#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
