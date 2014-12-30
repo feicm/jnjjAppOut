@@ -106,7 +106,7 @@ $(function () {
         if ( !pwdOld ) {
             App.UI('dialog', {
                 type : 'alert',
-                title: '济南交警',
+                title: '公众服务平台',
                 msg  : '请填写旧密码!'
             });
             repwdBtn.on('click', repwdListener);
@@ -135,7 +135,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : msg.resultContent + '!'
                     });
                     repwdBtn.on('click', repwdListener);
@@ -144,7 +144,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : msg.resultContent + '!'
                     });
                     repwdBtn.on('click', repwdListener);
@@ -153,7 +153,7 @@ $(function () {
                     progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '密码修改失败!'
                     });
                     repwdBtn.on('click', repwdListener);
@@ -181,7 +181,7 @@ $(function () {
                 progressDialog.remove();
                 App.UI('dialog', {
                     type : 'alert',
-                    title: '济南交警',
+                    title: '公众服务平台',
                     msg  : msg.resultContent + '!'
                 });
                 backpwdBtn.on('click', backpwdListener);
@@ -190,7 +190,7 @@ $(function () {
                 progressDialog.remove();
                 App.UI('dialog', {
                     type : 'alert',
-                    title: '济南交警',
+                    title: '公众服务平台',
                     msg  : msg.resultContent + '!'
                 });
                 backpwdBtn.on('click', backpwdListener);
@@ -199,7 +199,7 @@ $(function () {
                 progressDialog.remove();
                 App.UI('dialog', {
                     type : 'alert',
-                    title: '济南交警',
+                    title: '公众服务平台',
                     msg  : '找回密码失败!'
                 });
                 backpwdBtn.on('click', backpwdListener);
@@ -213,7 +213,7 @@ $(function () {
         if ( v2 !== '' && !ispwdAgreement(v1, v2) ) {
             App.UI('dialog', {
                 type : 'alert',
-                title: '济南交警',
+                title: '公众服务平台',
                 msg  : '两次密码输入不一致!'
             });
         }
@@ -224,7 +224,7 @@ $(function () {
         if ( v2 !== '' && !ispwdAgreement(v1, v2) ) {
             App.UI('dialog', {
                 type : 'alert',
-                title: '济南交警',
+                title: '公众服务平台',
                 msg  : '两次密码输入不一致!'
             });
         }

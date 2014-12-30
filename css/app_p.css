@@ -37,11 +37,18 @@ body {
 .mt01 {
     margin-top : 24px;
 }
-
+.mr2{
+    margin-right: 2em;
+}
 .w6 {
     width : 6em !important;
 }
-
+.bg_arr_r{
+    background-image: url(../images/arr_r.png);
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    background-size: .6em;
+}
 .ui_radius {
     border-radius         : 4px;
     -webkit-border-radius : 4px;
@@ -68,7 +75,7 @@ body {
 }
 
 .ui-buttons-row {
-    padding             : .5em .5em 0 .5em;
+    padding: .5em;
     -ms-flex-item-align : center;
     -webkit-align-self  : center;
     align-self          : center;
@@ -109,8 +116,8 @@ body {
 }
 
 .button {
-    border             : 1px solid #0C79BE;
-    color              : #0C79BE;
+    border: 1px solid #007AFF;
+    color: #007AFF;
     text-decoration    : none;
     text-align         : center;
     display            : block;
@@ -127,13 +134,13 @@ body {
     position           : relative;
     overflow           : hidden;
     text-overflow      : ellipsis;
-    font-size          : 16px;
+    font-size: 14px;
     font-family        : inherit;
     cursor             : pointer;
 }
 
 .button.active {
-    background : #0C79BE;
+    background: #007aff;
     color      : #FFF;
 }
 
@@ -179,7 +186,7 @@ body {
 }
 
 .txt02 {
-    color     : #555;
+    color: #a1a1a1;
     font-size : .9em;
 }
 .txt03{
@@ -207,6 +214,18 @@ body {
     width      : 100%;
     overflow   : hidden;
 }
+.list_hover:hover{
+    background:#eee;
+}
+.list_hover .top{
+    padding-left: 15px;
+    color: #a1a1a1;
+    font-size: .8em;
+    border-left: 3px solid #fa575a;
+}
+.list_hover .top b{
+    margin-left: 1em;
+}
 
 /*f7 ui*/
 .list-block {
@@ -228,7 +247,6 @@ body {
 }
 
 .list-block ul {
-    background    : #FFF;
     list-style    : none;
     padding       : 0;
     margin        : 0;
@@ -239,6 +257,7 @@ body {
 
 .list-block li {
     position : relative;
+    background: #fff;
 }
 
 .list-block .item-content {
@@ -307,7 +326,7 @@ body {
 
 .list-block .item-after {
     white-space         : nowrap;
-    color               : #8E8E93;
+    color: #727272;
     -webkit-flex-shrink : 0;
     -ms-flex            : 0 0 auto;
     flex-shrink         : 0;
@@ -358,9 +377,89 @@ i.icon.icon-pwd2 {
 i.icon.icon-phone {
     background-image : url(../images/ico/phone.png);
 }
+i.icon.icon-phone2 {
+    background-image : url(../images/ico/phone2.png);
+}
+i.icon.icon-phone3 {
+    background-image : url(../images/ico/phone3.png);
+}
+i.icon.icon-phone4 {
+    background-image : url(../images/ico/phone4.png);
+}
 i.icon.icon-idcard {
     background-image : url(../images/ico/idcard.png);
 }
+i.icon.icon-idcard2 {
+    background-image : url(../images/ico/idcard2.png);
+}
+i.icon.icon-action {
+    background-image : url(../images/ico/action.png);
+}
+i.icon.icon-money {
+    background-image : url(../images/ico/money.png);
+}
+i.icon.icon-position {
+    background-image : url(../images/ico/position.png);
+}
+i.icon.icon-position2 {
+    background-image : url(../images/ico/position2.png);
+}
+i.icon.icon-record {
+    background-image : url(../images/ico/record.png);
+}
+i.icon.icon-record2 {
+    background-image : url(../images/ico/record2.png);
+}
+i.icon.icon-tag {
+    background-image : url(../images/ico/tag.png);
+}
+i.icon.icon-time {
+    background-image : url(../images/ico/time.png);
+}
+i.icon.icon-calendar {
+    background-image : url(../images/ico/calendar.png);
+}
+i.icon.icon-calendar2 {
+    background-image : url(../images/ico/calendar2.png);
+}
+i.icon.icon-cardnum {
+    background-image : url(../images/ico/cardnum.png);
+}
+i.icon.icon-cardnum2 {
+    background-image : url(../images/ico/cardnum2.png);
+}
+i.icon.icon-dabh {
+    background-image : url(../images/ico/dabh.png);
+}
+i.icon.icon-carnum {
+    background-image : url(../images/ico/carnum.png);
+}
+i.icon.icon-carnum2 {
+    background-image : url(../images/ico/carnum2.png);
+}
+i.icon.icon-cartype {
+    background-image : url(../images/ico/cartype.png);
+}
+i.icon.icon-clsbdh {
+    background-image : url(../images/ico/calendar.png);
+}
+i.icon.icon-clsbdh {
+    background-image : url(../images/ico/clsbdh.png);
+}
+i.icon.icon-nail {
+    background-image : url(../images/ico/nail.png);
+}
+i.icon.icon-pen {
+    background-image : url(../images/ico/pen.png);
+}
+i.icon.icon-list {
+    background-image : url(../images/ico/list.png);
+}
+i.icon.icon-flag {
+    background-image : url(../images/ico/flag.png);
+}
+
+
 
 i.icon.icon-user-men {
     background-image : url(../images/ico/men.png);
@@ -784,7 +883,7 @@ i.icon.icon-card {
     display                    : inline-block;
     width: 4em;
     height: 4em;
-    background-color           : #ccc;
+    background-color: #fff;
     background-clip            : padding-box;
     border-radius: 5px;
     margin: .5em 10px .5em 0;
@@ -1075,14 +1174,34 @@ i.icon.icon-card {
     top : 2.5em;
 
 }
-
+.list-block li.list_hover{
+    margin-bottom: .5em;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.list-block li.list_hover:first-child{
+    border: 0;
+}
+.list-block li.list_hover:last-child{
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+.list-block .list_hover .item-content{
+    margin-left: 0;
+    padding-left: 15px;
+}
 /*violation*/
+.list-block .list_hover .item-content .h1{
+    line-height: 2;
+}
+.list-block .list_hover .item-content .h1 .icon{
+    top: -2px;
+}
 .print {
     overflow      : hidden;
     font-size     : 28px;
     line-height   : 1.5;
-    margin-bottom : 1em;
-    margin-top    : -.5em;
+    margin-bottom: .5em;
 }
 
 .print input {
@@ -1093,7 +1212,7 @@ i.icon.icon-card {
     padding     : 0 .5em 0 2em;
     display     : inline-block;
     position    : relative;
-    color       : #999;
+    color: #797878;
     font-size   : 18px;
     margin-left : 1em;
 }

@@ -47,7 +47,7 @@ $(function () {
         } else {
             App.UI('dialog', {
                 type : 'alert',
-                title: '济南交警',
+                title: '公众服务平台',
                 msg  : '用户信息初始化失败!'
             });
         }
@@ -94,7 +94,7 @@ $(function () {
             && params.movecarphone === cur_ip_y_phone ) {
             App.UI('dialog', {
                 type : 'alert',
-                title: '济南交警',
+                title: '公众服务平台',
                 msg  : '信息未修改!'
             });
             saveinfoBtn.on('click', saveinfoListener);
@@ -136,7 +136,7 @@ $(function () {
                     console.log('更新成功！');
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '信息已保存!'
                     });
                     //Wisp.UI.progressDialog.remove();
@@ -148,7 +148,7 @@ $(function () {
                 } else {
                     App.UI('dialog', {
                         type : 'alert',
-                        title: '济南交警',
+                        title: '公众服务平台',
                         msg  : '保存失败!'
                     });
                     saveinfoBtn.on('click', saveinfoListener);
