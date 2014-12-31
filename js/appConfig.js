@@ -196,8 +196,8 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/traffic/clbd_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/traffic/clbd_hover.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/traffic/t_bindcar_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/traffic/t_bindcar_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/clbd_dis.png",
                             "enable"    : "false",
                             "name"      : "车辆绑定",
@@ -207,8 +207,8 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/traffic/jzbd_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/traffic/jzbd_hover.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/traffic/t_bindcard_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/traffic/t_bindcard_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/jzbd_dis.png",
                             "enable"    : "false",
                             "name"      : "驾照绑定",
