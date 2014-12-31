@@ -11,8 +11,8 @@
 </head>
 <body>
 <form class="login_f" action="" method="post" id="login_form">
-    <div class="h_pic">
-        <img src="config/html/images/banner.png">
+    <div class="app_ico">
+        <i class="icon icon-appicon"></i>
     </div>
     <div class="list-block">
         <ul>
