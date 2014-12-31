@@ -777,14 +777,6 @@ var App = (function () {
         return oHash;
     }
 
-    //单例抽象
-    function singleton(fn) {
-        var result;
-        return function () {
-            return result || (result = fn.apply(this, arguments));
-        }
-    }
-
     //车辆识别代号号检测
     function iscarid2(str) {
         var reg = /^[a-zA-Z0-9]{17}$/;
