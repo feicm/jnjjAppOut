@@ -166,7 +166,7 @@ body {
 }
 
 .ui_btn_02_hover {
-    background : #95C4E3;
+    background : #95C4E3 !important;
 }
 
 .ft {
@@ -1064,6 +1064,7 @@ i.icon.icon-card {
 
 .login_f .list-block input {
     padding-left : 5px;
+    color: #fff;
 }
 
 /*rigister*/
