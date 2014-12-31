@@ -490,7 +490,7 @@ $(function () {
     if ( loginSubmit.length ) { //登陆页
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : loginSubmit,
-            "hoverClassName": 'ui_btn_01_hover'
+            "hoverClassName": 'ui_btn_02_hover'
         });
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : rigisterBtn,
