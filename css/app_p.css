@@ -485,6 +485,7 @@ i.icon.icon-largercar {
 }
 i.icon.icon-largercard {
     background-image : url(../images/ico/largercard.png);
+    width: 3em;
 }
 i.icon.icon-user-men {
     background-image : url(../images/ico/men.png);
