@@ -1115,13 +1115,14 @@ i.icon.icon-card2{
 
 /*carlist*/
 .carlist_c {
+    padding-top: 2em;
     padding-left  : .3em;
     padding-right : .3em;
     margin-bottom : .5em;
     width         : 100%;
 }
 .carlist_c .tips{
-    padding: 2em 2em 1em 2em;
+    padding: 0 2em 1em 2em;
 }
 .carlist_c .tips h2 {
     width         : 100%;
