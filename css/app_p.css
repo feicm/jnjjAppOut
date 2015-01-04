@@ -510,14 +510,13 @@ i.icon.icon-car2{
     background-image: url("../images/ico_car.png");
     width: 2em;
 }
-i.icon.icon-card2 {
+i.icon.icon-card {
     background-image : url(../images/ico/bindbtn02.png);
     width: 5em;
     height: 5em;
 }
 i.icon.icon-card2{
     background-image: url("../images/ico_card.png");
-    width: 2em;
 }
 .list-block .item-input {
     width               : 100%;
