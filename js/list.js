@@ -76,10 +76,8 @@ $(function () {
             } else {
                 //渲染默认
                 defautlhtml = [
-                    '<div class="carimg">',
-                    '    <img src="config/html/images/' + _self.module + '.png" />',
-                    '</div>',
-                    '<h2>您还未绑定' + _self.moduleCH[_self.module] + '，快去绑定吧！</h2>'].join("");
+                    '<i class="fl icon icon-larger'+_self.module+'"></i>',
+                    '<h2>查询更便捷，绑定'+_self.moduleCH+'</h2>'].join("");
                 tipsWrap.append(defautlhtml);
                 //Wisp.UI.progressDialog.remove();
                 _self.dialog.remove();
@@ -97,8 +95,6 @@ $(function () {
                     var carid = _me.attr('data-carid');
                     var params = '#mode=carquery@cartype=' + cartype + '@carid=' + carid;
                     window.open(_self.resultUrl + params);//通过url hash传参
-                    /* var newPage=window.open("");//通过url hash传参
-                     newPage.location=_self.resultUrl + params;*/
                 })
             }
             if ( _mode === 'card' ) {
@@ -107,8 +103,6 @@ $(function () {
                     var licenseRecord = _me.attr('data-licenserecord');
                     var params = '#mode=cardquery@licenserecord=' + licenseRecord;
                     window.open(_self.resultUrl + params);//通过url hash传参
-                    //var newPage=window.open("");//通过url hash传参
-                    //newPage.location=_self.resultUrl + params;
                 })
             }
         },
@@ -132,7 +126,7 @@ $(function () {
                         listhtml = [
                             '<li data-cartype="' + data[i].carNumType + '" data-carid="' + data[i].carid + '">',
                             '    <h1 class="t1">',
-                            '        <i class="icon icon-car fl"></i>',
+                            '        <i class="icon icon-car2 fl"></i>',
                             '        <b>' + data[i].carid + '</b>',
                             '    </h1>',
                             '    <p class="p1">',
@@ -161,7 +155,7 @@ $(function () {
                         listhtml = [
                             '<li data-licenserecord="' + data[i].licenseRecord + '">',
                             '    <h1 class="t1">',
-                            '        <i class="icon icon-card fl"></i>',
+                            '        <i class="icon icon-card2 fl"></i>',
                             '        <b>' + data[i].licenseRecord + '</b>',
                             '    </h1>',
                             '    <p class="p1">',
@@ -306,7 +300,7 @@ $(function () {
             "module"    : 'violation_car',
             "requestUrl": carlistRequestUrl,
             "datas"     : params
-        },function(){
+        }, function () {
             listModule.init({
                 "listWrap"  : $('#violation_card'),
                 "tipsWrap"  : $('.tips'),
@@ -493,11 +487,11 @@ $(function () {
     /*
      * --------------------页面效果------------------------
      * */
-    if(module!=="violation"){
+    if ( module !== "violation" ) {
         App.UI('changePage', {//页面切换效果
             "wrap": $('.c')
         });
-    }else{
+    } else {
         App.UI('tabToggle', {
             "dom"        : $('#tab_violation'),
             "activeClass": 'active'
