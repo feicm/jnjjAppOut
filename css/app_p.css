@@ -1125,6 +1125,9 @@ i.icon.icon-card2{
     margin-bottom : .5em;
     width         : 100%;
 }
+.carlist_c .ui-list{
+    margin-top: -1.5em;
+}
 .carlist_c .tips{
     padding: 0 2em 0 2em;
 }
