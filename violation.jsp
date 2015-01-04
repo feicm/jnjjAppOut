@@ -15,12 +15,12 @@
     <!--select组件 css end-->
 </head>
 <body>
-    <div class="ui-buttons-row" id="tab_violation">
+    <div class="ui-buttons-row fixed-top" id="tab_violation">
         <a class="button active" data-for="tab-item-01">车辆</a>
         <a class="button" data-for="tab-item-02">驾照</a>
     </div>
 <div class='c' id="tab-item-01" data-mode="violation">
-    <div class="print">
+    <div class="print pt18">
         <input type="checkbox" id="nodo01" name="jkbj">
         <label for="nodo01">未处理/未交款</label>
     </div>
@@ -30,7 +30,7 @@
     </div>
 </div>
 <div style="display: none" class='c' data-mode="violation_card" id="tab-item-02">
-    <div class="print">
+    <div class="print pt18">
         <input type="checkbox" id="nodo02" name="jkbj">
         <label for="nodo02">未交款</label>
     </div>
