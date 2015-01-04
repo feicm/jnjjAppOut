@@ -1209,7 +1209,7 @@ i.icon.icon-card {
 .list-block .list_hover .item-content .h1 .icon{
     top: -2px;
 }
-.fixd-top{
+.fixed-top{
     position: fixed;
     width: 100%;
     left: 0;
