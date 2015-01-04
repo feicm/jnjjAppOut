@@ -215,6 +215,17 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                        },
+                        {
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/traffic/t_bindcard_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/traffic/t_bindcard_hover.png", //点击时图标
+                            "disableImg": "config/html/images/wispui/jzbd_dis.png",
+                            "enable"    : "false",
+                            "name"      : "我的车辆",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
                         }
                     ]
                 },
