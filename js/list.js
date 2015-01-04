@@ -1,8 +1,7 @@
 $(function () {
     /*
-     * 绑定模块列表
+     * 列表
      * */
-    //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('username');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -11,15 +10,6 @@ $(function () {
     var cardlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
-    var carbindRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/bandCar.json';//车辆绑定请求地址
-    var cardbindRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/bandLicense.json';//驾照绑定请求地址
-    var carTypeRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/carType.json';//号牌种类请求地址
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,
@@ -76,8 +66,8 @@ $(function () {
             } else {
                 //渲染默认
                 defautlhtml = [
-                    '<i class="fl icon icon-larger'+_self.module+'"></i>',
-                    '<h2>查询更便捷，绑定'+_self.moduleCH[_self.module]+'</h2>'].join("");
+                    '<i class="fl icon icon-larger' + _self.module + '"></i>',
+                    '<h2>查询更便捷，绑定' + _self.moduleCH[_self.module] + '</h2>'].join("");
                 tipsWrap.append(defautlhtml);
                 //Wisp.UI.progressDialog.remove();
                 _self.dialog.remove();
@@ -255,21 +245,12 @@ $(function () {
         }
     };
     var module = $('.c').attr('data-mode');//模块名获取
-    var isSinglePage = $('.c').attr('data-issinglepage');//是否为单一绑定页
-    var cancelbindBtn = $('#cancel_btn');
-    var opts = {};
-    var progressDialog;
     if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
-        var bindinfoBtn = $('#bindinfo_btn');
-        var ip_name;
-        var ip_hphm;
-        var ip_hpzl;
-        var ip_clsbdh;
-        var ip_idnum;
-        var ip_phone;
-        bindinfoBtn.on('click', bindcarListerner);
-        !isSinglePage && listModule.init({
+        goCarbindpage.on('click',function(){
+            openBindpage(module);
+        });
+        listModule.init({
             "listWrap"  : $('.ui-list'),
             "tipsWrap"  : $('.tips'),
             "module"    : module,
@@ -279,13 +260,10 @@ $(function () {
     }
     if ( module === 'card' ) { //绑定驾照 参数初始化
         var goCardbindpage = $('#go_cardbindpage');
-        var bindcardBtn = $('#bindcard_btn');
-        var ip_name;
-        var ip_phone;
-        var ip_idnum;
-        var ip_dabh;
-        bindcardBtn.on('click', bindcardListerner);
-        !isSinglePage && listModule.init({
+        goCardbindpage.on('click',function(){
+            openBindpage(module);
+        });
+        listModule.init({
             "listWrap"  : $('.ui-list'),
             "tipsWrap"  : $('.tips'),
             "module"    : module,
@@ -310,226 +288,26 @@ $(function () {
             });
         });
     }
-    //车辆绑定事件函数
-    function bindcarListerner() {
-        ip_name = $('#name').val();
-        ip_hphm = $('#hphm').val();
-        ip_hpzl = $('#hpzl').val();
-        ip_clsbdh = $('#clsbdh').val();
-        ip_idnum = $('#idnum').val();
-        ip_phone = $('#phone').val();
-        opts = {
-            "name"  : $('#name'),//姓名
-            "hphm"  : $('#hphm'),//号牌号码
-            "clsbdh": $('#clsbdh'),//车辆识别代号
-            "idnum" : $('#idnum'),//身份证
-            "phone" : $('#phone')//手机
-        };
-        var optiontype = 'band';
-        var params;
-        bindinfoBtn.off('click');
-        if ( App.verify(opts) ) {
-            params = {
-                "register"   : userName,
-                "carowner"   : ip_name,
-                "carNumType" : ip_hpzl,
-                "carNum"     : ip_hphm,
-                "indentityid": ip_idnum,
-                "phoneNum"   : ip_phone,
-                "carFramId"  : ip_clsbdh,
-                "optiontype" : optiontype
-            };
-            //Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
-            progressDialog = App.UI('dialog', {msg: '车辆绑定中，请稍后！'});
-            //提交表单
-            App.getAjaxData(carbindRequestUrl, params, function (data) {
-                if ( data === 'error' ) {//ajax 失败回调
-                    progressDialog.remove();
-                    bindinfoBtn && bindinfoBtn.on('click', bindcarListerner);
-                    return;
-                }
-                var msg = data.carBandResponse;
-                console.dir(msg);
-                if ( msg.bandSuccess === 'true' ) {
-                    bindSuccessCallback(msg);
-                    bindinfoBtn.on('click', bindcarListerner);
-                } else if ( msg.bandSuccess === 'false' ) {
-                    //Wisp.UI.progressDialog.remove();
-                    progressDialog.remove();
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : msg.bandContent + '!'
-                    });
-                    bindinfoBtn.on('click', bindcarListerner);
-                } else {
-                    //Wisp.UI.progressDialog.remove();
-                    progressDialog.remove();
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '提交失败！'
-                    });
-                    bindinfoBtn.on('click', bindcarListerner);
-                }
-            })
-        } else {
-            bindinfoBtn.on('click', bindcarListerner);
-        }
+    function openBindpage(mode){
+        var url='adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/bind'+mode+'.jsp'
+        window.open(url);
     }
-
-    //驾照绑定事件函数
-    function bindcardListerner() {
-        ip_name = $('#name').val();
-        ip_phone = $('#phone').val();
-        ip_idnum = $('#idnum').val();
-        ip_dabh = $('#dabh').val();
-        opts = {
-            "name" : $('#name'),//姓名
-            "idnum": $('#idnum'),//身份证
-            "phone": $('#phone'),//手机
-            "dabh" : $('#dabh')//档案编号
-        };
-        var dotype = 'band';
-        var params;
-        bindcardBtn.off('click');
-        if ( App.verify(opts) ) {
-            params = {
-                "register"     : userName,
-                "licensename"  : ip_name,
-                "licenseid"    : ip_idnum,
-                "licensephone" : ip_phone,
-                "licenseRecord": ip_dabh,
-                "dotype"       : dotype
-            };
-            //Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
-            progressDialog = App.UI('dialog', {msg: '驾照绑定中，请稍后！'});
-            //提交表单
-            App.getAjaxData(cardbindRequestUrl, params, function (data) {
-                if ( data === 'error' ) {//ajax 失败回调
-                    progressDialog.remove();
-                    bindcardBtn && bindcardBtn.on('click', bindcardListerner);
-                    return;
-                }
-                var msg = data.licenseBandResponse;
-                console.dir(msg);
-                if ( msg.bandSuccess === 'true' ) {
-                    bindSuccessCallback(msg);
-                    bindcardBtn.on('click', bindcardListerner);
-                } else if ( msg.bandSuccess === 'false' ) {
-                    //Wisp.UI.progressDialog.remove();
-                    progressDialog.remove();
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : msg.bandContent + '!'
-                    });
-                    bindcardBtn.on('click', bindcardListerner);
-                } else {
-                    //Wisp.UI.progressDialog.remove();
-                    progressDialog.remove();
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '提交失败！'
-                    });
-                    bindcardBtn.on('click', bindcardListerner);
-                }
-            })
-        } else {
-            bindcardBtn.on('click', bindcardListerner);
-        }
-    }
-
-    //绑定成功回调函数
-    function bindSuccessCallback(data) {
-        console.dir(data);
-        //Wisp.UI.progressDialog.remove();
-        progressDialog.remove();
-        App.UI('dialog', {
-            type : 'alert',
-            title: '公众服务平台',
-            msg  : '绑定成功！'
-        });
-        history.go(0); //直接刷新获取最新列表
-    }
-
-    //表单与提交按钮联动效果函数
-    function initBtnHighlightWithInput(btn, listener, arg) {
-        var _btn = btn;
-        var _listener = listener;
-        App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
-            "btn"         : _btn,
-            "inputs"      : $('.J_btnHighlightWithInput input'),
-            "disableClass": 'ui_btn_01_disable'
-        }, function (status, btn) { //btnHighlightWithInput控件回调
-            if ( status === 'enable' ) {//激活按钮
-                App.UI('buttonHover', {//添加按钮点击效果
-                    "dom"           : btn,
-                    "hoverClassName": 'ui_btn_01_hover'
-                });
-
-                btn.on('click', function () {
-                    args ? _listener(arg) : _listener();
-                });//注册事件
-            }
-            if ( status === 'disable' ) {//按钮置为不可用
-                App.UI('buttonHover', {//移除按钮点击效果
-                    "dom"           : btn,
-                    "hoverClassName": 'ui_btn_01_hover',
-                    "off"           : true
-                });
-                btn.off('click'); //移除事件
-            }
-        });
-    }
-
     /*
      * --------------------页面效果------------------------
      * */
-    if ( module !== "violation" ) {
-        App.UI('changePage', {//页面切换效果
-            "wrap": $('.c')
-        });
-    } else {
+    if ( module === "violation" ) {
         App.UI('tabToggle', {
             "dom"        : $('#tab_violation'),
             "activeClass": 'active'
         });
     }
-    App.UI('inputClose', {//绑定页面输入校验
-        "doms": $('.list-block')
-    });
     goCarbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCarbindpage,
         "hoverClassName": 'ui_btn_03_hover'
     });
-    bindinfoBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
-        "btn"         : bindinfoBtn,
-        "listener"    : bindcarListerner,
-        "inputs"      : $('.J_btnHighlightWithInput input'),
-        "hoverClass"  : 'ui_btn_01_hover',
-        "disableClass": 'ui_btn_01_disable'
-    });
+
     goCardbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCardbindpage,
         "hoverClassName": 'ui_btn_03_hover'
-    });
-    bindcardBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
-        "btn"         : bindcardBtn,
-        "listener"    : bindcardListerner,
-        "inputs"      : $('.J_btnHighlightWithInput input'),
-        "hoverClass"  : 'ui_btn_01_hover',
-        "disableClass": 'ui_btn_01_disable'
-    });
-    cancelbindBtn && App.UI('buttonHover', {//添加按钮点击效果
-        "dom"           : cancelbindBtn,
-        "hoverClassName": 'ui_btn_01_hover'
-    });
-    var type = $('#hpzl');
-    type.length && App.UI('select', {
-        "dom"     : type,
-        "url"     : carTypeRequestUrl,
-        "dataType": 'Object'
     });
 });
