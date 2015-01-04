@@ -42,6 +42,9 @@ body {
 .mr2{
     margin-right: 2em;
 }
+.pt18{
+    padding-top: 1.8em;
+}
 .w6 {
     width : 6em !important;
 }
@@ -1055,7 +1058,7 @@ i.icon.icon-card {
 }
 .login_f .app_ico{
     text-align: center;
-    padding: 2em;
+    padding: 3em 0 2em;
 }
 .login_f .ui_btn{
     background: rgba(0, 0, 0, 0);
@@ -1228,6 +1231,14 @@ i.icon.icon-card {
 }
 .list-block .list_hover .item-content .h1 .icon{
     top: -2px;
+}
+.fixd-top{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 111;
+    background: #F6F6F6;
 }
 .print {
     overflow      : hidden;
