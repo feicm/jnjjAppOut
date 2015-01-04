@@ -502,7 +502,7 @@ $(function () {
     });
     goCarbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCarbindpage,
-        "hoverClassName": 'ui_btn_01_hover'
+        "hoverClassName": 'ui_btn_03_hover'
     });
     bindinfoBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
         "btn"         : bindinfoBtn,
@@ -513,7 +513,7 @@ $(function () {
     });
     goCardbindpage && App.UI('buttonHover', {//添加按钮点击效果
         "dom"           : goCardbindpage,
-        "hoverClassName": 'ui_btn_01_hover'
+        "hoverClassName": 'ui_btn_03_hover'
     });
     bindcardBtn && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
         "btn"         : bindcardBtn,

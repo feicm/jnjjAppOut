@@ -183,6 +183,9 @@ body {
     margin: 0 auto;
     width: 80%;
 }
+.ui_btn_03_hover{
+    background: #eee;
+}
 .ft {
     padding-left  : .5em;
     padding-right : .5em;
