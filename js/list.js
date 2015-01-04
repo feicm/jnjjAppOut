@@ -77,7 +77,7 @@ $(function () {
                 //渲染默认
                 defautlhtml = [
                     '<i class="fl icon icon-larger'+_self.module+'"></i>',
-                    '<h2>查询更便捷，绑定'+_self.moduleCH+'</h2>'].join("");
+                    '<h2>查询更便捷，绑定'+_self.moduleCH[_self.module]+'</h2>'].join("");
                 tipsWrap.append(defautlhtml);
                 //Wisp.UI.progressDialog.remove();
                 _self.dialog.remove();
