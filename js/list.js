@@ -32,6 +32,7 @@ $(function () {
             "violation_card": '已绑定驾照'
         },
         "dialog"        : null,
+        "currentBtnHtml": null,
         "currentBtn"    : null,
         "resultUrl"     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"          : function (opts, callback) {
@@ -50,6 +51,7 @@ $(function () {
                 if ( listData.length ) {
                     _self.hideDefautoBtn();
                     _self.renderList(listData);
+                    _self.currentBtn = $(_self.currentBtnHtml);
                     _self.bindEvent();
                     _self.callback && _self.callback();
                 } else {
@@ -151,9 +153,8 @@ $(function () {
                             '</li>'].join("");
                         listArr.push(listhtml);
                     }
-                    btnHtml = _self.getBtnHtml();
-                    _self.currentBtn = $(btnHtml);
-                    html = listArr.join("") + btnHtml;
+                    _self.currentBtnHtml = _self.getBtnHtml();
+                    html = listArr.join("") + _self.currentBtnHtml;
                     break;
                 case 'card':
                     /*var o1 = [{
@@ -182,8 +183,8 @@ $(function () {
                             '</li>'].join("");
                         listArr.push(listhtml);
                     }
-                    btnHtml = _self.getBtnHtml();
-                    html = listArr.join("") + btnHtml;
+                    _self.currentBtnHtml = _self.getBtnHtml();
+                    html = listArr.join("") + _self.currentBtnHtml;
                     break;
                 case 'violation_car':
                     /*var o = [{
