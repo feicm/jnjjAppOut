@@ -17,14 +17,11 @@ $(function () {
     var carTypeRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
-    //&register=user2A&axisFlag=true
-    var params = {
-        "register": userName,
-        "axisFlag": false
-    };
     var module = $('.c').attr('data-mode');//模块名获取
     var listPageId=App.LS.get(module);
-    var listWebView=Wisp.UI.Webview.init(listPageId);
+    var listWebView=Wisp.UI.Webview.init({
+        PageId:listPageId
+    });
     var opts = {};
     var progressDialog;
     if ( module === 'car' ) { //绑定车辆 参数初始化
