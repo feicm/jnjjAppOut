@@ -84,7 +84,7 @@ $(function () {
         },
         "hideDefautoBtn": function () {
             var _self = this;
-            _self.defaultBtn.remove();
+            _self.defaultBtn.length && _self.defaultBtn.remove();
         },
         "bindEvent"     : function () {
             var _self = this;
