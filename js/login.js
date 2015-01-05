@@ -357,7 +357,7 @@ $(function () {
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
             _self.siderDatas.sider.info.url = '';
-            _self.footbarDatas[4].view[0].data[0]=_self.siderDatas.sider.info;//个人中心顶部
+            _self.footbarDatas.footbar[4].view[0].data[0]=_self.siderDatas.sider.info;//个人中心顶部
             var _data = _self.footbarDatas.footbar[4].view[1].data;//个人中心列表
             var l = _data.length;
             for ( var i = 0; i < l; i++ ) {//更新个人中心按钮属性
