@@ -153,7 +153,6 @@ $(function () {
                         listArr.push(listhtml);
                     }
                     btnHtml = _self.getBtnHtml(mode);
-                    _self.currentBtn = $(btnHtml);
                     html = listArr.join("") + btnHtml;
                     break;
                 case 'card':
