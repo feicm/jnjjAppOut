@@ -250,8 +250,7 @@ $(function () {
         "setCurrentBtn" : function (mode) {
             var _self = this;
             if ( $('.ui_btn').data('mode') === mode ) {
-                var $this = $(this);
-                _self.currentBtn = $this;
+                _self.currentBtn = $('.ui_btn');
             }
         },
         "requestData"   : function (url, params, callback) {
