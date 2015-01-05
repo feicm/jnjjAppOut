@@ -5,10 +5,8 @@ jnjjApp.config = {
     "requestUrl"   : "http://rjsoft.gnway.cc:9087",
     "msgRequestUrl": "http://rjsoft.gnway.cc:9093"
 };
-function getRandom(){
-    return parseInt(Math.random()*100);
-}
-var PageId=(new Date()).getTime();
+var PreQuestUrl="adapter?open&url=" + jnjjApp.config.requestUrl;
+var PageId_lv01=(new Date()).getTime();
 jnjjApp.footbarDatas = {
     "footbar": [
         {
@@ -49,7 +47,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "违法信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -60,7 +58,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "事故快处",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -71,7 +69,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -82,7 +80,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_ksyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -93,7 +91,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_njyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -104,7 +102,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试成绩查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_kscj"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_kscj"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -181,7 +179,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "违法信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -192,7 +190,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "事故快处",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -203,7 +201,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "车辆绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -214,7 +212,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "驾照绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -225,7 +223,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "车辆信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         }
                     ]
                 },
@@ -244,7 +242,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -255,7 +253,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_ksyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -266,7 +264,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_njyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -277,7 +275,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试成绩查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId+getRandom()+"@@#mode=query_kscj"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@#mode=query_kscj"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -313,7 +311,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "违章推送",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -323,7 +321,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "加油优惠",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -333,7 +331,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "洗车优惠",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -343,7 +341,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "代驾",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -353,7 +351,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "保养优惠",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -363,7 +361,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "车辆年审",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -373,7 +371,7 @@ jnjjApp.footbarDatas = {
                             "enable"    : "false",
                             "name"      : "道路救援",
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         }
                     ]
                 }
@@ -400,7 +398,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "个人资料",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -411,7 +409,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "我的车辆",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -422,7 +420,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "我的驾照",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/jnpublic/config/html/cardlist.jsp&@@webViewPageId="+PageId+getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/cardlist.jsp&@@webViewPageId="+PageId_lv01+getRandom()+"@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -447,7 +445,7 @@ jnjjApp.siderDatas = {
             "id"    : '',
             "img"   : '',
             "name"  : '',
-            "url"   : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/loginnoskip.jsp',
+            "url"   : PreQuestUrl + '/jnpublic/config/html/login.jsp',
             "roleid": '0000'//角色权限标识
         }
     }

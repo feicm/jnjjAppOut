@@ -243,6 +243,11 @@
             }
             return result;
         };
+
+        function getRandom() {//获取0-100随机数
+            return parseInt(Math.random() * 100);
+        }
+
         /*
          * 附件上传接口
          * @param path 文件路径
@@ -268,6 +273,7 @@
         };
         return {
             "SendToWISPClient": SendToWISPClient,//网客户端发送资源共有方法
+            "getRandom"       : getRandom,//获取0-100随机数
             "PostFile"        : PostFile//通用上传接口
         }
     })();
