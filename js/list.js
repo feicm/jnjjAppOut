@@ -3,6 +3,7 @@ $(function () {
      * 列表
      * */
     var userName = App.LS.get('username');
+    var PageId_lv02=(new Date()).getTime();
     var pageId=App.getPageId(window.location.href);
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -13,10 +14,10 @@ $(function () {
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
     var bindcarPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/bindcar.jsp';//绑定车辆页url
+        + '/jnpublic/config/html/bindcar.jsp&@@webViewPageId='+PageId_lv02+Wisp.CommenFunc.getRandom()+'@@';//绑定车辆页url
     var bindcardPageUrl = urlPre
         + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/bindcard.jsp';//绑定驾照页url
+        + '/jnpublic/config/html/bindcard.jsp&@@webViewPageId='+PageId_lv02+Wisp.CommenFunc.getRandom()+'@@';//绑定驾照页url
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,

@@ -782,15 +782,15 @@ var App = (function () {
         //http://.../violation.jsp&@@webViewPageId=141993237706568@@
         var skey, v, a = [];
         skey = url.split('@@');
-        if ( skey.length ) {
+        if ( skey.length > 1 ) {
             a = skey[1].split('=');
             if ( a[0] === 'webViewPageId' ) {
                 v = a[1];
-            } else{
+            } else {
                 console.log('pageid is not find!');
                 return false;
             }
-        }else{
+        } else {
             return false;
         }
         return v;
