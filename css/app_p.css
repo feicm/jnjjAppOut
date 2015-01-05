@@ -483,6 +483,7 @@ i.icon.icon-appicon{
 i.icon.icon-largercar {
     background-image : url(../images/ico/largercar.png);
     width: 3em;
+    height: 1.5em;
 }
 i.icon.icon-largercard {
     background-image : url(../images/ico/largercard.png);
@@ -1157,7 +1158,9 @@ i.icon.icon-card2{
     text-align    : center;
     margin-bottom: 1em;
 }
-
+.carlist_c .ui_btn_03{
+    margin-top: 2em;
+}
 .carlist_c .ui-g-fly0-b-l img {
     margin-top : 1em;
     width      : 2em;
