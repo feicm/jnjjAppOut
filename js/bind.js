@@ -3,6 +3,8 @@ $(function () {
      * 绑定模块
      * */
     var userName = App.LS.get('username');
+    var pageId=App.getPageId(window.location.href);
+    var curWebView=Wisp.UI.Webview.init(pageId);
     var urlPre = 'adapter?open&url=';
     var carbindRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -19,6 +21,8 @@ $(function () {
         "axisFlag": false
     };
     var module = $('.c').attr('data-mode');//模块名获取
+    var listPageId=App.LS.get(module);
+    var listWebView=Wisp.UI.Webview.init(listPageId);
     var opts = {};
     var progressDialog;
     if ( module === 'car' ) { //绑定车辆 参数初始化
@@ -180,7 +184,9 @@ $(function () {
             title: '公众服务平台',
             msg  : '绑定成功！'
         });
-        //刷新列表
+        //关闭当前页并刷新列表页
+        curWebView.close();
+        listWebView.refresh();
     }
 
     /*

@@ -3,6 +3,7 @@ $(function () {
      * 列表
      * */
     var userName = App.LS.get('username');
+    var pageId=App.getPageId(window.location.href);
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -10,6 +11,12 @@ $(function () {
     var cardlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
+    var bindcarPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/bindcar.jsp';//绑定车辆页url
+    var bindcardPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/bindcard.jsp';//绑定驾照页url
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,
@@ -245,10 +252,11 @@ $(function () {
         }
     };
     var module = $('.c').attr('data-mode');//模块名获取
+    App.LS.set(module,pageId);//pageid 写入localstorage
     if ( module === 'car' ) { //绑定车辆 参数初始化
         var goCarbindpage = $('#go_carbindpage');
         goCarbindpage.on('click',function(){
-            openBindpage(module);
+            window.open(bindcarPageUrl);
         });
         listModule.init({
             "listWrap"  : $('.ui-list'),
@@ -261,7 +269,7 @@ $(function () {
     if ( module === 'card' ) { //绑定驾照 参数初始化
         var goCardbindpage = $('#go_cardbindpage');
         goCardbindpage.on('click',function(){
-            openBindpage(module);
+            window.open(bindcardPageUrl);
         });
         listModule.init({
             "listWrap"  : $('.ui-list'),
@@ -287,10 +295,6 @@ $(function () {
                 "datas"     : params
             });
         });
-    }
-    function openBindpage(mode){
-        var url='adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/bind'+mode+'.jsp'
-        window.open(url);
     }
     /*
      * --------------------页面效果------------------------
