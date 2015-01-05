@@ -4,7 +4,9 @@ $(function () {
      * */
     var userName = App.LS.get('username');
     var pageId=App.getPageId(window.location.href);
-    var curWebView=Wisp.UI.Webview.init(pageId);
+    var curWebView=Wisp.UI.Webview.init({
+        PageId:pageId
+    });
     var urlPre = 'adapter?open&url=';
     var carbindRequestUrl = urlPre
         + jnjjApp.config.requestUrl

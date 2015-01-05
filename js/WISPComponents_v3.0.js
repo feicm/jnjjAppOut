@@ -131,7 +131,7 @@
         var Webview = {   //webview操作 即window 操作
             "pageId" : null,
             "init"   : function (opts) {
-                this.pageId = opts.pageId;
+                this.pageId = opts.PageId;
             },
             "close"  : function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@closeWebviewWidget@@', JSON.stringify(this), false);
