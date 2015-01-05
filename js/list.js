@@ -48,7 +48,7 @@ $(function () {
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( listData.length ) {
-                    _self.hideDefautoBtn();
+                    _self.hideDefaultBtn();
                     _self.renderList(listData);
                     _self.bindEvent();
                     _self.callback && _self.callback();
@@ -82,7 +82,7 @@ $(function () {
                 _self.dialog.remove();
             }
         },
-        "hideDefautoBtn": function () {
+        "hideDefaultBtn": function () {
             var _self = this;
             _self.defaultBtn && _self.defaultBtn.remove();
         },
