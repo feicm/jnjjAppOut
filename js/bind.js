@@ -185,10 +185,13 @@ $(function () {
             type : 'alert',
             title: '公众服务平台',
             msg  : '绑定成功！'
+        },function(action){
+            if ( action === 'OK' ) {
+                //关闭当前页并刷新列表页
+                curWebView.close();
+                listWebView.refresh();
+            }
         });
-        //关闭当前页并刷新列表页
-        curWebView.close();
-        listWebView.refresh();
     }
 
     /*
