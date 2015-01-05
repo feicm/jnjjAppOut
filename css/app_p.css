@@ -606,11 +606,11 @@ i.icon.icon-card2{
     background    : #C9C9C9;
     position      : absolute;
     right: 5px;
-    top: 1em;
-    font-size: 14px;
-    width         : 20px;
-    height        : 20px;
-    line-height: 1.5;
+    top: 1.2em;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
     text-align    : center;
     border-radius : 9999px;
     color         : #FFF;
