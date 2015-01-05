@@ -32,7 +32,6 @@ $(function () {
             "violation_card": '已绑定驾照'
         },
         "dialog"        : null,
-        "currentBtnHtml": null,
         "currentBtn"    : null,
         "resultUrl"     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"          : function (opts, callback) {
@@ -51,7 +50,6 @@ $(function () {
                 if ( listData.length ) {
                     _self.hideDefautoBtn();
                     _self.renderList(listData);
-                    _self.currentBtn = $(_self.currentBtnHtml);
                     _self.bindEvent();
                     _self.callback && _self.callback();
                 } else {
@@ -72,6 +70,7 @@ $(function () {
                 //渲染列表
                 listStr = _self.getListHtml(data, _self.module);
                 listWrap.append(listStr);
+                _self.setCurrentBtn(_self.module);
                 _self.dialog.remove();
             } else {
                 //渲染默认
@@ -153,8 +152,9 @@ $(function () {
                             '</li>'].join("");
                         listArr.push(listhtml);
                     }
-                    _self.currentBtnHtml = _self.getBtnHtml();
-                    html = listArr.join("") + _self.currentBtnHtml;
+                    btnHtml = _self.getBtnHtml(mode);
+                    _self.currentBtn = $(btnHtml);
+                    html = listArr.join("") + btnHtml;
                     break;
                 case 'card':
                     /*var o1 = [{
@@ -183,8 +183,8 @@ $(function () {
                             '</li>'].join("");
                         listArr.push(listhtml);
                     }
-                    _self.currentBtnHtml = _self.getBtnHtml();
-                    html = listArr.join("") + _self.currentBtnHtml;
+                    btnHtml = _self.getBtnHtml(mode);
+                    html = listArr.join("") + btnHtml;
                     break;
                 case 'violation_car':
                     /*var o = [{
@@ -241,12 +241,19 @@ $(function () {
             }
             return html;
         },
-        "getBtnHtml"    : function () {
+        "getBtnHtml"    : function (mode) {
             var btnHtml = [
-                '<a class="ui_btn ui_btn_01 ui_radius ui_btn_block">',
+                '<a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-mode="' + mode + '">',
                 '    +添加绑定',
                 '</a>'].join("");
             return btnHtml;
+        },
+        "setCurrentBtn" : function (mode) {
+            var _self = this;
+            if ( $('.ui_btn').data('mode') === mode ) {
+                var $this = $(this);
+                _self.currentBtn = $this;
+            }
         },
         "requestData"   : function (url, params, callback) {
             var _self = this;
