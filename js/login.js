@@ -367,12 +367,12 @@ $(function () {
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
             var _self = this;
             Wisp.UI.Init({
-                'type' : 'footbar',
-                'datas': footbarDatas
-            });
-            Wisp.UI.Init({
                 'type' : 'sider',
                 'datas': siderDatas
+            });
+            Wisp.UI.Init({
+                'type' : 'footbar',
+                'datas': footbarDatas
             });
             this.footbarDatas = jnjjApp.footbarDatas;
             this.siderDatas = jnjjApp.siderDatas;
