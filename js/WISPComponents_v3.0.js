@@ -132,6 +132,7 @@
             "pageId" : null,
             "init"   : function (opts) {
                 this.pageId = opts.PageId;
+                return this;
             },
             "close"  : function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@closeWebviewWidget@@', JSON.stringify(this), false);
