@@ -777,6 +777,25 @@ var App = (function () {
         return oHash;
     }
 
+    //get pageid  return pageid
+    function getPageId(url) {
+        //http://.../violation.jsp&@@webViewPageId=141993237706568@@
+        var skey, v, a = [];
+        skey = url.split('@@');
+        if ( skey.length ) {
+            a = skey[1].split('=');
+            if ( a[0] === 'webViewPageId' ) {
+                v = a[1];
+            } else{
+                console.log('pageid is not find!');
+                return false;
+            }
+        }else{
+            return false;
+        }
+        return v;
+    }
+
     //车辆识别代号号检测
     function iscarid2(str) {
         var reg = /^[a-zA-Z0-9]{17}$/;
@@ -983,6 +1002,7 @@ var App = (function () {
         "UI"         : UI,
         "getAjaxData": getAjaxData,
         "getHash"    : getHash,
+        "getPageId"  : getPageId,
         "verify"     : verify,
         "Cookie"     : Cookie,
         "LS"         : LS   //本地存储

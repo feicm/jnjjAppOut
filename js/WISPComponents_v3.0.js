@@ -128,6 +128,18 @@
                 Wisp.CommenFunc.SendToWISPClient('post', '@@loginFail@@', '', false);
             } //失败
         };
+        var Webview = {   //webview操作 即window 操作
+            "pageId" : null,
+            "init"   : function (opts) {
+                this.pageId = opts.pageId;
+            },
+            "close"  : function () {
+                Wisp.CommenFunc.SendToWISPClient('post', '@@closeWebviewWidget@@', JSON.stringify(this), false);
+            }, //关闭指定webview
+            "refresh": function () {
+                Wisp.CommenFunc.SendToWISPClient('post', '@@refreshWebviewWidget@@', JSON.stringify(this), false);
+            } //刷新指定webview
+        };
         var fullScreen = {   //全屏控制
             "open" : function () {
             }, //打开
@@ -144,6 +156,7 @@
             "Init"          : Init, //初始化
             "progressDialog": progressDialog,//加载对话框
             "loginResult"   : loginResult,//登录结果
+            "Webview"       : Webview,//webview操作
             "fullScreen"    : fullScreen,//TODO 全屏
             "zoomWindow"    : zoomWindow //TODO 窗口缩放
         }
