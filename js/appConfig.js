@@ -5,18 +5,15 @@ jnjjApp.config = {
     "requestUrl"   : "http://rjsoft.gnway.cc:9087",
     "msgRequestUrl": "http://rjsoft.gnway.cc:9093"
 };
-var PreQuestUrl="adapter?open&url=" + jnjjApp.config.requestUrl;
-var PageId_lv01=(new Date()).getTime();
+var PreQuestUrl = "adapter?open&url=" + jnjjApp.config.requestUrl;
+var PageId_lv01 = (new Date()).getTime();
 jnjjApp.footbarDatas = {
     "footbar": [
         {
-            "beforeImg"   : "config/html/images/wispui/home_normal.png",
-            "afterImg"    : "config/html/images/wispui/home_hover.png",
-            "name"        : "首页",
-            "clickEvent"  : "",
-            "subBtns"     : [],
-            "shortcutBtns": [],
-            "view"        : [
+            "beforeImg": "config/html/images/wispui/home_normal.png",
+            "afterImg" : "config/html/images/wispui/home_hover.png",
+            "name"     : "首页",
+            "view"     : [
                 {
                     "type": 'picGallary',//图片轮播
                     "size": 'Lager', //尺寸标识 Large middle small
@@ -47,7 +44,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "违法信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -69,7 +66,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -80,7 +77,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_ksyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -91,7 +88,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_njyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -102,7 +99,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试成绩查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_kscj"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -179,7 +176,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "违法信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -201,7 +198,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "车辆绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -212,7 +209,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "驾照绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -223,7 +220,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "车辆信息",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         }
                     ]
                 },
@@ -242,7 +239,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -253,7 +250,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_ksyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_ksyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -264,7 +261,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "年检预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_njyy"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -275,7 +272,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "考试成绩查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@#mode=query_kscj"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -293,13 +290,11 @@ jnjjApp.footbarDatas = {
             ]
         },
         {
-            "beforeImg"   : "config/html/images/wispui/find_normal.png",
-            "afterImg"    : "config/html/images/wispui/find_hover.png",
-            "name"        : "发现",
-            "clickEvent"  : "",
-            "subBtns"     : [],
-            "shortcutBtns": [],
-            "view"        : [ //发现 视图数据
+            "beforeImg" : "config/html/images/wispui/find_normal.png",
+            "afterImg"  : "config/html/images/wispui/find_hover.png",
+            "name"      : "发现",
+            "clickEvent": "",
+            "view"      : [ //发现 视图数据
                 {
                     "type": "RectangleWithIcoLeft",
                     "data": [
@@ -378,14 +373,23 @@ jnjjApp.footbarDatas = {
             ]
         },
         {
-            "beforeImg"   : "config/html/images/wispui/my_normal.png",
-            "afterImg"    : "config/html/images/wispui/my_hover.png",
-            "name"        : "我的",
-            "clickEvent"  : "",
-            "subBtns"     : [],
-            "shortcutBtns": [],
-            "view"        : [],
-            "siderView"   : [
+            "beforeImg" : "config/html/images/wispui/my_normal.png",
+            "afterImg"  : "config/html/images/wispui/my_hover.png",
+            "name"      : "我的",
+            "clickEvent": "",
+            "view"      : [
+                {
+                    "type": "personalPic",
+                    "data": [
+                        {
+                            "id"    : '',
+                            "img"   : '',
+                            "name"  : '',
+                            "url"   : PreQuestUrl + '/jnpublic/config/html/login.jsp',
+                            "roleid": '0000'//角色权限标识
+                        }
+                    ]
+                },
                 {
                     "type": "list",
                     "data": [
@@ -398,7 +402,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "个人资料",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -409,7 +413,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "我的车辆",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/carlist.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -420,7 +424,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "我的驾照",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/cardlist.jsp&@@webViewPageId="+PageId_lv01+Wisp.CommenFunc.getRandom()+"@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/cardlist.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
