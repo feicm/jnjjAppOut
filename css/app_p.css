@@ -609,10 +609,10 @@ i.icon.icon-card2{
     position      : absolute;
     right         : 10px;
     top: 1em;
-    font-size: .5em;
+    font-size: 14px;
     width         : 20px;
     height        : 20px;
-    line-height   : 20px;
+    line-height: 1.5;
     text-align    : center;
     border-radius : 9999px;
     color         : #FFF;
