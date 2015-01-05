@@ -24,7 +24,9 @@ $(function () {
     };
     var module = $('.c').attr('data-mode');//模块名获取
     var listPageId=App.LS.get(module);
-    var listWebView=Wisp.UI.Webview.init(listPageId);
+    var listWebView=Wisp.UI.Webview.init({
+        PageId:listPageId
+    });
     var opts = {};
     var progressDialog;
     if ( module === 'car' ) { //绑定车辆 参数初始化
