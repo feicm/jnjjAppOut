@@ -251,6 +251,10 @@ $(function () {
             var _self = this;
             if ( $('.ui_btn').data('mode') === mode ) {
                 _self.currentBtn = $('.ui_btn');
+                App.UI('buttonHover', {//添加按钮点击效果
+                    "dom"           : _self.currentBtn,
+                    "hoverClassName": 'ui_btn_01_hover'
+                });
             }
         },
         "requestData"   : function (url, params, callback) {
