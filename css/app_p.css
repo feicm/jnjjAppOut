@@ -320,7 +320,7 @@ body {
 }
 
 .list-block .item-inner {
-    padding-right: 15px;
+    padding-right: 25px;
     width                   : 100%;
     padding-top             : .5em;
     padding-bottom          : .4375em;
@@ -605,7 +605,7 @@ i.icon.icon-card2{
     display       : none;
     background    : #C9C9C9;
     position      : absolute;
-    right         : 10px;
+    right: 5px;
     top: 1em;
     font-size: 14px;
     width         : 20px;
