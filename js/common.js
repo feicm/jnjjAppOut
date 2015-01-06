@@ -912,13 +912,21 @@ var App = (function () {
      "idnum"   : $('#setidnum')//身份证
      };*/
     function verify(opts) {
-        console.dir(opts);
+        var tipsmsg=function(msg){
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : msg
+            });
+        };
         if ( opts.username && (opts.username.val() === '' || opts.username.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的用户名）');
+            //alert('提交失败！（请检查您的用户名）');
+            tipsmsg('用户名错误!');
             return false;
         }
         if ( opts.pwdold && (opts.pwdold.val() === '' || opts.pwdold.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的旧用户名）');
+            //alert('提交失败！（请检查您的旧密码）');
+            tipsmsg('旧密码错误!');
             return false;
         }
         if ( opts.pwd1
@@ -927,7 +935,8 @@ var App = (function () {
             || opts.pwd2.val() === ''
             || opts.pwd1.parent().find('.tips').length
             || opts.pwd2.parent().find('.tips').length ) ) {
-            alert('提交失败！（请检查您的密码）');
+            //alert('提交失败！（请检查您的密码）');
+            tipsmsg('密码错误!');
             return false;
         }
         if ( opts.pwdnew1
@@ -936,63 +945,78 @@ var App = (function () {
             || opts.pwdnew2.val() === ''
             || opts.pwdnew1.parent().find('.tips').length
             || opts.pwdnew2.parent().find('.tips').length ) ) {
-            alert('提交失败！（请检查您的密码）');
+            //alert('提交失败！（请检查您的密码）');
+            tipsmsg('密码错误!');
             return false;
         }
         if ( opts.name && (opts.name.val() === '' || opts.name.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的姓名）');
+            //alert('提交失败！（请检查您的姓名）');
+            tipsmsg('姓名填写错误!');
             return false;
         }
         if ( opts.phone && (opts.phone.val() === '' || opts.phone.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的手机号码）');
+            //alert('提交失败！（请检查您的手机号码）');
+            tipsmsg('手机号码错误!');
             return false;
         }
         if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的身份证号）');
+            //alert('提交失败！（请检查您的身份证号）');
+            tipsmsg('身份证号码错误!');
             return false;
         }
         if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的车辆识别代号）');
+            //alert('提交失败！（请检查您的车辆识别代号）');
+            tipsmsg('车辆识别代号错误!');
             return false;
         }
         if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的号牌号码）');
+            //alert('提交失败！（请检查您的号牌号码）');
+            tipsmsg('号牌号码错误!');
             return false;
         }
         if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的档案编号）');
+            //alert('提交失败！（请检查您的档案编号）');
+            tipsmsg('档案编号错误!');
             return false;
         }
         if ( opts.email && (opts.email.val() === '' || opts.email.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的邮箱）');
+            //alert('提交失败！（请检查您的邮箱）');
+            tipsmsg('邮箱格式错误!');
             return false;
         }
         if ( opts.closername && (opts.closername.val() === '' || opts.closername.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的密切联系人姓名）');
+            //alert('提交失败！（请检查您的密切联系人姓名）');
+            tipsmsg('密切联系人姓名错误!');
             return false;
         }
         if ( opts.closerphone && (opts.closerphone.val() === '' || opts.closerphone.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的密切联系人电话）');
+            //alert('提交失败！（请检查您的密切联系人电话）');
+            tipsmsg('密切联系人电话错误!');
             return false;
         }
         if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的密切联系人身份证号）');
+            //alert('提交失败！（请检查您的密切联系人身份证号）');
+            tipsmsg('密切联系人身份证号错误!');
             return false;
         }
         if ( opts.movecarname && (opts.movecarname.val() === '' || opts.movecarname.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的移车联系人姓名）');
+            //alert('提交失败！（请检查您的移车联系人姓名）');
+            tipsmsg('移车联系人姓名错误!');
             return false;
         }
         if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的移车联系人电话）');
+            //alert('提交失败！（请检查您的移车联系人电话）');
+            tipsmsg('密切联系人电话号码错误!');
             return false;
         }
         if ( opts.sfzmhm && (opts.sfzmhm.val() === '' || opts.sfzmhm.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的身份证明号码）');
+            //alert('提交失败！（请检查您的身份证明号码）');
+            tipsmsg('身份证明号码错误!');
             return false;
         }
         if ( opts.lsh && (opts.lsh.val() === '' || opts.lsh.parent().find('.tips').length) ) {
-            alert('提交失败！（请检查您的流水号）');
+            //alert('提交失败！（请检查您的流水号）');
+            tipsmsg('流水号错误!');
             return false;
         }
         return true;
