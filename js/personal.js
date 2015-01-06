@@ -23,6 +23,8 @@ $(function () {
         "ip_idnum"              : $('#idnum'),
         "ip_email"              : $('#email'),
         "ip_time"               : $('#time'),
+        "ip_mover"              : $('#mover'),
+        "ip_closer"             : $('#closer'),
         "init"                  : function (opts) {
             this.list = opts.list;
             this.oInit();
@@ -61,6 +63,8 @@ $(function () {
             data.identityId && _self.ip_idnum.text(data.identityId);
             data.email && _self.ip_email.val(data.email);
             data.registerTime && _self.ip_time.text(data.registerTime);
+            data.moveCarName && _self.ip_mover.text(data.moveCarName);
+            data.closeUserName && _self.ip_closer.text(data.closeUserName);
         },
         "bindEvent"             : function (mode) {
             var _self = this;
