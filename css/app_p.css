@@ -576,6 +576,7 @@ i.icon.icon-card2{
     font-weight: bold;
     font-size: 1.0625em;
     color: #151515;
+    background: #aaa;
 }
 
 .list-block .item-title.label:after {
