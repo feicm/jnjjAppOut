@@ -353,6 +353,7 @@ body {
     display             : -webkit-flex;
     display             : flex;
     max-height          : 1.75em;
+    margin-right: -10px;
 }
 
 .list-block .select {
