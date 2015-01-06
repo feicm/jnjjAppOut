@@ -298,8 +298,16 @@ body {
 }
 .list-block .item-content .h1{
     height: 4em;
-    line-height: 1.5;
+    line-height: 1.7;
     padding: .5em 0;
+}
+.list-block .item-content .h1 .icon-user-men,
+.list-block .item-content .h1 .icon-user-women{
+    width: 1.5em;
+
+    height: 1.5em;
+    top: -.2em;
+    left: .5em;
 }
 .list-block .item-media {
     display             : -webkit-box;
@@ -497,11 +505,9 @@ i.icon.icon-largercard {
 }
 i.icon.icon-user-men {
     background-image : url(../images/ico/men.png);
-    top: -.2em;
 }
 i.icon.icon-user-women {
     background-image : url(../images/ico/women.png);
-    top:-.2em;
 }
 i.icon.icon-form-name {
     background-image : url(../images/ico/login_user.png);
