@@ -304,10 +304,8 @@ body {
 .list-block .item-content .h1 .icon-user-men,
 .list-block .item-content .h1 .icon-user-women{
     width: 1.5em;
-
     height: 1.5em;
     top: -.2em;
-    left: .5em;
 }
 .list-block .item-media {
     display             : -webkit-box;
