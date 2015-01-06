@@ -364,7 +364,8 @@ body {
     margin-right: -10px;
 }
 .list-block .bg_arr_r .item-after{
-    margin-right: 0;
+    margin-right: .5em;
+    font-size: .8em;
 }
 .list-block .select {
     background-image    : url(../images/arr_d.png);
