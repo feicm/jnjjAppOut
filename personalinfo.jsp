@@ -14,124 +14,68 @@
     <div class="list-block">
         <ul>
             <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">用 户 名</div>
-                        <div class="item-input">
-                            <input id="username" disabled type="text">
-                        </div>
+                <div class="item-content ovh db">
+                    <div class="ui-pic fl">
+                        <img id="photo" src="images/pic.jpg">
                     </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">姓 名</div>
-                        <div class="item-input">
-                            <input id="name" disabled type="text">
-                            <a id='go_repwd' class="ui_btn ui_btn_02 ui_radius repwd">密码修改</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">头 像</div>
-                        <div class="item-input">
-                            <div class="ui-circle-pic">
-                                <img id='photo' src="images/pic.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">性 别</div>
-                        <div class="item-input">
-                            <input id="gender" disabled type="text"/>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">手 机</div>
-                        <div class="item-input">
-                            <input id="phone" data-type="mobile" type="text">
-                            <b class="edit"></b>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">身份证号</div>
-                        <div class="item-input">
-                            <input id="idnum" disabled type="text" >
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">邮 箱</div>
-                        <div class="item-input">
-                            <input id="email" disabled type="text">
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">注册时间</div>
-                        <div class="item-input">
-                            <input id="time" disabled type="text">
-                        </div>
-                    </div>
+                    <h1 class="h1">
+                        <b class="fw f12" id='name'>张三丰</b><i class="icon" id='gender'></i></br>
+                        <b class="txt02" id='username'>feijcmmm</b>
+                    </h1>
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="list-block-title">
-        移车联系人信息
     </div>
     <div class="list-block">
         <ul>
             <li>
                 <div class="item-content">
+                    <div class="item-media"><i class="icon icon-phone2"></i></div>
                     <div class="item-inner">
-                        <div class="item-title label">姓 名</div>
-                        <div class="item-input">
-                            <input id="y_name" data-type="cnuser" type="text" placeholder="+点击添加">
-                            <b class="edit"></b>
-                        </div>
+                        <div class="item-title label">手机号码</div>
+                        <div class="item-after" id='phone'>13458565265</div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="item-content">
+                    <div class="item-media"><i class="icon icon-idcard2"></i></div>
                     <div class="item-inner">
-                        <div class="item-title label">电 话</div>
-                        <div class="item-input">
-                            <input id="y_phone" data-type="mobile" type="text" placeholder="+点击添加">
-                            <b class="edit"></b>
-                        </div>
+                        <div class="item-title label">身份证号</div>
+                        <div class="item-after" id='idnum'>350565859526535652</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-calendar"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">注册时间</div>
+                        <div class="item-after" id='time'>2012-01-01</div>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="saveinfo_btn">
-            保存
-        </a>
+    <div class="list-block">
+        <ul>
+            <li id="moveContacts">
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-user"></i></div>
+                    <div class="item-inner bg_arr_r">
+                        <div class="item-title fw">移车联系人</div>
+                    </div>
+                </div>
+            </li>
+            <li id="closeContacts">
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-user"></i></div>
+                    <div class="item-inner bg_arr_r">
+                        <div class="item-title fw">密切联系人</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </form>
 </body>
