@@ -64,7 +64,7 @@
     </div>
     <div id="fromcloser">
         <div class="ipt_lable">
-            注册时填写的密切联系人信息
+            密切联系人信息
         </div>
         <div class="list-block">
             <ul>
