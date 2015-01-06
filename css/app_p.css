@@ -1069,7 +1069,9 @@ i.icon.icon-card2{
     border-radius: 2em;
     color: #fff;
 }
-
+.login_f .ft .ui_btn:not(.ui_btn_block) {
+    margin-top : 50px;
+}
 .login_f .list-block ul {
     border-top : none;
     border-bottom: none;
