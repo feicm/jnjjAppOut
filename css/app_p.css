@@ -52,7 +52,7 @@ body {
     background-image: url(../images/arr_r.png);
     background-position: 95% center;
     background-repeat: no-repeat;
-    background-size: .6em;
+    background-size: .5em;
 }
 .ui_radius {
     border-radius         : 4px;
@@ -298,7 +298,7 @@ body {
 }
 .list-block .item-content .h1{
     height: 4em;
-    line-height: 1;
+    line-height: 1.8;
     padding: .5em 0;
 }
 .list-block .item-media {
@@ -320,7 +320,7 @@ body {
 }
 
 .list-block .item-inner {
-    padding-right: 25px;
+    padding-right: 1.5em;
     width                   : 100%;
     padding-top             : .5em;
     padding-bottom          : .4375em;
@@ -355,7 +355,9 @@ body {
     max-height          : 1.75em;
     margin-right: -10px;
 }
-
+.list-block .bg_arr_r .item-after{
+    margin-right: 0;
+}
 .list-block .select {
     background-image    : url(../images/arr_d.png);
     background-size     : 1em .5em;
@@ -607,8 +609,8 @@ i.icon.icon-card2{
     display       : none;
     background    : #C9C9C9;
     position      : absolute;
-    right: 5px;
-    top: 1.2em;
+    right: .7em;
+    top: 1.5em;
     font-size: 12px;
     width: 16px;
     height: 16px;
