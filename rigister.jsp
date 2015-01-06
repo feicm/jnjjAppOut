@@ -19,7 +19,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-user-men"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">用 户 名</div>
+                            <div class="item-title label">用 户 名 </div>
                             <div class="item-input">
                                 <input id="setusername" data-type="user" type="text" placeholder="请输入用户名">
                             </div>
@@ -30,7 +30,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-pwd"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">密 码</div>
+                            <div class="item-title label">密 码 </div>
                             <div class="item-input">
                                 <input id="setpwd_01" data-type="psd" type="password" placeholder="请设置您的密码">
                             </div>
@@ -56,7 +56,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-user"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">姓 名</div>
+                            <div class="item-title label">姓 名 </div>
                             <div class="item-input">
                                 <input id="setname" data-type="cnuser" type="text" placeholder="请输入您的姓名">
                             </div>
@@ -67,7 +67,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-phone"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">手 机</div>
+                            <div class="item-title label">手 机 </div>
                             <div class="item-input">
                                 <input id="setphone" data-type="mobile" type="text" placeholder="请输入您的手机号码">
                             </div>

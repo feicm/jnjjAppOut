@@ -18,7 +18,7 @@
     <div class="item-content">
     <div class="item-media"><i class="icon icon-user-men"></i></div>
     <div class="item-inner">
-    <div class="item-title label">姓 名</div>
+    <div class="item-title label">姓 名 </div>
     <div class="item-input">
     <input id="name" data-type="cnuser" type="text" placeholder="请输入驾驶人姓名">
     </div>
@@ -29,7 +29,7 @@
     <div class="item-content">
     <div class="item-media"><i class="icon icon-phone2"></i></div>
     <div class="item-inner">
-    <div class="item-title label">手 机</div>
+    <div class="item-title label">手 机 </div>
     <div class="item-input">
     <input id="phone" data-type="mobile" type="text" placeholder="请输入驾驶人手机号码">
     </div>
@@ -61,7 +61,7 @@
     </ul>
     </div>
     <div class="ft w100">
-    <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" data-rel='pre' id="bindcard_btn">
+    <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="bindcard_btn">
     确认
     </a>
     </div>

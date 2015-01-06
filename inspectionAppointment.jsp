@@ -62,7 +62,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-user"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">联 系 人</div>
+                            <div class="item-title label">联 系 人 </div>
                             <div class="item-input">
                                 <input id="name" data-type="cnuser" type="text" placeholder="请输入联系人姓名">
                             </div>

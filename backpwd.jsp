@@ -39,7 +39,7 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">手 机</div>
+                        <div class="item-title label">手 机 </div>
                         <div class="item-input">
                             <input id="phone" data-type="mobile" type="text" placeholder="请输入您的手机号码">
                         </div>
@@ -53,7 +53,7 @@
             <li>
                 <div class="item-content">
                     <div class="item-inner">
-                        <div class="item-title label">邮 箱</div>
+                        <div class="item-title label">邮 箱 </div>
                         <div class="item-input">
                             <input id="email" data-type="mail" type="text" placeholder="请输入您的注册邮箱">
                         </div>
@@ -71,7 +71,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">姓 名</div>
+                            <div class="item-title label">姓 名 </div>
                             <div class="item-input">
                                 <input id="mqlxrxm" data-type="cnuser" type="text" placeholder="请输入密切联系人姓名">
                             </div>
@@ -81,7 +81,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">手 机</div>
+                            <div class="item-title label">手 机 </div>
                             <div class="item-input">
                                 <input id="mqlxrdh" data-type="mobile" type="text" placeholder="请输入密切联系人电话">
                             </div>

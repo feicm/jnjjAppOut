@@ -49,7 +49,7 @@
                 <div class="item-content">
                 <div class="item-media"><i class="icon icon-list"></i></div>
                     <div class="item-inner">
-                        <div class="item-title label">流 水 号</div>
+                        <div class="item-title label">流 水 号 </div>
                         <div class="item-input">
                             <input id="ksyy_lsh" data-type="lsh" type="text" placeholder="请输入流水号">
                         </div>
