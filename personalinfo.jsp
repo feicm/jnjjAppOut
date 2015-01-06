@@ -28,7 +28,7 @@
     </div>
     <div class="list-block">
         <ul>
-            <li>
+            <li data-rel="p_phone">
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-phone2"></i></div>
                     <div class="item-inner">
@@ -55,11 +55,20 @@
                     </div>
                 </div>
             </li>
+            <li>
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-email"></i></div>
+                    <div class="item-inner">
+                        <div class="item-title label">邮箱</div>
+                        <div class="item-after" id='email'>无</div>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="list-block">
         <ul>
-            <li id="moveContacts">
+            <li data-rel="p_moveContacts">
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner bg_arr_r">
@@ -67,7 +76,7 @@
                     </div>
                 </div>
             </li>
-            <li id="closeContacts">
+            <li data-rel="p_closeContacts">
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner bg_arr_r">
