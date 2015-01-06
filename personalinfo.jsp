@@ -128,43 +128,6 @@
             </li>
         </ul>
     </div>
-    <!--<div class="list-block-title">
-        密切联系人信息
-    </div>
-    <div class="list-block">
-        <ul>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">姓 名</div>
-                        <div class="item-input">
-                            <input id="m_name" type="text" placeholder="+点击添加">
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">电 话</div>
-                        <div class="item-input">
-                            <input id="m_phone" type="text" placeholder="+点击添加">
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">身份证号</div>
-                        <div class="item-input">
-                            <input id="m_innum" type="text" placeholder="+点击添加">
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>-->
     <div class="ft w100">
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="saveinfo_btn">
             保存
