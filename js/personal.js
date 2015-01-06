@@ -53,7 +53,7 @@ $(function () {
             var _self = this;
             _self.ip_username.text(_self.userName);
             data.userName && _self.ip_name.text(data.userName);
-            data.userImage && _self.ip_photo.attr('src', data.userImage);
+            //data.userImage && _self.ip_photo.attr('src', data.userImage);
             if ( _self.getGender(data.identityId) ) {
                 _self.ip_gender.addClass('icon-user-men')
             } else {

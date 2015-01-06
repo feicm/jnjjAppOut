@@ -16,7 +16,7 @@
             <li>
                 <div class="item-content ovh db">
                     <div class="ui-pic fl">
-                        <img id="photo">
+                        <img id="photo" src="config/html/images/pic.jpg">
                     </div>
                     <h1 class="h1">
                         <b class="fw f12" id='name'>张三丰</b><i class="icon" id='gender'></i></br>
