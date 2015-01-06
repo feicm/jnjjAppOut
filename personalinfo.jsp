@@ -58,9 +58,9 @@
             <li>
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-email"></i></div>
-                    <div class="item-inner">
+                    <div class="item-inner bg_arr_r">
                         <div class="item-title label">邮箱</div>
-                        <div class="item-after" id='email'>无</div>
+                        <div class="item-after" id='email'>未绑定</div>
                     </div>
                 </div>
             </li>
@@ -72,7 +72,8 @@
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner bg_arr_r">
-                        <div class="item-title fw">移车联系人</div>
+                        <div class="item-title">移车联系人</div>
+                        <div class="item-after" id='mover'>未添加</div>
                     </div>
                 </div>
             </li>
@@ -80,7 +81,8 @@
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-user"></i></div>
                     <div class="item-inner bg_arr_r">
-                        <div class="item-title fw">密切联系人</div>
+                        <div class="item-title">密切联系人</div>
+                        <div class="item-after" id='closer'>未添加</div>
                     </div>
                 </div>
             </li>
