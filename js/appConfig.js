@@ -377,7 +377,7 @@ jnjjApp.footbarDatas = {
             "afterImg"  : "config/html/images/wispui/my_hover.png",
             "name"      : "我的",
             "clickEvent": "",
-            "view"      : [
+            "siderView"      : [
                 {
                     "type": "personalPic",
                     "data": [
