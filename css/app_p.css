@@ -564,7 +564,7 @@ i.icon.icon-card2{
 }
 
 .list-block .item-title.label {
-    width                   : 4em;
+    width: 3.9999em;
     height: 1.1em;
     -webkit-flex-shrink     : 0;
     -ms-flex                : 0 0 auto;
