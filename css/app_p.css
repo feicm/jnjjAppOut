@@ -523,6 +523,7 @@ i.icon.icon-car {
 i.icon.icon-car2{
     background-image: url("../images/ico_car.png");
     width: 2em;
+    height : 1.5em;
 }
 i.icon.icon-card {
     background-image : url(../images/ico/bindbtn02.png);
