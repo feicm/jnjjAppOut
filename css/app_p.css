@@ -433,6 +433,9 @@ i.icon.icon-record2 {
 i.icon.icon-tag {
     background-image : url(../images/ico/tag.png);
 }
+i.icon.icon-email {
+    background-image : url(../images/ico/email.png);
+}
 i.icon.icon-time {
     background-image : url(../images/ico/time.png);
 }

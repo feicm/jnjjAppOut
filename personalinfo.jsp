@@ -31,7 +31,7 @@
             <li data-rel="p_phone">
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-phone2"></i></div>
-                    <div class="item-inner">
+                    <div class="item-inner bg_arr_r">
                         <div class="item-title label">手机号码</div>
                         <div class="item-after" id='phone'>13458565265</div>
                     </div>
