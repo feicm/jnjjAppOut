@@ -11,8 +11,8 @@
 </head>
 <body>
 <form class="login_f" action="" method="post" id="login_form">
-    <div class="h_pic">
-        <img src="config/html/images/banner.png">
+    <div class="app_ico">
+        <i class="icon icon-appicon"></i>
     </div>
     <div class="list-block">
         <ul>
@@ -41,15 +41,13 @@
         </ul>
     </div>
     <div class="ft w100">
-        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit">
-            登录
-        </a>
-        <a class="ui_btn ui_radius fl" id="rigister" target="_blank">
-            快速注册
-        </a>
-        <a class="ui_btn ui_btn_02 ui_radius fr" id="backpwd">
-            忘记密码
-        </a>
+    <button onclick="return false" class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit" type="submit">
+        登录
+    </button>
+    <div class="backpwd">
+        <a class="fl" id="rigister">快速注册</a>
+        <a id='backpwd'>找回密码</a>
+    </div>
     </div>
 </form>
 </body>
