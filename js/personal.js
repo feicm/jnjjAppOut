@@ -53,7 +53,7 @@ $(function () {
     //填充个人信息
     function renderPersonalInfoPage(data) {
         ip_username.text(App.LS.get('username'));
-        data.registerName && ip_name.text(data.registerName);
+        data.userName && ip_name.text(data.userName);
         data.userImage && ip_photo.attr('src', data.userImage);
         getGender(data.identityId) ? ip_gender.addClass('icon-user-men') : ip_gender.addClass('icon-user-women');
         data.phoneNum && ip_phone.text(data.phoneNum);
