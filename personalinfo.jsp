@@ -19,9 +19,9 @@
                         <img id="photo" src="config/html/images/pic.jpg">
                     </div>
                     <h1 class="h1">
-                        <b class="fw f12" id='name'>张三丰</b>&nbsp;
+                        <b class="fw f12" id='name'></b>&nbsp;
                         <i class="icon" id='gender'></i></br>
-                        <b class="txt02" id='username'>feijcmmm</b>
+                        <b class="txt02" id='username'></b>
                     </h1>
                 </div>
             </li>
@@ -34,7 +34,7 @@
                     <div class="item-media"><i class="icon icon-phone2"></i></div>
                     <div class="item-inner bg_arr_r">
                         <div class="item-title label">手机号码</div>
-                        <div class="item-after" id='phone'>13458565265</div>
+                        <div class="item-after" id='phone'></div>
                     </div>
                 </div>
             </li>
@@ -43,7 +43,7 @@
                     <div class="item-media"><i class="icon icon-idcard2"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">身份证号</div>
-                        <div class="item-after" id='idnum'>350565859526535652</div>
+                        <div class="item-after" id='idnum'></div>
                     </div>
                 </div>
             </li>
@@ -52,7 +52,7 @@
                     <div class="item-media"><i class="icon icon-calendar"></i></div>
                     <div class="item-inner">
                         <div class="item-title label">注册时间</div>
-                        <div class="item-after" id='time'>2012-01-01</div>
+                        <div class="item-after" id='time'></div>
                     </div>
                 </div>
             </li>
