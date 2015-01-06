@@ -19,7 +19,8 @@
                         <img id="photo" src="config/html/images/pic.jpg">
                     </div>
                     <h1 class="h1">
-                        <b class="fw f12" id='name'>张三丰</b><i class="icon" id='gender'></i></br>
+                        <b class="fw f12" id='name'>张三丰</b>&nbsp;
+                        <i class="icon" id='gender'></i></br>
                         <b class="txt02" id='username'>feijcmmm</b>
                     </h1>
                 </div>
@@ -59,7 +60,7 @@
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-email"></i></div>
                     <div class="item-inner bg_arr_r">
-                        <div class="item-title label">邮箱</div>
+                        <div class="item-title label">邮 箱</div>
                         <div class="item-after" id='email'>未绑定</div>
                     </div>
                 </div>
