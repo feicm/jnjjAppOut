@@ -493,10 +493,12 @@ $(function () {
             "dom"           : loginSubmit,
             "hoverClassName": 'ui_btn_02_hover'
         });
-        App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : rigisterBtn,
-            "hoverClassName": 'ui_btn_02_hover'
-        });
+        if(rigisterBtn.hasClass('ui_btn_02')){
+            App.UI('buttonHover', {//添加按钮点击效果
+                "dom"           : rigisterBtn,
+                "hoverClassName": 'ui_btn_02_hover'
+            });
+        }
         skipBtn.length && App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : skipBtn,
             "hoverClassName": 'ui_btn_02_hover'
