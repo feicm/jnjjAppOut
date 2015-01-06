@@ -44,7 +44,7 @@
     <button onclick="return false" class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="login-submit" type="submit">
     登录
     </button>
-
+    <div class="backpwd"><a id='backpwd'>找回密码</a></div>
     <a class="ui_btn ui_btn_02 ui_radius fl" id="rigister">
             快速注册
         </a>

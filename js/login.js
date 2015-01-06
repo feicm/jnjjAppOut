@@ -501,10 +501,6 @@ $(function () {
             "dom"           : skipBtn,
             "hoverClassName": 'ui_btn_02_hover'
         });
-        backpwdBtn.length && App.UI('buttonHover', {//添加按钮点击效果
-            "dom"           : backpwdBtn,
-            "hoverClassName": 'ui_btn_02_hover'
-        });
     }
     if ( rigisterSubmit.length ) {//注册流程页特有
         App.UI('inputClose', {//注册页面输入校验

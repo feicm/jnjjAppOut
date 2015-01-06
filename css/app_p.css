@@ -1092,9 +1092,6 @@ i.icon.icon-card2{
     border-radius: 2em;
     color: #fff;
 }
-.login_f .ft .ui_btn:not(.ui_btn_block) {
-    margin-top : 60px;
-}
 
 .login_f .list-block ul {
     border-top : none;
@@ -1116,6 +1113,12 @@ i.icon.icon-card2{
 
 .login_f .list-block input {
     padding-left : 5px;
+    color: #fff;
+}
+.login_f .backpwd{
+    padding: 1em;
+    font-size: .8em;
+    text-align: right;
     color: #fff;
 }
 
