@@ -227,7 +227,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/traffic/t_bindcard_normal.png",//点击前图标
                             "afterImg"  : "config/html/images/wispui/traffic/t_bindcard_hover.png", //点击时图标
                             "disableImg": "config/html/images/wispui/jzbd_dis.png",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "测试",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
