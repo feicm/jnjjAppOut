@@ -25,6 +25,7 @@ $(function () {
         "ip_c_phone"              : $('#c_phone'),
         "ip_c_sfzh"               : $('#c_sfzh'),
         "saveBtn"                 : $('#save'),
+        "progressDialog"          : null,
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -109,10 +110,57 @@ $(function () {
                     "inputs"      : $('.J_btnHighlightWithInput input'),
                     "hoverClass"  : 'ui_btn_01_hover',
                     "disableClass": 'ui_btn_01_disable'
-                }, function (btn) {
-                    //更新数据
+                }, function (btn) {//按钮可用后回调
+                    btn.on('click', function () {
+                        _self.updataInfo(btn);
+                    })
                 });
             }
+        },
+        "updataInfo"              : function (btn) {
+            var _self = this;
+            var _url = PreQuestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
+            var _params = {
+                "registerName": _self.App_userName,
+                "phonenum"    : _self.ip_phone.val(),
+                "movecarname" : _self.ip_m_name.val(),
+                "movecarphone": _self.ip_m_phone.val()
+            };
+            btn.off('click');//事件移除
+            _self.progressDialog = App.UI('dialog', {msg: '保存中，请稍后！'});
+            App.getAjaxData(_url, _params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    _self.saveBtn.on('click', function () {//事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                    return;
+                }
+                var msg = data.userUpdateResponse;
+                _self.progressDialog.remove();
+                if ( msg ) {
+                    console.log('更新成功！');
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '公众服务平台',
+                        msg  : '保存成功！'
+                    });
+                    //新数据写入localStorage
+                    App.LS.set("App_moveCar_Name",_self.ip_m_name.val());
+                    App.LS.set("App_moveCar_phoneNum",_self.ip_m_phone.val());
+                    _self.saveBtn.on('click',function () { //事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                } else {
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '公众服务平台',
+                        msg  : '保存失败！'
+                    });
+                    _self.saveBtn.on('click',function () { //事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                }
+            });
         },
         "openPage"                : function (mode) {
             var _self = this;
