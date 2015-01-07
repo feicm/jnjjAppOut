@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
+    <style>
+    ::-webkit-input-placeholder{
+        color: #fff;
+    }
+    </style>
 <body>
 <form class="login_f" action="" method="post" id="login_form">
     <div class="app_ico">
