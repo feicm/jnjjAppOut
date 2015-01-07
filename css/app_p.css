@@ -12,9 +12,6 @@ div, ul, li, input, a, p, form, section{
 body {
     background : #F6F6F6;
 }
-::-webkit-input-placeholder{
-    color: #fff;
-}
 .ovh {
     overflow : hidden;
 }
