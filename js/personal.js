@@ -6,9 +6,6 @@ $(function () {
      + jnjjApp.config.requestUrl
      + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
     console.log('username：' + App.LS.get('App_userName'));
-    var PageId = App.getPageId(window.location.href);
-    var module = $('.c').data('mode');//模块名获取
-    App.LS.set(module, PageId);//pageid 写入localstorage
     //个人信息对象
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
@@ -27,6 +24,7 @@ $(function () {
         "ip_c_name"               : $('#c_name'),
         "ip_c_phone"              : $('#c_phone'),
         "ip_c_sfzh"               : $('#c_sfzh'),
+        "saveBtn"                 : $('#save'),
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -46,14 +44,15 @@ $(function () {
         "PageId_lv"               : (new Date()).getTime(),
         "init"                    : function (opts) {
             this.list = opts.list;
-            this.renderPersonalInfoPage();
-            this.bindEvent();
+            this.mode = opts.mode;
+            this.renderPersonalInfoPage(this.mode);
+            this.bindEvent(this.mode);
             return this;
         },
         //渲染个人信息页
-        "renderPersonalInfoPage"  : function () {
+        "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
-            if ( _self.ip_username.length ) {//个人中心
+            if ( mode === 'personalinfo' ) {//个人中心
                 _self.ip_username.text(_self.App_userName);//用户名
                 _self.ip_name.text(_self.App_name);//姓名
                 _self.ip_photo.attr('src', _self.App_userImage);
@@ -73,32 +72,47 @@ $(function () {
                     _self.ip_closer.text(_self.App_closeUser_Name);
                 }
             }
-            if ( _self.ip_m_name.length && _self.App_moveCar_Name !== 'null' ) {//移车联系人
-                _self.ip_m_name.val(_self.App_moveCar_Name);
-                _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
+            if ( mode === 'p_moveContacts' ) {//移车联系人
+                if ( _self.App_moveCar_Name !== 'null' ) {
+                    _self.ip_m_name.val(_self.App_moveCar_Name);
+                    _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
+                }
             }
-            if ( _self.ip_c_name.length && _self.App_closeUser_Name !== 'null' ) {//密切联系人
-                _self.ip_c_name.val(_self.App_closeUser_Name);
-                _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
-                _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
+            if ( mode === 'p_closeContacts' ) {//密切联系人
+                if ( _self.App_closeUser_Name !== 'null' ) {
+                    _self.ip_c_name.val(_self.App_closeUser_Name);
+                    _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
+                    _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
+                }
             }
         },
-        "bindEvent"               : function () {
+        "bindEvent"               : function (mode) {
             var _self = this;
             var _list = _self.list;
-            _list.each(function (index) {
-                var $this = $(this);
-                var _mode = $this.data('rel');
-                if ( _mode !== undefined ) {
-                    $this.on('click', function () {
-                        _self.openPage(_mode);
-                    });
-                    App.UI('buttonHover', {//添加按钮点击效果
-                        "dom"           : $this,
-                        "hoverClassName": 'ui_btn_list_01_hover'
-                    });
-                }
-            });
+            if ( mode === 'personalinfo' ) {
+                _list.each(function (index) {
+                    var $this = $(this);
+                    var _mode = $this.data('rel');
+                    if ( _mode !== undefined ) {
+                        $this.on('click', function () {
+                            _self.openPage(_mode);
+                        });
+                        App.UI('buttonHover', {//添加按钮点击效果
+                            "dom"           : $this,
+                            "hoverClassName": 'ui_btn_list_01_hover'
+                        });
+                    }
+                });
+            } else {
+                App.UI('btnHighlightWithInput', {
+                    "btn"         : _self.saveBtn,
+                    "inputs"      : $('.J_btnHighlightWithInput input'),
+                    "hoverClass"  : 'ui_btn_01_hover',
+                    "disableClass": 'ui_btn_01_disable'
+                }, function (btn) {
+                    //更新数据
+                });
+            }
         },
         "openPage"                : function (mode) {
             var _self = this;
@@ -120,8 +134,12 @@ $(function () {
             }
         }
     };
+    var PageId = App.getPageId(window.location.href);
+    var module = $('.c').data('mode');//模块名获取
+    App.LS.set(module, PageId);//pageid 写入localstorage
     var oPersonal = Personal.init({
-        "list": $('.list-block li')
+        "list": $('.list-block li'),
+        "mode": module
     });
 
     /*
@@ -130,4 +148,5 @@ $(function () {
     App.UI('inputClose', {//个人资料页面切换效果
         "doms": $('.list-block')
     });
+
 })

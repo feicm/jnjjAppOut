@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-<form class="rigister_f" action="" method="post" id="personalinfo_form">
-    <div class="list-block">
+<form class="rigister_f c" action="" data-mode="p_closeContacts" method="post">
+    <div class="list-block J_btnHighlightWithInput">
         <ul>
             <li>
                 <div class="item-content">
@@ -47,6 +47,11 @@
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="ft w100">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="save">
+            保存
+        </a>
     </div>
 </form>
 </body>
