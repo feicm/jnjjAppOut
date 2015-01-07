@@ -51,7 +51,7 @@ $(function () {
             var _self = this;
             if(_self.mode==='personalinfo'){
                 _self.interval = setInterval(function () {
-                    _self.renderPersonalInfoPage(_self.mode);
+                    _self.renderPersonalInfoPage('personalinfo');
                 }, 1000);
             }else{
                 _self.renderPersonalInfoPage(_self.mode);
@@ -136,7 +136,10 @@ $(function () {
                 }, function (btn) {//按钮可用后回调
                     btn.on('click', function () {
                         _self.updataInfo(btn);
-                    })
+                    });
+                    _self.interval = setInterval(function () {//重新开启定时器
+                        _self.renderPersonalInfoPage('personalinfo');
+                    }, 1000);
                 });
             }
         },
