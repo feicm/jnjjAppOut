@@ -64,7 +64,10 @@ $(function () {
             var _self = this;
             var i=0;
             console.log(i++);
-            App.LS.get('p_hasUpdate') === 'true' ? _self.isUpdate = true : null;
+            if(App.LS.get('p_hasUpdate') === 'true'){
+                _self.isUpdate = true;
+                _self.App_moveCar_Name=App.LS.get("App_moveCar_Name");
+            }
             if ( _self.isUpdate ) {
                 if ( mode === 'personalinfo' ) {//个人中心
                     _self.ip_username.text(_self.App_userName);//用户名
