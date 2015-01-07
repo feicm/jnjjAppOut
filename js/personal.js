@@ -86,7 +86,6 @@ $(function () {
                         _self.ip_mover.text(_self.App_moveCar_Name);
                         if(App.LS.get('p_hasUpdate') === 'true'){
                             setTimeout(function(){
-                                window.clearInterval(_self.interval);//清除定时器
                                 App.LS.set('p_hasUpdate','false');
                             },1000)
                         }
@@ -140,9 +139,6 @@ $(function () {
                     btn.on('click', function () {
                         _self.updataInfo(btn);
                     });
-                    _self.interval = setInterval(function () {//重新开启定时器
-                        _self.renderPersonalInfoPage('personalinfo');
-                    }, 1000);
                 });
             }
         },
