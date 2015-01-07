@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
     <meta content="telephone=no,email=no" name="format-detection"/>
     <title>密切联系人</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/app_p.css">
+    <link rel="stylesheet" href="config/html/css/reset.css">
+    <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
 <form class="rigister_f" action="" method="post" id="personalinfo_form">
@@ -50,9 +50,9 @@
     </div>
 </form>
 </body>
-<!--<script src="js/zepto.min.js"></script>
-<script src="js/WISPComponents_v3.0.js"></script>
-<script src="js/appConfig.js"></script>
-<script src="js/common.js"></script>
-<script src="js/personal.js"></script>-->
+    <script src="config/html/js/zepto.min.js"></script>
+    <script src="config/html/js/WISPComponents_v3.0.js"></script>
+    <script src="config/html/js/appConfig.js"></script>
+    <script src="config/html/js/common.js"></script>
+    <script src="config/html/js/personal.js"></script>
 </html>

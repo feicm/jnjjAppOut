@@ -76,7 +76,7 @@ $(function () {
             _list.each(function (index) {
                 var $this = $(this);
                 var _mode = $this.data('rel');
-                if ( _mode !== 'undefined' ) {
+                if ( _mode !== undefined ) {
                     $this.on('click', function () {
                         _self.openPage(_mode);
                     })
