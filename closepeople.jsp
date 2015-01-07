@@ -30,7 +30,7 @@
                     <div class="item-inner">
                         <div class="item-title label">手 机</div>
                         <div class="item-input">
-                            <input id="c_phone" data-type="cnuser" class="tr" type="text" placeholder="+添加">
+                            <input id="c_phone" data-type="mobile" class="tr" type="text" placeholder="+添加">
                         </div>
                     </div>
                 </div>
