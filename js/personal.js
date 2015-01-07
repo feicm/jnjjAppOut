@@ -49,9 +49,13 @@ $(function () {
             this.list = opts.list;
             this.mode = opts.mode;
             var _self = this;
-            this.interval = setInterval(function () {
+            if(_self.mode==='personalinfo'){
+                this.interval = setInterval(function () {
+                    _self.renderPersonalInfoPage(_self.mode);
+                }, 1000);
+            }else{
                 _self.renderPersonalInfoPage(_self.mode);
-            }, 1000);
+            }
             this.bindEvent(this.mode);
             return this;
         },
