@@ -2,7 +2,7 @@ $(function () {
     /*
      * 列表
      * */
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var PageId_lv02 = (new Date()).getTime();
     var pageId = App.getPageId(window.location.href);
     var urlPre = 'adapter?open&url=';
