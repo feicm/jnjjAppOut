@@ -60,8 +60,12 @@ $(function () {
             _self.ip_idnum.text(_self.App_identityId);
             _self.ip_email.val(_self.App_email);
             _self.ip_time.text(_self.App_registerTime);
-            _self.App_moveCar_Name && _self.ip_mover.text(_self.App_moveCar_Name);
-            _self.App_closeUser_Name && _self.ip_closer.text(_self.App_closeUser_Name);
+            if ( _self.App_moveCar_Name !== 'null' ) {
+                _self.ip_mover.text(_self.App_moveCar_Name);
+            }
+            if ( _self.App_closeUser_Name !== 'null' ) {
+                _self.ip_closer.text(_self.App_closeUser_Name);
+            }
         },
         "bindEvent"               : function () {
             var _self = this;
