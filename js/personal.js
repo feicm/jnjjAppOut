@@ -86,6 +86,7 @@ $(function () {
                         _self.ip_mover.text(_self.App_moveCar_Name);
                         if(App.LS.get('p_hasUpdate') === 'true'){
                             window.clearInterval(_self.interval);//清除定时器
+                            App.LS.set('p_hasUpdate','false');
                         }
                         _self.isUpdate=false;
                     }
