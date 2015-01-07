@@ -111,6 +111,10 @@ $(function () {
                     "disableClass": 'ui_btn_01_disable'
                 }, function (btn) {
                     //更新数据
+                    App.UI('buttonHover', {//添加按钮点击效果
+                        "dom"           : btn,
+                        "hoverClassName": 'ui_btn_list_01_hover'
+                    });
                 });
             }
         },
