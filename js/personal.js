@@ -64,11 +64,11 @@ $(function () {
             var _self = this;
             var i=0;
             console.log(i++);
-            if(App.LS.get('p_hasUpdate') === 'true'){
+            if(App.LS.get('p_hasUpdate') === 'true'){//监听localstorage中的 更新标识
                 _self.isUpdate = true;
                 _self.App_moveCar_Name=App.LS.get("App_moveCar_Name");
             }
-            if ( _self.isUpdate ) {
+            if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
                 if ( mode === 'personalinfo' ) {//个人中心
                     _self.ip_username.text(_self.App_userName);//用户名
                     _self.ip_name.text(_self.App_name);//姓名
@@ -85,11 +85,9 @@ $(function () {
                     if ( _self.App_moveCar_Name !== 'null' ) {
                         _self.ip_mover.text(_self.App_moveCar_Name);
                         if(App.LS.get('p_hasUpdate') === 'true'){
-                            setTimeout(function(){
-                                App.LS.set('p_hasUpdate','false');
-                            },1000)
+                            App.LS.set('p_hasUpdate','false');//重置 p_hasUpdate
                         }
-                        _self.isUpdate=false;
+                        _self.isUpdate=false;//设置更新触发标识为 false
                     }
                     if ( _self.App_closeUser_Name !== 'null' ) {
                         _self.ip_closer.text(_self.App_closeUser_Name);
