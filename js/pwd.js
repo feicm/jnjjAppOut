@@ -1,7 +1,7 @@
 $(function () {
     console.log('module pwd js');
     //var userName = App.Cookie.GetCookie('username');
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var backpwdMethonSelect = $('#backpwd_methon'); //找回密码——下拉
     var backpwdBtn = $('#backpwd_btn');//找回密码——提交按钮
     var repwdBtn = $('#repwd_btn'); //密码修改--提交按钮

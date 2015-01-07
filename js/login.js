@@ -16,7 +16,7 @@ $(function () {
         "footbarDatas"           : jnjjApp.footbarDatas, //客户端ui数据 页脚
         "siderDatas"             : jnjjApp.siderDatas,//客户端ui数据 个人中心
         "roleId"                 : '0001',//角色标识 默认0001
-        "username"               : App.LS.get('username') || '', //用户名
+        "username"               : App.LS.get('App_userName') || '', //用户名
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "progressDialog"         : null,
@@ -202,14 +202,8 @@ $(function () {
                 _setname = $('#setname').val(),//设置姓名
                 _setphone = $('#setphone').val(),//设置手机号
                 _setidnum = $('#setidnum').val(), //设置身份证号
-            /*_yclxxm = $('#yclxxm').val(), //设置移车联系人姓名
-             _yclxdh = $('#yclxdh').val(), //设置移车联系人电话
-             _setemail = $('#setemail').val(), //设置邮箱
-             _mqlxrxm = $('#mqlxrxm').val(), //设置密切联系人姓名
-             _mqlxrdh = $('#mqlxrdh').val(), //设置密切联系人电话
-             _mqlxrsfzh = $('#mqlxrsfzh').val(), //设置密切联系人身份证号*/
                 _roleId = _self.roleId,
-                _opts = {},
+                _opts,
                 _params;//注册表单提交参数对象
             _opts = {
                 "username": $('#setusername'),//用户名
@@ -237,15 +231,8 @@ $(function () {
                     "password"    : _setpwd_02,
                     "identityId"  : _setidnum,
                     "phoneNum"    : _setphone,
-                    /*"email"          : _setemail || '',
-                     "moveCarName "   : _yclxxm || '',
-                     "moveCarPhone"   : _yclxdh || '',
-                     "closeUserName"  : _mqlxrxm || '',
-                     "closeIdentityId": _mqlxrsfzh || '',
-                     "closePhoneNum"  : _mqlxrdh || '',*/
                     "roleId"      : _roleId
                 };
-                //Wisp.UI.progressDialog.show('注册中，请稍后！');
                 _self.progressDialog = App.UI('dialog', {msg: '注册中，请稍后！'});
                 //提交表单
                 App.getAjaxData(_self.rigisterRequestUrl, _params, function (data) {
@@ -271,6 +258,7 @@ $(function () {
                             }
                             if ( action === 'CANCEL' ) {
                                 window.open(_self.loginPageUrl);
+                                //TODO 关闭当前webview
                             }
                         });
                         _self.bindEvent(_btn, 'rigisterSubmit');
@@ -324,6 +312,7 @@ $(function () {
                 var msg = data.userCenterResponse;
                 if ( msg ) {
                     _self.userInfoSuccessCallback(msg);
+                    _self.saveInfo(msg);//保存个人信息
                     _self.bindEvent(_btn, 'login');
                 } else {
                     //Wisp.UI.progressDialog.remove();
@@ -364,6 +353,21 @@ $(function () {
                 _data[i].enable === 'false' ? _data[i].enable = 'true' : true;
             }
         },
+        //保存用户信息
+        "saveInfo"              : function (data) {
+            App.LS.set("App_userName", data.registerName);//用户名
+            App.LS.set("App_name", data.userName);//姓名
+            App.LS.set("App_identityId", data.identityId);//姓名
+            App.LS.set("App_userImage", data.userImage); //头像地址
+            App.LS.set("App_phoneNum", data.phoneNum);//手机号
+            App.LS.set("App_email", data.email); //邮箱
+            App.LS.set("App_registerTime", data.registerTime);//注册时间
+            App.LS.set("App_moveCar_Name", data.moveCarName);//移车联系人姓名
+            App.LS.set("App_moveCar_phoneNum", data.moveCarPhone);//移车联系人电话
+            App.LS.set("App_closeUser_Name", data.closeUserName); //密切联系人姓名
+            App.LS.set("App_closeUser_PhoneNum", data.closePhoneNum);//密切联系人电话
+            App.LS.set("App_closeUser_IdentityId", data.closeIdentityId);//密切联系人身份证号
+        },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
             var _self = this;
@@ -380,7 +384,6 @@ $(function () {
             //Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
             _self.progressDialog.remove();
             Wisp.UI.loginResult.success();
-            App.LS.set('username', this.username);
         },
         /*
          * 刷新更多视图数据函数

@@ -3,7 +3,7 @@ $(function () {
      * 考试预约查询、考试成绩查询
      * */
     //var userName = App.Cookie.GetCookie('username');
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var identityTypeRequestUrl = urlPre
         + jnjjApp.config.requestUrl

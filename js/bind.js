@@ -2,7 +2,7 @@ $(function () {
     /*
      * 绑定模块
      * */
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var pageId=App.getPageId(window.location.href);
     var curWebView=Wisp.UI.Webview.init({
         PageId:pageId

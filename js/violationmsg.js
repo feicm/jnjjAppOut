@@ -1,5 +1,5 @@
 $(function () {
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl

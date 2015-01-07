@@ -2,7 +2,7 @@ $(function () {
     /*
      * 年检预约
      * */
-    var userName = App.LS.get('username');
+    var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var ksyytjRequestUrl = urlPre
         + jnjjApp.config.requestUrl
