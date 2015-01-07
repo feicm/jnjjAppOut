@@ -46,7 +46,9 @@ $(function () {
         "init"                    : function (opts) {
             this.list = opts.list;
             this.mode = opts.mode;
-            this.renderPersonalInfoPage(this.mode);
+            setTimeout(function(){
+                this.renderPersonalInfoPage(this.mode);
+            },1000)
             this.bindEvent(this.mode);
             return this;
         },
