@@ -145,9 +145,9 @@ $(function () {
             var _url = PreQuestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
             var _params = {
                 "registerName": _self.App_userName,
-                "phonenum"    : _self.ip_phone.val(),
-                "movecarname" : _self.ip_m_name.val(),
-                "movecarphone": _self.ip_m_phone.val()
+                "phonenum"    : _self.ip_phone.val()||_self.App_phoneNum,
+                "movecarname" : _self.ip_m_name.val()||_self.App_moveCar_Name,
+                "movecarphone": _self.ip_m_phone.val()||_self.App_moveCar_phoneNum
             };
             btn.off('click');//事件移除
             _self.progressDialog = App.UI('dialog', {msg: '保存中，请稍后！'});
