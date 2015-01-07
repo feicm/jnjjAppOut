@@ -19,7 +19,7 @@
                 <div class="item-inner">
                     <div class="item-title label">姓 名</div>
                     <div class="item-input">
-                        <input id="m_name" class="tr" type="text" placeholder="+添加">
+                        <input id="m_name" date-type="cnuser" class="tr" type="text" placeholder="+添加">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="item-inner">
                     <div class="item-title label">手 机</div>
                     <div class="item-input">
-                        <input id="m_phone" class="tr" type="text" placeholder="+添加">
+                        <input id="m_phone" date-type="mobile" class="tr" type="text" placeholder="+添加">
                     </div>
                 </div>
             </div>

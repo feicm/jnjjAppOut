@@ -19,7 +19,7 @@
                     <div class="item-inner">
                         <div class="item-title label">姓 名</div>
                         <div class="item-input">
-                            <input id="c_name" class="tr" type="text" placeholder="+添加">
+                            <input id="c_name" date-type="cnuser" class="tr" type="text" placeholder="+添加">
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="item-inner">
                         <div class="item-title label">手 机</div>
                         <div class="item-input">
-                            <input id="c_phone" class="tr" type="text" placeholder="+添加">
+                            <input id="c_phone" date-type="cnuser" class="tr" type="text" placeholder="+添加">
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="item-inner">
                         <div class="item-title label">身份证号</div>
                         <div class="item-input">
-                            <input id="c_sfzh" class="tr" type="text" placeholder="+添加">
+                            <input id="c_sfzh" date-type="card" class="tr" type="text" placeholder="+添加">
                         </div>
                     </div>
                 </div>
