@@ -67,7 +67,7 @@ $(function () {
                 if ( mode === 'personalinfo' ) {//个人中心
                     _self.ip_username.text(_self.App_userName);//用户名
                     _self.ip_name.text(_self.App_name);//姓名
-                    _self.ip_photo.attr('src', _self.App_userImage);
+                    //_self.ip_photo.attr('src', _self.App_userImage);
                     if ( _self.getGender(_self.App_identityId) ) {
                         _self.ip_gender.addClass('icon-user-men')
                     } else {
@@ -80,7 +80,7 @@ $(function () {
                     if ( _self.App_moveCar_Name !== 'null' ) {
                         _self.ip_mover.text(_self.App_moveCar_Name);
                         if(App.LS.get('p_hasUpdate') === 'true'){
-                            _self.interval.clearInterval();//清除定时器
+                            window.clearInterval(_self.interval);//清除定时器
                         }
                         _self.isUpdate=false;
                     }
