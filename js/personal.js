@@ -27,7 +27,7 @@ $(function () {
         "saveBtn"                 : $('#save'),
         "progressDialog"          : null,//状态框
         "interval"                : null,//定时器
-        "isUpdate"                : false,//更新标识
+        "isUpdate"                : true,//更新标识
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -58,37 +58,35 @@ $(function () {
         //渲染个人信息页
         "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
-            if(!_self.isUpdate){
-                if ( App.LS.get('p_hasUpdate') === 'false' ) {
-                    _self.isUpdate=true;
-                    if ( mode === 'personalinfo' ) {//个人中心
-                        _self.ip_username.text(_self.App_userName);//用户名
-                        _self.ip_name.text(_self.App_name);//姓名
-                        _self.ip_photo.attr('src', _self.App_userImage);
-                        if ( _self.getGender(_self.App_identityId) ) {
-                            _self.ip_gender.addClass('icon-user-men')
-                        } else {
-                            _self.ip_gender.addClass('icon-user-women')
-                        }
-                        _self.ip_phone.text(_self.App_phoneNum);
-                        _self.ip_idnum.text(_self.App_identityId);
-                        _self.ip_email.val(_self.App_email);
-                        _self.ip_time.text(_self.App_registerTime);
-                        if ( _self.App_moveCar_Name !== 'null' ) {
-                            _self.ip_mover.text(_self.App_moveCar_Name);
-                            if ( App.LS.get('p_hasUpdate') === 'true' ) {
-                                _self.interval.clearInterval();//清除定时器
-                            }
-                        }
-                        if ( _self.App_closeUser_Name !== 'null' ) {
-                            _self.ip_closer.text(_self.App_closeUser_Name);
-                        }
+            App.LS.get('p_hasUpdate') === 'true' ? _self.isUpdate = true : null;
+            if ( _self.isUpdate ) {
+                if ( mode === 'personalinfo' ) {//个人中心
+                    _self.ip_username.text(_self.App_userName);//用户名
+                    _self.ip_name.text(_self.App_name);//姓名
+                    _self.ip_photo.attr('src', _self.App_userImage);
+                    if ( _self.getGender(_self.App_identityId) ) {
+                        _self.ip_gender.addClass('icon-user-men')
+                    } else {
+                        _self.ip_gender.addClass('icon-user-women')
                     }
-                } else {
-                    return false;
+                    _self.ip_phone.text(_self.App_phoneNum);
+                    _self.ip_idnum.text(_self.App_identityId);
+                    _self.ip_email.val(_self.App_email);
+                    _self.ip_time.text(_self.App_registerTime);
+                    if ( _self.App_moveCar_Name !== 'null' ) {
+                        _self.ip_mover.text(_self.App_moveCar_Name);
+                        if(App.LS.get('p_hasUpdate') === 'true'){
+                            _self.interval.clearInterval();//清除定时器
+                        }
+                        _self.isUpdate=false;
+                    }
+                    if ( _self.App_closeUser_Name !== 'null' ) {
+                        _self.ip_closer.text(_self.App_closeUser_Name);
+                    }
                 }
+            }else{
+                return false;
             }
-
             if ( mode === 'p_moveContacts' ) {//移车联系人
                 if ( _self.App_moveCar_Name !== 'null' ) {
                     _self.ip_m_name.val(_self.App_moveCar_Name);
