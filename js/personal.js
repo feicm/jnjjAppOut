@@ -53,7 +53,7 @@ $(function () {
         //渲染个人信息页
         "renderPersonalInfoPage"  : function () {
             var _self = this;
-            if(_self.ip_username.length){//个人中心
+            if ( _self.ip_username.length ) {//个人中心
                 _self.ip_username.text(_self.App_userName);//用户名
                 _self.ip_name.text(_self.App_name);//姓名
                 _self.ip_photo.attr('src', _self.App_userImage);
@@ -73,11 +73,11 @@ $(function () {
                     _self.ip_closer.text(_self.App_closeUser_Name);
                 }
             }
-            if(_self.ip_m_name.length){//移车联系人
+            if ( _self.ip_m_name.length && _self.App_moveCar_Name !== 'null' ) {//移车联系人
                 _self.ip_m_name.val(_self.App_moveCar_Name);
                 _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
             }
-            if(_self.ip_c_name.length){//密切联系人
+            if ( _self.ip_c_name.length && _self.App_closeUser_Name !== 'null' ) {//密切联系人
                 _self.ip_c_name.val(_self.App_closeUser_Name);
                 _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
                 _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
