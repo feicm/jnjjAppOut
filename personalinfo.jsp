@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-<form class="rigister_f" action="" method="post" id="personalinfo_form">
+<form class="rigister_f c" action="" method="post" data-mode="personalinfo">
     <div class="list-block">
         <ul>
             <li>

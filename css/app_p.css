@@ -183,9 +183,11 @@ body {
     margin: 0 auto;
     width: 80%;
 }
-.ui_btn_03_hover{
+.ui_btn_03_hover,
+.ui_btn_list_01_hover{
     background: #eee;
 }
+
 .ft {
     padding-left  : .5em;
     padding-right : .5em;
