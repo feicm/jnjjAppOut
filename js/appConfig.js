@@ -395,8 +395,8 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "",//点击前图标
-                            "afterImg"  : "", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/my/m_repwd.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/my/m_repwd.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "密码修改",
