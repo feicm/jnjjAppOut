@@ -79,17 +79,11 @@ $(function () {
                 if ( _mode !== undefined ) {
                     $this.on('click', function () {
                         _self.openPage(_mode);
-                    })
-                    $this.on('touchstart', function () {
-                        $(this).addClass('ui_btn_list_01_hover');
                     });
-                    $this.on('touchend', function () {
-                        $(this).removeClass('ui_btn_list_01_hover');
-                    });
-                    /*App.UI('buttonHover', {//添加按钮点击效果
+                    App.UI('buttonHover', {//添加按钮点击效果
                         "dom"           : $this,
                         "hoverClassName": 'ui_btn_list_01_hover'
-                    });*/
+                    });
                 }
             });
         },
