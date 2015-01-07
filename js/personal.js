@@ -50,7 +50,7 @@ $(function () {
             this.mode = opts.mode;
             var _self = this;
             if(_self.mode==='personalinfo'){
-                this.interval = setInterval(function () {
+                _self.interval = setInterval(function () {
                     _self.renderPersonalInfoPage(_self.mode);
                 }, 1000);
             }else{
