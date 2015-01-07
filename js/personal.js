@@ -62,6 +62,8 @@ $(function () {
         //渲染个人信息页
         "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
+            var i=0;
+            console.log(i++);
             App.LS.get('p_hasUpdate') === 'true' ? _self.isUpdate = true : null;
             if ( _self.isUpdate ) {
                 if ( mode === 'personalinfo' ) {//个人中心
