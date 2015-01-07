@@ -50,7 +50,7 @@ $(function () {
             this.mode = opts.mode;
             var _self = this;
             if(_self.mode==='personalinfo'){
-                _self.interval = setInterval(function () {
+                _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
                     _self.renderPersonalInfoPage('personalinfo');
                 }, 1000);
             }else{
