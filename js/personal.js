@@ -2,18 +2,16 @@ $(function () {
     /*
      * 个人信息
      * */
-    var moveContacts = $('#moveContacts');//移车联系人信息
-    var closeContacts = $('#closeContacts');//密切联系人信息
-    var urlPre = 'adapter?open&url=';
-    var userinfoRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/getUserInfo.json';//用户信息请求地址
-    var edituserinfoRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/updUserInfo.json';//用户信息修改请求地址
+    /*var edituserinfoRequestUrl = urlPre
+     + jnjjApp.config.requestUrl
+     + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
     console.log('username：' + App.LS.get('username'));
+    var PageId = App.getPageId(window.location.href);
+    var module = $('.c').data('mode');//模块名获取
+    App.LS.set(module, PageId);//pageid 写入localstorage
     //个人信息对象
     var Personal = {
+        "preQuestUrl"           : 'adapter?open&url=' + jnjjApp.config.requestUrl,
         "userName"              : App.LS.get('username'),
         "ip_username"           : $('#username'),
         "ip_name"               : $('#name'),
@@ -25,15 +23,21 @@ $(function () {
         "ip_time"               : $('#time'),
         "ip_mover"              : $('#mover'),
         "ip_closer"             : $('#closer'),
+        "urlRouter"             : {
+            "p_moveContacts" : "movecarpeople.jsp", //移车联系人页面
+            "p_closeContacts": "closepeople.jsp" //密切联系人页面
+        },
+        "PageId_lv"                : (new Date()).getTime(),
         "init"                  : function (opts) {
             this.list = opts.list;
             this.oInit();
-            this.bindEvent(this.mode);
+            this.bindEvent();
             return this;
         },
         "oInit"                 : function () {//请求用户信息
             var _self = this;
-            App.getAjaxData(userinfoRequestUrl, {
+            var _url = _self.preQuestUrl + '/jnpublic/getUserInfo.json';
+            App.getAjaxData(_url, {
                 "registerName": _self.userName
             }, function (data) {//用户信息请求回调
                 var msg = data.userCenterResponse;
@@ -66,11 +70,29 @@ $(function () {
             data.moveCarName && _self.ip_mover.text(data.moveCarName);
             data.closeUserName && _self.ip_closer.text(data.closeUserName);
         },
-        "bindEvent"             : function (mode) {
+        "bindEvent"             : function () {
             var _self = this;
+            var _list = _self.list;
+            _list.each(function (index) {
+                var $this = $(this);
+                var _mode = $this.data('rel');
+                if ( _mode !== 'undefined' ) {
+                    $this.on('click', function () {
+                        _self.openPage(_mode);
+                    })
+                    App.UI('buttonHover', {//添加按钮点击效果
+                        "dom"           : $this,
+                        "hoverClassName": 'ui_btn_list_01_hover'
+                    });
+                }
+            });
         },
-        "getModeName"           : function (item) {
-            return item.data('rel');
+        "openPage"              : function (mode) {
+            var _self = this;
+            var _pageUrl = _self.preQuestUrl
+                + '/jnpublic/config/html/' + _self.urlRouter[mode] + '&@@webViewPageId='
+                + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
+            window.open(_pageUrl);
         },
         "updataItemVal"         : function (mode) {
 

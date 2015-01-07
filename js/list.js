@@ -284,7 +284,7 @@ $(function () {
             });
         }
     };
-    var module = $('.c').attr('data-mode');//模块名获取
+    var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, pageId);//pageid 写入localstorage
     if ( module === 'car' ) { //车辆列表
         var goCarbindpage = $('#go_carbindpage');
