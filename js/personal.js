@@ -53,6 +53,8 @@ $(function () {
                 this.interval = setInterval(function () {
                     _self.renderPersonalInfoPage(_self.mode);
                 }, 1000);
+            }else{
+                _self.renderPersonalInfoPage(_self.mode);
             }
             this.bindEvent(this.mode);
             return this;
