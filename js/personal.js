@@ -80,10 +80,16 @@ $(function () {
                     $this.on('click', function () {
                         _self.openPage(_mode);
                     })
-                    App.UI('buttonHover', {//添加按钮点击效果
+                    $this.on('touchstart', function () {
+                        $(this).addClass('ui_btn_list_01_hover');
+                    });
+                    $this.on('touchend', function () {
+                        $(this).removeClass('ui_btn_list_01_hover');
+                    });
+                    /*App.UI('buttonHover', {//添加按钮点击效果
                         "dom"           : $this,
                         "hoverClassName": 'ui_btn_list_01_hover'
-                    });
+                    });*/
                 }
             });
         },
