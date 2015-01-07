@@ -185,7 +185,7 @@ body {
 }
 .ui_btn_03_hover,
 .ui_btn_list_01_hover{
-    background: #eee;
+    background: #eee !important;
 }
 
 .ft {
