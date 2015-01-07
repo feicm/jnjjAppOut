@@ -21,7 +21,12 @@ $(function () {
         "ip_email"                : $('#email'),
         "ip_time"                 : $('#time'),
         "ip_mover"                : $('#mover'),
+        "ip_m_name"               : $('#m_name'),
+        "ip_m_phone"              : $('#m_phone'),
         "ip_closer"               : $('#closer'),
+        "ip_c_name"               : $('#c_name'),
+        "ip_c_phone"              : $('#c_phone'),
+        "ip_c_sfzh"               : $('#c_sfzh'),
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -48,23 +53,34 @@ $(function () {
         //渲染个人信息页
         "renderPersonalInfoPage"  : function () {
             var _self = this;
-            _self.ip_username.text(_self.App_userName);//用户名
-            _self.ip_name.text(_self.App_name);//姓名
-            _self.ip_photo.attr('src', _self.App_userImage);
-            if ( _self.getGender(_self.App_identityId) ) {
-                _self.ip_gender.addClass('icon-user-men')
-            } else {
-                _self.ip_gender.addClass('icon-user-women')
+            if(_self.ip_username.length){//个人中心
+                _self.ip_username.text(_self.App_userName);//用户名
+                _self.ip_name.text(_self.App_name);//姓名
+                _self.ip_photo.attr('src', _self.App_userImage);
+                if ( _self.getGender(_self.App_identityId) ) {
+                    _self.ip_gender.addClass('icon-user-men')
+                } else {
+                    _self.ip_gender.addClass('icon-user-women')
+                }
+                _self.ip_phone.text(_self.App_phoneNum);
+                _self.ip_idnum.text(_self.App_identityId);
+                _self.ip_email.val(_self.App_email);
+                _self.ip_time.text(_self.App_registerTime);
+                if ( _self.App_moveCar_Name !== 'null' ) {
+                    _self.ip_mover.text(_self.App_moveCar_Name);
+                }
+                if ( _self.App_closeUser_Name !== 'null' ) {
+                    _self.ip_closer.text(_self.App_closeUser_Name);
+                }
             }
-            _self.ip_phone.text(_self.App_phoneNum);
-            _self.ip_idnum.text(_self.App_identityId);
-            _self.ip_email.val(_self.App_email);
-            _self.ip_time.text(_self.App_registerTime);
-            if ( _self.App_moveCar_Name !== 'null' ) {
-                _self.ip_mover.text(_self.App_moveCar_Name);
+            if(_self.ip_m_name.length){//移车联系人
+                _self.ip_m_name.val(_self.App_moveCar_Name);
+                _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
             }
-            if ( _self.App_closeUser_Name !== 'null' ) {
-                _self.ip_closer.text(_self.App_closeUser_Name);
+            if(_self.ip_c_name.length){//密切联系人
+                _self.ip_c_name.val(_self.App_closeUser_Name);
+                _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
+                _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
             }
         },
         "bindEvent"               : function () {

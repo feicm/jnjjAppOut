@@ -18,7 +18,9 @@
                 <div class="item-media"><i class="icon icon-user"></i></div>
                 <div class="item-inner">
                     <div class="item-title label">姓 名</div>
-                    <div class="item-after">王老五</div>
+                    <div class="item-input">
+                        <input id="m_name" class="tr" type="text" placeholder="+添加">
+                    </div>
                 </div>
             </div>
         </li>
@@ -27,7 +29,9 @@
                 <div class="item-media"><i class="icon icon-phone2"></i></div>
                 <div class="item-inner">
                     <div class="item-title label">手 机</div>
-                    <div class="item-after">13452256585</div>
+                    <div class="item-input">
+                        <input id="m_phone" class="tr" type="text" placeholder="+添加">
+                    </div>
                 </div>
             </div>
         </li>
