@@ -27,7 +27,7 @@ $(function () {
             "p_moveContacts" : "movecarpeople.jsp", //移车联系人页面
             "p_closeContacts": "closepeople.jsp" //密切联系人页面
         },
-        "PageId_lv"                : (new Date()).getTime(),
+        "PageId_lv"             : (new Date()).getTime(),
         "init"                  : function (opts) {
             this.list = opts.list;
             this.oInit();
@@ -89,10 +89,11 @@ $(function () {
         },
         "openPage"              : function (mode) {
             var _self = this;
+            var _pageName = _self.urlRouter[mode];
             var _pageUrl = _self.preQuestUrl
-                + '/jnpublic/config/html/' + _self.urlRouter[mode] + '&@@webViewPageId='
+                + '/jnpublic/config/html/' + _pageName + '&@@webViewPageId='
                 + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
-            window.open(_pageUrl);
+            _pageName && window.open(_pageUrl);
         },
         "updataItemVal"         : function (mode) {
 
