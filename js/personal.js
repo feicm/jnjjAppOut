@@ -25,7 +25,8 @@ $(function () {
         "ip_c_phone"              : $('#c_phone'),
         "ip_c_sfzh"               : $('#c_sfzh'),
         "saveBtn"                 : $('#save'),
-        "progressDialog"          : null,
+        "progressDialog"          : null,//状态框
+        "interval"                : null,//定时器
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -46,35 +47,42 @@ $(function () {
         "init"                    : function (opts) {
             this.list = opts.list;
             this.mode = opts.mode;
-            var _self=this;
-            setTimeout(function(){
+            var _self = this;
+            this.interval = setInterval(function () {
                 _self.renderPersonalInfoPage(_self.mode);
-            },1000)
+            }, 1000);
             this.bindEvent(this.mode);
             return this;
         },
         //渲染个人信息页
         "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
-            if ( mode === 'personalinfo' ) {//个人中心
-                _self.ip_username.text(_self.App_userName);//用户名
-                _self.ip_name.text(_self.App_name);//姓名
-                _self.ip_photo.attr('src', _self.App_userImage);
-                if ( _self.getGender(_self.App_identityId) ) {
-                    _self.ip_gender.addClass('icon-user-men')
-                } else {
-                    _self.ip_gender.addClass('icon-user-women')
+            if ( App.LS.get('p_hasUpdate') === 'false' ) {
+                if ( mode === 'personalinfo' ) {//个人中心
+                    _self.ip_username.text(_self.App_userName);//用户名
+                    _self.ip_name.text(_self.App_name);//姓名
+                    _self.ip_photo.attr('src', _self.App_userImage);
+                    if ( _self.getGender(_self.App_identityId) ) {
+                        _self.ip_gender.addClass('icon-user-men')
+                    } else {
+                        _self.ip_gender.addClass('icon-user-women')
+                    }
+                    _self.ip_phone.text(_self.App_phoneNum);
+                    _self.ip_idnum.text(_self.App_identityId);
+                    _self.ip_email.val(_self.App_email);
+                    _self.ip_time.text(_self.App_registerTime);
+                    if ( _self.App_moveCar_Name !== 'null' ) {
+                        _self.ip_mover.text(_self.App_moveCar_Name);
+                        if ( App.LS.get('p_hasUpdate') === 'true' ) {
+                            _self.interval.clearInterval();//清除定时器
+                        }
+                    }
+                    if ( _self.App_closeUser_Name !== 'null' ) {
+                        _self.ip_closer.text(_self.App_closeUser_Name);
+                    }
                 }
-                _self.ip_phone.text(_self.App_phoneNum);
-                _self.ip_idnum.text(_self.App_identityId);
-                _self.ip_email.val(_self.App_email);
-                _self.ip_time.text(_self.App_registerTime);
-                if ( _self.App_moveCar_Name !== 'null' ) {
-                    _self.ip_mover.text(_self.App_moveCar_Name);
-                }
-                if ( _self.App_closeUser_Name !== 'null' ) {
-                    _self.ip_closer.text(_self.App_closeUser_Name);
-                }
+            } else {
+                return false;
             }
             if ( mode === 'p_moveContacts' ) {//移车联系人
                 if ( _self.App_moveCar_Name !== 'null' ) {
@@ -148,9 +156,10 @@ $(function () {
                         msg  : '保存成功！'
                     });
                     //新数据写入localStorage
-                    App.LS.set("App_moveCar_Name",_self.ip_m_name.val());
-                    App.LS.set("App_moveCar_phoneNum",_self.ip_m_phone.val());
-                    _self.saveBtn.on('click',function () { //事件绑定
+                    App.LS.set('p_hasUpdate', 'true');// 写入localstorage
+                    App.LS.set("App_moveCar_Name", _self.ip_m_name.val());
+                    App.LS.set("App_moveCar_phoneNum", _self.ip_m_phone.val());
+                    _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
                 } else {
@@ -159,7 +168,7 @@ $(function () {
                         title: '公众服务平台',
                         msg  : '保存失败！'
                     });
-                    _self.saveBtn.on('click',function () { //事件绑定
+                    _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
                 }
@@ -188,6 +197,7 @@ $(function () {
     var PageId = App.getPageId(window.location.href);
     var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, PageId);//pageid 写入localstorage
+    App.LS.set('p_hasUpdate', 'false');// 写入localstorage
     var oPersonal = Personal.init({
         "list": $('.list-block li'),
         "mode": module
