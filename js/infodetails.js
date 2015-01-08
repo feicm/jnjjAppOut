@@ -518,7 +518,7 @@ $(function () {
             return aData;
         },
         "formatTime":function(Date){
-            return Date.split('')[0];
+            return Date.split(' ')[0];
         }
     };
     if ( hash ) {
