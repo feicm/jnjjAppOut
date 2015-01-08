@@ -69,7 +69,7 @@ $(function () {
                 _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
             }
             if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
-                if ( mode === 'personalinfo' ) {//个人中心
+                if ( mode === 'personalinfo' ) {//填充个人中心
                     _self.ip_username.text(_self.App_userName);//用户名
                     _self.ip_name.text(_self.App_name);//姓名
                     //_self.ip_photo.attr('src', _self.App_userImage);
@@ -102,13 +102,13 @@ $(function () {
             } else {
                 return false;
             }
-            if ( mode === 'p_moveContacts' ) {//移车联系人
+            if ( mode === 'p_moveContacts' ) {//填充移车联系人
                 if ( _self.App_moveCar_Name !== 'null' ) {
                     _self.ip_m_name.val(_self.App_moveCar_Name);
                     _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
                 }
             }
-            if ( mode === 'p_closeContacts' ) {//密切联系人
+            if ( mode === 'p_closeContacts' ) {//填充密切联系人
                 if ( _self.App_closeUser_Name !== 'null' ) {
                     _self.ip_c_name.val(_self.App_closeUser_Name);
                     _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);

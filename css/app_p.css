@@ -532,6 +532,8 @@ i.icon.icon-card {
 }
 i.icon.icon-card2{
     background-image: url("../images/ico_card.png");
+    width: 2em;
+    height : 1.5em;
 }
 .list-block .item-input {
     width               : 100%;
