@@ -80,10 +80,16 @@ $(function () {
                     } else {
                         _self.ip_gender.addClass('icon-user-women')
                     }
-                    _self.ip_phone.text(_self.App_phoneNum);
                     _self.ip_idnum.text(_self.App_identityId);
                     _self.ip_email.val(_self.App_email);
                     _self.ip_time.text(_self.App_registerTime);
+                    if(_self.App_phoneNum!=='null'){
+                        _self.ip_phone.text(_self.App_phoneNum);
+                        if ( App.LS.get('p_hasUpdate') === 'true' ) {
+                            App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
+                        }
+                        _self.isUpdate = false;//设置更新触发标识为 false
+                    }
                     if ( _self.App_moveCar_Name !== 'null' ) {
                         _self.ip_mover.text(_self.App_moveCar_Name);
                         if ( App.LS.get('p_hasUpdate') === 'true' ) {
