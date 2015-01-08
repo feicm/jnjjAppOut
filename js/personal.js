@@ -9,23 +9,23 @@ $(function () {
     //个人信息对象
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
-        "ip_username"             : $('#username'),
-        "ip_name"                 : $('#name'),
-        "ip_photo"                : $('#photo'),
-        "ip_gender"               : $('#gender'),
-        "ip_phone"                : $('#phone'),
-        "ip_idnum"                : $('#idnum'),
-        "ip_email"                : $('#email'),
-        "ip_time"                 : $('#time'),
-        "ip_edit_phone"           : $('#edit_phone'),
-        "ip_mover"                : $('#mover'),
-        "ip_m_name"               : $('#m_name'),
-        "ip_m_phone"              : $('#m_phone'),
-        "ip_closer"               : $('#closer'),
-        "ip_c_name"               : $('#c_name'),
-        "ip_c_phone"              : $('#c_phone'),
-        "ip_c_sfzh"               : $('#c_sfzh'),
-        "saveBtn"                 : $('#save'),
+        "ip_username"             : $('#username'),//用户名
+        "ip_name"                 : $('#name'), //姓名
+        "ip_photo"                : $('#photo'),//头像
+        "ip_gender"               : $('#gender'),//性别
+        "ip_phone"                : $('#phone'), //手机
+        "ip_idnum"                : $('#idnum'), //身份证
+        "ip_email"                : $('#email'), //邮箱
+        "ip_time"                 : $('#time'),  //注册时间
+        "ip_edit_phone"           : $('#edit_phone'), //修改手机输入框
+        "ip_mover"                : $('#mover'),  //移车联系人
+        "ip_m_name"               : $('#m_name'), //修改移车联系人姓名输入项
+        "ip_m_phone"              : $('#m_phone'),//修改移车联系人电话输入项
+        "ip_closer"               : $('#closer'),//密切联系人
+        "ip_c_name"               : $('#c_name'), //修改密切联系人姓名输入项
+        "ip_c_phone"              : $('#c_phone'),//修改密切联系人电话输入项
+        "ip_c_sfzh"               : $('#c_sfzh'), //修改密切联系人身份证输入项
+        "saveBtn"                 : $('#save'), //保存按钮
         "progressDialog"          : null,//状态框
         "interval"                : null,//定时器
         "isUpdate"                : true,//更新标识
@@ -83,7 +83,7 @@ $(function () {
                     _self.ip_idnum.text(_self.App_identityId);
                     _self.ip_email.val(_self.App_email);
                     _self.ip_time.text(_self.App_registerTime);
-                    if(_self.App_phoneNum!=='null'){
+                    if ( _self.App_phoneNum !== 'null' ) {
                         _self.ip_phone.text(_self.App_phoneNum);
                         if ( App.LS.get('p_hasUpdate') === 'true' ) {
                             App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
@@ -158,7 +158,7 @@ $(function () {
             var _url = PreQuestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
             var _params = {
                 "registerName": _self.App_userName,
-                "phonenum"    : _self.ip_phone.val() || _self.App_phoneNum,
+                "phonenum"    : _self.ip_edit_phone.val() || _self.App_phoneNum,
                 "movecarname" : _self.ip_m_name.val() || _self.App_moveCar_Name,
                 "movecarphone": _self.ip_m_phone.val() || _self.App_moveCar_phoneNum
             };
