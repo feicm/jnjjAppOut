@@ -183,7 +183,7 @@ $(function () {
                      title: '公众服务平台',
                      msg  : '保存失败！'
                      });*/
-                    _self.progressDialog.resetText('保存失败！');
+                    _self.progressDialog.resetMsg('保存失败！');
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
