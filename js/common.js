@@ -648,6 +648,7 @@ var App = (function () {
                 text && (_self.msg=text);
                 _self.remove();
                 _self.show();
+                return this;
             }
         };
         var moduleNameMap = {
