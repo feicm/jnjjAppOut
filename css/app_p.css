@@ -530,10 +530,11 @@ i.icon.icon-card {
     width: 5em;
     height: 5em;
 }
-i.icon.icon-card2{
+i.icon-card2{
     background-image: url("../images/ico_card.png");
-    width: 2em;
-    height : 1.5em;
+    width: 1em;
+    height : 1em;
+    top: .2em;
 }
 .list-block .item-input {
     width               : 100%;
