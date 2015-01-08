@@ -454,8 +454,8 @@ jnjjApp.footbarDatas = {
                         } ,
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/my/m_msg.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/my/m_msg.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/my/m_feedback.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/my/m_feedback.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "true",
                             "name"      : "意见建议",
