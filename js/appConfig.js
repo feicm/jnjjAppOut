@@ -294,6 +294,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "违章推送",
+                            "summary"   : "违章主动推送",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -304,6 +305,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "加油优惠",
+                            "summary"   : "商谈后确定",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -314,6 +316,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "洗车优惠",
+                            "summary"   : "联创冰点价",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -324,6 +327,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "代驾",
+                            "summary"   : "泽安冰点价",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -334,6 +338,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "保养优惠",
+                            "summary"   : "商谈后确定",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -344,6 +349,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "车辆年审",
+                            "summary"   : "无需排队等候",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
@@ -354,6 +360,7 @@ jnjjApp.footbarDatas = {
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "道路救援",
+                            "summary"   : "免费全国救援",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         }
@@ -366,7 +373,7 @@ jnjjApp.footbarDatas = {
             "afterImg"  : "config/html/images/wispui/my_hover.png",
             "name"      : "我的",
             "clickEvent": "",
-            "siderView"      : [
+            "siderView" : [
                 {
                     "type": "personalPic",
                     "data": [
