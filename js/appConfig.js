@@ -164,7 +164,7 @@ jnjjApp.footbarDatas = {
                 {
                     "divider": {
                         "title": "自助服务",
-                        "ico"  : "config/html/images/wispui/traffic/t_d_zzfw.png"
+                        "ico"  : ""
                     },//用于分组，为空时不显示
                     "data"   : [
                         {
@@ -215,8 +215,8 @@ jnjjApp.footbarDatas = {
                 },
                 {
                     "divider": {
-                        "title": "车管所",
-                        "ico"  : "config/html/images/wispui/traffic/t_d_cgs.png"
+                        "title": "业务大厅",
+                        "ico"  : ""
                     },//用于分组，为空时不显示
                     "data"   : [
                         {
@@ -262,7 +262,15 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "divider": {
+                        "title": "周边服务",
+                        "ico"  : ""
+                    },//用于分组，为空时不显示
+                    "data"   : [
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/traffic/t_position_normal.png",//点击前图标
