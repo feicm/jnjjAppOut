@@ -645,7 +645,7 @@ var App = (function () {
             },
             "resetMsg":function(text){
                 var _self=this;
-                text && (_self.title=text);
+                text && (_self.msg=text);
                 _self.remove();
                 _self.show();
             }
