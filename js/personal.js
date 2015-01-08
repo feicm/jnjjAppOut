@@ -187,10 +187,10 @@ $(function () {
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
-                    setTimeout(function () {
-                        _self.progressDialog.remove();
-                    }, 500);
                 }
+                setTimeout(function () {
+                    _self.progressDialog.remove();
+                }, 500);
             });
         },
         "openPage"                : function (mode) {
