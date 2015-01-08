@@ -642,6 +642,12 @@ var App = (function () {
 
                 }
                 return result;
+            },
+            "resetMsg":function(text){
+                var _self=this;
+                text && (_self.title=text);
+                _self.remove();
+                _self.show();
             }
         };
         var moduleNameMap = {
