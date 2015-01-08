@@ -56,7 +56,7 @@ $(function () {
             var _url = url || _self.url;
             var _params = params || _self.params;
             var _dom = dom || _self.dom;
-            _self.loading=App.UI('dialog',{'msg':"加载中"});
+            _self.loading=App.UI('dialog',{'msg':"数据加载中"});
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
                 var type;
@@ -79,11 +79,10 @@ $(function () {
                     _self.render(msg, _dom, type);//渲染结果
                     _self.loading.remove();
                 } else {
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '加载失败！'
-                    });
+                    _self.loading=_self.loading.resetMsg('加载失败');
+                    setTimeout(function(){
+                        _self.loading.remove();
+                    },500);
                 }
             });
         },
