@@ -168,7 +168,7 @@ $(function () {
                      title: '公众服务平台',
                      msg  : '保存成功！'
                      });*/
-                    _self.progressDialog.resetMsg('保存成功！');
+                    _self.progressDialog=_self.progressDialog.resetMsg('保存成功！');
                     //新数据写入localStorage
                     App.LS.set('p_hasUpdate', 'true');// 写入localstorage
                     App.LS.set("App_phoneNum", _params.phonenum);
