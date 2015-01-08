@@ -79,11 +79,10 @@ $(function () {
                     _self.render(msg, _dom, type);//渲染结果
                     _self.loading.remove();
                 } else {
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '加载失败！'
-                    });
+                    _self.loading=_self.loading.resetMsg('加载失败');
+                    setTimeout(function(){
+                        _self.loading.remove();
+                    },500);
                 }
             });
         },
