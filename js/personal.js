@@ -42,18 +42,19 @@ $(function () {
         "App_closeUser_IdentityId": App.LS.get('App_closeUser_IdentityId'),
         "urlRouter"               : {
             "p_moveContacts" : "movecarpeople.jsp", //移车联系人页面
-            "p_closeContacts": "closepeople.jsp" //密切联系人页面
+            "p_closeContacts": "closepeople.jsp", //密切联系人页面
+            "p_phoneNum"     : "closepeople.jsp" //手机编辑页面
         },
         "PageId_lv"               : (new Date()).getTime(),
         "init"                    : function (opts) {
             this.list = opts.list;
             this.mode = opts.mode;
             var _self = this;
-            if(_self.mode==='personalinfo'){
+            if ( _self.mode === 'personalinfo' ) {
                 _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
                     _self.renderPersonalInfoPage('personalinfo');
                 }, 1000);
-            }else{
+            } else {
                 _self.renderPersonalInfoPage(_self.mode);
             }
             this.bindEvent(this.mode);
@@ -62,11 +63,11 @@ $(function () {
         //渲染个人信息页
         "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
-            var i=0;
+            var i = 0;
             console.log(i++);
-            if(App.LS.get('p_hasUpdate') === 'true'){//监听localstorage中的 更新标识
+            if ( App.LS.get('p_hasUpdate') === 'true' ) {//监听localstorage中的 更新标识
                 _self.isUpdate = true;
-                _self.App_moveCar_Name=App.LS.get("App_moveCar_Name");
+                _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");
             }
             if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
                 if ( mode === 'personalinfo' ) {//个人中心
@@ -84,16 +85,16 @@ $(function () {
                     _self.ip_time.text(_self.App_registerTime);
                     if ( _self.App_moveCar_Name !== 'null' ) {
                         _self.ip_mover.text(_self.App_moveCar_Name);
-                        if(App.LS.get('p_hasUpdate') === 'true'){
-                            App.LS.set('p_hasUpdate','false');//重置 p_hasUpdate
+                        if ( App.LS.get('p_hasUpdate') === 'true' ) {
+                            App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
                         }
-                        _self.isUpdate=false;//设置更新触发标识为 false
+                        _self.isUpdate = false;//设置更新触发标识为 false
                     }
                     if ( _self.App_closeUser_Name !== 'null' ) {
                         _self.ip_closer.text(_self.App_closeUser_Name);
                     }
                 }
-            }else{
+            } else {
                 return false;
             }
             if ( mode === 'p_moveContacts' ) {//移车联系人
@@ -145,9 +146,9 @@ $(function () {
             var _url = PreQuestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
             var _params = {
                 "registerName": _self.App_userName,
-                "phonenum"    : _self.ip_phone.val()||_self.App_phoneNum,
-                "movecarname" : _self.ip_m_name.val()||_self.App_moveCar_Name,
-                "movecarphone": _self.ip_m_phone.val()||_self.App_moveCar_phoneNum
+                "phonenum"    : _self.ip_phone.val() || _self.App_phoneNum,
+                "movecarname" : _self.ip_m_name.val() || _self.App_moveCar_Name,
+                "movecarphone": _self.ip_m_phone.val() || _self.App_moveCar_phoneNum
             };
             btn.off('click');//事件移除
             _self.progressDialog = App.UI('dialog', {msg: '保存中，请稍后！'});
@@ -159,30 +160,36 @@ $(function () {
                     return;
                 }
                 var msg = data.userUpdateResponse;
-                _self.progressDialog.remove();
+                //_self.progressDialog.remove();
                 if ( msg ) {
                     console.log('更新成功！');
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '保存成功！'
-                    });
+                    /*App.UI('dialog', {
+                     type : 'alert',
+                     title: '公众服务平台',
+                     msg  : '保存成功！'
+                     });*/
+                    _self.progressDialog.resetText('保存成功！');
                     //新数据写入localStorage
                     App.LS.set('p_hasUpdate', 'true');// 写入localstorage
-                    App.LS.set("App_moveCar_Name", _self.ip_m_name.val());
-                    App.LS.set("App_moveCar_phoneNum", _self.ip_m_phone.val());
+                    App.LS.set("App_phoneNum", _params.phonenum);
+                    App.LS.set("App_moveCar_Name", _params.movecarname);
+                    App.LS.set("App_moveCar_phoneNum", _params.movecarphone);
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
                 } else {
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '保存失败！'
-                    });
+                    /*App.UI('dialog', {
+                     type : 'alert',
+                     title: '公众服务平台',
+                     msg  : '保存失败！'
+                     });*/
+                    _self.progressDialog.resetText('保存失败！');
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
+                    setTimeout(function () {
+                        _self.progressDialog.remove();
+                    }, 500);
                 }
             });
         },
