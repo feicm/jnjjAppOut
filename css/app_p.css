@@ -1357,7 +1357,13 @@ i.icon-card2{
     color       : #AAA;
     text-shadow : 1px 1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, -1px -1px 1px #FFF;
 }
-
+/*feedback*/
+.feedback{
+    width: 80%;
+    min-height: 8em;
+    margin: 1em 10%;
+    padding: .5em;
+}
 @media /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: ä¸æ”¯æŒ0.5px*/
 only screen and (device-aspect-ratio : 40/71),/*iPhone 5:*/
 only screen and (device-aspect-ratio : 667/375),/*iPhone 6:*/
