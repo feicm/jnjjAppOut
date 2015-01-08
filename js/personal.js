@@ -212,7 +212,7 @@ $(function () {
     var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, PageId);//pageid 写入localstorage
     App.LS.set('p_hasUpdate', 'false');// 写入localstorage
-    var oPersonal = Personal.init({//初始化个人资料对象
+    Personal.init({//初始化个人资料对象
         "list": $('.list-block li'),
         "mode": module
     });
