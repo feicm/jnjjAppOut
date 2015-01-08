@@ -65,7 +65,8 @@ $(function () {
             console.log(i++);
             if ( App.LS.get('p_hasUpdate') === 'true' ) {//监听localstorage中的 更新标识
                 _self.isUpdate = true;
-                _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");
+                _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");//更新移车联系人姓名
+                _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
             }
             if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
                 if ( mode === 'personalinfo' ) {//个人中心
