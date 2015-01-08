@@ -17,6 +17,7 @@ $(function () {
         "ip_idnum"                : $('#idnum'),
         "ip_email"                : $('#email'),
         "ip_time"                 : $('#time'),
+        "ip_edit_phone"           : $('#edit_phone'),
         "ip_mover"                : $('#mover'),
         "ip_m_name"               : $('#m_name'),
         "ip_m_phone"              : $('#m_phone'),
@@ -108,6 +109,11 @@ $(function () {
                     _self.ip_c_name.val(_self.App_closeUser_Name);
                     _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
                     _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
+                }
+            }
+            if ( mode === 'p_phoneNum' ) {//密切联系人
+                if ( _self.App_phoneNum !== 'null' ) {
+                    _self.ip_edit_phone.val(_self.App_phoneNum);
                 }
             }
         },
