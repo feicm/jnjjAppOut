@@ -39,6 +39,7 @@ $(function () {
     console.dir(hash);
     //内容块加载对象
     var detailsBlock = {
+        "loading"        : null,
         "init"           : function (opts) {
             this.dom = opts.dom;
             this.type = opts.type;
@@ -55,6 +56,7 @@ $(function () {
             var _url = url || _self.url;
             var _params = params || _self.params;
             var _dom = dom || _self.dom;
+            _self.loading=App.UI('dialog',{'msg':"加载中"});
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
                 var type;
@@ -75,6 +77,7 @@ $(function () {
                 } //驾照违法-强制措施
                 if ( msg ) {
                     _self.render(msg, _dom, type);//渲染结果
+                    _self.loading.remove();
                 } else {
                     App.UI('dialog', {
                         type : 'alert',
@@ -101,7 +104,7 @@ $(function () {
                 case 'carquery': //车辆查询结果内容模板
                     if ( data.carList[0].msg !== 'NO_RESULT' ) {
                         msg = $.parseJSON(data.carList[0].msg);//Object
-                        html=[
+                        html = [
                             '<div class="list-block">',
                             '    <ul>',
                             '        <li>',
@@ -222,7 +225,7 @@ $(function () {
                     if ( data.licenseList[0].msg !== 'NO_RESULT' ) {
                         msg = $.parseJSON(data.licenseList[0].msg);//Object
                         //{\"gxsj\":\"2012-12-18 00:00:00\",\"jszzt\":\"正常\",\"ljjf\":\"0\",\"xyqfrq\":\"2014-12-18 00:00:00\",\"xysyrq\":\"2018-12-18 00:00:00\",\"zjcx\":\"C1\"}
-                        html=[
+                        html = [
                             '<div class="list-block">',
                             '    <ul>',
                             '        <li>',
@@ -376,7 +379,7 @@ $(function () {
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
                     data;
-                    if ( data instanceof Array) {
+                    if ( data instanceof Array ) {
                         msg = data[0];//Object
                         html = [
                             '<tr>',
@@ -405,7 +408,7 @@ $(function () {
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
                     data;
-                    if ( data instanceof Array) {
+                    if ( data instanceof Array ) {
                         msg = data[0];//Object
                         html = [
                             '<tr>',
@@ -517,7 +520,7 @@ $(function () {
             console.dir(aData);
             return aData;
         },
-        "formatTime":function(Date){
+        "formatTime"     : function (Date) {
             return Date.split(' ')[0];
         }
     };
