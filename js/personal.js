@@ -2,9 +2,6 @@ $(function () {
     /*
      * 个人信息
      * */
-    /*var edituserinfoRequestUrl = urlPre
-     + jnjjApp.config.requestUrl
-     + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
     console.log('username：' + App.LS.get('App_userName'));
     //个人信息对象
     var Personal = {
@@ -172,14 +169,8 @@ $(function () {
                     return;
                 }
                 var msg = data.userUpdateResponse;
-                //_self.progressDialog.remove();
                 if ( msg ) {
                     console.log('更新成功！');
-                    /*App.UI('dialog', {
-                     type : 'alert',
-                     title: '公众服务平台',
-                     msg  : '保存成功！'
-                     });*/
                     _self.progressDialog = _self.progressDialog.resetMsg('保存成功！');
                     //新数据写入localStorage
                     App.LS.set('p_hasUpdate', 'true');// 写入localstorage
@@ -190,17 +181,12 @@ $(function () {
                         _self.updataInfo(_self.saveBtn);
                     });
                 } else {
-                    /*App.UI('dialog', {
-                     type : 'alert',
-                     title: '公众服务平台',
-                     msg  : '保存失败！'
-                     });*/
                     _self.progressDialog.resetMsg('保存失败！');
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
                 }
-                setTimeout(function () {
+                setTimeout(function () {//0.5s后移除状态提示框
                     _self.progressDialog.remove();
                 }, 500);
             });
@@ -212,9 +198,6 @@ $(function () {
                 + '/jnpublic/config/html/' + _pageName + '&@@webViewPageId='
                 + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _pageName && window.open(_pageUrl);
-        },
-        "updataItemVal"           : function (mode) {
-
         },
         //通过身份证获取性别
         "getGender"               : function (UUserCard) {
@@ -229,7 +212,7 @@ $(function () {
     var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, PageId);//pageid 写入localstorage
     App.LS.set('p_hasUpdate', 'false');// 写入localstorage
-    var oPersonal = Personal.init({
+    var oPersonal = Personal.init({//初始化个人资料对象
         "list": $('.list-block li'),
         "mode": module
     });
