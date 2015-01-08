@@ -56,7 +56,7 @@ $(function () {
             var _url = url || _self.url;
             var _params = params || _self.params;
             var _dom = dom || _self.dom;
-            _self.loading=App.UI('dialog',{'msg':"加载中"});
+            _self.loading=App.UI('dialog',{'msg':"数据加载中"});
             App.getAjaxData(_url, _params, function (data) {
                 var msg;
                 var type;
