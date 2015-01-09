@@ -16,7 +16,7 @@ jnjjApp.footbarDatas = {
             "view"     : [
                 {
                     "type": 'picGallary',//图片轮播
-                    "size": 'Lager', //尺寸标识 Large middle small
+                    "size": 'Lager', //尺寸标识 Larger middle smaller
                     "data": [
                         {
                             "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
@@ -56,7 +56,7 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
-                        },
+                        },*/
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/home/h_inspec_normal.png",//点击前图标
@@ -67,7 +67,7 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
-                        },*/
+                        },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/home/h_examquery01_normal.png",//点击前图标
