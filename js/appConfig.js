@@ -410,17 +410,6 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/my/m_repwd.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/my/m_repwd.png", //点击时图标
-                            "disableImg": "",
-                            "enable"    : "false",
-                            "name"      : "密码修改",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/repwd.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
-                        },
-                        {
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/my/m_car.png",//点击前图标
                             "afterImg"  : "config/html/images/wispui/my/m_car.png", //点击时图标
                             "disableImg": "",
