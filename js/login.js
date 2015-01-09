@@ -20,6 +20,7 @@ $(function () {
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "progressDialog"         : null,
+        "PageId_lv01"               : (new Date()).getTime(),
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址

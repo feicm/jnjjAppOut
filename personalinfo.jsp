@@ -11,7 +11,7 @@
 </head>
 <body>
 <form class="rigister_f c" action="" method="post" data-mode="personalinfo">
-    <div class="list-block">
+    <div class="list-block mt-05">
         <ul>
             <li>
                 <div class="item-content ovh db">
