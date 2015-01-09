@@ -69,6 +69,19 @@
     </div>
     <div class="list-block">
         <ul>
+            <li data-rel="p_repwd">
+                <div class="item-content">
+                    <div class="item-media"><i class="icon icon-pwd2"></i></div>
+                    <div class="item-inner bg_arr_r">
+                        <div class="item-title">密码修改</div>
+                        <div class="item-after">修改</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="list-block">
+        <ul>
             <li data-rel="p_moveContacts">
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-user"></i></div>

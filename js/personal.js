@@ -41,7 +41,8 @@ $(function () {
         "urlRouter"               : {
             "p_moveContacts" : "movecarpeople.jsp", //移车联系人页面
             "p_closeContacts": "closepeople.jsp", //密切联系人页面
-            "p_phoneNum"     : "editphonenum.jsp" //手机编辑页面
+            "p_phoneNum"     : "editphonenum.jsp", //手机编辑页面
+            "p_repwd"        : "repwd.jsp" //密码修改页面
         },
         "PageId_lv"               : (new Date()).getTime(),
         "init"                    : function (opts) {

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-<form class="rigister_f" action="" method="post" id="repwd_form">
+<form class="rigister_f" action="" data-mode="p_repwd" method="post">
     <div class="list-block J_btnHighlightWithInput">
         <ul>
             <li>
