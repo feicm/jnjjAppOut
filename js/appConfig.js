@@ -121,14 +121,6 @@ jnjjApp.footbarDatas = {
                         {
                             "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
                             "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
-                        },
-                        {
-                            "imgUrl": "http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
-                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2243&uid=&type=Android"
-                        },
-                        {
-                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
                         }
                     ]
                 }
