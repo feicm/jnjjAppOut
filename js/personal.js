@@ -6,6 +6,7 @@ $(function () {
     //个人信息对象
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
+        "curWebView"              : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
         "ip_username"             : $('#username'),//用户名
         "ip_name"                 : $('#name'), //姓名
         "ip_photo"                : $('#photo'),//头像
@@ -182,6 +183,7 @@ $(function () {
                     _self.saveBtn.on('click', function () { //事件绑定
                         _self.updataInfo(_self.saveBtn);
                     });
+                    _self.curWebView.close();
                 } else {
                     _self.progressDialog.resetMsg('保存失败！');
                     _self.saveBtn.on('click', function () { //事件绑定
