@@ -12,6 +12,9 @@ $(function () {
     var cardlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
+    var v_car_listRrl = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/electIllegalquery.json';//车辆电子监控违法信息
     var bindcarPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/bindcar.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定车辆页url
@@ -33,6 +36,10 @@ $(function () {
         },
         "dialog"        : null,
         "currentBtn"    : null,
+        "urlRouter"     : {
+            "v_car_list" : "resultlist.jsp", //结果页，列表形式
+            "v_card_list": "resultlisttab.jsp" //结果页，tab列表形式
+        },
         "resultUrl"     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"          : function (opts, callback) {
             this.listWrap = opts.listWrap;
@@ -47,8 +54,9 @@ $(function () {
                 var listData;
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
+                data.electIllegalResponse && (listData = data.electIllegalResponse); //车辆违法列表
                 if ( listData.length ) {
-                    _self.hideDefaultBtn();
+                    _self.defaultBtn && _self.hideDefaultBtn();
                     _self.renderList(listData);
                     _self.bindEvent();
                     _self.callback && _self.callback();
@@ -63,14 +71,13 @@ $(function () {
             var args = Array.prototype.slice.call(arguments);
             var listWrap = _self.listWrap;
             var tipsWrap = _self.tipsWrap;
-            var listArr = [];
             var listStr = '';
             var defautlhtml = '';
             if ( args.length ) {
                 //渲染列表
                 listStr = _self.getListHtml(data, _self.module);
                 listWrap.append(listStr);
-                _self.setCurrentBtn(_self.module);
+                _self.currentBtn && _self.setCurrentBtn(_self.module);
                 _self.dialog.remove();
             } else {
                 //渲染默认
@@ -119,8 +126,8 @@ $(function () {
                     var _me = $(this);
                     var jkbj;
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
-                    var data=_me.data('opt');
-                    var params = '#mode=wf_car'+data+'@jkbj=' + jkbj;
+                    var data = _me.data('opt');
+                    var params = '#mode=wf_car' + data + '@jkbj=' + jkbj;
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
@@ -129,8 +136,8 @@ $(function () {
                     var _me = $(this);
                     var jkbj;
                     $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
-                    var data=_me.data('opt');
-                    var params = '#mode=wf_card'+data+'@jkbj=' + jkbj;
+                    var data = _me.data('opt');
+                    var params = '#mode=wf_card' + data + '@jkbj=' + jkbj;
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
@@ -257,6 +264,43 @@ $(function () {
                     }
                     html = listArr.join("");
                     break;
+                case 'v_car_list':
+                    var msg = data.msg;//Array
+                    var al;
+                    var li = '';
+                    var liArr = [];
+                    if ( msg !== 'NO_RESULT' ) {
+                        msg = _self.formatData(msg);
+                        al = msg.length;
+                        for ( var i = 0; i < al; i++ ) {
+                            /*li = [
+                                '<li>',
+                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
+                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
+                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
+                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
+                                '    <h1>处理情况：' + msg[i].clqk + '</h1>',
+                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
+                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
+                                '</li>'].join("");*/
+                            li=[
+                                '<li class="list_hover">',
+                                '    <div class="top">'+data.register+'<b>'+data.carNum+'</b></div>',
+                                '    <div class="item-content ovh db">',
+                                '        <h1 class="h1 bg_arr_r">',
+                                '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">'+msg[i].wfxw+'</b><br>',
+                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">'+msg[i].wfsj+'</b>',
+                                '        </h1>',
+                                '    </div>',
+                                '</li>'].join("");
+                            liArr.push(li);
+                        }
+                    } else {
+                        li = _self.getHtmlNoResult();
+                        liArr.push(li);
+                    }
+                    html = liArr.join("");
+                    break;
             }
             return html;
         },
@@ -267,6 +311,19 @@ $(function () {
                 '</a>'].join("");
             return btnHtml;
         },
+        "getHtmlNoResult": function (msg) {
+            var text;
+            if ( msg === 'NO_RESULT' || msg === undefined ) {
+                text = '无记录！';
+            } else {
+                text = msg;
+            }
+            var _html = [
+                ' <div class="noresult">',
+                '     <b>' + text + '</b>',
+                ' </div>'].join("");
+            return _html;
+        },
         "setCurrentBtn" : function (mode) {
             var _self = this;
             if ( $('.ui_btn').data('mode') === mode ) {
@@ -276,6 +333,17 @@ $(function () {
                     "hoverClassName": 'ui_btn_01_hover'
                 });
             }
+        },
+        "formatData"     : function (data) {
+            var sData = data.substring(1, data.length - 1);
+            var aData = sData.split(',{');
+            var l = aData.length;
+            for ( var i = 0; i < l; i++ ) {
+                i && (aData[i] = '{' + aData[i]);
+                aData[i] = $.parseJSON(aData[i]);
+            }
+            console.dir(aData);
+            return aData;
         },
         "requestData"   : function (url, params, callback) {
             var _self = this;
@@ -306,6 +374,13 @@ $(function () {
     };
     var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, pageId);//pageid 写入localstorage
+    var hash = window.location.hash,
+        oHash = {};
+    if ( hash ) {
+        oHash = App.getHash(hash); //格式化hash 对象
+    } else {
+        console.log('传参失败！');
+    }
     if ( module === 'car' ) { //车辆列表
         var goCarbindpage = $('#go_carbindpage');
         goCarbindpage.on('click', function () {
@@ -355,6 +430,30 @@ $(function () {
             "activeClass": 'active'
         });
     }
+    if ( module === 'v_car_list' ) {
+        if ( hasKey('cartype', oHash)
+            && hasKey('carid', oHash)
+            && hasKey('jkbj', oHash) ) {
+            //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
+            params = {
+                "register"  : userName,
+                "carNumType": oHash.cartype,
+                "carNum"    : decodeURI(oHash.carid),
+                "jkbj"      : oHash.jkbj
+            };
+            listModule.init({
+                "listWrap"  : $('.list-block'),
+                "module"    : module,
+                "requestUrl": v_car_listRrl,
+                "datas"     : params
+            });
+        }
+    }
+    //返回对象o是否存在属性keyname
+    function hasKey(keyname, o) {
+        return keyname in o;
+    }
+
     /*
      * --------------------页面效果------------------------
      * */
