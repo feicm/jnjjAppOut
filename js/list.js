@@ -367,7 +367,7 @@ $(function () {
             var _callback = callback;
             var _module = _self.module;
             _self.dialog = App.UI('dialog', {
-                msg: '请求' + _self.moduleCH[_self.module] + '列表中，请稍后！'
+                msg: '数据加载中···'
             });
             //Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
