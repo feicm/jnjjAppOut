@@ -124,7 +124,7 @@ $(function () {
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
-            if ( _mode === 'violation_car' ) { //我的违法-驾照列表
+            if ( _mode === 'violation_card' ) { //我的违法-驾照列表
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
