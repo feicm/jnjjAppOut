@@ -14,11 +14,11 @@
         <a class="button active" data-for="tab-item-01">驾照违法</a>
         <a class="button" data-for="tab-item-02">驾照强制措施</a>
     </div>
-    <div class="list-block mt05 pt18" id="tab-item-01">
+    <div class="list-block mt05 pt30" id="tab-item-01">
         <ul>
         </ul>
     </div>
-    <div class="list-block mt05 pt18" style="display: none" id="tab-item-02">
+    <div class="list-block mt05 pt30" style="display: none" id="tab-item-02">
         <ul>
         </ul>
     </div>
