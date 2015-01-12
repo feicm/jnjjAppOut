@@ -57,7 +57,7 @@ $(function () {
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( data.success === 'true' ) {
-                    listData = data;
+                    listData = data.msg;
                 }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
@@ -270,7 +270,7 @@ $(function () {
                     html = listArr.join("");
                     break;
                 case 'v_car_list':
-                    var msg = data.msg;//Array
+                    var msg = data;//Array
                     var al;
                     var li = '';
                     var liArr = [];
@@ -290,7 +290,7 @@ $(function () {
                              '</li>'].join("");*/
                             li = [
                                 '<li class="list_hover">',
-                                '    <div class="top">' + data.register + '<b>' + data.carNum + '</b></div>',
+                                '    <div class="top">' + App.LS.get('App_name') + '<b>' + msg[i].hphm + '</b></div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
                                 '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">' + msg[i].wfxw + '</b><br>',
