@@ -28,21 +28,22 @@ $(function () {
     };
     //绑定（车辆、驾照）列表对象
     var listModule = {
-        "moduleCH"      : {
+        "moduleCH"       : {
             "car"           : '车辆',
             "card"          : '驾照',
             "violation_car" : '已绑定车辆',
-            "violation_card": '已绑定驾照'
+            "violation_card": '已绑定驾照',
+            "v_car_list"    : '车辆电子监控'
         },
-        "dialog"        : null,
-        "currentBtn"    : null,
-        "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
-        "urlRouter"     : {
+        "dialog"         : null,
+        "currentBtn"     : null,
+        "preQuestUrl"    : 'adapter?open&url=' + jnjjApp.config.requestUrl,
+        "urlRouter"      : {
             "v_car_list" : "resultlist.jsp", //结果页，列表形式
             "v_card_list": "resultlisttab.jsp" //结果页，tab列表形式
         },
-        "resultUrl"     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
-        "init"          : function (opts, callback) {
+        "resultUrl"      : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
+        "init"           : function (opts, callback) {
             this.listWrap = opts.listWrap;
             this.tipsWrap = opts.tipsWrap;
             this.defaultBtn = opts.defaultBtn || null;
@@ -55,7 +56,9 @@ $(function () {
                 var listData;
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
-                data.electIllegalResponse && (listData = data.electIllegalResponse); //车辆违法列表
+                if ( data.success === 'true' ) {
+                    listData = data;
+                }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
                     _self.renderList(listData);
@@ -67,7 +70,7 @@ $(function () {
                 }
             });
         },
-        "renderList"    : function (data) {
+        "renderList"     : function (data) {
             var _self = this;
             var args = Array.prototype.slice.call(arguments);
             var listWrap = _self.listWrap;
@@ -90,11 +93,11 @@ $(function () {
                 _self.dialog.remove();
             }
         },
-        "hideDefaultBtn": function () {
+        "hideDefaultBtn" : function () {
             var _self = this;
             _self.defaultBtn && _self.defaultBtn.remove();
         },
-        "bindEvent"     : function () {
+        "bindEvent"      : function () {
             var _self = this;
             //注册事件
             var _list = _self.listWrap;
@@ -123,7 +126,7 @@ $(function () {
                 });
             }
             if ( _mode === 'violation_car' ) { //我的违法-车辆列表
-                var url=_self.preQuestUrl+'/jnpublic/config/html/'+_self.urlRouter['v_car_list'];
+                var url = _self.preQuestUrl + '/jnpublic/config/html/' + _self.urlRouter['v_car_list'];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
@@ -144,7 +147,7 @@ $(function () {
                 })
             }
         },
-        "getListHtml"   : function (data, mode) {
+        "getListHtml"    : function (data, mode) {
             var _self = this;
             var html;
             var l = data.length;
@@ -276,22 +279,22 @@ $(function () {
                         al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
                             /*li = [
-                                '<li>',
-                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
-                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                                '    <h1>处理情况：' + msg[i].clqk + '</h1>',
-                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
-                                '</li>'].join("");*/
-                            li=[
+                             '<li>',
+                             '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
+                             '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
+                             '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
+                             '    <h1>处理时间：' + msg[i].clsj + '</h1>',
+                             '    <h1>处理情况：' + msg[i].clqk + '</h1>',
+                             '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
+                             '    <h1>交款时间：' + msg[i].jksj + '</h1>',
+                             '</li>'].join("");*/
+                            li = [
                                 '<li class="list_hover">',
-                                '    <div class="top">'+data.register+'<b>'+data.carNum+'</b></div>',
+                                '    <div class="top">' + data.register + '<b>' + data.carNum + '</b></div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
-                                '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">'+msg[i].wfxw+'</b><br>',
-                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">'+msg[i].wfsj+'</b>',
+                                '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">' + msg[i].wfxw + '</b><br>',
+                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">' + msg[i].wfsj + '</b>',
                                 '        </h1>',
                                 '    </div>',
                                 '</li>'].join("");
@@ -306,7 +309,7 @@ $(function () {
             }
             return html;
         },
-        "getBtnHtml"    : function (mode) {
+        "getBtnHtml"     : function (mode) {
             var btnHtml = [
                 '<a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-mode="' + mode + '">',
                 '    +添加绑定',
@@ -326,7 +329,7 @@ $(function () {
                 ' </div>'].join("");
             return _html;
         },
-        "setCurrentBtn" : function (mode) {
+        "setCurrentBtn"  : function (mode) {
             var _self = this;
             if ( $('.ui_btn').data('mode') === mode ) {
                 _self.currentBtn = $('.ui_btn');
@@ -347,7 +350,7 @@ $(function () {
             console.dir(aData);
             return aData;
         },
-        "requestData"   : function (url, params, callback) {
+        "requestData"    : function (url, params, callback) {
             var _self = this;
             var _url = url;
             var _params = params;
@@ -361,6 +364,7 @@ $(function () {
                 var msg;
                 data.carQueryResponse && (msg = data.carQueryResponse);
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);
+                data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法列表
                 if ( msg ) {
                     _callback && _callback(msg);
                 } else {
