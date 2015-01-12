@@ -36,9 +36,10 @@ $(function () {
         },
         "dialog"        : null,
         "currentBtn"    : null,
+        "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
         "urlRouter"     : {
-            "v_car_list" : "resultlist.jsp", //结果页，列表形式
-            "v_card_list": "resultlisttab.jsp" //结果页，tab列表形式
+            "violation_car" : "resultlist.jsp", //结果页，列表形式
+            "violation_card": "resultlisttab.jsp" //结果页，tab列表形式
         },
         "resultUrl"     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
         "init"          : function (opts, callback) {
@@ -122,13 +123,14 @@ $(function () {
                 });
             }
             if ( _mode === 'violation_car' ) { //我的违法-车辆列表
+                var url=_self.preQuestUrl+_self.urlRouter[_mode];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
                     var params = '#mode=wf_car' + data + '@jkbj=' + jkbj;
-                    window.open(_self.urlRouter['v_car_list'] + params);//通过url hash传参
+                    window.open(url + params);//通过url hash传参
                 })
             }
             if ( _mode === 'violation_card' ) { //我的违法-驾照列表
