@@ -64,7 +64,7 @@ $(function () {
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( data.success === 'true' ) {
-                    listData = data.msg||[];
+                    data.msg === 'NO_RESULT' ? listData = [] || (listData = data.msg);
                 }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
@@ -475,13 +475,13 @@ $(function () {
                 "jkbj"     : oHash.jkbj
             };
             if ( oHash.jkbj !== '' ) {
-                var params02={
-                        "register" : userName,
-                        "indentyid": oHash.licenseid,
-                        "cjbj"     : oHash.jkbj
-                    };
+                var params02 = {
+                    "register" : userName,
+                    "indentyid": oHash.licenseid,
+                    "cjbj"     : oHash.jkbj
+                };
             } else {
-                var params02={
+                var params02 = {
                     "register" : userName,
                     "indentyid": oHash.licenseid,
                     "cjbj"     : null
