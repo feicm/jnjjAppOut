@@ -123,7 +123,7 @@ $(function () {
                 });
             }
             if ( _mode === 'violation_car' ) { //我的违法-车辆列表
-                var url=_self.preQuestUrl+_self.urlRouter[_mode];
+                var url=_self.preQuestUrl+'/jnpublic/config/html/'+_self.urlRouter[_mode];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
