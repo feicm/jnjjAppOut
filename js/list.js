@@ -278,38 +278,6 @@ $(function () {
                     html = listArr.join("");
                     break;
                 case 'v_car_list':
-                    var msg = data;//Array
-                    var al;
-                    var li = '';
-                    var liArr = [];
-                    if ( msg !== 'NO_RESULT' ) {
-                        msg = _self.formatData(msg);
-                        al = msg.length;
-                        for ( var i = 0; i < al; i++ ) {
-                            li = [
-                                '<li class="list_hover" data-opt="@wfxw=' + msg[i].wfxw
-                                + '@wfsj=' + msg[i].wfsj
-                                + '@wfdd=' + msg[i].wfdd
-                                + '@clqk=' + msg[i].clqk
-                                + '@clsj=' + msg[i].clsj
-                                + '@jkqk=' + msg[i].jkqk
-                                + '@jksj=' + msg[i].jksj + '">',
-                                '    <div class="top">' + App.LS.get('App_name') + '<b>' + msg[i].hphm + '</b></div>',
-                                '    <div class="item-content ovh db">',
-                                '        <h1 class="h1 bg_arr_r">',
-                                '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">' + msg[i].wfxw + '</b><br>',
-                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">' + _self.formatTime(msg[i].wfsj) + '</b>',
-                                '        </h1>',
-                                '    </div>',
-                                '</li>'].join("");
-                            liArr.push(li);
-                        }
-                    } else {
-                        li = _self.getHtmlNoResult();
-                        liArr.push(li);
-                    }
-                    html = liArr.join("");
-                    break;
                 case 'v_card_list':
                     var msg = data;//Array
                     var al;
@@ -405,6 +373,8 @@ $(function () {
                 data.carQueryResponse && (msg = data.carQueryResponse);
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法列表
+                data.violationInfoResponse && (msg = data.violationInfoResponse); //驾照违法列表
+                data.vioforceResponse && (msg = data.vioforceResponse); //驾照违法（强制措施）列表
                 if ( msg ) {
                     _callback && _callback(msg);
                 } else {
