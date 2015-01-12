@@ -92,10 +92,15 @@ $(function () {
                 _self.dialog.remove();
             } else {
                 //渲染默认
-                defautlhtml = [
-                    '<i class="fl icon icon-larger' + _self.module + '"></i>',
-                    '<h2>查询更便捷，绑定' + _self.moduleCH[_self.module] + '</h2>'].join("");
-                tipsWrap.append(defautlhtml);
+                if(_self.module==='car'||_self.module==='card'){
+                    defautlhtml = [
+                        '<i class="fl icon icon-larger' + _self.module + '"></i>',
+                        '<h2>查询更便捷，绑定' + _self.moduleCH[_self.module] + '</h2>'].join("");
+                    tipsWrap.append(defautlhtml);
+                }else{
+                    listStr = _self.getHtmlNoResult();
+                    listWrap.append(listStr);
+                }
                 //Wisp.UI.progressDialog.remove();
                 _self.dialog.remove();
             }
@@ -305,9 +310,6 @@ $(function () {
                                 '</li>'].join("");
                             liArr.push(li);
                         }
-                    } else {
-                        li = _self.getHtmlNoResult();
-                        liArr.push(li);
                     }
                     html = liArr.join("");
                     break;
