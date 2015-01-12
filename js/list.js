@@ -294,7 +294,7 @@ $(function () {
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
                                 '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">' + msg[i].wfxw + '</b><br>',
-                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">' + msg[i].wfsj + '</b>',
+                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">' + _self.formatTime(msg[i].wfsj) + '</b>',
                                 '        </h1>',
                                 '    </div>',
                                 '</li>'].join("");
