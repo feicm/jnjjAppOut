@@ -88,7 +88,7 @@ $(function () {
                 //渲染列表
                 listStr = _self.getListHtml(data, _self.module);
                 listWrap.append(listStr);
-                _self.currentBtn && _self.setCurrentBtn(_self.module);
+                _self.setCurrentBtn(_self.module);
                 _self.dialog.remove();
             } else {
                 //渲染默认
@@ -344,6 +344,8 @@ $(function () {
                     "dom"           : _self.currentBtn,
                     "hoverClassName": 'ui_btn_01_hover'
                 });
+            }else{
+                return;
             }
         },
         "formatData"     : function (data) {
