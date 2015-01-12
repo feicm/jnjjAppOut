@@ -7,6 +7,7 @@ $(function () {
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
         "curWebView"              : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
+        "indexPageId"             : App.getPageId(window.location.href),
         "ip_username"             : $('#username'),//用户名
         "ip_name"                 : $('#name'), //姓名
         "ip_photo"                : $('#photo'),//头像
@@ -51,6 +52,7 @@ $(function () {
             this.mode = opts.mode;
             var _self = this;
             if ( _self.mode === 'personalinfo' ) {
+                App.LS.set(_self.mode, _self.indexPageId);//pageid 写入localstorage
                 _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
                     _self.renderPersonalInfoPage('personalinfo');
                 }, 1000);
@@ -184,6 +186,7 @@ $(function () {
                         _self.updataInfo(_self.saveBtn);
                     });
                     _self.curWebView.close();
+                    Wisp.UI.Webview.init({PageId: App.LS.get('personalinfo')}).refresh();
                 } else {
                     _self.progressDialog.resetMsg('保存失败！');
                     _self.saveBtn.on('click', function () { //事件绑定
