@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="ui-buttons-row c" id="tab_violation" data-mode='v_card_list'>
+    <div class="ui-buttons-row c fixed-top" id="tab_violation" data-mode='v_card_list'>
         <a class="button active" data-for="tab-item-01">驾照违法</a>
         <a class="button" data-for="tab-item-02">驾照强制措施</a>
     </div>
-    <div class="list-block mt05" id="tab-item-01">
+    <div class="list-block mt05 pt18" id="tab-item-01">
         <ul>
         </ul>
     </div>
-    <div class="list-block mt05" style="display: none" id="tab-item-02">
+    <div class="list-block mt05 pt18" style="display: none" id="tab-item-02">
         <ul>
         </ul>
     </div>
