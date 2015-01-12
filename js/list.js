@@ -91,7 +91,7 @@ $(function () {
             //注册事件
             var _list = _self.listWrap;
             var _mode = _self.module;
-            if ( _mode === 'car' ) {
+            if ( _mode === 'car' ) {//我的车辆列表
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var cartype = _me.attr('data-cartype');
@@ -103,7 +103,7 @@ $(function () {
                     window.open(bindcarPageUrl);
                 });
             }
-            if ( _mode === 'card' ) {
+            if ( _mode === 'card' ) {//我的驾照列表
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
@@ -113,6 +113,26 @@ $(function () {
                 _self.currentBtn.on('click', function () {
                     window.open(bindcardPageUrl);
                 });
+            }
+            if ( _mode === 'violation_car' ) { //我的违法-车辆列表
+                _list.on('click', 'li', function (e) {
+                    var _me = $(this);
+                    var jkbj;
+                    $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
+                    var data=_me.data('opt');
+                    var params = '#mode=wf_car'+data+'@jkbj=' + jkbj;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                })
+            }
+            if ( _mode === 'violation_car' ) { //我的违法-驾照列表
+                _list.on('click', 'li', function (e) {
+                    var _me = $(this);
+                    var jkbj;
+                    $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
+                    var data=_me.data('opt');
+                    var params = '#mode=wf_card'+data+'@jkbj=' + jkbj;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                })
             }
         },
         "getListHtml"   : function (data, mode) {
