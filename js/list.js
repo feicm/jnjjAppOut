@@ -128,7 +128,7 @@ $(function () {
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
                     var params = '#mode=wf_car' + data + '@jkbj=' + jkbj;
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    window.open(_self.urlRouter['v_car_list'] + params);//通过url hash传参
                 })
             }
             if ( _mode === 'violation_card' ) { //我的违法-驾照列表
