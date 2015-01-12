@@ -12,9 +12,15 @@ $(function () {
     var cardlistRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
-    var v_car_listRrl = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
+    var v_car_listUrl = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
         + jnjjApp.config.requestUrl
         + '/jnpublic/electIllegalquery.json';//车辆电子监控违法信息
+    var v_card_listUrl = urlPre
+        + jnjjApp.config.requestUrl //&register=user2A&indentyid=370181199403014414&jkbj=1
+        + '/jnpublic/violationQuery.json';//驾照现场违法信息
+    var v_card_listUrl02 = urlPre
+        + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
+        + '/jnpublic/vioforcequery.json';//驾照强制措施信息
     var bindcarPageUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/config/html/bindcar.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定车辆页url
@@ -33,7 +39,8 @@ $(function () {
             "card"          : '驾照',
             "violation_car" : '已绑定车辆',
             "violation_card": '已绑定驾照',
-            "v_car_list"    : '车辆电子监控'
+            "v_car_list"    : '车辆电子监控',
+            "v_card_list"   : '驾照现场违法信息'
         },
         "dialog"         : null,
         "currentBtn"     : null,
@@ -137,13 +144,14 @@ $(function () {
                 })
             }
             if ( _mode === 'violation_card' ) { //我的违法-驾照列表
+                var url = _self.preQuestUrl + '/jnpublic/config/html/' + _self.urlRouter['v_card_list'];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
                     $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
-                    var params = '#mode=wf_card' + data + '@jkbj=' + jkbj;
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    var params = '#' + data + '@jkbj=' + jkbj;
+                    window.open(url + params);//通过url hash传参
                 })
             }
         },
@@ -278,18 +286,47 @@ $(function () {
                         msg = _self.formatData(msg);
                         al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
-                            /*li = [
-                             '<li>',
-                             '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                             '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
-                             '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                             '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                             '    <h1>处理情况：' + msg[i].clqk + '</h1>',
-                             '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                             '    <h1>交款时间：' + msg[i].jksj + '</h1>',
-                             '</li>'].join("");*/
                             li = [
-                                '<li class="list_hover">',
+                                '<li class="list_hover" data-opt="@wfxw=' + msg[i].wfxw
+                                + '@wfsj=' + msg[i].wfsj
+                                + '@wfdd=' + msg[i].wfdd
+                                + '@clqk=' + msg[i].clqk
+                                + '@clsj=' + msg[i].clsj
+                                + '@jkqk=' + msg[i].jkqk
+                                + '@jksj=' + msg[i].jksj + '">',
+                                '    <div class="top">' + App.LS.get('App_name') + '<b>' + msg[i].hphm + '</b></div>',
+                                '    <div class="item-content ovh db">',
+                                '        <h1 class="h1 bg_arr_r">',
+                                '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2">' + msg[i].wfxw + '</b><br>',
+                                '            <b class="fw"><i class="icon icon-time"></i>违法时间</b><b class="fw fr mr2">' + _self.formatTime(msg[i].wfsj) + '</b>',
+                                '        </h1>',
+                                '    </div>',
+                                '</li>'].join("");
+                            liArr.push(li);
+                        }
+                    } else {
+                        li = _self.getHtmlNoResult();
+                        liArr.push(li);
+                    }
+                    html = liArr.join("");
+                    break;
+                case 'v_card_list':
+                    var msg = data;//Array
+                    var al;
+                    var li = '';
+                    var liArr = [];
+                    if ( msg !== 'NO_RESULT' ) {
+                        msg = _self.formatData(msg);
+                        al = msg.length;
+                        for ( var i = 0; i < al; i++ ) {
+                            li = [
+                                '<li class="list_hover" data-opt="@wfxw=' + msg[i].wfxw
+                                + '@wfsj=' + msg[i].wfsj
+                                + '@wfdd=' + msg[i].wfdd
+                                + '@clqk=' + msg[i].clqk
+                                + '@clsj=' + msg[i].clsj
+                                + '@jkqk=' + msg[i].jkqk
+                                + '@jksj=' + msg[i].jksj + '">',
                                 '    <div class="top">' + App.LS.get('App_name') + '<b>' + msg[i].hphm + '</b></div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
@@ -453,8 +490,56 @@ $(function () {
             listModule.init({
                 "listWrap"  : $('.list-block ul'),
                 "module"    : module,
-                "requestUrl": v_car_listRrl,
+                "requestUrl": v_car_listUrl,
                 "datas"     : params
+            });
+        }
+    }
+    if ( module === 'v_card_list' ) {
+        if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
+            //&register=user2A&indentyid=370181199403014414&jkbj=1
+            //&register=user2A&indentyid=370181199001012475&cjbj=1
+            if ( oHash.jkbj !== '' ) {
+                params = [
+                    {
+                        "register" : userName,
+                        "indentyid": oHash.licenseid,
+                        "jkbj"     : oHash.jkbj
+                    }, {
+                        "register" : userName,
+                        "indentyid": oHash.licenseid,
+                        "cjbj"     : oHash.jkbj
+                    }
+                ];
+            } else {
+                params = [
+                    {
+                        "register" : userName,
+                        "indentyid": oHash.licenseid,
+                        "jkbj"     : oHash.jkbj
+                    }, {
+                        "register" : userName,
+                        "indentyid": oHash.licenseid,
+                        "cjbj"     : null
+                    }
+                ];
+            }
+            listModule.init({ //初始化驾照现场违法信息
+                "listWrap"  : $('#tab-item-01'),
+                "module"    : module,
+                "requestUrl": v_card_listUrl,
+                "datas"     : params
+            }, function () {
+                listModule.init({ //初始化驾照强制措施信息
+                    "listWrap"  : $('#tab-item-02'),
+                    "module"    : module,
+                    "requestUrl": v_card_listUrl02,
+                    "datas"     : params
+                });
+            });
+            App.UI('tabToggle', {
+                "dom"        : $('#tab_violation'),
+                "activeClass": 'active'
             });
         }
     }
