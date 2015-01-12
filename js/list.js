@@ -129,7 +129,7 @@ $(function () {
                     var jkbj;
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
-                    var params = '#mode=wf_car' + data + '@jkbj=' + jkbj;
+                    var params = '#' + data + '@jkbj=' + jkbj;
                     window.open(url + params);//通过url hash传参
                 })
             }
@@ -432,7 +432,7 @@ $(function () {
             "activeClass": 'active'
         });
     }
-    if ( module === 'v_car_list' ) {
+    if ( module === 'violation_car' ) {
         if ( hasKey('cartype', oHash)
             && hasKey('carid', oHash)
             && hasKey('jkbj', oHash) ) {
