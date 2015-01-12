@@ -469,30 +469,23 @@ $(function () {
         if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
             //&register=user2A&indentyid=370181199403014414&jkbj=1
             //&register=user2A&indentyid=370181199001012475&cjbj=1
+            var params = {
+                "register" : userName,
+                "indentyid": oHash.licenseid,
+                "jkbj"     : oHash.jkbj
+            };
             if ( oHash.jkbj !== '' ) {
-                params = [
-                    {
-                        "register" : userName,
-                        "indentyid": oHash.licenseid,
-                        "jkbj"     : oHash.jkbj
-                    }, {
+                var params02={
                         "register" : userName,
                         "indentyid": oHash.licenseid,
                         "cjbj"     : oHash.jkbj
-                    }
-                ];
+                    };
             } else {
-                params = [
-                    {
-                        "register" : userName,
-                        "indentyid": oHash.licenseid,
-                        "jkbj"     : oHash.jkbj
-                    }, {
-                        "register" : userName,
-                        "indentyid": oHash.licenseid,
-                        "cjbj"     : null
-                    }
-                ];
+                var params02={
+                    "register" : userName,
+                    "indentyid": oHash.licenseid,
+                    "cjbj"     : null
+                };
             }
             listModule.init({ //初始化驾照现场违法信息
                 "listWrap"  : $('#tab-item-01'),
@@ -504,7 +497,7 @@ $(function () {
                     "listWrap"  : $('#tab-item-02'),
                     "module"    : module,
                     "requestUrl": v_card_listUrl02,
-                    "datas"     : params
+                    "datas"     : params02
                 });
             });
             App.UI('tabToggle', {
