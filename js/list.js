@@ -60,11 +60,11 @@ $(function () {
             this.callback = callback || null;
             var _self = this;
             _self.requestData(_self.requestUrl, _self.params, function (data) {
-                var listData;
+                var listData=[];
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( data.success === 'true' ) {
-                    data.msg === 'NO_RESULT' ? listData = [] : (listData = data.msg);
+                   listData = data.msg;
                 }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
