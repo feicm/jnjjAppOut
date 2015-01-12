@@ -578,7 +578,7 @@ $(function () {
                         "jkbj"      : oHash.jkbj
                     };
                     detailsBlock.init({
-                        "dom" : $('#violation-list'),
+                        "dom" : $('#c_Table_b'),
                         "type": 'wf_car',
                         "url" : wf_car_url,
                         "data": params
