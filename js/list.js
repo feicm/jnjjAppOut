@@ -448,7 +448,7 @@ $(function () {
                 "jkbj"      : oHash.jkbj
             };
             listModule.init({
-                "listWrap"  : $('.list-block'),
+                "listWrap"  : $('.list-block ul'),
                 "module"    : module,
                 "requestUrl": v_car_listRrl,
                 "datas"     : params
