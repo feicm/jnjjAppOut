@@ -64,7 +64,7 @@ $(function () {
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( data.success === 'true' ) {
-                    data.msg === 'NO_RESULT' ? listData = [] || (listData = data.msg);
+                    data.msg === 'NO_RESULT' ? listData = [] : (listData = data.msg);
                 }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
