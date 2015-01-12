@@ -488,13 +488,13 @@ $(function () {
                 };
             }
             listModule.init({ //初始化驾照现场违法信息
-                "listWrap"  : $('#tab-item-01'),
+                "listWrap"  : $('#tab-item-01 ul'),
                 "module"    : module,
                 "requestUrl": v_card_listUrl,
                 "datas"     : params
             }, function () {
                 listModule.init({ //初始化驾照强制措施信息
-                    "listWrap"  : $('#tab-item-02'),
+                    "listWrap"  : $('#tab-item-02 ul'),
                     "module"    : module,
                     "requestUrl": v_card_listUrl02,
                     "datas"     : params02
