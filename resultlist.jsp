@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="list-block c mt-05" data-mode='v_car_list'>
+    <div class="list-block c mt05" data-mode='v_car_list'>
         <ul>
         </ul>
     </div>
