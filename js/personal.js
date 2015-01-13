@@ -103,7 +103,9 @@ $(function () {
                     if ( _self.App_closeUser_Name !== 'null' ) {
                         _self.ip_closer.text(_self.App_closeUser_Name);
                     }
-                    //_self.progressDialog.remove();
+                    setTimeout(function(){
+                        _self.progressDialog.remove();
+                    },500)
                 }
             } else {
                 return false;
