@@ -43,55 +43,44 @@ $(function () {
         "init"           : function (opts) {
             this.dom = opts.dom;
             this.type = opts.type;
-            this.url = opts.url;
+            this.url = opts.url || null;
             this.params = opts.data;
-            if ( this.type === 'wf_card' ) {
-                this.loadMulti();
-            } else {
-                this.load();
-            }
+            this.load();
         },
         "load"           : function (dom, url, params) {
             var _self = this;
             var _url = url || _self.url;
             var _params = params || _self.params;
             var _dom = dom || _self.dom;
-            _self.loading=App.UI('dialog',{'msg':"数据加载中"});
-            App.getAjaxData(_url, _params, function (data) {
+            _self.loading = App.UI('dialog', {'msg': "数据加载中"});
+            if ( !_url && _params ) {//url 为空 直接渲染
+                _self.render(_params, _dom);//渲染结果
+                _self.loading.remove();
+            }
+            _url && App.getAjaxData(_url, _params, function (data) {
                 var msg;
-                var type;
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
-                data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法
-                //data.success && (msg = data.msg); //年检预约查询、考试成绩/预约查询
                 if ( data.success === true || data.success === false ) {
                     msg = data.msg;
                 }//考试成绩/预约查询/年检预约查询
-                if ( data.violationInfoResponse ) {
-                    msg = data.violationInfoResponse;
-                    type = 'wf_card_t1';
-                }//驾照违法
-                if ( data.vioforceResponse ) {
-                    msg = data.vioforceResponse;
-                    type = 'wf_card_t2';
-                } //驾照违法-强制措施
                 if ( msg ) {
-                    _self.render(msg, _dom, type);//渲染结果
+                    _self.render(msg, _dom);//渲染结果
                     _self.loading.remove();
                 } else {
-                    _self.loading=_self.loading.resetMsg('加载失败');
-                    setTimeout(function(){
+                    _self.loading = _self.loading.resetMsg('加载失败');
+                    setTimeout(function () {
                         _self.loading.remove();
-                    },500);
+                    }, 500);
                 }
             });
         },
-        "render"         : function (data, selector, type) {
+        "render"         : function (data, selector) {
             console.dir(data);
             var _self = this;
             var _selector = selector;
             var _trStr;
-            var type = type || _self.type;
+            var type = _self.type;
             _trStr = _self.getHtml(type, data);
             _selector.append(_trStr);
         },
@@ -293,91 +282,84 @@ $(function () {
                         html = _self.getHtmlNoResult();
                     }
                     break;
-                case 'wf_car':
-                    msg = data.msg;//Array
-                    var al;
-                    var li = '';
-                    var liArr = [];
-                    if ( msg !== 'NO_RESULT' ) {
-                        msg = _self.formatData(msg);
-                        al = msg.length;
-                        for ( var i = 0; i < al; i++ ) {
-                            li = [
-                                '<li>',
-                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
-                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                                '    <h1>处理情况：' + msg[i].clqk + '</h1>',
-                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
-                                '</li>'].join("");
-                            liArr.push(li);
-                        }
-                    } else {
-                        li = _self.getHtmlNoResult();
-                        liArr.push(li);
-                    }
-                    html = '<h1>' + data.carNum + '</h1>' + liArr.join("");
-                    break;
-                case 'wf_card_t1':
-                    msg = data.msg;//Array
-                    var l = msg.length;
-                    var al;
-                    var li = '';
-                    var liArr = [];
-                    if ( msg !== 'NO_RESULT' ) {
-                        msg = _self.formatData(msg);
-                        al = msg.length;
-                        for ( var i = 0; i < al; i++ ) {
-                            li = [
-                                '<li>',
-                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
-                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                                '    <h1>交款时间：' + msg[i].jksj + '</h1>',
-                                '    <h1>交款情况：' + msg[i].jkqk + '</h1>',
-                                '    <h1>处理时间：' + msg[i].clsj + '</h1>',
-                                '    <h1>违法记分数：' + msg[i].wfjfs + '</h1>',
-                                '    <h1>罚款金额：' + msg[i].fkje + '</h1>',
-                                '</li>'].join("");
-                            liArr.push(li);
-                        }
-                    } else {
-                        li = _self.getHtmlNoResult();
-                        liArr.push(li);
-                    }
-                    html = liArr.join("");
-                    break;
-                case 'wf_card_t2':
-                    msg = data.msg;//Array
-                    var l = msg.length;
-                    var al;
-                    var li = '';
-                    var liArr = [];
-                    if ( msg !== 'NO_RESULT' ) {
-                        msg = _self.formatData(msg);
-                        al = msg.length;
-                        for ( var i = 0; i < al; i++ ) {
-                            li = [
-                                '<li>',
-                                '    <h1>违法行为：' + msg[i].wfxw + '</h1>',
-                                '    <h1>违法地点：' + msg[i].wfdd + '</h1>',
-                                '    <h1>违法时间：' + msg[i].wfsj + '</h1>',
-                                '    <h1>接受处理时间：' + msg[i].jsclsj + '</h1>',
-                                '    <h1>裁决时间：' + msg[i].cjbj + '</h1>',
-                                '    <h1>裁决时间：' + msg[i].cjsj + '</h1>',
-                                '</li>'].join("");
-                            liArr.push(li);
-                        }
-                    } else {
-                        li = _self.getHtmlNoResult();
-                        liArr.push(li);
-                    }
-                    html = liArr.join("");
+                case 'v_car_list'://我的违法-车辆-结果列表-内容模板
+                    html = ['<div class="list-block">',
+                        '        <ul>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-position"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">违法地点</div>',
+                        '                        <div class="item-after">'+data.wfdd+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-action"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">违法行为</div>',
+                        '                        <div class="item-after">'+data.wfxw+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-time"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">违法时间</div>',
+                        '                        <div class="item-after">'+_self.formatTime(data.wfsj)+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '        </ul>',
+                        '    </div>',
+                        '    <div class="list-block">',
+                        '        <ul>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-tag"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">处理情况</div>',
+                        '                        <div class="item-after">'+data.clqk+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-time"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">处理时间</div>',
+                        '                        <div class="item-after">'+_self.formatTime(data.clsj)+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '        </ul>',
+                        '    </div>',
+                        '    <div class="list-block">',
+                        '        <ul>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-tag"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">交款情况</div>',
+                        '                        <div class="item-after">'+data.jkqk+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '            <li>',
+                        '                <div class="item-content">',
+                        '                    <div class="item-media"><i class="icon icon-time"></i></div>',
+                        '                    <div class="item-inner">',
+                        '                        <div class="item-title label">交款时间</div>',
+                        '                        <div class="item-after">'+_self.formatTime(data.jksj)+'</div>',
+                        '                    </div>',
+                        '                </div>',
+                        '            </li>',
+                        '        </ul>',
+                        '    </div>'].join("");
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
-                    data;
                     if ( data instanceof Array ) {
                         msg = data[0];//Object
                         html = [
@@ -406,7 +388,6 @@ $(function () {
                     }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
-                    data;
                     if ( data instanceof Array ) {
                         msg = data[0];//Object
                         html = [
@@ -443,7 +424,6 @@ $(function () {
                     }
                     break;
                 case 'query_njyy': //年检预约查询结果内容模板
-                    data;//Array
                     if ( data instanceof Array ) {
                         msg = $.parseJSON(data[0].msg);//Object
                         html = [
@@ -493,20 +473,6 @@ $(function () {
                 '     <b>' + text + '</b>',
                 ' </div>'].join("");
             return _html;
-        },
-        "loadMulti"      : function () {
-            var _self = this;
-            var _type = _self.type;
-            var _dom = _self.dom;
-            var _urlArr = _self.url.split('@@');
-            var _paramsArr = _self.params;
-            var _tabs;
-            var _blockid;
-            _tabs = _dom.children();
-            _tabs.each(function (index) {
-                _blockid = $(this).attr('data-for');
-                _self.load($('#' + _blockid), _urlArr[index], _paramsArr[index]);
-            })
         },
         "formatData"     : function (data) {
             var sData = data.substring(1, data.length - 1);
@@ -566,24 +532,12 @@ $(function () {
                     });
                 }
                 break;
-            case 'wf_car'://违法信息-按车辆-内容结果加载
-                if ( hasKey('cartype', oHash)
-                    && hasKey('carid', oHash)
-                    && hasKey('jkbj', oHash) ) {
-                    //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
-                    params = {
-                        "register"  : userName,
-                        "carNumType": oHash.cartype,
-                        "carNum"    : decodeURI(oHash.carid),
-                        "jkbj"      : oHash.jkbj
-                    };
-                    detailsBlock.init({
-                        "dom" : $('#c_Table_b'),
-                        "type": 'wf_car',
-                        "url" : wf_car_url,
-                        "data": params
-                    });
-                }
+            case 'v_car_list'://违法信息-按车辆-内容结果加载
+                detailsBlock.init({
+                    "dom" : $('#c_Table_b'),
+                    "type": 'v_car_list',
+                    "data": oHash
+                });
                 break;
             case 'wf_card'://违法信息-按驾照-内容结果加载
                 if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
