@@ -164,7 +164,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-nail"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label w6">人数限制</div>
+                            <div class="item-title label">人数限制</div>
                             <div class="item-input">
                                 <input id="rsxz" type="text" disabled>
                             </div>
