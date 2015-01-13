@@ -319,8 +319,8 @@ $(function () {
                                 + '@fkje=' + msg[i].fkje //罚款金额
                                 + '@clsj=' + msg[i].clsj //处理时间
                                 + '@clqk=' + msg[i].clqk //处理情况
-                                + '@jksj=' + msg[i].jksj;//交款时间
-                                +'@jscjsj=' + msg[i].jscjsj //接收裁决时间
+                                + '@jksj=' + msg[i].jksj//交款时间
+                                + '@jscjsj=' + msg[i].jscjsj //接收裁决时间
                                 + '@cjbj=' + msg[i].cjbj //裁决标记
                                 + '@cjsj=' + msg[i].cjsj; //裁决时间
                             }
