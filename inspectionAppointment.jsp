@@ -175,7 +175,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-pen"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">已预约人数</div>
+                            <div class="item-title label w6">已预约人数</div>
                             <div class="item-input">
                                 <input id="yyyrs" type="text" disabled>
                             </div>
