@@ -1166,6 +1166,8 @@ i.icon-card2{
     background : #F6F6F6;
 }
 .wfdd{
+    display: block;
+    text-align: right;
     width: 70%;
     line-height: 1.1;
 }
