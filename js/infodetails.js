@@ -399,7 +399,7 @@ $(function () {
                             '    <ul>',
                             '        <li>',
                             '            <div class="item-content">',
-                            '                <div class="item-media"><i class="icon icon-pen"></i></div>',
+                            '                <div class="item-media"><i class="icon icon-record"></i></div>',
                             '                <div class="item-inner">',
                             '                    <div class="item-title label">违法记分数</div>',
                             '                    <div class="item-after">' + data.wfjfs + '</div>',
