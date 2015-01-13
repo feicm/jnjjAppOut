@@ -32,7 +32,7 @@ $(function () {
         "register": userName,
         "axisFlag": false
     };
-    //绑定（车辆、驾照）列表对象
+    //列表对象
     var listModule = {
         "moduleCH"       : {
             "car"           : '车辆',
@@ -60,11 +60,11 @@ $(function () {
             this.callback = callback || null;
             var _self = this;
             _self.requestData(_self.requestUrl, _self.params, function (data) {
-                var listData=[];
+                var listData = [];
                 data.carList && (listData = data.carList);
                 data.licenseList && (listData = data.licenseList);
                 if ( data.success === 'true' ) {
-                   listData = data.msg;
+                    listData = data.msg;
                 }
                 if ( listData.length ) {
                     _self.defaultBtn && _self.hideDefaultBtn();
@@ -77,6 +77,7 @@ $(function () {
                 }
             });
         },
+        //渲染数据
         "renderList"     : function (data) {
             var _self = this;
             var args = Array.prototype.slice.call(arguments);
@@ -92,12 +93,12 @@ $(function () {
                 _self.dialog.remove();
             } else {
                 //渲染默认
-                if(_self.module==='car'||_self.module==='card'){
+                if ( _self.module === 'car' || _self.module === 'card' ) {
                     defautlhtml = [
                         '<i class="fl icon icon-larger' + _self.module + '"></i>',
                         '<h2>查询更便捷，绑定' + _self.moduleCH[_self.module] + '</h2>'].join("");
                     tipsWrap.append(defautlhtml);
-                }else{
+                } else {
                     listStr = _self.getHtmlNoResult();
                     listWrap.append(listStr);
                 }
@@ -105,10 +106,12 @@ $(function () {
                 _self.dialog.remove();
             }
         },
+        //隐藏默认按钮，用于车辆、驾照列表
         "hideDefaultBtn" : function () {
             var _self = this;
             _self.defaultBtn && _self.defaultBtn.remove();
         },
+        //事件绑定
         "bindEvent"      : function () {
             var _self = this;
             //注册事件
@@ -160,6 +163,7 @@ $(function () {
                 })
             }
         },
+        //获取列表html字符串
         "getListHtml"    : function (data, mode) {
             var _self = this;
             var html;
@@ -168,7 +172,7 @@ $(function () {
             var btnHtml;
             var listArr = [];
             switch ( mode ) {
-                case 'car':
+                case 'car': //我的车辆列表
                     /*var o = [{
                      "carNumType" : "02",
                      "indentityid": "370827198902022860",
@@ -200,7 +204,7 @@ $(function () {
                     btnHtml = _self.getBtnHtml(mode);
                     html = listArr.join("") + btnHtml;
                     break;
-                case 'card':
+                case 'card'://我的驾照列表
                     /*var o1 = [{
                      "licenseid"    : "370122197505086815",
                      "licensephone" : "13864192246",
@@ -230,7 +234,7 @@ $(function () {
                     btnHtml = _self.getBtnHtml(mode);
                     html = listArr.join("") + btnHtml;
                     break;
-                case 'violation_car':
+                case 'violation_car'://我的违法-车辆列表
                     /*var o = [{
                      "carNumType" : "02",
                      "indentityid": "370827198902022860",
@@ -257,7 +261,7 @@ $(function () {
                     }
                     html = listArr.join("");
                     break;
-                case 'violation_card':
+                case 'violation_card'://我的违法-驾照列表
                     /*var o1 = [{
                      "licenseid"    : "370122197505086815",
                      "licensephone" : "13864192246",
@@ -282,24 +286,39 @@ $(function () {
                     }
                     html = listArr.join("");
                     break;
-                case 'v_car_list':
-                case 'v_card_list':
+                case 'v_car_list': //我的违法-车辆-结果列表
+                case 'v_card_list': //我的违法-驾照-结果列表
                     var msg = data;//Array
                     var al;
                     var li = '';
+                    var opt = '';
                     var liArr = [];
                     if ( msg !== 'NO_RESULT' ) {
                         msg = _self.formatData(msg);
                         al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
+                            opt = '@wfxw=' + msg[i].wfxw
+                            + '@wfsj=' + msg[i].wfsj
+                            + '@wfdd=' + msg[i].wfdd;
+                            if ( mode === 'v_car_list' ) {
+                                opt +=
+                                    +'@clqk=' + msg[i].clqk //处理情况
+                                    + '@clsj=' + msg[i].clsj//处理时间
+                                    + '@jkqk=' + msg[i].jkqk//交款情况
+                                    + '@jksj=' + msg[i].jksj;//交款时间
+                            }
+                            if ( mode === 'v_card_list' ) {
+                                opt +=
+                                    +'@wfjfs=' + msg[i].wfjfs//违法记分数
+                                    + '@fkje=' + msg[i].fkje //罚款金额
+                                    + '@clsj=' + msg[i].clsj //处理时间
+                                    + '@clqk=' + msg[i].clqk //处理情况
+                                    + '@jscjsj=' + msg[i].jscjsj //接收裁决时间
+                                    + '@cjbj=' + msg[i].cjbj //裁决标记
+                                    + '@cjsj=' + msg[i].cjsj; //裁决时间
+                            }
                             li = [
-                                '<li class="list_hover" data-opt="@wfxw=' + msg[i].wfxw
-                                + '@wfsj=' + msg[i].wfsj
-                                + '@wfdd=' + msg[i].wfdd
-                                + '@clqk=' + msg[i].clqk
-                                + '@clsj=' + msg[i].clsj
-                                + '@jkqk=' + msg[i].jkqk
-                                + '@jksj=' + msg[i].jksj + '">',
+                                '<li class="list_hover" data-opt="' + opt + '">',
                                 '    <div class="top">' + App.LS.get('App_name') + '<b>' + msg[i].hphm + '</b></div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
@@ -316,6 +335,7 @@ $(function () {
             }
             return html;
         },
+        //获取绑定按钮html，用于我的车辆、驾照列表中
         "getBtnHtml"     : function (mode) {
             var btnHtml = [
                 '<a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-mode="' + mode + '">',
@@ -323,6 +343,7 @@ $(function () {
                 '</a>'].join("");
             return btnHtml;
         },
+        //无结果时返回html
         "getHtmlNoResult": function (msg) {
             var text;
             if ( msg === 'NO_RESULT' || msg === undefined ) {
@@ -336,6 +357,7 @@ $(function () {
                 ' </div>'].join("");
             return _html;
         },
+        //设置新加按钮事件，用于我的车辆、驾照列表中
         "setCurrentBtn"  : function (mode) {
             var _self = this;
             if ( $('.ui_btn').data('mode') === mode ) {
@@ -344,10 +366,11 @@ $(function () {
                     "dom"           : _self.currentBtn,
                     "hoverClassName": 'ui_btn_01_hover'
                 });
-            }else{
+            } else {
                 return;
             }
         },
+        //格式化返回数据msg
         "formatData"     : function (data) {
             var sData = data.substring(1, data.length - 1);
             var aData = sData.split(',{');
@@ -359,9 +382,11 @@ $(function () {
             console.dir(aData);
             return aData;
         },
+        //格式化时间，去除时分秒
         "formatTime"     : function (Date) {
             return Date.split(' ')[0];
         },
+        //ajax请求函数
         "requestData"    : function (url, params, callback) {
             var _self = this;
             var _url = url;
@@ -371,11 +396,10 @@ $(function () {
             _self.dialog = App.UI('dialog', {
                 msg: '数据加载中···'
             });
-            //Wisp.UI.progressDialog.show('请求' + _self.moduleCH[_self.module] + '列表中，请稍后！');
             App.getAjaxData(_url, _params, function (data) {//用户车辆列表请求回调
                 var msg;
-                data.carQueryResponse && (msg = data.carQueryResponse);
-                data.licenseQueryResponse && (msg = data.licenseQueryResponse);
+                data.carQueryResponse && (msg = data.carQueryResponse);//车辆列表
+                data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照列表
                 data.electIllegalResponse && (msg = data.electIllegalResponse); //车辆违法列表
                 data.violationInfoResponse && (msg = data.violationInfoResponse); //驾照违法列表
                 data.vioforceResponse && (msg = data.vioforceResponse); //驾照违法（强制措施）列表
