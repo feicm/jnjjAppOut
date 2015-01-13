@@ -162,6 +162,14 @@ $(function () {
                     window.open(url + params);//通过url hash传参
                 })
             }
+            if ( _mode === 'v_car_list' || _mode === 'v_card_list' ) {//我的违法-车辆、驾照-结果列表
+                _list.on('click', 'li', function (e) {
+                    var _me = $(this);
+                    var opt = _me.data('opt');
+                    var params = '#mode=' + _mode + opt;
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                })
+            }
         },
         //获取列表html字符串
         "getListHtml"    : function (data, mode) {
@@ -297,9 +305,9 @@ $(function () {
                         msg = _self.formatData(msg);
                         al = msg.length;
                         for ( var i = 0; i < al; i++ ) {
-                            opt = '@wfxw=' + msg[i].wfxw
-                            + '@wfsj=' + msg[i].wfsj
-                            + '@wfdd=' + msg[i].wfdd;
+                            opt = '@wfxw=' + msg[i].wfxw//违法行为
+                            + '@wfsj=' + msg[i].wfsj  //违法时间
+                            + '@wfdd=' + msg[i].wfdd;  //违法地点
                             if ( mode === 'v_car_list' ) {
                                 opt += '@clqk=' + msg[i].clqk //处理情况
                                 + '@clsj=' + msg[i].clsj//处理时间
@@ -311,7 +319,8 @@ $(function () {
                                 + '@fkje=' + msg[i].fkje //罚款金额
                                 + '@clsj=' + msg[i].clsj //处理时间
                                 + '@clqk=' + msg[i].clqk //处理情况
-                                + '@jscjsj=' + msg[i].jscjsj //接收裁决时间
+                                + '@jksj=' + msg[i].jksj;//交款时间
+                                +'@jscjsj=' + msg[i].jscjsj //接收裁决时间
                                 + '@cjbj=' + msg[i].cjbj //裁决标记
                                 + '@cjsj=' + msg[i].cjsj; //裁决时间
                             }
