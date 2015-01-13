@@ -102,7 +102,7 @@ $(function () {
                             mode    : 'scroller',
                             minWidth: 200
                         });
-                        Wisp.UI.progressDialog.remove();
+                        _self.progressDialog.remove();
                         _self.bindEvent('last');
                     } else {
                         console.log('data格式错误');

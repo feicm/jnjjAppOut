@@ -164,10 +164,12 @@ var App = (function () {
             "render"      : function () {
                 var self = this;
                 var inputWrap;
+                var isReadonly;
                 var closeHtml = '<a class="close">X</a>';
                 self.doms.each(function (index) {
                     inputWrap = $(this).find('.item-input');
-                    inputWrap.append(closeHtml);
+                    isReadonly = inputWrap.find('input').prop('readonly');
+                    !isReadonly && inputWrap.append(closeHtml);
                 });
             },
             "bindEvent"   : function () {
@@ -186,7 +188,6 @@ var App = (function () {
                         var value;
                         input = $(this).find('input');
                         close = $(this).find('a.close');
-                        input.prop('readonly') && close.hide();
                         close.on('click', function () {
                             var curInput = $(this).parent().children('input');
                             curInput.val('');
@@ -641,9 +642,9 @@ var App = (function () {
                 }
                 return result;
             },
-            "resetMsg":function(text){
-                var _self=this;
-                text && (_self.msg=text);
+            "resetMsg" : function (text) {
+                var _self = this;
+                text && (_self.msg = text);
                 _self.remove();
                 _self.show();
                 return this;
@@ -917,7 +918,7 @@ var App = (function () {
      "idnum"   : $('#setidnum')//身份证
      };*/
     function verify(opts) {
-        var tipsmsg=function(msg){
+        var tipsmsg = function (msg) {
             App.UI('dialog', {
                 type : 'alert',
                 title: '公众服务平台',
