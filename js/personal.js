@@ -74,6 +74,7 @@ $(function () {
             }
             if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
                 if ( mode === 'personalinfo' ) {//填充个人中心
+                    _self.progressDialog = App.UI('dialog', {msg: '加载中···'});
                     _self.ip_username.text(_self.App_userName);//用户名
                     _self.ip_name.text(_self.App_name);//姓名
                     //_self.ip_photo.attr('src', _self.App_userImage);
@@ -102,6 +103,7 @@ $(function () {
                     if ( _self.App_closeUser_Name !== 'null' ) {
                         _self.ip_closer.text(_self.App_closeUser_Name);
                     }
+                    _self.progressDialog.remove();
                 }
             } else {
                 return false;
