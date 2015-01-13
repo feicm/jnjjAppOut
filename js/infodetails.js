@@ -658,9 +658,10 @@ $(function () {
                 }
                 break;
             case 'v_car_list'://违法信息-按车辆-内容结果加载
+            case 'v_card_list'://违法信息-按驾照-内容结果加载
                 detailsBlock.init({
                     "dom" : $('#c_Table_b'),
-                    "type": 'v_car_list',
+                    "type": modename,
                     "data": oHash
                 });
                 break;
