@@ -1161,6 +1161,7 @@ i.icon-card2{
 
 /*details*/
 .details {
+    padding-top: .5em;
     overflow   : hidden;
     background : #F6F6F6;
 }
