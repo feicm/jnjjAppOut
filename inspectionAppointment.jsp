@@ -97,7 +97,7 @@
                         <div class="item-inner select">
                             <div class="item-title label">预约日期</div>
                             <div class="item-input">
-                                <input id="date" type="text" placeholder="请选择预约日期">
+                                <input id="date" type="text" placeholder="请选择预约日期" readonly>
                             </div>
                         </div>
                     </div>
