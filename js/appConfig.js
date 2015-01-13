@@ -292,7 +292,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_wzts.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "违章推送",
                             "summary"   : "违章主动推送",
                             "clickEvent": "",
@@ -303,7 +303,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_jyyh.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "加油优惠",
                             "summary"   : "商谈后确定",
                             "clickEvent": "",
@@ -314,7 +314,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_xcyh.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "洗车优惠",
                             "summary"   : "联创冰点价",
                             "clickEvent": "",
@@ -325,7 +325,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_dj.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "代驾",
                             "summary"   : "泽安冰点价",
                             "clickEvent": "",
@@ -336,7 +336,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_byyh.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "保养优惠",
                             "summary"   : "商谈后确定",
                             "clickEvent": "",
@@ -347,7 +347,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_clns.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "车辆年审",
                             "summary"   : "无需排队等候",
                             "clickEvent": "",
@@ -358,7 +358,7 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/find/f_dljy.png",//点击前图标
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "道路救援",
                             "summary"   : "免费全国救援",
                             "clickEvent": "",
