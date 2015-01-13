@@ -29,7 +29,7 @@ $(function () {
     var njyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/njyycx.json';//年检预约查询提交接口
-    var hash = window.location.hash,
+    var hash = encodeURIComponent(window.location.hash),
         cartype, //车辆类型
         carid, //车牌号码
         licenserecord, //驾照代码
