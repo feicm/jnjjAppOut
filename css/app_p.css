@@ -1142,7 +1142,10 @@ i.icon-card2{
     overflow   : hidden;
     background : #F6F6F6;
 }
-
+.wfdd{
+    width: 70%;
+    line-height: 1.1;
+}
 /*personal*/
 .list-block .item-input .ui-circle-pic {
     margin : 5px 0 0 10px

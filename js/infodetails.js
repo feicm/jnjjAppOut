@@ -291,7 +291,7 @@ $(function () {
                         '                <div class="item-media"><i class="icon icon-position"></i></div>',
                         '                <div class="item-inner">',
                         '                    <div class="item-title label">违法地点</div>',
-                        '                    <div class="item-after fs08">'+data.wfdd+'</div>',
+                        '                    <div class="item-after wfdd fs08">'+data.wfdd+'</div>',
                         '                </div>',
                         '            </div>',
                         '        </li>',
