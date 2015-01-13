@@ -487,7 +487,8 @@ $(function () {
                 case 'query_ksyy': //考试预约查询结果内容模板
                     if ( data instanceof Array ) {
                         msg = data[0];//Object
-                        html = ['<div class="list-block">',
+                        html = [
+                            '<div class="list-block">',
                             '    <ul>',
                             '        <li>',
                             '            <div class="item-content">',
@@ -551,7 +552,8 @@ $(function () {
                 case 'query_kscj': //考试预约查询结果内容模板
                     if ( data instanceof Array ) {
                         msg = data[0];//Object
-                        html = ['<div class="list-block">',
+                        html = [
+                            '<div class="list-block">',
                             '    <ul>',
                             '        <li>',
                             '            <div class="item-content">',
@@ -638,30 +640,72 @@ $(function () {
                     if ( data instanceof Array ) {
                         msg = $.parseJSON(data[0].msg);//Object
                         html = [
-                            ' <tr>',
-                            '     <td>预约编号</td>',
-                            '     <td>' + msg.yybh + '</td>',
-                            ' </tr>',
-                            ' <tr>',
-                            '     <td>号牌种类</td>',
-                            '     <td>' + msg.hpzl + '</td>',
-                            ' </tr>',
-                            ' <tr>',
-                            '     <td>号牌号码</td>',
-                            '     <td>' + msg.hphm + '</td>',
-                            ' </tr>',
-                            ' <tr>',
-                            '     <td>业务类型</td>',
-                            '     <td>' + msg.ywlx + '</td>',
-                            ' </tr>',
-                            ' <tr>',
-                            '     <td>预约办理日期</td>',
-                            '     <td>' + msg.yyblrq + '</td>',
-                            ' </tr>',
-                            ' <tr>',
-                            '     <td>预约办理时间</td>',
-                            '     <td>' + msg.yyblsj + '</td>',
-                            ' </tr>'].join("");
+                            '<div class="list-block">',
+                            '    <ul>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-pen"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">预约编号</div>',
+                            '                    <div class="item-after">' + msg.yybh + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-cartype"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">号牌种类</div>',
+                            '                    <div class="item-after">' + msg.hpzl + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-carnum2"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">号牌号码</div>',
+                            '                    <div class="item-after">' + msg.hphm + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '    </ul>',
+                            '</div>',
+                            '<div class="list-block">',
+                            '    <ul>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-cardnum"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">业务类型</div>',
+                            '                    <div class="item-after">' + msg.ywlx + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '    </ul>',
+                            '</div>',
+                            '<div class="list-block">',
+                            '    <ul>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-calendar2"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label w6">预约办理日期</div>',
+                            '                    <div class="item-after">' + msg.yyblrq + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-time"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label w6">预约办理时间</div>',
+                            '                    <div class="item-after">' + msg.yyblsj + '</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '    </ul>',
+                            '</div>'].join("");
                     } else {
                         html = _self.getHtmlNoResult(data);
                     }
@@ -751,43 +795,6 @@ $(function () {
                     "data": oHash
                 });
                 break;
-            case 'wf_card'://违法信息-按驾照-内容结果加载
-                if ( hasKey('licenseid', oHash) && hasKey('jkbj', oHash) ) {
-                    //&register=user2A&indentyid=370181199403014414&jkbj=1
-                    //&register=user2A&indentyid=370181199001012475&cjbj=1
-                    if ( oHash.jkbj !== '' ) {
-                        params = [
-                            {
-                                "register" : userName,
-                                "indentyid": oHash.licenseid,
-                                "jkbj"     : oHash.jkbj
-                            }, {
-                                "register" : userName,
-                                "indentyid": oHash.licenseid,
-                                "cjbj"     : oHash.jkbj
-                            }
-                        ];
-                    } else {
-                        params = [
-                            {
-                                "register" : userName,
-                                "indentyid": oHash.licenseid,
-                                "jkbj"     : oHash.jkbj
-                            }, {
-                                "register" : userName,
-                                "indentyid": oHash.licenseid,
-                                "cjbj"     : null
-                            }
-                        ];
-                    }
-                    detailsBlock.init({
-                        "dom" : $('#tab_violation'),
-                        "type": 'wf_card',
-                        "url" : wf_card_url + '@@' + wf_card_url02,
-                        "data": params
-                    });
-                }
-                break;
             case 'query_ksyy'://考试预约查询-结果
             case 'query_kscj'://考试预约查询-结果
                 if ( hasKey('sfzmmc', oHash)
@@ -846,7 +853,6 @@ $(function () {
             default :
                 console.log("it's not this mode!!");
         }
-
     }
 
     //返回对象o是否存在属性keyname
