@@ -23,6 +23,9 @@ body {
 .fr {
     float : right;
 }
+.fs08{
+    font-size: .8em;
+}
 .db{
     display: block !important;
 }
@@ -355,7 +358,7 @@ body {
 }
 
 .list-block .item-after {
-    white-space         : nowrap;
+    white-space         : normal;
     color: #727272;
     -webkit-flex-shrink : 0;
     -ms-flex            : 0 0 auto;
