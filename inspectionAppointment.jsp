@@ -134,7 +134,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-calendar2"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">预约日期</div>
+                            <div class="item-title label w6">预约日期</div>
                             <div class="item-input">
                                 <input id="yyrq" type="text" disabled>
                             </div>
@@ -164,7 +164,7 @@
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-nail"></i></div>
                         <div class="item-inner">
-                            <div class="item-title label">人数限制</div>
+                            <div class="item-title label w6">人数限制</div>
                             <div class="item-input">
                                 <input id="rsxz" type="text" disabled>
                             </div>
