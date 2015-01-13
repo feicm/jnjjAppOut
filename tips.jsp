@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-    <h1 class="Tips">敬请期待！</h1>
+    <h1 class="Tips">即将推出！</h1>
 </body>
 </html>
