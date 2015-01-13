@@ -52,6 +52,7 @@ $(function () {
             this.mode = opts.mode;
             var _self = this;
             if ( _self.mode === 'personalinfo' ) {
+                _self.progressDialog = App.UI('dialog', {msg: '加载中···'});
                 App.LS.set(_self.mode, _self.indexPageId);//pageid 写入localstorage
                 _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
                     _self.renderPersonalInfoPage('personalinfo');
@@ -74,7 +75,6 @@ $(function () {
             }
             if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
                 if ( mode === 'personalinfo' ) {//填充个人中心
-                    _self.progressDialog = App.UI('dialog', {msg: '加载中···'});
                     _self.ip_username.text(_self.App_userName);//用户名
                     _self.ip_name.text(_self.App_name);//姓名
                     //_self.ip_photo.attr('src', _self.App_userImage);
