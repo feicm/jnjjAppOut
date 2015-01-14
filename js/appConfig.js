@@ -19,8 +19,8 @@ jnjjApp.footbarDatas = {
                     "size": 'Larger', //尺寸标识 Larger Middle Smaller
                     "data": [
                         {
-                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://rjsoft.gnway.cc:9093/wispcms/dbfile.svl?n=/u/cms/www/201501/14151206zvn9.jpg",
+                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/static/ZXJJDT/20150114/3843.html"
                         },
                         {
                             "imgUrl": "http://i2.sinaimg.cn/dy/c/2014-08-11/1407776507_TBWOVy.jpg",
