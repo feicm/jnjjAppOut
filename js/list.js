@@ -166,7 +166,7 @@ $(function () {
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var opt = _me.data('opt');
-                    var params = '#mode=' + _mode + opt;
+                    var params = encodeURI('#mode=' + _mode + opt);
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
             }
