@@ -117,6 +117,7 @@ body {
 }
 
 .ui-buttons-row .button {
+    background        : #fff;
     border-radius     : 0;
     border-left-width : 0;
     width             : 100%;
@@ -1405,7 +1406,7 @@ i.icon-card2 {
     left       : 0;
     top        : 0;
     z-index    : 111;
-    background : #F6F6F6;
+    background : rgba(246, 246, 246, 0.9);
 }
 
 .print {
