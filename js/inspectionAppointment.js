@@ -258,13 +258,19 @@ $(function () {
                 'yyrq'   : _self.date.val(),
                 'jcxcode': _li.attr('data-code')
             };
-           // Wisp.UI.progressDialog.show('预约时间段查询中，请稍后！');
             _self.progressDialog=App.UI('dialog',{msg:'预约时间段查询中，请稍后！'});
             App.getAjaxData(njyysjdRequestUrl, _params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    _self.progressDialog.remove();
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '公众服务平台',
+                        msg  : '预约时间段查询失败！'
+                    });
+                }
                 if ( data.success ) {
                     _self.render('inputs', '', data.msg);
                 } else {
-                    //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
