@@ -239,7 +239,7 @@ $(function () {
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
                     _self.resetHeight(_wrap);
-                    _self.curDate=_curVal;
+                    _self.curDate = _curVal;
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
@@ -270,6 +270,8 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : '预约时间段查询失败！'
+                    },function () {
+                        c4_btn.trigger('click');
                     });
 
                 }
@@ -281,6 +283,8 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : data.msg
+                    },function () {
+                        c4_btn.trigger('click');
                     });
                 }
                 target.on('click', function () {
@@ -320,8 +324,8 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : '提交失败！'
-                    },function(){
-                        c4_btn.trigger('click');
+                    }, function (status) {
+                        status === 'OK' && c4_btn.trigger('click');
                     });
 
                 }
@@ -341,8 +345,6 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : data.msg
-                    },function(){
-                        c4_btn.trigger('click');
                     });
                     _self.bindEvent('last');
                 }
