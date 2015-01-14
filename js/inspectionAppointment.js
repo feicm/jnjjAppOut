@@ -271,6 +271,7 @@ $(function () {
                         title: '公众服务平台',
                         msg  : '预约时间段查询失败！'
                     });
+
                 }
                 if ( data.success ) {
                     _self.render('inputs', '', data.msg);
@@ -319,7 +320,10 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : '提交失败！'
+                    },function(){
+                        c4_btn.trigger('click');
                     });
+
                 }
                 if ( data.success ) {
                     //Wisp.UI.progressDialog.remove();
@@ -337,6 +341,8 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : data.msg
+                    },function(){
+                        c4_btn.trigger('click');
                     });
                     _self.bindEvent('last');
                 }
