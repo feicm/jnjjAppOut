@@ -1171,6 +1171,12 @@ i.icon-card2{
     width: 70%;
     line-height: 1.1;
 }
+.wfxw{
+    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 /*personal*/
 .list-block .item-input .ui-circle-pic {
     margin : 5px 0 0 10px
