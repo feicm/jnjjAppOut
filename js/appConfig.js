@@ -15,7 +15,7 @@ jnjjApp.footbarDatas = {
             "name"     : "首页",
             "view"     : [
                 {
-                    "type": 'picGallary',//图片轮播
+                    "type": 'picGallery',//图片轮播
                     "size": 'Larger', //尺寸标识 Larger Middle Smaller
                     "data": [
                         {
@@ -33,7 +33,7 @@ jnjjApp.footbarDatas = {
                     ]
                 },
                 {
-                    "type": "btnsGallary",//菜单轮播
+                    "type": "btnsGallery",//菜单轮播
                     "data": [
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -115,7 +115,7 @@ jnjjApp.footbarDatas = {
                     ]
                 },
                 {
-                    "type": 'picGallary',//图片轮播
+                    "type": 'picGallery',//图片轮播
                     "size": 'Middle', //尺寸标识 Larger Middle Smaller
                     "data": [
                         {
