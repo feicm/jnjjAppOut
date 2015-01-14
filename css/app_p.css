@@ -674,7 +674,7 @@ i.icon-card2{
 
 /*loading*/
 .ui-loading {
-    position      : absolute;
+    position      : fixed;
     left          : 50%;
     top           : 25%;
     width         : 70%;
@@ -805,7 +805,7 @@ i.icon-card2{
 /*model*/
 .modal {
     width         : 270px;
-    position      : absolute;
+    position      : fixed;
     z-index       : 11000;
     left          : 50%;
     margin-left   : -135px;
