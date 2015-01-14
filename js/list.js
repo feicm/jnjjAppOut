@@ -326,7 +326,7 @@ $(function () {
                             }
                             li = [
                                 '<li class="list_hover" data-opt="' + opt + '">',
-                                '    <div class="top"><b>' + msg[i].hphm + '</b></div>',
+                                '    <div class="top">' + msg[i].hphm + '</div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',
                                 '            <b class="fw"><i class="icon icon-action"></i>违法行为</b><b class="fw fr mr2 wfxw">' + msg[i].wfxw + '</b><br>',
