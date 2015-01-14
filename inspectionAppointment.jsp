@@ -104,10 +104,10 @@
                 </li>
             </ul>
         </div>
-        <ul class="ui-list ui-list-02" id='njyypc_list'>
+        <ul class="ui-list ui-list-02 pt18" id='njyypc_list'>
 
         </ul>
-        <div class="ft w100 pt18">
+        <div class="ft w100">
             <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" data-rel='pre' id="c2_btn">
                 上一步
             </a>
