@@ -59,7 +59,7 @@ $(function () {
                         _self.lastListener(_lastBtn);
                     })
                 case 'dateItem':
-                    $('#njyypc_list').on('click', 'li', function () {
+                    $('#njyypc_list li').on('click', function () {
                         var $this=$(this);
                         _self.dateItemListener($this);
                     })
@@ -308,6 +308,14 @@ $(function () {
             //Wisp.UI.progressDialog.show('提交预约信息中，请稍后！');
             _self.progressDialog=App.UI('dialog',{msg:'提交预约信息中，请稍后！'});
             App.getAjaxData(njyyrkRequestUrl, _params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    _self.progressDialog.remove();
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '公众服务平台',
+                        msg  : '提交失败！'
+                    });
+                }
                 if ( data.success ) {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
