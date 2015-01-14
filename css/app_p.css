@@ -1153,6 +1153,7 @@ i.icon-card2{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: right;
 }
 /*personal*/
 .list-block .item-input .ui-circle-pic {
