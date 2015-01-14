@@ -116,7 +116,7 @@ jnjjApp.footbarDatas = {
                 },
                 {
                     "type": 'picGallary',//图片轮播
-                    "size": 'Middle', //尺寸标识 Large Middle small
+                    "size": 'Middle', //尺寸标识 Larger Middle Smaller
                     "data": [
                         {
                             "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
