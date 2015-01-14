@@ -1277,7 +1277,6 @@ i.icon-card2{
 }
 .list-block li.list_hover{
     margin-bottom: .5em;
-    border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
 }
 .list-block li.list_hover:first-child{
