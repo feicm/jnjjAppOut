@@ -119,8 +119,8 @@ jnjjApp.footbarDatas = {
                     "size": 'Middle', //尺寸标识 Larger Middle Smaller
                     "data": [
                         {
-                            "imgUrl": "http://www.bjjtgl.gov.cn/Portals/0/images/20130415xw01.jpg",
-                            "url"   : "http://rjsoft.gnway.cc:9093/wispcms/appContent.jspx?id=2245&uid=&type=Android"
+                            "imgUrl": "http://rjsoft.gnway.cc:9093/wispcms/unicom.jpg",
+                            "url"   : ""
                         }
                     ]
                 }
