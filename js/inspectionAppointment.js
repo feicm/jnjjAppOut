@@ -34,6 +34,7 @@ $(function () {
         "yyrq"                 : $('#yyrq'), //预约日期
         "kxsjd"                : $('#kxsjd'), //可选时间段
         "date"                 : $('#date'), //日期
+        "curDate"              : null,
         "progressDialog"       : null,
         "init"                 : function (opts) {
             this.firstBtn = opts.firstBtn || null;
@@ -60,7 +61,7 @@ $(function () {
                     })
                 case 'dateItem':
                     $('#njyypc_list li').on('click', function () {
-                        var $this=$(this);
+                        var $this = $(this);
                         _self.dateItemListener($this);
                     })
                     break;
@@ -170,7 +171,7 @@ $(function () {
                     "register": userName
                 };
                 //Wisp.UI.progressDialog.show('预约资格审查中，请稍后！');
-                _self.progressDialog=App.UI('dialog',{msg:'预约资格审查中，请稍后！'});
+                _self.progressDialog = App.UI('dialog', {msg: '预约资格审查中，请稍后！'});
                 //提交表单
                 App.getAjaxData(ksyytjRequestUrl, _params, function (data) {
                     if ( data === 'error' ) {//ajax 失败回调
@@ -220,7 +221,7 @@ $(function () {
                 'yyrq'    : _curVal
             };
             //Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
-            _self.progressDialog=App.UI('dialog',{msg:'预约批次查询中，请稍后！'});
+            _self.progressDialog = App.UI('dialog', {msg: '预约批次查询中，请稍后！'});
             App.getAjaxData(njyypcRequestUrl, _params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.progressDialog.remove();
@@ -238,6 +239,7 @@ $(function () {
                     _self.render('list', _wrap, data.msg);
                     _self.bindEvent('dateItem');
                     _self.resetHeight(_wrap);
+                    _self.curDate=_curVal;
                 } else {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
@@ -257,10 +259,10 @@ $(function () {
             _self.thirdBtn.trigger('click');//触发下一步按钮
             //&yyrq=2014-10-12&jcxcode=370015
             _params = {
-                'yyrq'   : _self.date.val(),
+                'yyrq'   : _self.curDate,
                 'jcxcode': _li.attr('data-code')
             };
-            _self.progressDialog=App.UI('dialog',{msg:'预约时间段查询中，请稍后！'});
+            _self.progressDialog = App.UI('dialog', {msg: '预约时间段查询中，请稍后！'});
             App.getAjaxData(njyysjdRequestUrl, _params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.progressDialog.remove();
@@ -280,7 +282,7 @@ $(function () {
                         msg  : data.msg
                     });
                 }
-                target.on('click',function(){
+                target.on('click', function () {
                     _self.dateItemListener($(this));
                 });
             })
@@ -309,7 +311,7 @@ $(function () {
             };
             _btn.off('click');
             //Wisp.UI.progressDialog.show('提交预约信息中，请稍后！');
-            _self.progressDialog=App.UI('dialog',{msg:'提交预约信息中，请稍后！'});
+            _self.progressDialog = App.UI('dialog', {msg: '提交预约信息中，请稍后！'});
             App.getAjaxData(njyyrkRequestUrl, _params, function (data) {
                 if ( data === 'error' ) {//ajax 失败回调
                     _self.progressDialog.remove();
