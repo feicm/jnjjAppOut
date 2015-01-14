@@ -1510,10 +1510,10 @@ i.icon-card2 {
 
 /*feedback*/
 .feedback {
-    width      : 80%;
-    min-height : 8em;
-    margin     : 1em 10%;
-    padding    : .5em;
+    width: 90%;
+    min-height: 8em;
+    margin: 0 5% .5em;
+    padding: .5em;
 }
 
 @media /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: ä¸æ”¯æŒ0.5px*/
