@@ -60,7 +60,8 @@ $(function () {
                     })
                 case 'dateItem':
                     $('#njyypc_list').on('click', 'li', function () {
-                        _self.dateItemListener($(this));
+                        var $this=$(this);
+                        _self.dateItemListener($this);
                     })
                     break;
             }
