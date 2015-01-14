@@ -253,7 +253,7 @@ $(function () {
             var _self = this;
             var _params;
             var _li = target;
-            //target.off('click');
+            target.off('click');
             _self.thirdBtn.trigger('click');//触发下一步按钮
             //&yyrq=2014-10-12&jcxcode=370015
             _params = {
@@ -280,6 +280,9 @@ $(function () {
                         msg  : data.msg
                     });
                 }
+                target.on('click',function(){
+                    _self.dateItemListener($(this));
+                });
             })
         },
         "lastListener"         : function (btn) {
