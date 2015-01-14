@@ -13,7 +13,7 @@
 <form class="rigister_f" action="" method="post" id="repwd_form">
         <textarea class="feedback ui-radius" id='feedback_area'></textarea>
         <b class='txt01'>请输入您的宝贵意见</b>
-    <div class="ft w100">
+    <div class="ft w100 mt05">
         <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="feedback_btn">
             提交反馈
         </a>
