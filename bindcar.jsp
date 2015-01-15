@@ -82,13 +82,8 @@
                     </li>
                     <li>
                         <div class="item-content">
-                        <div class="item-media"><i class="icon icon-phone3"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title label">手 机 </div>
-                                <div class="item-input">
-                                    <input id="phone" data-type="mobile" type="text" placeholder="请输入手机号码">
-                                </div>
-                            </div>
+                            <div class="item-media"><i class="icon icon-phone3"></i></div>
+
                         </div>
                     </li>
                 </ul>
