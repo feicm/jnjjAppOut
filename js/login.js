@@ -19,11 +19,13 @@ $(function () {
         "username"               : App.LS.get('App_userName') || '', //用户名
         "password"               : null, //密码
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
+        "isgalleryGetSuccess"    : false, //首页大轮播数据获取是否成功
         "progressDialog"         : null,
-        "PageId_lv01"               : (new Date()).getTime(),
+        "PageId_lv01"            : (new Date()).getTime(),
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
+        "galleryRequestUrl"      : urlPre + cmsUrlPre + 'content/shuffling_jj.do',//首页大轮播数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/login.jsp',//找回密码页地址
@@ -33,7 +35,10 @@ $(function () {
             this.mode = opts.mode;
             this.autoFill();
             this.bindEvent();
-            if ( this.mode === 'login' ) this.initColInfo();
+            if ( this.mode === 'login' ) {
+                this.initColInfo();
+                this.initGalleryInfo();
+            }
             return this;
         },
         //事件绑定函数
@@ -331,10 +336,20 @@ $(function () {
         "userInfoSuccessCallback": function (data) {
             var _self = this;
             _self.updataPersonalInfo(data);//更新个人中心按钮属性
-            if ( _self.isColInfoGetSuccess ) { //加载登陆页时已请求到，则直接发送，否则再次请求
+            if ( _self.isColInfoGetSuccess && _self.isgalleryGetSuccess ) { //加载登陆页时已请求到，则直接发送，否则再次请求
                 _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
-            } else {
+            } else if ( !_self.isColInfoGetSuccess && !_self.isgalleryGetSuccess ) {
                 _self.initColInfo(function () {
+                    _self.initGalleryInfo(function () {
+                        _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+                    });
+                });
+            } else if ( !_self.isColInfoGetSuccess ) {
+                _self.initColInfo(function () {
+                    _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
+                });
+            }else if ( !_self.isgalleryGetSuccess ) {
+                _self.initGalleryInfo(function () {
                     _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 });
             }
@@ -347,7 +362,7 @@ $(function () {
             data.userImage && (_self.siderDatas.sider.info.img = data.userImage);
             _self.siderDatas.sider.info.roleid = _self.roleId;
             _self.siderDatas.sider.info.url = '';
-            _self.footbarDatas.footbar[4].siderView[0].data[0]=_self.siderDatas.sider.info;//个人中心顶部
+            _self.footbarDatas.footbar[4].siderView[0].data[0] = _self.siderDatas.sider.info;//个人中心顶部
             var _data = _self.footbarDatas.footbar[4].siderView[1].data;//个人中心列表
             var l = _data.length;
             for ( var i = 0; i < l; i++ ) {//更新个人中心按钮属性
@@ -355,7 +370,7 @@ $(function () {
             }
         },
         //保存用户信息
-        "saveInfo"              : function (data) {
+        "saveInfo"               : function (data) {
             App.LS.set("App_userName", data.registerName);//用户名
             App.LS.set("App_name", data.userName);//姓名
             App.LS.set("App_identityId", data.identityId);//姓名
@@ -430,6 +445,29 @@ $(function () {
             var _username = _self.username;
             _username && _usernameInput.val(_username);
         },
+        //初始化首页大轮播数据
+        "initGalleryInfo"        : function (callback) {
+            var _self = this;
+            var _btn = _self.loginBtn;
+            var _url = _self.galleryRequestUrl;
+            App.getAjaxData(_url, null, function (data) {//信息请求回调
+                if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
+                    _self.progressDialog.remove();
+                    App.UI('dialog', {
+                        type : 'alert',
+                        title: '公众服务平台',
+                        msg  : '登录失败！'
+                    });
+                    _self.bindEvent(_btn, 'login');
+                    return;
+                }
+                if ( data.success ) {
+                    _self.isgalleryGetSuccess = true;
+                    _self.footbarDatas.footbar[0].view[0].data = data.gallery;
+                    callback && callback();
+                }
+            });
+        },
         //初始化信息栏目数据
         "initColInfo"            : function (callback) {
             var _self = this;
@@ -497,7 +535,7 @@ $(function () {
             "dom"           : loginSubmit,
             "hoverClassName": 'ui_btn_02_hover'
         });
-        if(rigisterBtn.hasClass('ui_btn_02')){
+        if ( rigisterBtn.hasClass('ui_btn_02') ) {
             App.UI('buttonHover', {//添加按钮点击效果
                 "dom"           : rigisterBtn,
                 "hoverClassName": 'ui_btn_02_hover'
