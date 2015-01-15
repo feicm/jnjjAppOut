@@ -16,7 +16,7 @@
             </div>
             <ul class="ui-list ui-list-01">
             </ul>
-            <a class="ui_btn ui_btn_03 ui_btn_block" data-rel='next' id="go_carbindpage">
+            <a class="ui_btn ui_btn_03 ui_btn_block" id="go_carbindpage">
                 <i class="icon icon-car"></i></br>
                 立即绑定
             </a>
