@@ -69,7 +69,17 @@
             </div>
             <div class="list-block J_btnHighlightWithInput">
                 <ul>
-                    aaa
+                    <li>
+                        <div class="item-content">
+                        <div class="item-media"><i class="icon icon-cardnum"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">身份证号</div>
+                                <div class="item-input">
+                                    <input id="idnum" data-type="card" type="text" placeholder="请输入身份证号">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="ft w100">
