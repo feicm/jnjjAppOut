@@ -266,7 +266,7 @@ jnjjApp.footbarDatas = {
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/traffic/t_position_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/traffic/t_position__hover.png", //点击时图标
+                            "afterImg"  : "config/html/images/wispui/traffic/t_position_hover.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "true",
                             "name"      : "车管所位置",
