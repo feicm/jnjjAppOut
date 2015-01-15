@@ -432,7 +432,7 @@ $(function () {
     } else {
         console.log('传参失败！');
     }
-    if ( module === 'car' ) { //车辆列表
+    if ( module === 'carlist' ) { //车辆列表
         var goCarbindpage = $('#go_carbindpage');
         goCarbindpage.on('click', function () {
             window.open(bindcarPageUrl);
@@ -446,7 +446,7 @@ $(function () {
             "datas"     : params
         });
     }
-    if ( module === 'card' ) { //驾照列表
+    if ( module === 'cardlist' ) { //驾照列表
         var goCardbindpage = $('#go_cardbindpage');
         goCardbindpage.on('click', function () {
             window.open(bindcardPageUrl);
