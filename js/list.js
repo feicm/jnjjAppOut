@@ -35,8 +35,8 @@ $(function () {
     //列表对象
     var listModule = {
         "moduleCH"       : {
-            "carlist"       : '车辆',
-            "cardlist"      : '驾照',
+            "car"           : '车辆',
+            "card"          : '驾照',
             "violation_car" : '已绑定车辆',
             "violation_card": '已绑定驾照',
             "v_car_list"    : '车辆电子监控',
@@ -93,7 +93,7 @@ $(function () {
                 _self.dialog.remove();
             } else {
                 //渲染默认
-                if ( _self.module === 'carlist' || _self.module === 'cardlist' ) {
+                if ( _self.module === 'car' || _self.module === 'card' ) {
                     defautlhtml = [
                         '<i class="fl icon icon-larger' + _self.module + '"></i>',
                         '<h2>查询更便捷，绑定' + _self.moduleCH[_self.module] + '</h2>'].join("");
@@ -180,7 +180,7 @@ $(function () {
             var btnHtml;
             var listArr = [];
             switch ( mode ) {
-                case 'carlist': //我的车辆列表
+                case 'car': //我的车辆列表
                     /*var o = [{
                      "carNumType" : "02",
                      "indentityid": "370827198902022860",
@@ -212,7 +212,7 @@ $(function () {
                     btnHtml = _self.getBtnHtml(mode);
                     html = listArr.join("") + btnHtml;
                     break;
-                case 'cardlist'://我的驾照列表
+                case 'card'://我的驾照列表
                     /*var o1 = [{
                      "licenseid"    : "370122197505086815",
                      "licensephone" : "13864192246",
@@ -432,7 +432,7 @@ $(function () {
     } else {
         console.log('传参失败！');
     }
-    if ( module === 'carlist' ) { //车辆列表
+    if ( module === 'car' ) { //车辆列表
         var goCarbindpage = $('#go_carbindpage');
         goCarbindpage.on('click', function () {
             window.open(bindcarPageUrl);
@@ -446,7 +446,7 @@ $(function () {
             "datas"     : params
         });
     }
-    if ( module === 'cardlist' ) { //驾照列表
+    if ( module === 'card' ) { //驾照列表
         var goCardbindpage = $('#go_cardbindpage');
         goCardbindpage.on('click', function () {
             window.open(bindcardPageUrl);

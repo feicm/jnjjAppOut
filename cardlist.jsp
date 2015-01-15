@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="c"  data-mode='cardlist'>
+    <div class="c"  data-mode='card'>
         <div class="carlist_c">
             <div class="tips">
 
