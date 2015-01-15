@@ -6,6 +6,7 @@ $(function () {
     //个人信息对象
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
+        "curWebView"              : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
         "indexPageId"             : App.getPageId(window.location.href),
         "ip_username"             : $('#username'),//用户名
         "ip_name"                 : $('#name'), //姓名
