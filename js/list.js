@@ -122,7 +122,7 @@ $(function () {
                     var _me = $(this);
                     var cartype = _me.attr('data-cartype');
                     var carid = _me.attr('data-carid');
-                    var params = '#mode=carquery@cartype=' + cartype + '@carid=' + carid;
+                    var params = encodeURI('#mode=carquery@cartype=' + cartype + '@carid=' + carid);
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
                 _self.currentBtn.on('click', function () {
@@ -133,7 +133,7 @@ $(function () {
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var licenseRecord = _me.attr('data-licenserecord');
-                    var params = '#mode=cardquery@licenserecord=' + licenseRecord;
+                    var params = encodeURI('#mode=cardquery@licenserecord=' + licenseRecord);
                     window.open(_self.resultUrl + params);//通过url hash传参
                 })
                 _self.currentBtn.on('click', function () {
@@ -147,7 +147,7 @@ $(function () {
                     var jkbj;
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
-                    var params = '#' + data + '@jkbj=' + jkbj;
+                    var params = encodeURI('#' + data + '@jkbj=' + jkbj);
                     window.open(url + params);//通过url hash传参
                 })
             }
@@ -158,7 +158,7 @@ $(function () {
                     var jkbj;
                     $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
-                    var params = '#' + data + '@jkbj=' + jkbj;
+                    var params = encodeURI('#' + data + '@jkbj=' + jkbj);
                     window.open(url + params);//通过url hash传参
                 })
             }
@@ -425,7 +425,7 @@ $(function () {
     };
     var module = $('.c').data('mode');//模块名获取
     App.LS.set(module, pageId);//pageid 写入localstorage
-    var hash = window.location.hash,
+    var hash = decodeURI(window.location.hash),
         oHash = {};
     if ( hash ) {
         oHash = App.getHash(hash); //格式化hash 对象
