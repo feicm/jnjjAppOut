@@ -8,6 +8,8 @@ $(function () {
     var cmsUrlPre = jnjjApp.config.msgRequestUrl + '/wispcms/';
     //定义登录对象
     var Loginer = {
+        "curWebView"             : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
+        "PageId_lv"               : (new Date()).getTime(),
         "loginBtn"               : loginSubmit || null, //登录按钮
         "rigisterBtn"            : rigisterBtn || null,//打开注册页按钮
         "skipBtn"                : skipBtn || null,//跳过按钮
@@ -159,8 +161,9 @@ $(function () {
         "rigisterListener"       : function () {
             var _self = this;
             var _btn = _self.rigisterBtn;
+            var _url=_self.rigisterPageUrl+'&@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _btn.off('click');
-            window.open(_self.rigisterPageUrl);
+            window.open(_url);
             _self.bindEvent(_btn, 'rigister');
         },
         /*
@@ -263,8 +266,7 @@ $(function () {
                                 _self.loginSuccessCallback(msg);
                             }
                             if ( action === 'CANCEL' ) {
-                                window.open(_self.loginPageUrl);
-                                //TODO 关闭当前webview
+                                _self.curWebView.close();
                             }
                         });
                         _self.bindEvent(_btn, 'rigisterSubmit');
@@ -348,7 +350,7 @@ $(function () {
                 _self.initColInfo(function () {
                     _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 });
-            }else if ( !_self.isgalleryGetSuccess ) {
+            } else if ( !_self.isgalleryGetSuccess ) {
                 _self.initGalleryInfo(function () {
                     _self.sendClientUIdata(_self.footbarDatas, _self.siderDatas);//发送客户端ui数据
                 });
