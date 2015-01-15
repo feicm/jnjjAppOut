@@ -86,7 +86,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">手 机 </div>
 
-        <div class="item-input">
+        <div>
         <input id="phone" data-type="mobile" type="text" placeholder="请输入手机号码">
         </div>
                             </div>
