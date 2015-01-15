@@ -213,7 +213,7 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
-                        },
+                        }
                     ]
                 },
                 {
