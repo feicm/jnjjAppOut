@@ -16,7 +16,14 @@
 </head>
 <body>
     <div class="c"  data-mode='bindcar'>
+        <form class="rigister_f" action="" method="post">
 
+            <div class="ft w100">
+                <a class="ui_btn ui_btn_01 ui_radius ui_btn_block ui_btn_01_disable" id="bindinfo_btn">
+                    确认
+                </a>
+            </div>
+        </form>
     </div>
 </body>
     <script src="config/html/js/zepto.min.js"></script>
