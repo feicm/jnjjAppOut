@@ -15,7 +15,7 @@
     <!--select组件 css end-->
 </head>
 <body>
-    <div class="c"  data-mode='car' data-issinglepage='true'>
+    <div class="c"  data-mode='bindcar'>
         <form class="rigister_f" action="" method="post" id="bindcard_form">
             <div class="list-block J_btnHighlightWithInput">
                 <ul>

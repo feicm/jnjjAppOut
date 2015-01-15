@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="config/html/css/app_p.css">
 </head>
 <body>
-    <div class="c"  data-mode='card' data-issinglepage='true'>
+    <div class="c"  data-mode='bindcard'>
     <form class="rigister_f" action="" method="post" id="bindcard_form">
     <div class="list-block J_btnHighlightWithInput">
     <ul>
