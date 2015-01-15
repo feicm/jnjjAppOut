@@ -107,6 +107,6 @@
     <script src="config/html/js/common.js"></script>
     <script src="config/html/js/bind.js"></script>
     <!--select组件-->
-    <script src="config/html/js/mobiscroll.all.js" type="text/javascript"></script>
+    <script src="config/html/js/mobiscroll.all.js"></script>
     <!--select组件 end-->
 </html>
