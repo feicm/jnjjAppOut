@@ -13,11 +13,10 @@
     <div class="c"  data-mode='card'>
         <div class="carlist_c">
             <div class="tips">
-
             </div>
             <ul class="ui-list ui-list-01">
             </ul>
-            <a class="ui_btn ui_btn_03 ui_btn_block" data-rel='next' id="go_cardbindpage">
+            <a class="ui_btn ui_btn_03 ui_btn_block" id="go_cardbindpage">
                 <i class="icon icon-card"></i></br>
                 立即绑定
             </a>
@@ -27,6 +26,6 @@
 <script src="config/html/js/zepto.min.js"></script>
 <script src="config/html/js/WISPComponents_v3.0.js"></script>
 <script src="config/html/js/appConfig.js"></script>
-<script src="config/html/js/common.js?v=1.0"></script>
+<script src="config/html/js/common.js"></script>
 <script src="config/html/js/list.js"></script>
 </html>
