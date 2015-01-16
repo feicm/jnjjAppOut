@@ -1008,7 +1008,7 @@ i.icon-card2 {
     padding-left : .5em;
 }
 
-/*å¸¸ç”¨ç»„åˆâ€”â€”åœ†åœˆå›¾*/
+/*pic c*/
 .ui-pic {
     overflow         : hidden;
     display          : inline-block;
@@ -1094,7 +1094,6 @@ i.icon-card2 {
     margin-left : -1em;
 }
 
-/*æŠ˜ç¿¼ï¼ˆå•ç¿¼ï¼‰å¸ƒå±€â€”â€”å³å®½åº¦å›ºå®š*/
 .ui-g-fly2-b {
     float   : left;
     width   : 100%;
@@ -1119,7 +1118,6 @@ i.icon-card2 {
     min-height : 1px;
 }
 
-/*ä¸¤åˆ—å¸ƒå±€*/
 .ui-grid-a .ui-block-a {
     clear : left;
 }
