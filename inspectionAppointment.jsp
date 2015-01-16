@@ -104,7 +104,7 @@
                 </li>
             </ul>
         </div>
-        <ul class="ui-list ui-list-02 pt18" id='njyypc_list'>
+        <ul class="ui-list ui-list-02 pt18 list-block" id='njyypc_list'>
 
         </ul>
         <div class="ft w100 fixed-bottom">

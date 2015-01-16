@@ -123,7 +123,7 @@ $(function () {
                         _l = data.length;
                         for ( var i = 0; i < _l; i++ ) {
                             _slist = [
-                                '<li data-code=' + data[i].jcxcode + '>',
+                                '<li class="list_hover" data-code=' + data[i].jcxcode + '>',
                                 '    <section class="ui-g-fly2-b">',
                                 '        <h1 class="txt02">预约人数<b class="fr">' + data[i].yyrs + '人</b></h1>',
                                 '        <h1 class="txt02">人数限制<b class="fr">' + data[i].rsxz + '人</b></h1>',
