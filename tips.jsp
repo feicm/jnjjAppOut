@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
-    <title>ๅๆ…ๆ็คบ</title>
+    <title>ำัว้ฬแสพ</title>
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
     <style>
@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-    <h1 class="Tips">ๅณๅฐๆจๅบ๏ผ</h1>
+    <h1 class="Tips">ำัว้ฬแสพ</h1>
 </body>
 </html>
