@@ -1505,7 +1505,8 @@ only screen and (device-aspect-ratio : 667/375),/*iPhone 6:*/
 only screen and (device-aspect-ratio : 16/9) {
     /*iPhone 6 Plus:*/
     .list-block ul,
-    .list-block li.list_hover, {
+    .list-block li.list_hover,
+    .ui-list li{
         border-top    : .5px solid #E1E1E1;
         border-bottom : .5px solid #E1E1E1;
     }
