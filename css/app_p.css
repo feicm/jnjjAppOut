@@ -214,9 +214,7 @@ body {
 }
 
 .ft {
-    padding-left  : .5em;
-    padding-right : .5em;
-    margin-bottom : .5em;
+    padding: .5em;
 }
 
 .ipt_lable {
@@ -1382,6 +1380,14 @@ i.icon-card2 {
     width      : 100%;
     left       : 0;
     top        : 0;
+    z-index    : 111;
+    background : rgba(246, 246, 246, 0.9);
+}
+.fixed-bottom {
+    position   : fixed;
+    width      : 100%;
+    left       : 0;
+    bottom        : 0;
     z-index    : 111;
     background : rgba(246, 246, 246, 0.9);
 }
