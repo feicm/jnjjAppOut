@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
-    <title>友情提示</title>
+    <title>鍙嬫儏鎻愮ず</title>
     <link rel="stylesheet" href="config/html/css/reset.css">
     <link rel="stylesheet" href="config/html/css/app_p.css">
     <style>
@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-    <h1 class="Tips">友情提示</h1>
+    <h1 class="Tips">鍗冲皢鎺ㄥ嚭</h1>
 </body>
 </html>
