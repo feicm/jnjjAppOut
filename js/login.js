@@ -501,7 +501,7 @@ $(function () {
             for ( var i in data ) {
                 colItem = {
                     "name"      : data[i].name,
-                    "requestUrl": data[i].url + "Android"
+                    "requestUrl": data[i].url + "public"
                 };
                 colDate.push(colItem);
             }
