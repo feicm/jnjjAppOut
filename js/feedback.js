@@ -15,21 +15,20 @@ $(function () {
         if ( text ) {
             progress = App.UI('dialog', {'msg': "正在提交"});
             App.getAjaxData(url, {"content": text}, function (data) {
-                 if(data.success){
-                     progress.resetMsg('提交成功');
-                 }else{
-                     progress.resetMsg('提交失败');
-                 }
-                setTimeout(function(){
+                if ( data.success ) {
+                    progress.resetMsg('提交成功');
+                } else {
+                    progress.resetMsg('提交失败');
+                }
+                setTimeout(function () {
                     progress.remove();
-                },500)
+                }, 500)
             })
         } else {
-            App.UI('dialog', {
-                type : 'alert',
-                title: '公众服务平台',
-                msg  : '反馈内容不能为空！'
-            });
+            progress = App.UI('dialog', {'msg': "反馈内容不能为空！"});
+            setTimeout(function () {
+                progress.remove();
+            }, 500)
         }
     })
     App.UI('buttonHover', {//添加按钮点击效果
