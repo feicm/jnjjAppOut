@@ -21,6 +21,7 @@
 </form>
 </body>
         <script src="js/zepto.min.js"></script>
+        <script src="js/WISPComponents_v3.0.js"></script>
         <script src="js/appConfig.js"></script>
         <script src="js/common.js"></script>
         <script src="js/feedback.js"></script>

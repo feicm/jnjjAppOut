@@ -1,7 +1,7 @@
 $(function () {
     var feedbackArea = $('#feedback_area');
     var feedbackBtn = $('#feedback_btn');
-    var url = App.config.requestUrl + "/wisp_jn_pubmgr/system/advice_saveAddAdvice?registername=";
+    var url = jnjjApp.config.requestUrl + "/wisp_jn_pubmgr/system/advice_saveAddAdvice?registername=";
     var username = App.LS.get("App_userName");
     if ( username === 'null' ) {
         url += jnjjApp.sider.info.roleid;
