@@ -20,7 +20,9 @@ $(function () {
                  }else{
                      progress.resetMsg('提交失败');
                  }
-                progress.remove();
+                setTimeout(function(){
+                    progress.remove();
+                },500)
             })
         } else {
             App.UI('dialog', {
