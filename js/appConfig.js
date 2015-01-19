@@ -47,16 +47,16 @@ jnjjApp.footbarDatas = {
                             "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         /*{
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/sgkc_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/sgkc_hover.png", //点击时图标
-                            "disableImg": "config/html/images/wispui/sgkc_dis.png",
-                            "enable"    : "false",
-                            "name"      : "事故快处",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.html"
-                        },*/
+                         "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                         "beforeImg" : "config/html/images/wispui/sgkc_normal.png",//点击前图标
+                         "afterImg"  : "config/html/images/wispui/sgkc_hover.png", //点击时图标
+                         "disableImg": "config/html/images/wispui/sgkc_dis.png",
+                         "enable"    : "false",
+                         "name"      : "事故快处",
+                         "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                         "clickEvent": "",
+                         "url"       : PreQuestUrl + "/jnpublic/config/html/tips.html"
+                         },*/
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/home/h_inspec_normal.png",//点击前图标
@@ -101,17 +101,17 @@ jnjjApp.footbarDatas = {
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
                         }/*,
-                        {
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/home/cgswz_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/home/cgswz_hover.png", //点击时图标
-                            "disableImg": "",
-                            "enable"    : "true",
-                            "name"      : "车管所位置",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
-                        }*/
+                         {
+                         "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                         "beforeImg" : "config/html/images/wispui/home/cgswz_normal.png",//点击前图标
+                         "afterImg"  : "config/html/images/wispui/home/cgswz_hover.png", //点击时图标
+                         "disableImg": "",
+                         "enable"    : "true",
+                         "name"      : "车管所位置",
+                         "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                         "clickEvent": "",
+                         "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
+                         }*/
                     ]
                 },
                 {
@@ -419,7 +419,7 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : jnjjApp.config.msgRequestUrl + "/wispcms/content/list.do?cid=65&type=Android&action=message"
-                        } ,
+                        },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/my/m_feedback.png",//点击前图标
@@ -430,6 +430,17 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/feedback.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
+                        },
+                        {
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/my/m_personal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/my/m_personal.png", //点击时图标
+                            "disableImg": "",
+                            "enable"    : "false",
+                            "name"      : "debugpage",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.html&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         }
                     ]
                 }
