@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
     <meta content="telephone=no,email=no" name="format-detection" />
     <title>意见建议</title>
-    <link rel="stylesheet" href="config/html/css/reset.css">
-    <link rel="stylesheet" href="config/html/css/app_p.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/app_p.css">
 </head>
 <body>
 <form class="rigister_f" action="" method="post" id="repwd_form">
@@ -20,7 +20,8 @@
     </div>
 </form>
 </body>
-        <script src="config/html/js/zepto.min.js"></script>
-        <script src="config/html/js/common.js"></script>
-        <script src="config/html/js/feedback.js"></script>
+        <script src="js/zepto.min.js"></script>
+        <script src="js/appConfig.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/feedback.js"></script>
 </html>

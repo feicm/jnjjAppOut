@@ -9,7 +9,7 @@ $(function () {
     //定义登录对象
     var Loginer = {
         "curWebView"             : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
-        "PageId_lv"               : (new Date()).getTime(),
+        "PageId_lv"              : (new Date()).getTime(),
         "loginBtn"               : loginSubmit || null, //登录按钮
         "rigisterBtn"            : rigisterBtn || null,//打开注册页按钮
         "skipBtn"                : skipBtn || null,//跳过按钮
@@ -161,7 +161,7 @@ $(function () {
         "rigisterListener"       : function () {
             var _self = this;
             var _btn = _self.rigisterBtn;
-            var _url=_self.rigisterPageUrl+'&@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
+            var _url = _self.rigisterPageUrl + '&@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _btn.off('click');
             window.open(_url);
             _self.bindEvent(_btn, 'rigister');
@@ -197,6 +197,7 @@ $(function () {
                 });
             }
             _self.bindEvent(_btn, 'skip');
+            _self.resetInfo();
         },
         /*
          * mode rigisterSubmit 注册提交事件
@@ -385,6 +386,21 @@ $(function () {
             App.LS.set("App_closeUser_Name", data.closeUserName); //密切联系人姓名
             App.LS.set("App_closeUser_PhoneNum", data.closePhoneNum);//密切联系人电话
             App.LS.set("App_closeUser_IdentityId", data.closeIdentityId);//密切联系人身份证号
+        },
+        //保存用户信息
+        "resetInfo"              : function () {
+            App.LS.clear("App_userName");//用户名
+            App.LS.clear("App_name");//姓名
+            App.LS.clear("App_identityId");//姓名
+            App.LS.clear("App_userImage"); //头像地址
+            App.LS.clear("App_phoneNum");//手机号
+            App.LS.clear("App_email"); //邮箱
+            App.LS.clear("App_registerTime");//注册时间
+            App.LS.clear("App_moveCar_Name");//移车联系人姓名
+            App.LS.clear("App_moveCar_phoneNum");//移车联系人电话
+            App.LS.clear("App_closeUser_Name"); //密切联系人姓名
+            App.LS.clear("App_closeUser_PhoneNum");//密切联系人电话
+            App.LS.clear("App_closeUser_IdentityId");//密切联系人身份证号
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
