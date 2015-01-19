@@ -1499,14 +1499,6 @@ i.icon-card2 {
 .feedback+b.txt01{
     margin-left: 5%;
 }
-.Tips{
-        color: #175ABF;
-        text-align: center;
-        padding-top: 40%;
-        text-shadow: 1px 1px 1px #FFF,1px -1px 1px #FFF,-1px 1px 1px #FFF,-1px -1px 1px #FFF;
-        font-weight: bold;
-        font-size: 48px;
-    }
 @media /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: ä¸æ”¯æŒ0.5px*/
 only screen and (device-aspect-ratio : 40/71),/*iPhone 5:*/
 only screen and (device-aspect-ratio : 667/375),/*iPhone 6:*/
