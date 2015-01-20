@@ -387,20 +387,20 @@ $(function () {
             App.LS.set("App_closeUser_PhoneNum", data.closePhoneNum);//密切联系人电话
             App.LS.set("App_closeUser_IdentityId", data.closeIdentityId);//密切联系人身份证号
         },
-        //保存用户信息
+        //重置用户信息
         "resetInfo"              : function () {
-            App.LS.clear("App_userName");//用户名
-            App.LS.clear("App_name");//姓名
-            App.LS.clear("App_identityId");//姓名
-            App.LS.clear("App_userImage"); //头像地址
-            App.LS.clear("App_phoneNum");//手机号
-            App.LS.clear("App_email"); //邮箱
-            App.LS.clear("App_registerTime");//注册时间
-            App.LS.clear("App_moveCar_Name");//移车联系人姓名
-            App.LS.clear("App_moveCar_phoneNum");//移车联系人电话
-            App.LS.clear("App_closeUser_Name"); //密切联系人姓名
-            App.LS.clear("App_closeUser_PhoneNum");//密切联系人电话
-            App.LS.clear("App_closeUser_IdentityId");//密切联系人身份证号
+            App.LS.remove("App_userName");//用户名
+            App.LS.remove("App_name");//姓名
+            App.LS.remove("App_identityId");//姓名
+            App.LS.remove("App_userImage"); //头像地址
+            App.LS.remove("App_phoneNum");//手机号
+            App.LS.remove("App_email"); //邮箱
+            App.LS.remove("App_registerTime");//注册时间
+            App.LS.remove("App_moveCar_Name");//移车联系人姓名
+            App.LS.remove("App_moveCar_phoneNum");//移车联系人电话
+            App.LS.remove("App_closeUser_Name"); //密切联系人姓名
+            App.LS.remove("App_closeUser_PhoneNum");//密切联系人电话
+            App.LS.remove("App_closeUser_IdentityId");//密切联系人身份证号
         },
         //发送客户端ui数据函数
         "sendClientUIdata"       : function (footbarDatas, siderDatas) {
