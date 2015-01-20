@@ -1211,7 +1211,7 @@ i.icon-card2 {
 .rigister_f {
     padding-top                : 24px;
     background                 : #F6F6F6;
-    height: 300px;
+    height                     : 100%;
     width                      : 100%;
     overflow-y                 : scroll;
     overflow-x                 : hidden;
