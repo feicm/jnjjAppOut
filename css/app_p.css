@@ -1214,6 +1214,7 @@ i.icon-card2 {
     height      : auto;
     width       : 100%;
     overflow    : hidden;
+    -webkit-overflow-scrolling : touch;
 }
 
 /*details*/
