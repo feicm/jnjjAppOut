@@ -50,31 +50,13 @@ $(function () {
         "init"                    : function (opts) {
             this.list = opts.list;
             this.mode = opts.mode;
-            var _self = this;
-            /*if ( _self.mode === 'personalinfo' ) {
-             _self.progressDialog = App.UI('dialog', {msg: '加载中···'});
-             App.LS.set(_self.mode, _self.indexPageId);//pageid 写入localstorage
-             _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
-             _self.renderPersonalInfoPage('personalinfo');
-             }, 1000);
-             } else {
-             _self.renderPersonalInfoPage(_self.mode);
-             }*/
-            _self.renderPersonalInfoPage(_self.mode);
+            this.renderPersonalInfoPage(this.mode);
             this.bindEvent(this.mode);
             return this;
         },
         //渲染个人信息页
         "renderPersonalInfoPage"  : function (mode) {
             var _self = this;
-            /*var i = 0;
-             console.log(i++);
-             if ( App.LS.get('p_hasUpdate') === 'true' ) {//监听localstorage中的 更新标识
-             _self.isUpdate = true;
-             _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");//更新移车联系人姓名
-             _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
-             }*/
-            //if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
             if ( mode === 'personalinfo' ) {//填充个人中心
                 _self.progressDialog = App.UI('dialog', {msg: '加载中···'});
                 _self.ip_username.text(_self.App_userName);//用户名
@@ -90,29 +72,17 @@ $(function () {
                 _self.ip_time.text(_self.App_registerTime);
                 if ( _self.App_phoneNum !== 'null' ) {
                     _self.ip_phone.text(_self.App_phoneNum);
-                    /*if ( App.LS.get('p_hasUpdate') === 'true' ) {
-                     App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
-                     }
-                     _self.isUpdate = false;//设置更新触发标识为 false*/
                 }
                 if ( _self.App_moveCar_Name !== 'null' ) {
                     _self.ip_mover.text(_self.App_moveCar_Name);
-                    /*if ( App.LS.get('p_hasUpdate') === 'true' ) {
-                     App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
-                     }
-                     _self.isUpdate = false;//设置更新触发标识为 false*/
                 }
                 if ( _self.App_closeUser_Name !== 'null' ) {
                     _self.ip_closer.text(_self.App_closeUser_Name);
                 }
-                setTimeout(function () {
+                setTimeout(function () { //0.5s后移除状态提示框
                     _self.progressDialog.remove();
                 }, 500)
             }
-
-            /*} else {
-             return false;
-             }*/
             if ( mode === 'p_moveContacts' ) {//填充移车联系人
                 if ( _self.App_moveCar_Name !== 'null' ) {
                     _self.ip_m_name.val(_self.App_moveCar_Name);
@@ -137,13 +107,15 @@ $(function () {
             var _list = _self.list;
             if ( mode === 'personalinfo' ) {
                 $(window).off('storage');
-                $(window).on('storage', function (e) {//监听本地存储
+                $(window).on('storage', function (e) {//监听本地存储变化事件
                     if ( e.key === 'p_hasUpdate' && e.newValue === 'true' ) {
+                        _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");//更新移车联系人姓名
+                        _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
                         _self.renderPersonalInfoPage(mode);
-                        App.LS.set('p_hasUpdate', 'false');
+                        App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
                     }
                 });
-                _list.each(function (index) {
+                _list.each(function (index) { //列表事件注册
                     var $this = $(this);
                     var _mode = $this.data('rel');
                     if ( _mode !== undefined ) {
