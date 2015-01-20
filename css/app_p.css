@@ -1,6 +1,9 @@
 /*commen css*/
 html, body {
     height : 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 div, ul, li, input, a, p, form, section {
@@ -1214,7 +1217,6 @@ i.icon-card2 {
     height      : auto;
     width       : 100%;
     overflow    : hidden;
-    -webkit-overflow-scrolling : touch;
 }
 
 /*details*/
