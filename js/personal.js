@@ -108,8 +108,9 @@ $(function () {
             if ( mode === 'personalinfo' ) {
                 $(window).off('storage');
                 $(window).on('storage', function (e) {//监听本地存储变化事件
-                    Wisp.UI.progressDialog.show('本地存储改变事件生效');
+
                     if ( e.key === 'p_hasUpdate' && e.newValue === 'true' ) {
+                        Wisp.UI.progressDialog.show('本地存储改变事件生效');
                         _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");//更新移车联系人姓名
                         _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
                         _self.renderPersonalInfoPage(mode);
