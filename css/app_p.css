@@ -1,9 +1,6 @@
 /*commen css*/
 html, body {
     height : 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
 }
 
 div, ul, li, input, a, p, form, section {
@@ -217,7 +214,7 @@ body {
 }
 
 .ft {
-    padding: .5em;
+    padding : .5em;
 }
 
 .ipt_lable {
@@ -1212,11 +1209,13 @@ i.icon-card2 {
 
 /*rigister*/
 .rigister_f {
-    padding-top : 24px;
-    background  : #F6F6F6;
-    height      : auto;
-    width       : 100%;
-    overflow    : hidden;
+    padding-top                : 24px;
+    background                 : #F6F6F6;
+    height: 300px;
+    width                      : 100%;
+    overflow-y                 : scroll;
+    overflow-x                 : hidden;
+    -webkit-overflow-scrolling : touch;
 }
 
 /*details*/
@@ -1384,11 +1383,12 @@ i.icon-card2 {
     z-index    : 111;
     background : rgba(246, 246, 246, 0.9);
 }
+
 .fixed-bottom {
     position   : fixed;
     width      : 100%;
     left       : 0;
-    bottom        : 0;
+    bottom     : 0;
     z-index    : 111;
     background : rgba(246, 246, 246, 0.9);
 }
@@ -1494,14 +1494,16 @@ i.icon-card2 {
 
 /*feedback*/
 .feedback {
-    width: 90%;
-    min-height: 8em;
-    margin: 0 5% .5em;
-    padding: .5em;
+    width      : 90%;
+    min-height : 8em;
+    margin     : 0 5% .5em;
+    padding    : .5em;
 }
-.feedback+b.txt01{
-    margin-left: 5%;
+
+.feedback + b.txt01 {
+    margin-left : 5%;
 }
+
 @media /*only screen and (device-aspect-ratio: 2/3),iPhone < 5: ä¸æ”¯æŒ0.5px*/
 only screen and (device-aspect-ratio : 40/71),/*iPhone 5:*/
 only screen and (device-aspect-ratio : 667/375),/*iPhone 6:*/
@@ -1509,7 +1511,7 @@ only screen and (device-aspect-ratio : 16/9) {
     /*iPhone 6 Plus:*/
     .list-block ul,
     .list-block li.list_hover,
-    .ui-list li{
+    .ui-list li {
         border-top    : .5px solid #E1E1E1;
         border-bottom : .5px solid #E1E1E1;
     }
