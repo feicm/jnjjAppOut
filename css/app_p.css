@@ -1,6 +1,9 @@
 /*commen css*/
 html, body {
-    height : 100%;
+    height                     : 100%;
+    overflow-y                 : scroll;
+    overflow-x                 : hidden;
+    -webkit-overflow-scrolling : touch;
 }
 
 div, ul, li, input, a, p, form, section {
@@ -259,11 +262,8 @@ body {
 }
 
 .c {
-    width                      : 100%;
-    height                     : 101%;
-    overflow-y                 : scroll;
-    overflow-x                 : hidden;
-    -webkit-overflow-scrolling : touch;
+    width  : 100%;
+    height : 101%;
 }
 
 .list_hover:hover {
