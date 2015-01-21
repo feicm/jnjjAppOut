@@ -320,8 +320,8 @@ $(function () {
                 }
                 var msg = data.userCenterResponse;
                 if ( msg ) {
-                    _self.userInfoSuccessCallback(msg);
                     _self.saveInfo(msg);//保存个人信息
+                    _self.userInfoSuccessCallback(msg);
                     _self.bindEvent(_btn, 'login');
                 } else {
                     //Wisp.UI.progressDialog.remove();
