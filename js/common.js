@@ -149,7 +149,7 @@ var App = (function () {
                 "mail"   : '格式:name@domain.com',
                 "user"   : '用户名含6-11位的数字或字母',
                 "cnuser" : '姓名含1-20字',
-                "psd"    : '请输入6-20位的密码！',
+                "psd"    : '密码含6-20位',
                 "mobile" : '手机号码含11位数字',
                 "car"    : '格式:A1111',
                 "archive": '档案编号12位纯数字',
