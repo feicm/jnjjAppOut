@@ -47,49 +47,49 @@ jnjjApp.footbarDatas = {
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
-                        /*{
+                        {
                          "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                         "beforeImg" : "config/html/images/wispui/sgkc_normal.png",//点击前图标
-                         "afterImg"  : "config/html/images/wispui/sgkc_hover.png", //点击时图标
-                         "disableImg": "config/html/images/wispui/sgkc_dis.png",
+                         "beforeImg" : "config/html/images/wispui/h_kccx_normal.png",//点击前图标
+                         "afterImg"  : "config/html/images/wispui/h_kccx_hover.png", //点击时图标
+                         "disableImg": "",
                          "enable"    : "false",
-                         "name"      : "事故快处",
+                         "name"      : "快处查询",
                          "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                          "clickEvent": "",
-                         "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
-                         },*/
+                         "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp#mode=query_sgkc"
+                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/home/h_inspec_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/home/h_inspec_hover.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/home/h_bindcar_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_bindcar_hover.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "false",
-                            "name"      : "年检预约",
+                            "name"      : "车辆绑定",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionAppointment.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcar.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/home/h_examquery01_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/home/h_examquery01_hover.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/home/h_bindcard_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_bindcard_hover.png", //点击时图标
+                            "disableImg": "",
+                            "enable"    : "false",
+                            "name"      : "驾照绑定",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/bindcard.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
+                        },
+                        {
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/home/h_ksyycx_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_ksyycx_hover.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "考试预约查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_ksyy"
-                        },
-                        {
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/home/h_inspec_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/home/h_inspec_hover.png", //点击时图标
-                            "disableImg": "",
-                            "enable"    : "false",
-                            "name"      : "年检预约查询",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/inspectionquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_njyy"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -101,18 +101,18 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
-                        }/*,
+                        },
                          {
                          "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                         "beforeImg" : "config/html/images/wispui/home/cgswz_normal.png",//点击前图标
-                         "afterImg"  : "config/html/images/wispui/home/cgswz_hover.png", //点击时图标
+                         "beforeImg" : "config/html/images/wispui/home/h_position_normal.png",//点击前图标
+                         "afterImg"  : "config/html/images/wispui/home/h_position_hover.png", //点击时图标
                          "disableImg": "",
                          "enable"    : "true",
                          "name"      : "车管所位置",
                          "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                          "clickEvent": "",
                          "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
-                         }*/
+                         }
                     ]
                 },
                 {
