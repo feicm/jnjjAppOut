@@ -302,7 +302,8 @@ $(function () {
             var _btn = _self.loginBtn;
             console.dir(data);
             //初始化footbarDatas
-            var _MoreViewData = _self.refreshMoreViewData(_self.footbarDatas, data.authList);//刷新更多按钮
+            _self.refreshHomebtnsGallery(_self.footbarDatas, data.authList);//刷新首页菜单按钮
+            _self.refreshMoreViewData(_self.footbarDatas, data.authList);//刷新更多按钮
             _params = {
                 "registerName": _self.username
             };
@@ -419,6 +420,24 @@ $(function () {
             _self.progressDialog.remove();
             Wisp.UI.loginResult.success();
         },
+        // 刷新首页轮播菜单项
+        "refreshHomebtnsGallery" : function (defaultdata, resdata) {
+            var _self = this;
+            var home_btnsGallery = defaultdata.footvar[0].view[1].data;
+            var cur_btn;
+            var name;
+            for ( var i = resdata.length - 1; i >= 0; i-- ) {
+                cur_btn = resdata[i].authcontent;
+                for ( var j = home_btnsGallery.length - 1; j >= 0; j-- ) {
+                    name = home_btnsGallery[j].name;
+                    if ( cur_btn === name ) {
+                        home_btnsGallery[j].enable = 'true';
+                        break;
+                    }
+                }
+            }
+            return defaultdata;
+        },
         /*
          * 刷新更多视图数据函数
          * defaultdata 默认数据源
@@ -447,7 +466,7 @@ $(function () {
                     name = suArr[j].name;
                     if ( curdata === name ) {
                         suArr[j].enable = 'true';
-                        return;
+                        break;
                     }
                 }
             }
