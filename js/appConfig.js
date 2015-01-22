@@ -93,8 +93,8 @@ jnjjApp.footbarDatas = {
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/home/h_examquery01_normal.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/home/h_examquery01_hover.png", //点击时图标
+                            "beforeImg" : "config/html/images/wispui/home/h_kscjcx_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_kscjcx_hover.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "false",
                             "name"      : "考试成绩查询",
