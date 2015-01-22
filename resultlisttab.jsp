@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="ui-buttons-row c fixed-top" id="tab_violation" data-mode='v_card_list'>
-        <a class="button active" data-for="tab-item-01">驾照违法</a>
-        <a class="button" data-for="tab-item-02">驾照强制措施</a>
+        <a class="button active" data-for="tab-item-01">违法情况</a>
+        <a class="button" data-for="tab-item-02">强制措施</a>
     </div>
     <div class="list-block mt05 pt30" id="tab-item-01">
         <ul>

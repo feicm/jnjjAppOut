@@ -163,7 +163,7 @@ jnjjApp.footbarDatas = {
                             "afterImg"  : "config/html/images/wispui/traffic/t_accident_hover.png", //点击时图标
                             "disableImg": "",
                             "enable"    : "false",
-                            "name"      : "事故快处",
+                            "name"      : "快处查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
@@ -280,8 +280,8 @@ jnjjApp.footbarDatas = {
                             "afterImg"  : "", //点击时图标
                             "disableImg": "",
                             "enable"    : "true",
-                            "name"      : "违章推送",
-                            "summary"   : "违章主动推送",
+                            "name"      : "违法推送",
+                            "summary"   : "违法主动推送",
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
                         },
