@@ -1,8 +1,7 @@
 $(function () {
     /*
-     * 考试预约查询、考试成绩查询
+     * 查询
      * */
-    //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var identityTypeRequestUrl = urlPre
@@ -32,8 +31,9 @@ $(function () {
     } else {
         console.log('传参失败！');
     }
-    var ksquerySubmit = $('#ksquery_btn');//考试预约、成绩查询提交按钮
+    var ksquerySubmit = $('#ksquery_btn');//考试成绩查询提交按钮
     var njyycxquerySubmit = $('#njyycx_btn');//年检预约查询提交按钮
+    var sgkcquerySubmit = $('#sgkc_btn');//事故快出查询提交按钮
     ksquerySubmit.length && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
         "btn"         : ksquerySubmit,
         "listener"    : ksqueryListener,
@@ -45,6 +45,14 @@ $(function () {
     njyycxquerySubmit.length && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
         "btn"         : njyycxquerySubmit,
         "listener"    : njyyqueryListener,
+        "listenerArg" : modeName,
+        "inputs"      : $('.J_btnHighlightWithInput input'),
+        "hoverClass"  : 'ui_btn_01_hover',
+        "disableClass": 'ui_btn_01_disable'
+    });
+    sgkcquerySubmit.length && App.UI('btnHighlightWithInput', { //初始化 btnHighlightWithInput 控件
+        "btn"         : sgkcquerySubmit,
+        "listener"    : sgkcqueryListener,
         "listenerArg" : modeName,
         "inputs"      : $('.J_btnHighlightWithInput input'),
         "hoverClass"  : 'ui_btn_01_hover',
@@ -108,6 +116,27 @@ $(function () {
         }
     }
 
+    //事故快处查询提交事件
+    function sgkcqueryListener(mode) {
+        var ip_record = $('#q_record').val();
+        var opts;
+        sgkcquerySubmit.off('click');
+        opts = {
+            "sgkcjlh"  : $('#q_record')//记录号
+        };
+        if ( App.verify(opts) ) {
+            //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
+            var params = '#mode=' + mode + '@flowid=' + ip_record;
+            window.open(infoPageUrl + params);//通过url hash传参
+            sgkcquerySubmit.on('click', function () {
+                sgkcqueryListener(modeName);
+            });
+        } else {
+            sgkcquerySubmit.on('click', function () {
+                sgkcqueryListener(modeName);
+            });
+        }
+    }
 
     /*
      * --------------------页面效果------------------------
@@ -141,6 +170,12 @@ $(function () {
             "dom"     : $('#hpzl'),
             "url"     : carTypeRequestUrl,
             "dataType": 'Object'
+        });
+    }
+    if ( modeName === 'query_sgkc' ) {
+        App.UI('buttonHover', {//添加按钮点击效果
+            "dom"           : sgkcquerySubmit,
+            "hoverClassName": 'ui_btn_01_hover'
         });
     }
     App.UI('inputClose', {//页面输入校验

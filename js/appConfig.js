@@ -3,7 +3,8 @@ jnjjApp.config = {
     "domain"       : "rjsoft.gnway.cc",
     "httpPort"     : "9087",
     "requestUrl"   : "http://rjsoft.gnway.cc:9087",
-    "msgRequestUrl": "http://rjsoft.gnway.cc:9093"
+    "msgRequestUrl": "http://rjsoft.gnway.cc:9093",
+    "wechatServer" : "http://220.250.1.46/WISP_JN_WECHAT"
 };
 var PreQuestUrl = "adapter?open&url=" + jnjjApp.config.requestUrl;
 var PageId_lv01 = (new Date()).getTime();
@@ -162,11 +163,11 @@ jnjjApp.footbarDatas = {
                             "beforeImg" : "config/html/images/wispui/traffic/t_accident_normal.png",//点击前图标
                             "afterImg"  : "config/html/images/wispui/traffic/t_accident_hover.png", //点击时图标
                             "disableImg": "",
-                            "enable"    : "false",
+                            "enable"    : "true",
                             "name"      : "快处查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp@@#mode=query_sgkc"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本

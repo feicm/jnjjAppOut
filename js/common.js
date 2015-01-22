@@ -154,7 +154,8 @@ var App = (function () {
                 "car"    : '格式:M1111',
                 "archive": '档案编号12位纯数字',
                 "car2"   : '车辆识别代号17位',
-                "lsh"    : '流水号1-13位'
+                "lsh"    : '流水号1-13位',
+                "record" : '记录号12位字母或数字'
             },
             "init"        : function () {
                 this.doms = opts.doms;
@@ -258,6 +259,9 @@ var App = (function () {
                         break;
                     case "lsh":
                         result = islsh(value);
+                        break;
+                    case "record":
+                        result = isrecord(value);
                         break;
                     default:
                         console.log('这是一个彩蛋，买彩票去吧！');
@@ -802,6 +806,12 @@ var App = (function () {
         return v;
     }
 
+    //事故快处记录号检测
+    function isrecord(str) {
+        var reg = /^[a-zA-Z0-9]{12}$/;
+        return reg.test(str);
+    }
+
     //车辆识别代号号检测
     function iscarid2(str) {
         var reg = /^[a-zA-Z0-9]{17}$/;
@@ -1023,6 +1033,10 @@ var App = (function () {
         if ( opts.lsh && (opts.lsh.val() === '' || opts.lsh.parent().find('.tips').length) ) {
             //alert('提交失败！（请检查您的流水号）');
             tipsmsg('流水号错误!');
+            return false;
+        }
+        if ( opts.sgkcjlh && (opts.sgkcjlh.val() === '' || opts.sgkcjlh.parent().find('.tips').length) ) {
+            tipsmsg('记录号错误!');
             return false;
         }
         return true;
