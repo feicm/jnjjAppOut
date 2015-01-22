@@ -901,6 +901,7 @@ $(function () {
                 detailsBlock.init({
                     "dom" : $('#c_Table_b'),
                     "type": modename,
+                    "url" : sgkcqueryRequestUrl,
                     "data": params
                 });
                 break;
