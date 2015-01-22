@@ -60,7 +60,7 @@
                 <div class="item-content">
                     <div class="item-media"><i class="icon icon-email"></i></div>
                     <div class="item-inner bg_arr_r">
-                        <div class="item-title label">邮 箱</div>
+                        <div class="item-title label">邮 箱 </div>
                         <div class="item-after" id='email'>未绑定</div>
                     </div>
                 </div>
