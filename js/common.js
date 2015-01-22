@@ -145,13 +145,13 @@ var App = (function () {
         };
         var inputClose = {
             "tipsMap"     : {
-                "card"   : '身份证号格式错误！',
-                "mail"   : '邮箱格式错误！',
+                "card"   : '身份证号格式:3701XXXXXXXXXXXXXX',
+                "mail"   : '邮箱格式:name@domain.com',
                 "user"   : '用户名含6-11位的数字或字母',
                 "cnuser" : '姓名含1-20字',
                 "psd"    : '请输入6-20位的密码！',
-                "mobile" : '手机号码格式错误！',
-                "car"    : '车牌号码格式错误',
+                "mobile" : '手机号码含11位数字',
+                "car"    : '车牌号码格式:A1111',
                 "archive": '档案编号12位纯数字',
                 "car2"   : '车辆识别代号17位',
                 "lsh"    : '流水号1-13位'
