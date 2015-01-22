@@ -423,7 +423,7 @@ $(function () {
         // 刷新首页轮播菜单项
         "refreshHomebtnsGallery" : function (defaultdata, resdata) {
             var _self = this;
-            var home_btnsGallery = defaultdata.footvar[0].view[1].data;
+            var home_btnsGallery = defaultdata.footbar[0].view[1].data;
             var cur_btn;
             var name;
             for ( var i = resdata.length - 1; i >= 0; i-- ) {
