@@ -895,7 +895,7 @@ $(function () {
                 if ( hasKey('flowid', oHash) ) {
                     //flowid=99C143B5515AA43F630A53BCF1173C74
                     params = {
-                        "flowid": oHash.record
+                        "flowid": oHash.flowid
                     };
                 }
                 detailsBlock.init({
