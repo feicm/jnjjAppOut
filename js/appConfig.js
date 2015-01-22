@@ -52,7 +52,7 @@ jnjjApp.footbarDatas = {
                          "beforeImg" : "config/html/images/wispui/h_kccx_normal.png",//点击前图标
                          "afterImg"  : "config/html/images/wispui/h_kccx_hover.png", //点击时图标
                          "disableImg": "",
-                         "enable"    : "false",
+                         "enable"    : "true",
                          "name"      : "快处查询",
                          "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                          "clickEvent": "",
