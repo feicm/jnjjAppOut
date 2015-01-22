@@ -141,13 +141,14 @@ $(function () {
     /*
      * --------------------页面效果------------------------
      * */
-    App.UI('select', {
-        "dom"     : $('#ksyy_sfzmmc'),
-        "url"     : identityTypeRequestUrl,
-        "data"    : {'register': userName},
-        "dataType": 'Object'
-    });
+
     if ( modeName === 'query_kscj' || modeName === 'query_ksyy' ) {
+        App.UI('select', {
+                "dom"     : $('#ksyy_sfzmmc'),
+                "url"     : identityTypeRequestUrl,
+                "data"    : {'register': userName},
+                "dataType": 'Object'
+            });
         App.UI('select', {
             "dom"     : $('#ksyy_ksyy'),
             "url"     : ksreasonRequestUrl,
