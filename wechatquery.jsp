@@ -19,7 +19,7 @@
                 <div class="item-inner">
                     <div class="item-title label">记 录 号</div>
                     <div class="item-input">
-                        <input id="q_record" data-type="record" class="tr" type="text" placeholder="请输入记录号">
+                        <input id="q_record" data-type="record" type="text" placeholder="请输入记录号">
                     </div>
                 </div>
             </div>
