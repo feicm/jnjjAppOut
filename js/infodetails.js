@@ -29,6 +29,8 @@ $(function () {
     var njyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/njyycx.json';//年检预约查询提交接口
+    var sgkcqueryRequestUrl = jnjjApp.config.wechatServer
+        + '/recordServlet?';//事故快处查询提交接口
     var hash = decodeURI(window.location.hash),
         cartype, //车辆类型
         carid, //车牌号码
@@ -63,7 +65,7 @@ $(function () {
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
                 if ( data.success === true || data.success === false ) {
                     msg = data.msg;
-                }//考试成绩/预约查询/年检预约查询
+                }//考试成绩/预约查询/年检预约查询/事故快处查询
                 if ( msg ) {
                     _self.render(msg, _dom);//渲染结果
                     _self.loading.remove();
@@ -322,7 +324,7 @@ $(function () {
                         '                <div class="item-media"><i class="icon icon-tag"></i></div>',
                         '                <div class="item-inner">',
                         '                    <div class="item-title label">处理情况</div>',
-                        '                    <div class="item-after">' + (data.clqk==='1'?"已处理":"未处理") + '</div>',
+                        '                    <div class="item-after">' + (data.clqk === '1' ? "已处理" : "未处理") + '</div>',
                         '                </div>',
                         '            </div>',
                         '        </li>',
@@ -433,7 +435,7 @@ $(function () {
                             '                <div class="item-media"><i class="icon icon-tag"></i></div>',
                             '                <div class="item-inner">',
                             '                    <div class="item-title label">处理情况</div>',
-                            '                    <div class="item-after">' + (data.clqk==='1'?"已处理":"未处理") + '</div>',
+                            '                    <div class="item-after">' + (data.clqk === '1' ? "已处理" : "未处理") + '</div>',
                             '                </div>',
                             '            </div>',
                             '        </li>',
@@ -710,6 +712,45 @@ $(function () {
                         html = _self.getHtmlNoResult(data);
                     }
                     break;
+                case 'query_sgkc': //事故快处查询结果内容模板
+                    if ( data instanceof Array ) {
+                        msg = data[0];//Object
+                        html = [
+                            '<div class="list-block sgkc">',
+                            '    <ul>',
+                            '        <li>',
+                            '            <div class="item-content ovh db">',
+                            '                <div class="ui-pic">',
+                            '                    <img src="'+msg.pic1+'">',
+                            '                    <img src="'+msg.pic2+'">',
+                            '                    <img src="'+msg.pic3+'">',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-time"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">时间</div>',
+                            '                    <div class="item-after">'+msg.recordtime+'</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '        <li>',
+                            '            <div class="item-content">',
+                            '                <div class="item-media"><i class="icon icon-position"></i></div>',
+                            '                <div class="item-inner">',
+                            '                    <div class="item-title label">地点</div>',
+                            '                    <div class="item-after wfdd fs08">'+msg.location+'</div>',
+                            '                </div>',
+                            '            </div>',
+                            '        </li>',
+                            '    </ul>',
+                            '</div>'].join("");
+                    } else {
+                        html = _self.getHtmlNoResult(data);
+                    }
+                    break;
                 default:
                     html = _self.getHtmlNoResult();
                     break;
@@ -849,6 +890,19 @@ $(function () {
                         "data": params
                     });
                 }
+                break;
+            case 'query_sgkc'://事故快处查询-内容结果加载
+                if ( hasKey('flowid', oHash) ) {
+                    //flowid=99C143B5515AA43F630A53BCF1173C74
+                    params = {
+                        "flowid": oHash.record
+                    };
+                }
+                detailsBlock.init({
+                    "dom" : $('#c_Table_b'),
+                    "type": modename,
+                    "data": params
+                });
                 break;
             default :
                 console.log("it's not this mode!!");

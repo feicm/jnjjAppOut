@@ -370,7 +370,7 @@ body {
     display                 : -ms-flexbox;
     display                 : -webkit-flex;
     display                 : flex;
-    -webkit-box-flex        : 1;
+    -webkit-box-flex: 1;
     -ms-flex                : 1;
     -webkit-box-pack        : justify;
     -ms-flex-pack           : justify;
@@ -1018,6 +1018,7 @@ i.icon-card2 {
     background-clip  : padding-box;
     border-radius    : 5px;
     margin           : .5em 10px .5em 0;
+    text-align: center;
 }
 
 .ui-pic img {
@@ -1491,7 +1492,21 @@ i.icon-card2 {
     color       : #AAA;
     text-shadow : 1px 1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, -1px -1px 1px #FFF;
 }
-
+/*sgkc*/
+.sgkc .item-content .ui-pic{
+    width: 100%;
+    text-align: left;
+    margin-bottom: .2em;
+}
+.sgkc .item-content .ui-pic img{
+    margin-right: .5em;
+}
+.sgkc .item-title.label{
+    width: 2em;
+}
+.sgkc .wfdd{
+    width: 90%;
+}
 /*feedback*/
 .feedback {
     width      : 90%;
