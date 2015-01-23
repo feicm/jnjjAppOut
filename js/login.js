@@ -416,7 +416,7 @@ $(function () {
             });
             this.footbarDatas = jnjjApp.footbarDatas;
             this.siderDatas = jnjjApp.siderDatas;
-            //Wisp.UI.progressDialog.remove();//移除加载框，登录流程结束
+            _self.setBaseDomain();
             _self.progressDialog.remove();
             Wisp.UI.loginResult.success();
         },
