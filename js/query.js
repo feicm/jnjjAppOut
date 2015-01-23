@@ -127,7 +127,7 @@ $(function () {
         if ( App.verify(opts) ) {
             //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
             var params = '#mode=' + mode + '@flowid=' + ip_record;
-            window.open('/config/html/infodetails.jsp' + params);//通过url hash传参
+            window.open(infoPageUrl + params);//通过url hash传参
             sgkcquerySubmit.on('click', function () {
                 sgkcqueryListener(modeName);
             });
