@@ -541,8 +541,15 @@ $(function () {
                 colDate.push(colItem);
             }
             return colDate;
+        },
+        "setBaseDomain":function(){
+            var _self=this;
+            _self.curWebView.getBaseDomain('jnjjApp.callback');
         }
     };
+    jnjjApp.callback.setBaseDomain=function(baseDomain){
+        App.LS.set("App_baseDomain",baseDomain);
+    }
     loginSubmit.length && Loginer.init({ //初始化登录流程
         "btn" : loginSubmit,
         "mode": 'login'

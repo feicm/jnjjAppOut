@@ -132,6 +132,7 @@
             "pageId" : null,
             "init"   : function (opts) {
                 this.pageId = opts.PageId;
+                this.callback=opts.callback||null;
                 return this;
             },
             "close"  : function () {
@@ -139,7 +140,10 @@
             }, //关闭指定webview
             "refresh": function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@refreshWebviewWidget@@', JSON.stringify(this), false);
-            } //刷新指定webview
+            }, //刷新指定webview
+            "getBaseDomain":function(){
+                Wisp.CommenFunc.SendToWISPClient('post', '@@getBaseDomain@@', JSON.stringify(this), false);
+            }
         };
         var fullScreen = {   //全屏控制
             "open" : function () {

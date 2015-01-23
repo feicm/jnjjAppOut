@@ -3,6 +3,7 @@ $(function () {
      * 单个车辆、驾照信息、违法信息、考试预约/成绩查询、年鉴预约查询等内容，通过列表页传过来的hash 作为请求参数
      * */
     //var userName = App.Cookie.GetCookie('username');
+    var baseDomain = App.LS.get('App_baseDomain');
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var carOnlyUrl = urlPre
@@ -712,9 +713,9 @@ $(function () {
                             '        <li>',
                             '            <div class="item-content ovh db">',
                             '                <div class="ui-pic">',
-                            '                    <img src="'+msg.pic1+'">',
-                            '                    <img src="'+msg.pic2+'">',
-                            '                    <img src="'+msg.pic3+'">',
+                            '                    <img src="' + msg.pic1 + '">',
+                            '                    <img src="' + msg.pic2 + '">',
+                            '                    <img src="' + msg.pic3 + '">',
                             '                </div>',
                             '            </div>',
                             '        </li>',
@@ -723,7 +724,7 @@ $(function () {
                             '                <div class="item-media"><i class="icon icon-time"></i></div>',
                             '                <div class="item-inner">',
                             '                    <div class="item-title label">时间</div>',
-                            '                    <div class="item-after">'+msg.recordtime+'</div>',
+                            '                    <div class="item-after">' + msg.recordtime + '</div>',
                             '                </div>',
                             '            </div>',
                             '        </li>',
@@ -732,7 +733,7 @@ $(function () {
                             '                <div class="item-media"><i class="icon icon-position"></i></div>',
                             '                <div class="item-inner">',
                             '                    <div class="item-title label">地点</div>',
-                            '                    <div class="item-after wfdd fs08">'+msg.location+'</div>',
+                            '                    <div class="item-after wfdd fs08">' + msg.location + '</div>',
                             '                </div>',
                             '            </div>',
                             '        </li>',
@@ -886,7 +887,8 @@ $(function () {
                 if ( hasKey('flowid', oHash) ) {
                     //flowid=99C143B5515AA43F630A53BCF1173C74
                     params = {
-                        "flowid": oHash.flowid
+                        "baseDomain": baseDomain,
+                        "flowid"    : oHash.flowid
                     };
                 }
                 detailsBlock.init({
