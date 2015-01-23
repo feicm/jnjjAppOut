@@ -714,7 +714,7 @@ $(function () {
                     break;
                 case 'query_sgkc': //事故快处查询结果内容模板
                     if ( data instanceof Array ) {
-                        msg = $.parseJSON(data)[0];//Object
+                        msg = data[0];//Object
                         html = [
                             '<div class="list-block sgkc">',
                             '    <ul>',
