@@ -544,7 +544,7 @@ $(function () {
         },
         "setBaseDomain":function(){
             var _self=this;
-            _self.curWebView.getBaseDomain('jnjjApp.callback');
+            _self.curWebView.getBaseDomain('jnjjApp.callback.setBaseDomain');
         }
     };
     jnjjApp.callback.setBaseDomain=function(baseDomain){
