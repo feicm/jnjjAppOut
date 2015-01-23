@@ -11,15 +11,6 @@ $(function () {
     var cardOnlyUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/queryOneLicense.json';//单驾照驾照查询请求地址
-    var wf_car_url = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/electIllegalquery.json';//车辆电子监控违法信息
-    var wf_card_url = urlPre
-        + jnjjApp.config.requestUrl //&register=user2A&indentyid=370181199403014414&jkbj=1
-        + '/jnpublic/violationQuery.json';//驾照现场违法信息
-    var wf_card_url02 = urlPre
-        + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
-        + '/jnpublic/vioforcequery.json';//驾照强制措施信息
     var ksyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/ksyyquery.json';//考试预约查询提交接口
