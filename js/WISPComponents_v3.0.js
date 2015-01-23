@@ -141,7 +141,8 @@
             "refresh": function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@refreshWebviewWidget@@', JSON.stringify(this), false);
             }, //刷新指定webview
-            "getBaseDomain":function(){
+            "getBaseDomain":function(callback){
+                this.callback=callback||null;
                 Wisp.CommenFunc.SendToWISPClient('post', '@@getBaseDomain@@', JSON.stringify(this), false);
             }
         };
