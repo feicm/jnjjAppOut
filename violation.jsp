@@ -22,7 +22,7 @@
 <div class='c' id="tab-item-01" data-mode="violation">
     <div class="print pt18">
         <input type="checkbox" id="nodo01" name="jkbj">
-        <label for="nodo01">未处理/未交款</label>
+        <label for="nodo01">未处理/未缴款</label>
     </div>
     <div class="list-block">
         <ul id="violation_car">
@@ -32,7 +32,7 @@
 <div style="display: none" class='c' data-mode="violation_card" id="tab-item-02">
     <div class="print pt18">
         <input type="checkbox" id="nodo02" name="jkbj">
-        <label for="nodo02">未交款</label>
+        <label for="nodo02">未缴款</label>
     </div>
     <div class="list-block">
         <ul id="violation_card">
