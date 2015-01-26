@@ -544,12 +544,9 @@ $(function () {
         },
         "setBaseDomain":function(){
             var _self=this;
-            _self.curWebView.getBaseDomain('jnjjApp.callback.setBaseDomain');
+            _self.curWebView.getBaseDomain('Wisp.ClientCallback.setBaseDomain');
         }
     };
-    jnjjApp.callback.setBaseDomain=function(baseDomain){
-        App.LS.set("App_baseDomain",baseDomain);
-    }
     loginSubmit.length && Loginer.init({ //初始化登录流程
         "btn" : loginSubmit,
         "mode": 'login'

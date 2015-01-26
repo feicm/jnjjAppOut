@@ -3,6 +3,7 @@ $(function () {
      * 查询
      * */
     var userName = App.LS.get('App_userName');
+    Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var urlPre = 'adapter?open&url=';
     var identityTypeRequestUrl = urlPre
         + jnjjApp.config.requestUrl

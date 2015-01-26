@@ -3,7 +3,11 @@
     /*
      * 客户端回调函数数据对象集
      * */
-    Wisp.ClientCallback = {};
+    Wisp.ClientCallback = {
+        setBaseDomain:function(baseDomain){ //(客户端)当前域写入localstorage
+            App.LS.set("App_baseDomain",baseDomain);
+        }
+    };
     /*
      * 客户端UI组件对象集
      * */

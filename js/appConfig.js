@@ -57,7 +57,7 @@ jnjjApp.footbarDatas = {
                          "name"      : "快处查询",
                          "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                          "clickEvent": "",
-                         "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp#mode=query_sgkc"
+                         "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_sgkc"
                          },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -168,7 +168,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "快处查询",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp#mode=query_sgkc"
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_sgkc"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本

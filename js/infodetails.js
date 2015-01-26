@@ -2,8 +2,7 @@ $(function () {
     /*
      * 单个车辆、驾照信息、违法信息、考试预约/成绩查询、年鉴预约查询等内容，通过列表页传过来的hash 作为请求参数
      * */
-    //var userName = App.Cookie.GetCookie('username');
-    var baseDomain = App.LS.get('App_baseDomain');
+    var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var carOnlyUrl = urlPre
