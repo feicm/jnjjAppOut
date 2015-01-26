@@ -644,7 +644,7 @@ var App = (function () {
                         break;
                     default :
                         result = [
-                            '<div class="modal ui-loading">',
+                            '<div class="ui-loading">',
                             '    <div class="ico-loading"></div>',
                             '    <b class="msg">' + _msg + '</b>',
                             '</div>',
