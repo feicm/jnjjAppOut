@@ -722,17 +722,6 @@ i.icon-card2 {
     padding       : 0 5px;
 }
 
-.list-block .item-input .edit {
-    position        : absolute;
-    right           : 5px;
-    top             : 11px;
-    display         : inline-block;
-    width           : 20px;
-    height          : 20px;
-    background      : url("../images/edit_normal.png");
-    background-size : cover;
-}
-
 .list-block-title {
     height        : 2em;
     line-height   : 2;
