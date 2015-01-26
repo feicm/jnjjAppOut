@@ -577,7 +577,7 @@ var App = (function () {
             "show"     : function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
-                $(document.body).append(_html);
+                $('body').append(_html);
                 _html.addClass('modal-in');
                 this.current = _html;
             },
