@@ -59,6 +59,7 @@ $(function () {
                 }//考试成绩/预约查询/年检预约查询/事故快处查询
                 if ( msg ) {
                     _self.render(msg, _dom);//渲染结果
+                    _self.bindEvent();
                     _self.loading.remove();
                 } else {
                     _self.loading = _self.loading.resetMsg('加载失败');
@@ -76,6 +77,22 @@ $(function () {
             var type = _self.type;
             _trStr = _self.getHtml(type, data);
             _selector.append(_trStr);
+        },
+        "bindEvent"      : function () {
+            var _self = this;
+            var _images = [];
+            var _list=_self.dom.find('.ui-pic img');
+            if(!_list.length) return false;
+            _list.each(function(index){
+                var $this=$(this);
+                _images.push($this.attr('src'));
+                $this.on('click',function(){
+                     Wisp.UI.Gallery.open({
+                         active:index,
+                         images:_images.join('|')
+                     });
+                })
+            });
         },
         "getHtml"        : function (type, data) {
             var _self = this;

@@ -4,8 +4,8 @@
      * 客户端回调函数数据对象集
      * */
     Wisp.ClientCallback = {
-        setBaseDomain:function(baseDomain){ //(客户端)当前域写入localstorage
-            App.LS.set("App_baseDomain",baseDomain);
+        setBaseDomain: function (baseDomain) { //(客户端)当前域写入localstorage
+            App.LS.set("App_baseDomain", baseDomain);
         }
     };
     /*
@@ -16,15 +16,6 @@
             var type = opts.type,
                 datas = opts.datas;
             switch ( type ) {
-                case 'button':
-                    new Button(datas);
-                    break;
-                case 'listview':
-                    new Listview(datas);
-                    break;
-                case 'toolbar':
-                    new Toolbar(datas);
-                    break;
                 case 'footbar':
                     new Footbar(datas);
                     break;
@@ -37,39 +28,6 @@
                 default:
                     console.log('地球已经不适合你，回火星去吧！！！');
             }
-        };
-        /*
-         * UI.Button 按钮组件
-         * */
-        var Button = function (opts) {
-            this._config = opts;//ui配置信息
-            this._init();
-        };
-        Button.prototype._init = function () {
-            console.dir(JSON.stringify(this._config));
-            Wisp.CommenFunc.SendToWISPClient('post', '@@button@@', JSON.stringify(this._config), false);
-        };
-        /*
-         * UI.Listview 列表组件
-         * */
-        var Listview = function (opts) {
-            this._config = opts;//ui配置信息
-            this._init();
-        };
-        Listview.prototype._init = function () {
-            console.dir(this._config);
-            Wisp.CommenFunc.SendToWISPClient('post', '@@listview@@', JSON.stringify(this._config), false);
-        };
-        /*
-         * UI.Toolbar 工具栏组件
-         * */
-        var Toolbar = function (opts) {
-            this._config = opts;//ui配置信息
-            this._init();
-        };
-        Toolbar.prototype._init = function () {
-            console.dir(this._config);
-            Wisp.CommenFunc.SendToWISPClient('post', '@@toolbar@@', JSON.stringify(this._config), false);
         };
         /*
          * UI.Toolbar 工具栏组件
@@ -104,17 +62,7 @@
             console.dir(this._config);
             Wisp.CommenFunc.SendToWISPClient('post', '@@dialog@@', JSON.stringify(this._config), false);
         };
-        /*
-         * UI.Dialog 对话框组件
-         * */
-        var Tab = function (opts) {
-            this._config = opts;//ui配置信息
-            this._init();
-        };
-        Tab.prototype._init = function () {
-            console.dir(this._config);
-            Wisp.CommenFunc.SendToWISPClient('post', '@@tab@@', JSON.stringify(this._config), false);
-        };
+
         var progressDialog = {   //加载对话框
             "show"  : function (content) {
                 this.content = content;
@@ -133,21 +81,28 @@
             } //失败
         };
         var Webview = {   //webview操作 即window 操作
-            "pageId" : null,
-            "init"   : function (opts) {
+            "pageId"       : null,
+            "init"         : function (opts) {
                 this.pageId = opts.PageId;
-                this.callback=opts.callback||null;
+                this.callback = opts.callback || null;
                 return this;
             },
-            "close"  : function () {
+            "close"        : function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@closeWebviewWidget@@', JSON.stringify(this), false);
             }, //关闭指定webview
-            "refresh": function () {
+            "refresh"      : function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@refreshWebviewWidget@@', JSON.stringify(this), false);
             }, //刷新指定webview
-            "getBaseDomain":function(callback){
-                this.callback=callback||null;
+            "getBaseDomain": function (callback) {
+                this.callback = callback || null;
                 Wisp.CommenFunc.SendToWISPClient('post', '@@getBaseDomain@@', JSON.stringify(this), false);
+            }
+        };
+        var Gallery = {   //打开轮播
+            "open": function (opts) {
+                this.currentPage=opts.active;
+                this.images=opts.images;
+                Wisp.CommenFunc.SendToWISPClient('post', '@@openGallery@@', JSON.stringify(this), false);
             }
         };
         var fullScreen = {   //全屏控制
@@ -167,6 +122,7 @@
             "progressDialog": progressDialog,//加载对话框
             "loginResult"   : loginResult,//登录结果
             "Webview"       : Webview,//webview操作
+            "Gallery"       : Gallery,//实例化相册
             "fullScreen"    : fullScreen,//TODO 全屏
             "zoomWindow"    : zoomWindow //TODO 窗口缩放
         }
