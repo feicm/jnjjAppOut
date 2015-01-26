@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
     <meta content="telephone=no,email=no" name="format-detection" />
     <title>电子监控</title>
-    <link rel="stylesheet" href="config/html/css/reset.css">
-    <link rel="stylesheet" href="config/html/css/app_p.css">
+    <link rel="stylesheet" href="config/html/lib/css/aio.css">
 </head>
 <body>
     <div class="list-block c mt05" data-mode='v_car_list'>
