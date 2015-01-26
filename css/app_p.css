@@ -743,7 +743,7 @@ i.icon-card2 {
 }
 
 /*loading*/
-.modal.ui-loading {
+.ui-loading {
     position      : fixed;
     left          : 50%;
     top           : 25%;
