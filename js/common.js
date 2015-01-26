@@ -578,7 +578,9 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $('body').append(_html);
-                _html[0].addClass('modal-in');
+                _html.addClass('modal-in').transitionEnd(function(){
+                    console.log('动画结束');
+                });
                 this.current = _html;
             },
             "bindEvent": function () {
@@ -600,7 +602,7 @@ var App = (function () {
                 })
             },
             "remove"   : function () {
-                this.current[0].removeClass('modal-in').addClass('modal-out');
+                this.current.removeClass('modal-in').addClass('modal-out');
                 this.current.remove();
             },
             "getHtml"  : function () {
