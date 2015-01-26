@@ -578,7 +578,7 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $('body').append(_html);
-                _html.addClass('modal-in');
+                setTimeout(function(){_html.addClass('modal-in');},400);
                 this.current = _html;
             },
             "bindEvent": function () {
