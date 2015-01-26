@@ -370,7 +370,7 @@ body {
     display                 : -ms-flexbox;
     display                 : -webkit-flex;
     display                 : flex;
-    -webkit-box-flex: 1;
+    -webkit-box-flex        : 1;
     -ms-flex                : 1;
     -webkit-box-pack        : justify;
     -ms-flex-pack           : justify;
@@ -875,20 +875,34 @@ i.icon-card2 {
 
 /*model*/
 .modal {
-    width         : 270px;
-    position      : fixed;
-    z-index       : 11000;
-    left          : 50%;
-    margin-left   : -135px;
-    margin-top    : 0;
-    top           : 20%;
-    text-align    : center;
-    border-radius : 7px;
-    color         : #000;
+    width                       : 270px;
+    position                    : fixed;
+    z-index                     : 11000;
+    left                        : 50%;
+    margin-left                 : -135px;
+    margin-top                  : 0;
+    top                         : 20%;
+    text-align                  : center;
+    border-radius               : 7px;
+    opacity                     : 0;
+    -webkit-transform           : translate3d(0, 0, 0) scale(1.185);
+    -ms-transform               : translate3d(0, 0, 0) scale(1.185);
+    transform                   : translate3d(0, 0, 0) scale(1.185);
+    -webkit-transition-property : -webkit-transform, opacity;
+    -moz-transition-property    : -moz-transform, opacity;
+    -ms-transition-property     : -ms-transform, opacity;
+    -o-transition-property      : -o-transform, opacity;
+    transition-property         : transform, opacity;
+    color                       : #000;
 }
 
 .modal.modal-in {
-    opacity : 1;
+    opacity                     : 1;
+    -webkit-transition-duration : 400ms;
+    transition-duration         : 400ms;
+    -webkit-transform           : translate3d(0, 0, 0) scale(1);
+    -ms-transform               : translate3d(0, 0, 0) scale(1);
+    transform                   : translate3d(0, 0, 0) scale(1);
 }
 
 .modal.modal-out {
@@ -1018,7 +1032,7 @@ i.icon-card2 {
     background-clip  : padding-box;
     border-radius    : 5px;
     margin           : .5em 10px .5em 0;
-    text-align: center;
+    text-align       : center;
 }
 
 .ui-pic img {
@@ -1492,21 +1506,26 @@ i.icon-card2 {
     color       : #AAA;
     text-shadow : 1px 1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, -1px -1px 1px #FFF;
 }
+
 /*sgkc*/
-.sgkc .item-content .ui-pic{
-    width: 100%;
-    text-align: left;
-    margin-bottom: .2em;
+.sgkc .item-content .ui-pic {
+    width         : 100%;
+    text-align    : left;
+    margin-bottom : .2em;
 }
-.sgkc .item-content .ui-pic img{
-    margin-right: .5em;
+
+.sgkc .item-content .ui-pic img {
+    margin-right : .5em;
 }
-.sgkc .item-title.label{
-    width: 2em;
+
+.sgkc .item-title.label {
+    width : 2em;
 }
-.sgkc .wfdd{
-    width: 90%;
+
+.sgkc .wfdd {
+    width : 90%;
 }
+
 /*feedback*/
 .feedback {
     width      : 90%;

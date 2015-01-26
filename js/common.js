@@ -578,6 +578,7 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $(document.body).append(_html);
+                _html.addClass('modal-in');
                 this.current = _html;
             },
             "bindEvent": function () {
@@ -599,6 +600,7 @@ var App = (function () {
                 })
             },
             "remove"   : function () {
+                this.current.removeClass('modal-in').addClass('modal-out');
                 this.current.remove();
             },
             "getHtml"  : function () {
@@ -610,7 +612,7 @@ var App = (function () {
                 switch ( _type ) {
                     case 'alert':
                         result = [
-                            '<div class="modal modal-in">',
+                            '<div class="modal">',
                             '    <div class="modal-inner">',
                             '        <div class="modal-title">' + _title + '</div>',
                             '        <div class="modal-text">' + _msg + '</div>',
