@@ -578,7 +578,9 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $('body').append(_html);
-                setTimeout(function(){_html.addClass('modal-in');},400);
+                setTimeout(function () {
+                    _html.addClass('modal-in');
+                }, 400);
                 this.current = _html;
             },
             "bindEvent": function () {
@@ -600,8 +602,11 @@ var App = (function () {
                 })
             },
             "remove"   : function () {
-                this.current.removeClass('modal-in').addClass('modal-out');
-                this.current.remove();
+                var _self = this;
+                _self.current.removeClass('modal-in').addClass('modal-out');
+                setTimeout(function () {
+                    _self.current.remove();
+                }, 400);
             },
             "getHtml"  : function () {
                 var _self = this;
