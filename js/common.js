@@ -630,7 +630,7 @@ var App = (function () {
                         break;
                     case 'confirm':
                         result = [
-                            '<div class="modal modal-in">',
+                            '<div class="modal">',
                             '    <div class="modal-inner">',
                             '        <div class="modal-title">' + _title + '</div>',
                             '        <div class="modal-text">' + _msg + '</div>',
@@ -644,7 +644,7 @@ var App = (function () {
                         break;
                     default :
                         result = [
-                            '<div class="ui-loading">',
+                            '<div class="modal ui-loading">',
                             '    <div class="ico-loading"></div>',
                             '    <b class="msg">' + _msg + '</b>',
                             '</div>',
