@@ -578,7 +578,7 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $('body').append(_html);
-                _html.children('.modal').addClass('modal-in');
+                _html.addClass('modal-in');
                 this.current = _html;
             },
             "bindEvent": function () {
@@ -600,7 +600,7 @@ var App = (function () {
                 })
             },
             "remove"   : function () {
-                this.current.children('.modal').removeClass('modal-in').addClass('modal-out');
+                this.current.removeClass('modal-in').addClass('modal-out');
                 this.current.remove();
             },
             "getHtml"  : function () {
