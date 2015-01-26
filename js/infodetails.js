@@ -70,7 +70,7 @@ $(function () {
             });
         },
         "render"         : function (data, selector) {
-            console.dir(data);
+            //console.dir(data);
             var _self = this;
             var _selector = selector;
             var _trStr;

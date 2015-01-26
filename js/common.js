@@ -580,7 +580,7 @@ var App = (function () {
                 $('body').append(_html);
                 setTimeout(function () {
                     _html.addClass('modal-in');
-                }, 400);
+                }, 200);
                 this.current = _html;
             },
             "bindEvent": function () {
@@ -606,7 +606,7 @@ var App = (function () {
                 _self.current.removeClass('modal-in').addClass('modal-out');
                 setTimeout(function () {
                     _self.current.remove();
-                }, 400);
+                }, 200);
             },
             "getHtml"  : function () {
                 var _self = this;
