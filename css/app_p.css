@@ -70,7 +70,7 @@ body {
 }
 
 .bg_arr_r {
-    background-image    : url(../images/arr_r.png?__sprite);
+    background-image    : url(../images/arr_r.png?__inline);
     background-position : 95% center;
     background-repeat   : no-repeat;
     background-size     : .5em;
@@ -402,7 +402,7 @@ body {
 }
 
 .list-block .select {
-    background-image    : url(../images/arr_d.png?__sprite);
+    background-image    : url(../images/arr_d.png?__inline);
     background-size     : 1em .5em;
     background-position : 95% center;
     background-repeat   : no-repeat;
@@ -430,187 +430,187 @@ i.icon {
 }
 
 i.icon.icon-user {
-    background-image : url(../images/ico/user_icon.png?__sprite);
+    background-image : url(../images/ico/user_icon.png?__inline);
 }
 
 i.icon.icon-pwd {
-    background-image : url(../images/ico/pwd.png?__sprite);
+    background-image : url(../images/ico/pwd.png?__inline);
 }
 
 i.icon.icon-pwd2 {
-    background-image : url(../images/ico/pwd2.png?__sprite);
+    background-image : url(../images/ico/pwd2.png?__inline);
 }
 
 i.icon.icon-phone {
-    background-image : url(../images/ico/phone.png?__sprite);
+    background-image : url(../images/ico/phone.png?__inline);
 }
 
 i.icon.icon-phone2 {
-    background-image : url(../images/ico/phone2.png?__sprite);
+    background-image : url(../images/ico/phone2.png?__inline);
 }
 
 i.icon.icon-phone3 {
-    background-image : url(../images/ico/phone3.png?__sprite);
+    background-image : url(../images/ico/phone3.png?__inline);
 }
 
 i.icon.icon-phone4 {
-    background-image : url(../images/ico/phone4.png?__sprite);
+    background-image : url(../images/ico/phone4.png?__inline);
 }
 
 i.icon.icon-idcard {
-    background-image : url(../images/ico/idcard.png?__sprite);
+    background-image : url(../images/ico/idcard.png?__inline);
 }
 
 i.icon.icon-idcard2 {
-    background-image : url(../images/ico/idcard2.png?__sprite);
+    background-image : url(../images/ico/idcard2.png?__inline);
 }
 
 i.icon.icon-action {
-    background-image : url(../images/ico/action.png?__sprite);
+    background-image : url(../images/ico/action.png?__inline);
 }
 
 i.icon.icon-money {
-    background-image : url(../images/ico/money.png?__sprite);
+    background-image : url(../images/ico/money.png?__inline);
 }
 
 i.icon.icon-position {
-    background-image : url(../images/ico/position.png?__sprite);
+    background-image : url(../images/ico/position.png?__inline);
 }
 
 i.icon.icon-position2 {
-    background-image : url(../images/ico/position2.png?__sprite);
+    background-image : url(../images/ico/position2.png?__inline);
 }
 
 i.icon.icon-record {
-    background-image : url(../images/ico/record.png?__sprite);
+    background-image : url(../images/ico/record.png?__inline);
 }
 
 i.icon.icon-record2 {
-    background-image : url(../images/ico/record2.png?__sprite);
+    background-image : url(../images/ico/record2.png?__inline);
 }
 
 i.icon.icon-tag {
-    background-image : url(../images/ico/tag.png?__sprite);
+    background-image : url(../images/ico/tag.png?__inline);
 }
 
 i.icon.icon-email {
-    background-image : url(../images/ico/email.png?__sprite);
+    background-image : url(../images/ico/email.png?__inline);
 }
 
 i.icon.icon-time {
-    background-image : url(../images/ico/time.png?__sprite);
+    background-image : url(../images/ico/time.png?__inline);
 }
 
 i.icon.icon-calendar {
-    background-image : url(../images/ico/calendar.png?__sprite);
+    background-image : url(../images/ico/calendar.png?__inline);
 }
 
 i.icon.icon-calendar2 {
-    background-image : url(../images/ico/calendar2.png?__sprite);
+    background-image : url(../images/ico/calendar2.png?__inline);
 }
 
 i.icon.icon-cardnum {
-    background-image : url(../images/ico/cardnum.png?__sprite);
+    background-image : url(../images/ico/cardnum.png?__inline);
 }
 
 i.icon.icon-cardnum2 {
-    background-image : url(../images/ico/cardnum2.png?__sprite);
+    background-image : url(../images/ico/cardnum2.png?__inline);
 }
 
 i.icon.icon-dabh {
-    background-image : url(../images/ico/dabh.png?__sprite);
+    background-image : url(../images/ico/dabh.png?__inline);
 }
 
 i.icon.icon-carnum {
-    background-image : url(../images/ico/carnum.png?__sprite);
+    background-image : url(../images/ico/carnum.png?__inline);
 }
 
 i.icon.icon-carnum2 {
-    background-image : url(../images/ico/carnum2.png?__sprite);
+    background-image : url(../images/ico/carnum2.png?__inline);
 }
 
 i.icon.icon-cartype {
-    background-image : url(../images/ico/cartype.png?__sprite);
+    background-image : url(../images/ico/cartype.png?__inline);
 }
 
 i.icon.icon-clsbdh {
-    background-image : url(../images/ico/calendar.png?__sprite);
+    background-image : url(../images/ico/calendar.png?__inline);
 }
 
 i.icon.icon-clsbdh {
-    background-image : url(../images/ico/clsbdh.png?__sprite);
+    background-image : url(../images/ico/clsbdh.png?__inline);
 }
 
 i.icon.icon-nail {
-    background-image : url(../images/ico/nail.png?__sprite);
+    background-image : url(../images/ico/nail.png?__inline);
 }
 
 i.icon.icon-pen {
-    background-image : url(../images/ico/pen.png?__sprite);
+    background-image : url(../images/ico/pen.png?__inline);
 }
 
 i.icon.icon-list {
-    background-image : url(../images/ico/list.png?__sprite);
+    background-image : url(../images/ico/list.png?__inline);
 }
 
 i.icon.icon-flag {
-    background-image : url(../images/ico/flag.png?__sprite);
+    background-image : url(../images/ico/flag.png?__inline);
 }
 
 i.icon.icon-appicon {
-    background-image : url(../images/ico/app_icon.png?__sprite);
+    background-image : url(../images/ico/app_icon.png?__inline);
     width            : 4em;
     height           : 4em;
 }
 
 i.icon.icon-largercar {
-    background-image : url(../images/ico/largercar.png?__sprite);
+    background-image : url(../images/ico/largercar.png?__inline);
     width            : 3em;
     height           : 1.5em;
 }
 
 i.icon.icon-largercard {
-    background-image : url(../images/ico/largercard.png?__sprite);
+    background-image : url(../images/ico/largercard.png?__inline);
     width            : 3em;
     height           : 1.5em;
 }
 
 i.icon.icon-user-men {
-    background-image : url(../images/ico/men.png?__sprite);
+    background-image : url(../images/ico/men.png?__inline);
 }
 
 i.icon.icon-user-women {
-    background-image : url(../images/ico/women.png?__sprite);
+    background-image : url(../images/ico/women.png?__inline);
 }
 
 i.icon.icon-form-name {
-    background-image : url(../images/ico/login_user.png?__sprite);
+    background-image : url(../images/ico/login_user.png?__inline);
 }
 
 i.icon.icon-form-password {
-    background-image : url(../images/ico/login_pwd.png?__sprite);
+    background-image : url(../images/ico/login_pwd.png?__inline);
 }
 
 i.icon.icon-car {
-    background-image : url(../images/ico/bindbtn01.png?__sprite);
+    background-image : url(../images/ico/bindbtn01.png?__inline);
     width            : 5em;
     height           : 5em;
 }
 
 i.icon.icon-car2 {
-    background-image : url("../images/ico_car.png?__sprite");
+    background-image : url("../images/ico_car.png?__inline");
     width            : 1.5em;
     height           : 1.5em;
 }
 
 i.icon.icon-card {
-    background-image : url(../images/ico/bindbtn02.png?__sprite);
+    background-image : url(../images/ico/bindbtn02.png?__inline);
     width            : 5em;
     height           : 5em;
 }
 
 i.icon-card2 {
-    background-image : url("../images/ico_card.png?__sprite");
+    background-image : url("../images/ico_card.png?__inline");
     width            : 1em;
     height           : 1em;
     top              : .2em;
@@ -752,7 +752,7 @@ i.icon-card2 {
     margin-left                       : auto;
     margin-right                      : auto;
     text-indent                       : -10000px;
-    background                        : url('../images/ui-loading.png?__sprite') 0 0 no-repeat;
+    background                        : url('../images/ui-loading.png?__inline') 0 0 no-repeat;
     -webkit-background-size           : 25px 25px;
     -webkit-animation-name            : ui-loading-anim;
     -webkit-animation-duration        : 1s;
@@ -1147,7 +1147,7 @@ i.icon-card2 {
 }
 
 .icon01_arr_r {
-    background-image : url(../images/arr_r.png?__sprite);
+    background-image : url(../images/arr_r.png?__inline);
 }
 
 .ios7 .dwb {
