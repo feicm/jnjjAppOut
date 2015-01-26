@@ -578,9 +578,7 @@ var App = (function () {
                 var _self = this;
                 var _html = $(_self.getHtml());
                 $('body').append(_html);
-                _html.addClass('modal-in').transitionEnd(function(){
-                    console.log('动画结束');
-                });
+                _html.addClass('modal-in');
                 this.current = _html;
             },
             "bindEvent": function () {
