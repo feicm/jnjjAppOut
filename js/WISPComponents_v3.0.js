@@ -100,8 +100,8 @@
         };
         var Gallery = {   //打开轮播
             "open": function (opts) {
-                this.currentPage=opts.active;
-                this.images=opts.images;
+                this.currentPage = opts.active + '';
+                this.images = opts.images;
                 Wisp.CommenFunc.SendToWISPClient('post', '@@openGallery@@', JSON.stringify(this), false);
             }
         };
