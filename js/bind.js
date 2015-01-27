@@ -8,14 +8,11 @@ $(function () {
         PageId:pageId
     });
     var urlPre = 'adapter?open&url=';
-    var carbindRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carbindRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/bandCar.json';//车辆绑定请求地址
-    var cardbindRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var cardbindRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/bandLicense.json';//驾照绑定请求地址
-    var carTypeRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carTypeRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
     var module = $('.c').attr('data-mode');//模块名获取
     var listPageId=App.LS.get(module);
