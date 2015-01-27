@@ -285,7 +285,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "违法推送",
                             "summary"   : "违法主动推送",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -296,7 +296,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "加油优惠",
                             "summary"   : "商谈后确定",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -307,7 +307,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "洗车优惠",
                             "summary"   : "联创冰点价",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -318,7 +318,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "代驾",
                             "summary"   : "泽安冰点价",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -329,7 +329,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "保养优惠",
                             "summary"   : "商谈后确定",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -340,7 +340,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "车辆年审",
                             "summary"   : "无需排队等候",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -351,7 +351,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "道路救援",
                             "summary"   : "免费全国救援",
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"       : "config/html/tips.html"
                         }
                     ]
                 }
