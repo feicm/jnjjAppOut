@@ -387,7 +387,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "资料维护",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
+                            "url"       : "config/html/personalinfo.html&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -432,17 +432,6 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : "config/html/feedback.jsp"
-                        },
-                        {
-                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                            "beforeImg" : "config/html/images/wispui/my/m_feedback.png",//点击前图标
-                            "afterImg"  : "config/html/images/wispui/my/m_feedback.png", //点击时图标
-                            "disableImg": "",
-                            "enable"    : "true",
-                            "name"      : "调试页面",
-                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                            "clickEvent": "",
-                            "url"       : "config/html/personalinfo.html&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         }
                     ]
                 }
