@@ -604,9 +604,7 @@ var App = (function () {
             "remove"   : function () {
                 var _self = this;
                 _self.current.removeClass('modal-in').addClass('modal-out');
-                setTimeout(function () {
-                    _self.current.remove();
-                }, 10);
+                _self.current.remove();
             },
             "getHtml"  : function () {
                 var _self = this;
