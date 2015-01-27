@@ -3,6 +3,8 @@ $(function () {
     var feedbackBtn = $('#feedback_btn');
     var url = jnjjApp.config.requestUrl + "/wisp_jn_pubmgr/system/advice_saveAddAdvice?registername=";
     var username = App.LS.get("App_userName");
+    Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
+    var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     if ( username === 'null' ) {
         url += jnjjApp.sider.info.roleid;
     } else {
@@ -12,17 +14,22 @@ $(function () {
     feedbackBtn.on('click', function () {
         var progress;
         var text = feedbackArea.val();
+        var params = {};
         if ( text ) {
+            params = {
+                "baseDomain": baseDomain,
+                "content"   : text
+            };
             progress = App.UI('dialog', {'msg': "正在提交"});
-            App.getAjaxData(url, {"content": text}, function (data) {
-                 if(data.success){
-                     progress.resetMsg('提交成功');
-                 }else{
-                     progress.resetMsg('提交失败');
-                 }
-                setTimeout(function(){
+            App.getAjaxData(url, params, function (data) {
+                if ( data.success ) {
+                    progress.resetMsg('提交成功');
+                } else {
+                    progress.resetMsg('提交失败');
+                }
+                setTimeout(function () {
                     progress.remove();
-                },500)
+                }, 500)
             })
         } else {
             App.UI('dialog', {
