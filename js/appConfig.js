@@ -6,7 +6,7 @@ jnjjApp.config = {
     "msgRequestUrl": "http://rjsoft.gnway.cc:9093",
     "wechatServer" : "http://220.250.1.46/WISP_JN_WECHAT"
 };
-jnjjApp.callback={};
+jnjjApp.callback = {};
 var PreQuestUrl = "adapter?open&url=" + jnjjApp.config.requestUrl;
 var PageId_lv01 = (new Date()).getTime();
 jnjjApp.footbarDatas = {
@@ -49,16 +49,16 @@ jnjjApp.footbarDatas = {
                             "url"       : PreQuestUrl + "/jnpublic/config/html/violation.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         },
                         {
-                         "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                         "beforeImg" : "config/html/images/wispui/home/h_kccx_normal.png",//点击前图标
-                         "afterImg"  : "config/html/images/wispui/home/h_kccx_hover.png", //点击时图标
-                         "disableImg": "",
-                         "enable"    : "true",
-                         "name"      : "快处查询",
-                         "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                         "clickEvent": "",
-                         "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_sgkc"
-                         },
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/home/h_kccx_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_kccx_hover.png", //点击时图标
+                            "disableImg": "",
+                            "enable"    : "true",
+                            "name"      : "快处查询",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/wechatquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_sgkc"
+                        },
                         {
                             "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                             "beforeImg" : "config/html/images/wispui/home/h_bindcar_normal.png",//点击前图标
@@ -103,17 +103,17 @@ jnjjApp.footbarDatas = {
                             "clickEvent": "",
                             "url"       : PreQuestUrl + "/jnpublic/config/html/examquery.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@#mode=query_kscj"
                         },
-                         {
-                         "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                         "beforeImg" : "config/html/images/wispui/home/h_position_normal.png",//点击前图标
-                         "afterImg"  : "config/html/images/wispui/home/h_position_hover.png", //点击时图标
-                         "disableImg": "",
-                         "enable"    : "true",
-                         "name"      : "车管所位置",
-                         "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                         "clickEvent": "",
-                         "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
-                         }
+                        {
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/home/h_position_normal.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/home/h_position_hover.png", //点击时图标
+                            "disableImg": "",
+                            "enable"    : "true",
+                            "name"      : "车管所位置",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : jnjjApp.config.requestUrl + "/jnpublic/cgsquery.json?action=map"
+                        }
                     ]
                 },
                 {
@@ -432,6 +432,17 @@ jnjjApp.footbarDatas = {
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
                             "url"       : jnjjApp.config.requestUrl + "/jnpublic/config/html/feedback.jsp"
+                        },
+                        {
+                            "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                            "beforeImg" : "config/html/images/wispui/my/m_feedback.png",//点击前图标
+                            "afterImg"  : "config/html/images/wispui/my/m_feedback.png", //点击时图标
+                            "disableImg": "",
+                            "enable"    : "true",
+                            "name"      : "调试页面",
+                            "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                            "clickEvent": "",
+                            "url"       : PreQuestUrl + "/jnpublic/config/html/personalinfo.jsp&@@webViewPageId=" + PageId_lv01 + Wisp.CommenFunc.getRandom() + "@@"
                         }
                     ]
                 }
