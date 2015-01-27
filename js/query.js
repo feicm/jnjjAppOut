@@ -14,7 +14,7 @@ $(function () {
     var kscourseRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/kscourse.json';//考试科目获取接口
-    var infoPageUrl = 'infodetails.html';//查询结果页地址
+    var infoPageUrl = 'config/html/infodetails.html';//查询结果页地址
     var carTypeRequestUrl = urlPre
         + jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
