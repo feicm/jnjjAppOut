@@ -3,6 +3,7 @@ $(function () {
      * 绑定模块
      * */
     var userName = App.LS.get('App_userName');
+    Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var pageId = App.getPageId(window.location.href);
     var curWebView = Wisp.UI.Webview.init({
         PageId: pageId
@@ -211,7 +212,7 @@ $(function () {
     var type = $('#hpzl');
     type.length && App.UI('select', {
         "dom"     : type,
-        "url"     : carTypeRequestUrl,
+        "url"     : carTypeRequestUrl+'?baseDomain='+App.LS.get('App_baseDomain'),
         "module"  : "carType"
     });
 });
