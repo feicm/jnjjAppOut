@@ -18,7 +18,7 @@ $(function () {
     var v_card_listUrl02 = jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
     var bindcarPageUrl = 'bindcar.html&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定车辆页url
-    var bindcardPageUrl = 'bindcard.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定驾照页url
+    var bindcardPageUrl = 'bindcard.html&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定驾照页url
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,
