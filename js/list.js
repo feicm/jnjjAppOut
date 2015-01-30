@@ -110,38 +110,18 @@ $(function () {
             //注册事件
             var _list = _self.listWrap;
             var _mode = _self.module;
+            _list.children('li').on('click', function (e) {
+                _self.listListener(_mode, $(this));
+            })
             if ( _mode === 'car' ) {//我的车辆列表
-                _list.on('click', 'li', function (e) {
-                    _self.listListener(_mode,$(this));
-                })
                 _self.currentBtn.on('click', function () {
                     window.open(bindcarPageUrl);
                 });
             }
             if ( _mode === 'card' ) {//我的驾照列表
-                _list.on('click', 'li', function (e) {
-                    _self.listListener(_mode,$(this));
-                })
                 _self.currentBtn.on('click', function () {
                     window.open(bindcardPageUrl);
                 });
-            }
-            if ( _mode === 'violation_car' ) { //我的违法-车辆列表
-                var url = _self.urlRouter['v_car_list'];
-                _list.on('click', 'li', function (e) {
-                    _self.listListener(_mode,$(this));
-                })
-            }
-            if ( _mode === 'violation_card' ) { //我的违法-驾照列表
-                var url = _self.urlRouter['v_card_list'];
-                _list.on('click', 'li', function (e) {
-                    _self.listListener(_mode,$(this));
-                })
-            }
-            if ( _mode === 'v_car_list' || _mode === 'v_card_list' ) {//我的违法-车辆、驾照-结果列表
-                _list.on('click', 'li', function (e) {
-                    _self.listListener(_mode,$(this));
-                })
             }
         },
         "listListener"   : function (mode, target) {
@@ -181,8 +161,8 @@ $(function () {
                     window.open(_self.resultUrl + params);//通过url hash传参
                     break;
             }
-            _me.on('click',function(){
-                _self.listListener(mode,$(this));
+            _me.on('click', function () {
+                _self.listListener(mode, $(this));
             });
         },
         //获取列表html字符串
