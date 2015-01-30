@@ -515,7 +515,8 @@ $(function () {
                 var params02 = {
                     "register" : userName,
                     "indentyid": oHash.licenseid,
-                    "cjbj"     : null
+                    "cjbj"     : null,
+                    "baseDomain":baseDomain
                 };
             }
             listModule.init({ //初始化驾照现场违法信息
