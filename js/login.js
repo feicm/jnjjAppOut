@@ -29,10 +29,10 @@ $(function () {
         "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
         "galleryRequestUrl"      : urlPre + cmsUrlPre + 'content/shuffling_jj.do',//首页大轮播数据获取地址
-        "rigisterPageUrl"        : 'rigister.html',//注册页地址
+        "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/login.jsp',//找回密码页地址
-        "rigisterRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
+        "rigisterRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
             this.mode = opts.mode;
@@ -162,7 +162,7 @@ $(function () {
         "rigisterListener"       : function () {
             var _self = this;
             var _btn = _self.rigisterBtn;
-            var _url = _self.rigisterPageUrl + '?@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
+            var _url = _self.rigisterPageUrl + '&@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _btn.off('click');
             window.open(_url);
             _self.bindEvent(_btn, 'rigister');
@@ -242,8 +242,7 @@ $(function () {
                     "password"    : _setpwd_02,
                     "identityId"  : _setidnum,
                     "phoneNum"    : _setphone,
-                    "roleId"      : _roleId,
-                    "baseDomain":App.LS.get('App_baseDomain')
+                    "roleId"      : _roleId
                 };
                 _self.progressDialog = App.UI('dialog', {msg: '注册中，请稍后！'});
                 //提交表单
