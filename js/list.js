@@ -21,9 +21,9 @@ $(function () {
     var bindcardPageUrl = 'bindcard.html&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定驾照页url
     //&register=user2A&axisFlag=true
     var params = {
-        "register": userName,
-        "axisFlag": false,
-        "baseDomain":baseDomain
+        "register"  : userName,
+        "axisFlag"  : false,
+        "baseDomain": baseDomain
     };
     //列表对象
     var listModule = {
@@ -112,11 +112,7 @@ $(function () {
             var _mode = _self.module;
             if ( _mode === 'car' ) {//我的车辆列表
                 _list.on('click', 'li', function (e) {
-                    var _me = $(this);
-                    var cartype = _me.attr('data-cartype');
-                    var carid = _me.attr('data-carid');
-                    var params = encodeURI('#mode=carquery@cartype=' + cartype + '@carid=' + carid);
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    _self.listListener(_mode,$(this));
                 })
                 _self.currentBtn.on('click', function () {
                     window.open(bindcarPageUrl);
@@ -124,10 +120,7 @@ $(function () {
             }
             if ( _mode === 'card' ) {//我的驾照列表
                 _list.on('click', 'li', function (e) {
-                    var _me = $(this);
-                    var licenseRecord = _me.attr('data-licenserecord');
-                    var params = encodeURI('#mode=cardquery@licenserecord=' + licenseRecord);
-                    window.open(_self.resultUrl + params);//通过url hash传参
+                    _self.listListener(_mode,$(this));
                 })
                 _self.currentBtn.on('click', function () {
                     window.open(bindcardPageUrl);
@@ -136,33 +129,61 @@ $(function () {
             if ( _mode === 'violation_car' ) { //我的违法-车辆列表
                 var url = _self.urlRouter['v_car_list'];
                 _list.on('click', 'li', function (e) {
-                    var _me = $(this);
-                    var jkbj;
-                    $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
-                    var data = _me.data('opt');
-                    var params = encodeURI('#' + data + '@jkbj=' + jkbj);
-                    window.open(url + params);//通过url hash传参
+                    _self.listListener(_mode,$(this));
                 })
             }
             if ( _mode === 'violation_card' ) { //我的违法-驾照列表
                 var url = _self.urlRouter['v_card_list'];
                 _list.on('click', 'li', function (e) {
-                    var _me = $(this);
+                    _self.listListener(_mode,$(this));
+                })
+            }
+            if ( _mode === 'v_car_list' || _mode === 'v_card_list' ) {//我的违法-车辆、驾照-结果列表
+                _list.on('click', 'li', function (e) {
+                    _self.listListener(_mode,$(this));
+                })
+            }
+        },
+        "listListener"   : function (mode, target) {
+            var _self = this;
+            var _me = target;
+            _me.off('click');
+            switch ( mode ) {
+                case "car":
+                    var cartype = _me.attr('data-cartype');
+                    var carid = _me.attr('data-carid');
+                    var params = encodeURI('#mode=carquery@cartype=' + cartype + '@carid=' + carid);
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                    break;
+                case "card":
+                    var licenseRecord = _me.attr('data-licenserecord');
+                    var params = encodeURI('#mode=cardquery@licenserecord=' + licenseRecord);
+                    window.open(_self.resultUrl + params);//通过url hash传参
+                    break;
+                case "violation_car":
+                    var jkbj;
+                    $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
+                    var data = _me.data('opt');
+                    var params = encodeURI('#' + data + '@jkbj=' + jkbj);
+                    window.open(url + params);//通过url hash传参
+                    break;
+                case "violation_card":
                     var jkbj;
                     $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
                     var params = encodeURI('#' + data + '@jkbj=' + jkbj);
                     window.open(url + params);//通过url hash传参
-                })
-            }
-            if ( _mode === 'v_car_list' || _mode === 'v_card_list' ) {//我的违法-车辆、驾照-结果列表
-                _list.on('click', 'li', function (e) {
-                    var _me = $(this);
+                    break;
+                case "v_car_list":
+                case "v_card_list":
                     var opt = _me.data('opt');
                     var params = encodeURI('#mode=' + _mode + opt);
                     window.open(_self.resultUrl + params);//通过url hash传参
-                })
+                    break;
             }
+            _me.on('click',function(){
+                _self.listListener(mode,$(this));
+            });
         },
         //获取列表html字符串
         "getListHtml"    : function (data, mode) {
@@ -484,7 +505,7 @@ $(function () {
                 "carNumType": oHash.cartype,
                 "carNum"    : decodeURI(oHash.carid),
                 "jkbj"      : oHash.jkbj,
-                "baseDomain":baseDomain
+                "baseDomain": baseDomain
             };
             listModule.init({
                 "listWrap"  : $('.list-block ul'),
@@ -499,24 +520,24 @@ $(function () {
             //&register=user2A&indentyid=370181199403014414&jkbj=1
             //&register=user2A&indentyid=370181199001012475&cjbj=1
             var params = {
-                "register" : userName,
-                "indentyid": oHash.licenseid,
-                "jkbj"     : oHash.jkbj,
-                "baseDomain":baseDomain
+                "register"  : userName,
+                "indentyid" : oHash.licenseid,
+                "jkbj"      : oHash.jkbj,
+                "baseDomain": baseDomain
             };
             if ( oHash.jkbj !== '' ) {
                 var params02 = {
-                    "register" : userName,
-                    "indentyid": oHash.licenseid,
-                    "cjbj"     : oHash.jkbj,
-                    "baseDomain":baseDomain
+                    "register"  : userName,
+                    "indentyid" : oHash.licenseid,
+                    "cjbj"      : oHash.jkbj,
+                    "baseDomain": baseDomain
                 };
             } else {
                 var params02 = {
-                    "register" : userName,
-                    "indentyid": oHash.licenseid,
-                    "cjbj"     : null,
-                    "baseDomain":baseDomain
+                    "register"  : userName,
+                    "indentyid" : oHash.licenseid,
+                    "cjbj"      : null,
+                    "baseDomain": baseDomain
                 };
             }
             listModule.init({ //初始化驾照现场违法信息
