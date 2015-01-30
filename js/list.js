@@ -3,34 +3,27 @@ $(function () {
      * 列表
      * */
     var userName = App.LS.get('App_userName');
+    var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     var PageId_lv02 = (new Date()).getTime();
     var pageId = App.getPageId(window.location.href);
     var urlPre = 'adapter?open&url=';
-    var carlistRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carlistRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/queryCar.json';//用户车辆列表请求地址
-    var cardlistRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var cardlistRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/queryLicense.json';//用户驾照列表请求地址
-    var v_car_listUrl = urlPre   //&register=user2A&carNumType=01&carNum=鲁AE2751&jkbj=1
-        + jnjjApp.config.requestUrl
+    var v_car_listUrl = jnjjApp.config.requestUrl
         + '/jnpublic/electIllegalquery.json';//车辆电子监控违法信息
-    var v_card_listUrl = urlPre
-        + jnjjApp.config.requestUrl //&register=user2A&indentyid=370181199403014414&jkbj=1
+    var v_card_listUrl = jnjjApp.config.requestUrl //&register=user2A&indentyid=370181199403014414&jkbj=1
         + '/jnpublic/violationQuery.json';//驾照现场违法信息
-    var v_card_listUrl02 = urlPre
-        + jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
+    var v_card_listUrl02 = jnjjApp.config.requestUrl   //&register=user2A&indentyid=370181199001012475&cjbj=1
         + '/jnpublic/vioforcequery.json';//驾照强制措施信息
-    var bindcarPageUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/bindcar.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定车辆页url
-    var bindcardPageUrl = urlPre
-        + jnjjApp.config.requestUrl
-        + '/jnpublic/config/html/bindcard.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定驾照页url
+    var bindcarPageUrl = 'bindcar.html&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定车辆页url
+    var bindcardPageUrl = 'bindcard.jsp&@@webViewPageId=' + PageId_lv02 + Wisp.CommenFunc.getRandom() + '@@';//绑定驾照页url
     //&register=user2A&axisFlag=true
     var params = {
         "register": userName,
-        "axisFlag": false
+        "axisFlag": false,
+        "baseDomain":baseDomain
     };
     //列表对象
     var listModule = {
@@ -490,7 +483,8 @@ $(function () {
                 "register"  : userName,
                 "carNumType": oHash.cartype,
                 "carNum"    : decodeURI(oHash.carid),
-                "jkbj"      : oHash.jkbj
+                "jkbj"      : oHash.jkbj,
+                "baseDomain":baseDomain
             };
             listModule.init({
                 "listWrap"  : $('.list-block ul'),
@@ -507,13 +501,15 @@ $(function () {
             var params = {
                 "register" : userName,
                 "indentyid": oHash.licenseid,
-                "jkbj"     : oHash.jkbj
+                "jkbj"     : oHash.jkbj,
+                "baseDomain":baseDomain
             };
             if ( oHash.jkbj !== '' ) {
                 var params02 = {
                     "register" : userName,
                     "indentyid": oHash.licenseid,
-                    "cjbj"     : oHash.jkbj
+                    "cjbj"     : oHash.jkbj,
+                    "baseDomain":baseDomain
                 };
             } else {
                 var params02 = {
