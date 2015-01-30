@@ -165,14 +165,14 @@ $(function () {
                     $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
                     var params = encodeURI('#' + data + '@jkbj=' + jkbj);
-                    window.open(url + params);//通过url hash传参
+                    window.open(_self.urlRouter['v_car_list'] + params);//通过url hash传参
                     break;
                 case "violation_card":
                     var jkbj;
                     $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
                     var data = _me.data('opt');
                     var params = encodeURI('#' + data + '@jkbj=' + jkbj);
-                    window.open(url + params);//通过url hash传参
+                    window.open(_self.urlRouter['v_card_list'] + params);//通过url hash传参
                     break;
                 case "v_car_list":
                 case "v_card_list":
