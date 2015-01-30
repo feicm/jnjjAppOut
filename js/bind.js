@@ -67,7 +67,8 @@ $(function () {
                 "indentityid": ip_idnum,
                 "phoneNum"   : ip_phone,
                 "carFramId"  : ip_clsbdh,
-                "optiontype" : optiontype
+                "optiontype" : optiontype,
+                "baseDomain" : App.LS.get('App_baseDomain')
             };
             //Wisp.UI.progressDialog.show('车辆绑定中，请稍后！');
             progressDialog = App.UI('dialog', {msg: '车辆绑定中，请稍后！'});
@@ -130,7 +131,8 @@ $(function () {
                 "licenseid"    : ip_idnum,
                 "licensephone" : ip_phone,
                 "licenseRecord": ip_dabh,
-                "dotype"       : dotype
+                "dotype"       : dotype,
+                "baseDomain"   : App.LS.get('App_baseDomain')
             };
             //Wisp.UI.progressDialog.show('驾照绑定中，请稍后！');
             progressDialog = App.UI('dialog', {msg: '驾照绑定中，请稍后！'});
@@ -211,8 +213,8 @@ $(function () {
     });
     var type = $('#hpzl');
     type.length && App.UI('select', {
-        "dom"     : type,
-        "url"     : carTypeRequestUrl+'?baseDomain='+App.LS.get('App_baseDomain'),
-        "module"  : "carType"
+        "dom"   : type,
+        "url"   : carTypeRequestUrl + '?baseDomain=' + App.LS.get('App_baseDomain'),
+        "module": "carType"
     });
 });
