@@ -39,10 +39,10 @@ $(function () {
         "currentBtn"     : null,
         "preQuestUrl"    : 'adapter?open&url=' + jnjjApp.config.requestUrl,
         "urlRouter"      : {
-            "v_car_list" : "resultlist.jsp", //结果页，列表形式
-            "v_card_list": "resultlisttab.jsp" //结果页，tab列表形式
+            "v_car_list" : "resultlist.html", //结果页，列表形式
+            "v_card_list": "resultlisttab.html" //结果页，tab列表形式
         },
-        "resultUrl"      : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/jnpublic/config/html/infodetails.jsp',
+        "resultUrl"      : 'infodetails.html',
         "init"           : function (opts, callback) {
             this.listWrap = opts.listWrap;
             this.tipsWrap = opts.tipsWrap;
@@ -134,7 +134,7 @@ $(function () {
                 });
             }
             if ( _mode === 'violation_car' ) { //我的违法-车辆列表
-                var url = _self.preQuestUrl + '/jnpublic/config/html/' + _self.urlRouter['v_car_list'];
+                var url = _self.urlRouter['v_car_list'];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;
@@ -145,7 +145,7 @@ $(function () {
                 })
             }
             if ( _mode === 'violation_card' ) { //我的违法-驾照列表
-                var url = _self.preQuestUrl + '/jnpublic/config/html/' + _self.urlRouter['v_card_list'];
+                var url = _self.urlRouter['v_card_list'];
                 _list.on('click', 'li', function (e) {
                     var _me = $(this);
                     var jkbj;

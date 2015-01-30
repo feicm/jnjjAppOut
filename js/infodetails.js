@@ -5,11 +5,9 @@ $(function () {
     var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
-    var carOnlyUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carOnlyUrl = jnjjApp.config.requestUrl
         + '/jnpublic/queryOneCar.json';//单车辆查询请求
-    var cardOnlyUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var cardOnlyUrl = jnjjApp.config.requestUrl
         + '/jnpublic/queryOneLicense.json';//单驾照驾照查询请求地址
     var ksyyqueryRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -810,7 +808,8 @@ $(function () {
                     params = {
                         "register": userName,
                         "cartype" : oHash.cartype,
-                        "carid"   : decodeURI(oHash.carid)
+                        "carid"   : decodeURI(oHash.carid),
+                        "baseDomain":baseDomain
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
@@ -826,7 +825,8 @@ $(function () {
                     //&register=user2A&licenceRecord=370102335479
                     params = {
                         "register"     : userName,
-                        "licenceRecord": oHash.licenserecord
+                        "licenceRecord": oHash.licenserecord,
+                        "baseDomain":baseDomain
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
