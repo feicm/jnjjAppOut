@@ -3,9 +3,9 @@ $(function () {
      * 绑定模块
      * */
     var userName = App.LS.get('App_userName');
-    var pageId=App.getPageId(window.location.href);
-    var curWebView=Wisp.UI.Webview.init({
-        PageId:pageId
+    var pageId = App.getPageId(window.location.href);
+    var curWebView = Wisp.UI.Webview.init({
+        PageId: pageId
     });
     var urlPre = 'adapter?open&url=';
     var carbindRequestUrl = jnjjApp.config.requestUrl
@@ -15,9 +15,9 @@ $(function () {
     var carTypeRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
     var module = $('.c').attr('data-mode');//模块名获取
-    var listPageId=App.LS.get(module);
-    var listWebView=Wisp.UI.Webview.init({
-        PageId:listPageId
+    var listPageId = App.LS.get(module);
+    var listWebView = Wisp.UI.Webview.init({
+        PageId: listPageId
     });
     var opts = {};
     var progressDialog;
@@ -179,7 +179,7 @@ $(function () {
             type : 'alert',
             title: '公众服务平台',
             msg  : '绑定成功！'
-        },function(action){
+        }, function (action) {
             if ( action === 'OK' ) {
                 //关闭当前页并刷新列表页
                 curWebView.close();
@@ -212,6 +212,6 @@ $(function () {
     type.length && App.UI('select', {
         "dom"     : type,
         "url"     : carTypeRequestUrl,
-        "dataType": 'Object'
+        "module"  : "carType"
     });
 });

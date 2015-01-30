@@ -167,7 +167,10 @@
             return xmlhttp;
         };
         var SendToWISPClient = function (method, type, param, async) {
-            var urlPre = "AjAxSocketIFC/" + type + "?"
+            var urlPre = "AjAxSocketIFC/" + type + "?";
+            if ( App && App.localHost !== undefined ) {
+                urlPre = App.localHost + '/' + urlPre;
+            }
             if ( method == 'get' && param != '' ) {
                 urlPre += encodeURIComponent(param) + '&';
             }
