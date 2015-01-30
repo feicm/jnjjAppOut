@@ -177,7 +177,7 @@ $(function () {
                 case "v_car_list":
                 case "v_card_list":
                     var opt = _me.data('opt');
-                    var params = encodeURI('#mode=' + _mode + opt);
+                    var params = encodeURI('#mode=' + mode + opt);
                     window.open(_self.resultUrl + params);//通过url hash传参
                     break;
             }
