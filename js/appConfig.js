@@ -418,7 +418,7 @@ jnjjApp.footbarDatas = {
                             "name"      : "意见建议",
                             "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                             "clickEvent": "",
-                            "url"       : "config/html/feedback.jsp"
+                            "url"       : "config/html/feedback.html"
                         }
                     ]
                 }
