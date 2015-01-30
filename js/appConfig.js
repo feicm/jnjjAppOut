@@ -7,6 +7,7 @@ jnjjApp.config = {
     "wechatServer" : "http://220.250.1.46/WISP_JN_WECHAT"
 };
 jnjjApp.callback = {};
+var PreQuestUrl = "adapter?open&url=" + jnjjApp.config.requestUrl;
 var PageId_lv01 = (new Date()).getTime();
 jnjjApp.footbarDatas = {
     "footbar": [
