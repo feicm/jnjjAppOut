@@ -100,8 +100,7 @@ $(function () {
         opts = {
             "pwdold"    : $('#repwd_old'),//用户名
             "pwdnew1"   : $('#repwd_new'),//密码1
-            "pwdnew2"   : $('#repwd_new2'),//密码2
-            "baseDomain": baseDomain
+            "pwdnew2"   : $('#repwd_new2')//密码2
         };
         var params;//注册表单提交参数对象
         if ( !pwdOld ) {
@@ -118,7 +117,8 @@ $(function () {
             params = {
                 "userName": userName,
                 "oldPass" : pwdOld,
-                "newPass" : pwdNew
+                "newPass" : pwdNew,
+                "baseDomain": baseDomain
             };
             //Wisp.UI.progressDialog.show('密码修改中，请稍后！');
             progressDialog = App.UI('dialog', {msg: '密码修改中，请稍后！'});
