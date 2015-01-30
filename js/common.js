@@ -352,6 +352,11 @@ var App = (function () {
                             selectArr.push("<option value='" + list[j].licenseid + "'>" + list[j].licenseName + "</option>");
                         }
                     }
+                    if ( _module === 'carType' ) {
+                        for ( var j in list ) { //车辆类型
+                            selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
+                        }
+                    }
                     if ( !list.length ) {
                         selectArr.push("<option>未绑定</option>");
                         selectStr = selectArr.join('');
