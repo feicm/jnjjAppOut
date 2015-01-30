@@ -2,13 +2,13 @@ $(function () {
     console.log('module pwd js');
     //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('App_userName');
+    var baseDomain = App.LS.get('App_baseDomain');
     var backpwdMethonSelect = $('#backpwd_methon'); //找回密码——下拉
     var backpwdBtn = $('#backpwd_btn');//找回密码——提交按钮
     var repwdBtn = $('#repwd_btn'); //密码修改--提交按钮
     var urlPre = 'adapter?open&url=';
     var progressDialog;
-    var repwdRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var repwdRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/oldPassSetPass.json';//密码修改
     var mailRequestUrl = urlPre
         + jnjjApp.config.requestUrl
@@ -98,9 +98,10 @@ $(function () {
         var opts = {};
         repwdBtn.off('click');
         opts = {
-            "pwdold" : $('#repwd_old'),//用户名
-            "pwdnew1": $('#repwd_new'),//密码1
-            "pwdnew2": $('#repwd_new2')//密码2
+            "pwdold"    : $('#repwd_old'),//用户名
+            "pwdnew1"   : $('#repwd_new'),//密码1
+            "pwdnew2"   : $('#repwd_new2'),//密码2
+            "baseDomain": baseDomain
         };
         var params;//注册表单提交参数对象
         if ( !pwdOld ) {
@@ -159,7 +160,7 @@ $(function () {
                     repwdBtn.on('click', repwdListener);
                 }
             })
-        }else{
+        } else {
             repwdBtn.on('click', repwdListener);
         }
     }

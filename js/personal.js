@@ -3,6 +3,7 @@ $(function () {
      * 个人信息
      * */
     console.log('username：' + App.LS.get('App_userName'));
+    Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     //个人信息对象
     var Personal = {
         "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
@@ -28,6 +29,7 @@ $(function () {
         "progressDialog"          : null,//状态框
         "interval"                : null,//定时器
         "isUpdate"                : true,//更新标识
+        "baseDomain"              : App.LS.get('App_baseDomain'),//当前域
         "App_userName"            : App.LS.get('App_userName'),
         "App_name"                : App.LS.get('App_name'),
         "App_identityId"          : App.LS.get('App_identityId'),
@@ -41,10 +43,10 @@ $(function () {
         "App_closeUser_PhoneNum"  : App.LS.get('App_closeUser_PhoneNum'),
         "App_closeUser_IdentityId": App.LS.get('App_closeUser_IdentityId'),
         "urlRouter"               : {
-            "p_moveContacts" : "movecarpeople.jsp", //移车联系人页面
-            "p_closeContacts": "closepeople.jsp", //密切联系人页面
-            "p_phoneNum"     : "editphonenum.jsp", //手机编辑页面
-            "p_repwd"        : "repwd.jsp" //密码修改页面
+            "p_moveContacts" : "movecarpeople.html", //移车联系人页面
+            "p_closeContacts": "closepeople.html", //密切联系人页面
+            "p_phoneNum"     : "editphonenum.html", //手机编辑页面
+            "p_repwd"        : "repwd.html" //密码修改页面
         },
         "PageId_lv"               : (new Date()).getTime(),
         "init"                    : function (opts) {
@@ -163,9 +165,10 @@ $(function () {
         },
         "updataInfo"              : function (btn) {
             var _self = this;
-            var _url = PreQuestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
+            var _url = jnjjApp.config.requestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
             var _params = {
                 "registerName": _self.App_userName,
+                "baseDomain"  : _self.baseDomain,
                 "phonenum"    : _self.ip_edit_phone.val() || _self.App_phoneNum,
                 "movecarname" : _self.ip_m_name.val() || _self.App_moveCar_Name,
                 "movecarphone": _self.ip_m_phone.val() || _self.App_moveCar_phoneNum
