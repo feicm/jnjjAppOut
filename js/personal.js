@@ -210,8 +210,8 @@ $(function () {
         "openPage"                : function (mode) {
             var _self = this;
             var _pageName = _self.urlRouter[mode];
-            var _pageUrl = _self.preQuestUrl
-                + '/jnpublic/config/html/' + _pageName + '&@@webViewPageId='
+            var _pageUrl = jnjjApp.config.requestUrl
+                + '/jnpublic/config/html/' + _pageName + '?@@webViewPageId='
                 + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _pageName && window.open(_pageUrl);
         },
