@@ -845,6 +845,8 @@ var App = (function () {
                 msg  : '您当前处于离线状态，请检查网络连接！'
             });
             return false;
+        }else{
+            return true;
         }
     }
 
