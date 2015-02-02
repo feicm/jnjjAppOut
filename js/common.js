@@ -839,10 +839,11 @@ var App = (function () {
             history.go(0);
         }, true);
         if ( !navigator.onLine ) {
-            var tips = App.UI('dialog', {msg: '您当前处于离线状态，请检查网络连接！'});
-            setTimeout(function () {
-                tips.remove();
-            }, 1500);
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : '您当前处于离线状态，请检查网络连接！'
+            });
             return false;
         }
     }
