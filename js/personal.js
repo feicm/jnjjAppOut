@@ -210,7 +210,7 @@ $(function () {
         "openPage"                : function (mode) {
             var _self = this;
             var _pageName = _self.urlRouter[mode];
-            var _pageUrl = _pageName + '?@@webViewPageId='
+            var _pageUrl = _pageName + '&@@webViewPageId='
                 + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _pageName && window.open(_pageUrl);
         },
