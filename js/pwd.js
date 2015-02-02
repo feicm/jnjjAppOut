@@ -1,5 +1,7 @@
 $(function () {
-    console.log('module pwd js');
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     //var userName = App.Cookie.GetCookie('username');
     var userName = App.LS.get('App_userName');
     var baseDomain = App.LS.get('App_baseDomain');
@@ -98,9 +100,9 @@ $(function () {
         var opts = {};
         repwdBtn.off('click');
         opts = {
-            "pwdold"    : $('#repwd_old'),//用户名
-            "pwdnew1"   : $('#repwd_new'),//密码1
-            "pwdnew2"   : $('#repwd_new2')//密码2
+            "pwdold" : $('#repwd_old'),//用户名
+            "pwdnew1": $('#repwd_new'),//密码1
+            "pwdnew2": $('#repwd_new2')//密码2
         };
         var params;//注册表单提交参数对象
         if ( !pwdOld ) {
@@ -115,9 +117,9 @@ $(function () {
             // &oldPass=closeUserName
             // &newPass=closeIdentityId
             params = {
-                "userName": userName,
-                "oldPass" : pwdOld,
-                "newPass" : pwdNew,
+                "userName"  : userName,
+                "oldPass"   : pwdOld,
+                "newPass"   : pwdNew,
                 "baseDomain": baseDomain
             };
             //Wisp.UI.progressDialog.show('密码修改中，请稍后！');

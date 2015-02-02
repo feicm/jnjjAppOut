@@ -2,6 +2,9 @@ $(function () {
     /*
      * 查询
      * */
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var userName = App.LS.get('App_userName');
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var urlPre = 'adapter?open&url=';
@@ -121,7 +124,7 @@ $(function () {
         var opts;
         sgkcquerySubmit.off('click');
         opts = {
-            "sgkcjlh"  : $('#q_record')//记录号
+            "sgkcjlh": $('#q_record')//记录号
         };
         if ( App.verify(opts) ) {
             //&sfzmhm=370100201020102002&sfzmmc=A&lsh=10212&ksyy=xxx&kskm=xxx
@@ -143,11 +146,11 @@ $(function () {
 
     if ( modeName === 'query_kscj' || modeName === 'query_ksyy' ) {
         App.UI('select', {
-                "dom"     : $('#ksyy_sfzmmc'),
-                "url"     : identityTypeRequestUrl,
-                "data"    : {'register': userName},
-                "dataType": 'Object'
-            });
+            "dom"     : $('#ksyy_sfzmmc'),
+            "url"     : identityTypeRequestUrl,
+            "data"    : {'register': userName},
+            "dataType": 'Object'
+        });
         App.UI('select', {
             "dom"     : $('#ksyy_ksyy'),
             "url"     : ksreasonRequestUrl,

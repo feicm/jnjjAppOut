@@ -1,4 +1,7 @@
 $(function () {
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var loginSubmit = $('#login-submit');//登录
     var rigisterBtn = $('#rigister');//注册

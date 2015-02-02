@@ -1,4 +1,7 @@
 $(function () {
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var carlistRequestUrl = urlPre
@@ -46,6 +49,7 @@ $(function () {
         window.open(infoTabPageUrl + params);//通过url hash传参
         jzcxSubmit.on('click', jzcxListener);
     }
+
     //bindEvent
     function bindEvent(input, btn, listener) {
         var inputVal = input.val();

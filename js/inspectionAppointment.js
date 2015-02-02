@@ -2,6 +2,9 @@ $(function () {
     /*
      * 年检预约
      * */
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
     var ksyytjRequestUrl = urlPre
@@ -270,7 +273,7 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : '预约时间段查询失败！'
-                    },function () {
+                    }, function () {
                         c4_btn.trigger('click');
                     });
 
@@ -283,7 +286,7 @@ $(function () {
                         type : 'alert',
                         title: '公众服务平台',
                         msg  : data.msg
-                    },function () {
+                    }, function () {
                         c4_btn.trigger('click');
                     });
                 }

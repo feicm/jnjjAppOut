@@ -817,6 +817,36 @@ var App = (function () {
         return v;
     }
 
+    //网络状态检测
+    function isOnline() {
+        if ( navigator.onLine ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //网络状态改变监听
+    function addOnlineStatusListener(pageId) {
+        window.addEventListener("offline", function (e) {
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : '您当前处于离线状态，请检查网络连接！'
+            });
+        }, true);
+        window.addEventListener("online", function (e) {
+            history.go(0);
+        }, true);
+        if ( !navigator.onLine ) {
+            var tip = App.UI('dialog', {msg: '您当前处于离线状态，请检查网络连接！'});
+            setTimeout(function () {
+                tips.remove();
+            }, 1500);
+            return false;
+        }
+    }
+
     //事故快处记录号检测
     function isrecord(str) {
         var reg = /^[a-zA-Z0-9]{12}$/;
@@ -1054,12 +1084,13 @@ var App = (function () {
     }
 
     return {
-        "UI"         : UI,
-        "getAjaxData": getAjaxData,
-        "getHash"    : getHash,
-        "getPageId"  : getPageId,
-        "verify"     : verify,
-        "Cookie"     : Cookie,
-        "LS"         : LS   //本地存储
+        "UI"                     : UI,
+        "getAjaxData"            : getAjaxData,
+        "getHash"                : getHash,
+        "getPageId"              : getPageId,
+        "addOnlineStatusListener": addOnlineStatusListener,
+        "verify"                 : verify,
+        "Cookie"                 : Cookie,
+        "LS"                     : LS   //本地存储
     };
 })();

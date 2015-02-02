@@ -2,6 +2,9 @@ $(function () {
     /*
      * 单个车辆、驾照信息、违法信息、考试预约/成绩查询、年鉴预约查询等内容，通过列表页传过来的hash 作为请求参数
      * */
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
@@ -79,16 +82,16 @@ $(function () {
         "bindEvent"      : function () {
             var _self = this;
             var _images = [];
-            var _list=_self.dom.find('.ui-pic img');
-            if(!_list.length) return false;
-            _list.each(function(index){
-                var $this=$(this);
+            var _list = _self.dom.find('.ui-pic img');
+            if ( !_list.length ) return false;
+            _list.each(function (index) {
+                var $this = $(this);
                 _images.push($this.attr('src'));
-                $this.on('click',function(){
-                     Wisp.UI.Gallery.open({
-                         active:index,
-                         images:_images.join('|')
-                     });
+                $this.on('click', function () {
+                    Wisp.UI.Gallery.open({
+                        active: index,
+                        images: _images.join('|')
+                    });
                 })
             });
         },
@@ -806,10 +809,10 @@ $(function () {
                     //加载单车辆信息
                     //&register=user2A&cartype=01&carid=AR0327
                     params = {
-                        "register": userName,
-                        "cartype" : oHash.cartype,
-                        "carid"   : decodeURI(oHash.carid),
-                        "baseDomain":baseDomain
+                        "register"  : userName,
+                        "cartype"   : oHash.cartype,
+                        "carid"     : decodeURI(oHash.carid),
+                        "baseDomain": baseDomain
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
@@ -826,7 +829,7 @@ $(function () {
                     params = {
                         "register"     : userName,
                         "licenceRecord": oHash.licenserecord,
-                        "baseDomain":baseDomain
+                        "baseDomain"   : baseDomain
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),

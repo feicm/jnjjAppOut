@@ -1,4 +1,5 @@
 $(function () {
+    App.addOnlineStatusListener();//检测网络状态
     var feedbackArea = $('#feedback_area');
     var feedbackBtn = $('#feedback_btn');
     var url = jnjjApp.config.requestUrl + "/wisp_jn_pubmgr/system/advice_saveAddAdvice?registername=";

@@ -2,6 +2,9 @@ $(function () {
     /*
      * 列表
      * */
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var userName = App.LS.get('App_userName');
     var baseDomain = App.LS.get('App_baseDomain'); //从本地存储中获取当前域
     var PageId_lv02 = (new Date()).getTime();

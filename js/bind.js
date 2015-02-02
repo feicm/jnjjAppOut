@@ -2,6 +2,9 @@ $(function () {
     /*
      * 绑定模块
      * */
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
     var userName = App.LS.get('App_userName');
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var pageId = App.getPageId(window.location.href);

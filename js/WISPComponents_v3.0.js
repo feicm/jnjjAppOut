@@ -309,10 +309,38 @@
             P.init();//打印接口初始化
             return P;//返回打印对象
         };
+        /*
+         * 二维码功能
+         * @param event 事件名称
+         * @param opts 接口参数
+         * @param callback 回调函数
+         * @return QRcode 返回二维码对象
+         * */
+        var QRcode = function (event, opts, callback) {
+            var type = {
+                "open": "open"
+            };//event事件映射表
+            if ( !(event && opts) ) {
+                return;
+            }
+            var QR = {
+                "init": function () {
+                    var index = event;
+                    callback && (this.callback = callback);
+                    type[index] && this[type[index]]();
+                },
+                "open": function () {
+                    Wisp.CommenFunc.SendToWISPClient('post', '@@openQRcode@@', JSON.stringify(this), false);
+                }
+            };
+            QR.init();//二维码接口初始化
+            return QR;//返回二维码对象
+        };
         return {
             "Camera"      : Camera, //调用照相机
             "PersonalInfo": PersonalInfo, //获取个人信息
-            "Printer"     : Printer //打印接口
+            "Printer"     : Printer, //打印接口
+            "QRcode"      : QRcode //二维码扫描功能
         }
     })();
 })();
