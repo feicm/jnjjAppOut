@@ -839,7 +839,7 @@ var App = (function () {
             history.go(0);
         }, true);
         if ( !navigator.onLine ) {
-            var tip = App.UI('dialog', {msg: '您当前处于离线状态，请检查网络连接！'});
+            var tips = App.UI('dialog', {msg: '您当前处于离线状态，请检查网络连接！'});
             setTimeout(function () {
                 tips.remove();
             }, 1500);
