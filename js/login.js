@@ -28,14 +28,14 @@ $(function () {
         "isgalleryGetSuccess"    : false, //首页大轮播数据获取是否成功
         "progressDialog"         : null,
         "PageId_lv01"            : (new Date()).getTime(),
-        "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
+        "loginRequestUrl"        : jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
         "galleryRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/content/shuffling_jj.do',//首页大轮播数据获取地址
-        "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
-        "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
-        "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/login.jsp',//找回密码页地址
-        "rigisterRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
+        "rigisterPageUrl"        : jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
+        "backpwdPageUrl"         : jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
+        "loginPageUrl"           : 'config/html/login.html',//登录页地址
+        "rigisterRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
             this.mode = opts.mode;
@@ -118,7 +118,8 @@ $(function () {
                 _params = {
                     "userName": _username,
                     "password": _password,
-                    "roleId"  : _self.roleId
+                    "roleId"  : _self.roleId,
+                    "baseDomain"  : _self.baseDomain || App.LS.get("App_baseDomain")
                 };
                 this.username = _username;
                 //发起登录请求
@@ -245,7 +246,8 @@ $(function () {
                     "password"    : _setpwd_02,
                     "identityId"  : _setidnum,
                     "phoneNum"    : _setphone,
-                    "roleId"      : _roleId
+                    "roleId"      : _roleId,
+                    "baseDomain"  : _self.baseDomain || App.LS.get("App_baseDomain")
                 };
                 _self.progressDialog = App.UI('dialog', {msg: '注册中，请稍后！'});
                 //提交表单

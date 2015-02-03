@@ -12,14 +12,11 @@ $(function () {
     var progressDialog;
     var repwdRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/oldPassSetPass.json';//密码修改
-    var mailRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var mailRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/mailSetPass.json';//邮箱找回
-    var phoneRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var phoneRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/phoneSetPass.json';//手机找回
-    var closerRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var closerRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/closeSetPass.json';//密切联系人找回
     backpwdBtn.length && backpwdBtn.on('click', backpwdListener);
 
@@ -43,7 +40,8 @@ $(function () {
                     //&userName=测试用户1A&email=xx@xx.com
                     params = {
                         "userName": userName,
-                        "email"   : ip_email
+                        "email"   : ip_email,
+                        "baseDomain"  : baseDomain
                     };
                     sendBackpwdRequest(mailRequestUrl, params);
                 } else {
@@ -58,7 +56,8 @@ $(function () {
                     //&userName=测试用户3A&phoneNum=18888888888
                     params = {
                         "userName": userName,
-                        "phoneNum": ip_phone
+                        "phoneNum": ip_phone,
+                        "baseDomain"  : baseDomain
                     };
                     sendBackpwdRequest(phoneRequestUrl, params);
                 } else {
@@ -69,7 +68,8 @@ $(function () {
                 opts = {
                     "closername"  : $('#mqlxrxm'),//密切联系人姓名
                     "closerphone" : $('#mqlxrdh'),//手机
-                    "closeridcard": $('#mqlxrsfzh')//身份证
+                    "closeridcard": $('#mqlxrsfzh'),//身份证
+                    "baseDomain"  : baseDomain
                 };
                 if ( App.verify(opts) ) {
                     //&userName=测试用户3A

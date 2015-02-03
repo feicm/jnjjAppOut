@@ -357,7 +357,7 @@ jnjjApp.footbarDatas = {
                             "id"    : '',
                             "img"   : '',
                             "name"  : '',
-                            "url"   : PreQuestUrl + '/jnpublic/config/html/loginnoskip.jsp',
+                            "url"   : 'config/html/loginnoskip.html',
                             "roleid": '0000'//角色权限标识
                         }
                     ]
@@ -432,7 +432,7 @@ jnjjApp.siderDatas = {
             "id"    : '',
             "img"   : '',
             "name"  : '',
-            "url"   : PreQuestUrl + '/jnpublic/config/html/loginnoskip.jsp',
+            "url"   : 'config/html/loginnoskip.html',
             "roleid": '0000'//角色权限标识
         }
     }
