@@ -119,6 +119,7 @@ $(function () {
     }
 
     //事故快处查询提交事件
+    $('#q_record').focus();
     function sgkcqueryListener(mode) {
         var ip_record = $('#q_record').val();
         var opts;
