@@ -7,8 +7,9 @@
         setBaseDomain : function (baseDomain) { //(客户端)当前域写入localstorage
             App.LS.set("App_baseDomain", baseDomain);
         },
-        fillQRcodeText: function (domId, txt) {
-            document.getElementById(domId).value=txt;
+        fillQRcodeText: function (domId, txt) {//二维码扫描回调
+            var input=document.getElementById(domId);
+            input.value=txt;
         }
     };
     /*
