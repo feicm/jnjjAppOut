@@ -9,7 +9,6 @@ $(function () {
     var backpwdBtn = $('#backpwd'); //忘记密码
     var rigisterSubmit = $('#submit_rigister'); //注册提交
     var urlPre = 'adapter?open&url=';
-    var cmsUrlPre = jnjjApp.config.msgRequestUrl + '/wispcms/';
     //定义登录对象
     var Loginer = {
         "curWebView"             : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
@@ -24,14 +23,15 @@ $(function () {
         "roleId"                 : '0001',//角色标识 默认0001
         "username"               : App.LS.get('App_userName') || '', //用户名
         "password"               : null, //密码
+        "baseDomain"             : App.LS.get("App_baseDomain"), //当前域
         "isColInfoGetSuccess"    : false, //标识栏目信息获取是否成功
         "isgalleryGetSuccess"    : false, //首页大轮播数据获取是否成功
         "progressDialog"         : null,
         "PageId_lv01"            : (new Date()).getTime(),
         "loginRequestUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
-        "userinfoRequestUrl"     : urlPre + jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
-        "colInfoRequestUrl"      : urlPre + cmsUrlPre + 'channel/tree.do',//信息栏目数据获取地址
-        "galleryRequestUrl"      : urlPre + cmsUrlPre + 'content/shuffling_jj.do',//首页大轮播数据获取地址
+        "userinfoRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
+        "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
+        "galleryRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/content/shuffling_jj.do',//首页大轮播数据获取地址
         "rigisterPageUrl"        : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.jsp',//注册页地址
         "backpwdPageUrl"         : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.jsp',//找回密码页地址
         "loginPageUrl"           : urlPre + jnjjApp.config.requestUrl + '/jnpublic/config/html/login.jsp',//找回密码页地址
@@ -309,7 +309,8 @@ $(function () {
             _self.refreshHomebtnsGallery(_self.footbarDatas, data.authList);//刷新首页菜单按钮
             _self.refreshMoreViewData(_self.footbarDatas, data.authList);//刷新更多按钮
             _params = {
-                "registerName": _self.username
+                "registerName": _self.username,
+                "baseDomain"  : _self.baseDomain || App.LS.get("App_baseDomain")
             };
             //请求用户信息
             App.getAjaxData(_self.userinfoRequestUrl, _params, function (data) {//用户信息请求回调
@@ -491,7 +492,10 @@ $(function () {
             var _self = this;
             var _btn = _self.loginBtn;
             var _url = _self.galleryRequestUrl;
-            App.getAjaxData(_url, null, function (data) {//信息请求回调
+            var _params = {
+                baseDomain: _self.baseDomain || App.LS.get("App_baseDomain")
+            };
+            App.getAjaxData(_url, _params, function (data) {//信息请求回调
                 if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
                     _self.progressDialog.remove();
                     App.UI('dialog', {
@@ -514,7 +518,10 @@ $(function () {
             var _self = this;
             var _btn = _self.loginBtn;
             var _url = _self.colInfoRequestUrl;
-            App.getAjaxData(_url, null, function (data) {//信息请求回调
+            var _params = {
+                baseDomain: _self.baseDomain || App.LS.get("App_baseDomain")
+            };
+            App.getAjaxData(_url, _params, function (data) {//信息请求回调
                 if ( (data === 'error' || !data.success) && callback ) {//ajax 失败回调
                     _self.progressDialog.remove();
                     App.UI('dialog', {
