@@ -32,9 +32,9 @@ $(function () {
         "userinfoRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
         "galleryRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/content/shuffling_jj.do',//首页大轮播数据获取地址
-        "rigisterPageUrl"        : jnjjApp.config.requestUrl + '/jnpublic/config/html/rigister.html',//注册页地址
-        "backpwdPageUrl"         : jnjjApp.config.requestUrl + '/jnpublic/config/html/backpwd.html',//找回密码页地址
-        "loginPageUrl"           : 'config/html/login.html',//登录页地址
+        "rigisterPageUrl"        : 'rigister.html',//注册页地址
+        "backpwdPageUrl"         : 'backpwd.html',//找回密码页地址
+        "loginPageUrl"           : 'login.html',//登录页地址
         "rigisterRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/userGegister.json',//注册提交
         "init"                   : function (opts) {
             this.btn = opts.btn;
