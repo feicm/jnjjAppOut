@@ -109,7 +109,7 @@ jnjjApp.footbarDatas = {
                     "data": [
                         {
                             "imgUrl": "http://rjsoft.gnway.cc:9093/wispcms/unicom.jpg",
-                            "url"   : PreQuestUrl + "/jnpublic/config/html/tips.jsp"
+                            "url"   : "config/html/tips.html"
                         }
                     ]
                 }
