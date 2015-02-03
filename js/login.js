@@ -166,7 +166,7 @@ $(function () {
         "rigisterListener"       : function () {
             var _self = this;
             var _btn = _self.rigisterBtn;
-            var _url = _self.rigisterPageUrl + '&@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
+            var _url = _self.rigisterPageUrl + '?@@webViewPageId=' + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
             _btn.off('click');
             window.open(_url);
             _self.bindEvent(_btn, 'rigister');
