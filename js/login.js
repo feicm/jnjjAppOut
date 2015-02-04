@@ -28,7 +28,7 @@ $(function () {
         "isgalleryGetSuccess"    : false, //首页大轮播数据获取是否成功
         "progressDialog"         : null,
         "PageId_lv01"            : (new Date()).getTime(),
-        "loginRequestUrl"        : jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
+        "loginRequestUrl"        : urlPre+jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
         "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
         "galleryRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/content/shuffling_jj.do',//首页大轮播数据获取地址
@@ -118,8 +118,7 @@ $(function () {
                 _params = {
                     "userName": _username,
                     "password": _password,
-                    "roleId"  : _self.roleId,
-                    "baseDomain"  : _self.baseDomain || App.LS.get("App_baseDomain")
+                    "roleId"  : _self.roleId
                 };
                 this.username = _username;
                 //发起登录请求
