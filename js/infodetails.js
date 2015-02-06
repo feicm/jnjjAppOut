@@ -12,14 +12,11 @@ $(function () {
         + '/jnpublic/queryOneCar.json';//单车辆查询请求
     var cardOnlyUrl = jnjjApp.config.requestUrl
         + '/jnpublic/queryOneLicense.json';//单驾照驾照查询请求地址
-    var ksyyqueryRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var ksyyqueryRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/ksyyquery.json';//考试预约查询提交接口
-    var kscjqueryRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var kscjqueryRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/kscjquery.json';//考试成绩查询提交接口
-    var njyyqueryRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var njyyqueryRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/njyycx.json';//年检预约查询提交接口
     var sgkcqueryRequestUrl = jnjjApp.config.wechatServer
         + '/recordServlet?';//事故快处查询提交接口
@@ -862,7 +859,8 @@ $(function () {
                         "sfzmhm"  : oHash.sfzmhm,
                         "lsh"     : oHash.lsh,
                         "ksyy"    : oHash.ksyy,
-                        "kskm"    : oHash.kskm
+                        "kskm"    : oHash.kskm,
+                        "baseDomain": baseDomain
                     };
                     if ( modename === 'query_ksyy' ) {//加载考试预约结果
                         detailsBlock.init({
@@ -888,11 +886,12 @@ $(function () {
                     && hasKey('clsbdh', oHash) ) {
 
                     //。。。
-                    params = { //TODO 参数确认
+                    params = {
                         "register": userName,
                         "hpzl"    : oHash.hpzl,
                         "hphm"    : oHash.hphm,
-                        "clsbdh"  : oHash.clsbdh
+                        "clsbdh"  : oHash.clsbdh,
+                        "baseDomain": baseDomain
                     };
                     detailsBlock.init({
                         "dom" : $('#c_Table_b'),
@@ -907,7 +906,8 @@ $(function () {
                     //flowid=99C143B5515AA43F630A53BCF1173C74
                     params = {
                         "baseDomain": baseDomain,
-                        "flowid"    : oHash.flowid
+                        "flowid"    : oHash.flowid,
+                        "baseDomain": baseDomain
                     };
                 }
                 detailsBlock.init({

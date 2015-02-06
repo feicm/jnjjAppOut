@@ -7,20 +7,15 @@ $(function () {
     }
     var userName = App.LS.get('App_userName');
     var urlPre = 'adapter?open&url=';
-    var ksyytjRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var ksyytjRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/ksyytj.json';//预约资格认证请求地址
-    var njyypcRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var njyypcRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/njyypc.json';//根据日期返回批次请求地址
-    var njyysjdRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var njyysjdRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/njyysjd.json';//选择的预约日期、检测地点查询检测时间段
-    var njyyrkRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var njyyrkRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/njyyrk.json';//年检预约提交地址
-    var carTypeRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carTypeRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
     var c1_btn = $('#c1_btn');//第一步，认证
     var c2_btn = $('#c2_btn');//第二步，返回上一步按钮
@@ -39,6 +34,7 @@ $(function () {
         "date"                 : $('#date'), //日期
         "curDate"              : null,
         "progressDialog"       : null,
+        "baseDomain"           : App.LS.get('App_baseDomain'), //从本地存储中获取当前域
         "init"                 : function (opts) {
             this.firstBtn = opts.firstBtn || null;
             this.secondBtn = opts.secondsBtn || null;
@@ -168,10 +164,11 @@ $(function () {
             };
             if ( App.verify(_opts) ) {
                 _params = {
-                    "hpzl"    : _ip_hpzl,
-                    "hphm"    : 'A' + _ip_hphm,
-                    "clsbdh"  : _ip_clsbdh,
-                    "register": userName
+                    "hpzl"      : _ip_hpzl,
+                    "hphm"      : 'A' + _ip_hphm,
+                    "clsbdh"    : _ip_clsbdh,
+                    "register"  : userName,
+                    "baseDomain": _self.baseDomain
                 };
                 //Wisp.UI.progressDialog.show('预约资格审查中，请稍后！');
                 _self.progressDialog = App.UI('dialog', {msg: '预约资格审查中，请稍后！'});
@@ -220,8 +217,9 @@ $(function () {
             var _wrap = $('#njyypc_list');
             var _curVal = _self.date.val();
             var _params = {
-                'register': userName,
-                'yyrq'    : _curVal
+                'register'  : userName,
+                'yyrq'      : _curVal,
+                "baseDomain": _self.baseDomain
             };
             //Wisp.UI.progressDialog.show('预约批次查询中，请稍后！');
             _self.progressDialog = App.UI('dialog', {msg: '预约批次查询中，请稍后！'});
@@ -262,8 +260,9 @@ $(function () {
             _self.thirdBtn.trigger('click');//触发下一步按钮
             //&yyrq=2014-10-12&jcxcode=370015
             _params = {
-                'yyrq'   : _self.curDate,
-                'jcxcode': _li.attr('data-code')
+                'yyrq'      : _self.curDate,
+                'jcxcode'   : _li.attr('data-code'),
+                "baseDomain": _self.baseDomain
             };
             _self.progressDialog = App.UI('dialog', {msg: '预约时间段查询中，请稍后！'});
             App.getAjaxData(njyysjdRequestUrl, _params, function (data) {
@@ -407,9 +406,9 @@ $(function () {
         "hoverClassName": 'ui_btn_01_hover'
     });
     App.UI('select', {
-        "dom"     : $('#hpzl'),
-        "url"     : carTypeRequestUrl,
-        "dataType": 'Object'
+        "dom"   : $('#hpzl'),
+        "url"   : carTypeRequestUrl + '?baseDomain=' + App.LS.get('App_baseDomain'),
+        "module": "carType"
     });
     App.UI('inputClose', {//页面输入校验
         "doms": $('.list-block')
