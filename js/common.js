@@ -329,7 +329,7 @@ var App = (function () {
                 var _module = _self.module;
                 data.msg && (list = data.msg);
                 data[_module + 'QueryResponse'] && (list = data[_module + 'QueryResponse'][_module + 'List']);
-                data[_module + 'Response'] && (list = data[_module + 'Response'][_module + 'List']=data[_module + 'Response'][list]);
+                data[_module + 'Response'] && (list = data[_module + 'Response'][_module + 'List']);
                 if ( _self.dataType === 'Object' ) {
                     for ( var j in list ) {
                         selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
