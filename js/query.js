@@ -146,19 +146,19 @@ $(function () {
             "dom"     : $('#ksyy_sfzmmc'),
             "url"     : identityTypeRequestUrl,
             "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
-            "dataType": 'Object'
+            "module": "identityType"
         });
         App.UI('select', {
             "dom"     : $('#ksyy_ksyy'),
             "url"     : ksreasonRequestUrl,
             "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
-            "dataType": 'Object'
+            "module": "CGScommon"
         });
         App.UI('select', {
             "dom"     : $('#ksyy_kskm'),
             "url"     : kscourseRequestUrl,
             "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
-            "dataType": 'Object'
+            "module": "CGScommon"
         });
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : ksquerySubmit,
