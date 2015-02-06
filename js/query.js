@@ -8,18 +8,14 @@ $(function () {
     var userName = App.LS.get('App_userName');
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var urlPre = 'adapter?open&url=';
-    var identityTypeRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var identityTypeRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/identityType.json';//身份证明类型获取地址
-    var ksreasonRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var ksreasonRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/ksreason.json';//考试原因获取接口
-    var kscourseRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var kscourseRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/kscourse.json';//考试科目获取接口
     var infoPageUrl = 'infodetails.html';//查询结果页地址
-    var carTypeRequestUrl = urlPre
-        + jnjjApp.config.requestUrl
+    var carTypeRequestUrl = jnjjApp.config.requestUrl
         + '/jnpublic/carType.json';//号牌种类请求地址
     var hash = window.location.hash;
     var modeName;
@@ -149,19 +145,19 @@ $(function () {
         App.UI('select', {
             "dom"     : $('#ksyy_sfzmmc'),
             "url"     : identityTypeRequestUrl,
-            "data"    : {'register': userName},
+            "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
             "dataType": 'Object'
         });
         App.UI('select', {
             "dom"     : $('#ksyy_ksyy'),
             "url"     : ksreasonRequestUrl,
-            "data"    : {'register': userName},
+            "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
             "dataType": 'Object'
         });
         App.UI('select', {
             "dom"     : $('#ksyy_kskm'),
             "url"     : kscourseRequestUrl,
-            "data"    : {'register': userName},
+            "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
             "dataType": 'Object'
         });
         App.UI('buttonHover', {//添加按钮点击效果
@@ -171,9 +167,9 @@ $(function () {
     }
     if ( modeName === 'query_njyy' ) {
         App.UI('select', {
-            "dom"     : $('#hpzl'),
-            "url"     : carTypeRequestUrl,
-            "dataType": 'Object'
+            "dom"   : $('#hpzl'),
+            "url"   : carTypeRequestUrl + '?baseDomain=' + App.LS.get('App_baseDomain'),
+            "module": "carType"
         });
     }
     if ( modeName === 'query_sgkc' ) {
