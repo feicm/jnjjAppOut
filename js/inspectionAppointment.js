@@ -277,14 +277,14 @@ $(function () {
                     });
 
                 }
-                if ( data.success ) {
-                    _self.render('inputs', '', data.msg);
+                if ( data.cgsCommonResponse.msg!=='本检测站当天已经超过可预约时间范围，不能够预约。' ) {
+                    _self.render('inputs', '', data.cgsCommonResponse.cgsCommonList);
                 } else {
                     _self.progressDialog.remove();
                     App.UI('dialog', {
                         type : 'alert',
                         title: '公众服务平台',
-                        msg  : data.msg
+                        msg  : data.cgsCommonResponse.msg
                     }, function () {
                         c4_btn.trigger('click');
                     });
