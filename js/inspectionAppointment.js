@@ -91,13 +91,12 @@ $(function () {
                         _ip_yyrq.val(_msg.blrq);
                         _ip_rsxz.val(_msg.rsxz);
                         _ip_yyyrs.val(_msg.yyrs);
-                        _kxsjd.mobiscroll.destroy();
                         _l = data.length;
                         for ( var i = 0; i < _l; i++ ) {
                             _aOption.push('<option value="' + data[i].blsj + '">' + data[i].blsj + '</option>');
                         }
                         _kxsjd.append(_aOption.join(''));
-                        _kxsjd.mobiscroll().select({
+                        var test=_kxsjd.mobiscroll().select({
                             theme   : 'ios7',
                             lang    : 'zh',
                             display : 'bottom',
