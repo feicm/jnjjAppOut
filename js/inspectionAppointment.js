@@ -105,6 +105,7 @@ $(function () {
                         });
                         _self.progressDialog.remove();
                         _self.bindEvent('last');
+                        window.scrollTo(0,0);
                     } else {
                         console.log('data格式错误');
                     }
