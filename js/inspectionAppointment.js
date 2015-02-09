@@ -234,10 +234,10 @@ $(function () {
                     _self.bindEvent('dateItem');
                     return;
                 }
-                if ( data.success ) {
+                if ( data.cgsCommonResponse.cgsCommonList ) {
                     //Wisp.UI.progressDialog.remove();
                     _self.progressDialog.remove();
-                    _self.render('list', _wrap, data.msg);
+                    _self.render('list', _wrap, data.cgsCommonResponse.cgsCommonList);
                     _self.bindEvent('dateItem');
                     _self.resetHeight(_wrap);
                     _self.curDate = _curVal;
@@ -247,7 +247,7 @@ $(function () {
                     App.UI('dialog', {
                         type : 'alert',
                         title: '公众服务平台',
-                        msg  : data.msg
+                        msg  : data.cgsCommonResponse.msg
                     });
                 }
             })
