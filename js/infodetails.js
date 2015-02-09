@@ -52,6 +52,7 @@ $(function () {
                 var msg;
                 data.carQueryResponse && (msg = data.carQueryResponse);//车辆查询
                 data.licenseQueryResponse && (msg = data.licenseQueryResponse);//驾照查询
+                data.cgsCommonResponse && (msg = data.cgsCommonResponse);//车管所
                 if ( data.success === true || data.success === false ) {
                     msg = data.msg;
                 }//考试成绩/预约查询/年检预约查询/事故快处查询
@@ -493,8 +494,8 @@ $(function () {
                     }
                     break;
                 case 'query_ksyy': //考试预约查询结果内容模板
-                    if ( data instanceof Array ) {
-                        msg = data[0];//Object
+                    if ( data.cgsCommonList!==null ) {
+                        msg = data.cgsCommonList[0];//Object
                         html = [
                             '<div class="list-block">',
                             '    <ul>',
@@ -554,12 +555,12 @@ $(function () {
                             '    </ul>',
                             '</div>'].join("");
                     } else {
-                        html = _self.getHtmlNoResult(data);
+                        html = _self.getHtmlNoResult(data.msg);
                     }
                     break;
                 case 'query_kscj': //考试预约查询结果内容模板
-                    if ( data instanceof Array ) {
-                        msg = data[0];//Object
+                    if ( data.cgsCommonList!==null ) {
+                        msg = data.cgsCommonList[0];//Object
                         html = [
                             '<div class="list-block">',
                             '    <ul>',
@@ -641,7 +642,7 @@ $(function () {
                             '    </ul>',
                             '</div>'].join("");
                     } else {
-                        html = _self.getHtmlNoResult(data);
+                        html = _self.getHtmlNoResult(data.msg);
                     }
                     break;
                 case 'query_njyy': //年检预约查询结果内容模板
