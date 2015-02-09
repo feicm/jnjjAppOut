@@ -152,13 +152,13 @@ $(function () {
             "dom"     : $('#ksyy_ksyy'),
             "url"     : ksreasonRequestUrl,
             "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
-            "module": "CGScommon"
+            "module": "cgsCommon"
         });
         App.UI('select', {
             "dom"     : $('#ksyy_kskm'),
             "url"     : kscourseRequestUrl,
             "data"    : {'register': userName, 'baseDomain': App.LS.get('App_baseDomain')},
-            "module": "CGScommon"
+            "module": "cgsCommon"
         });
         App.UI('buttonHover', {//添加按钮点击效果
             "dom"           : ksquerySubmit,
