@@ -184,7 +184,7 @@ $(function () {
                         _self.bindEvent('first');
                         return;
                     }
-                    if ( data.success ) {//审查通过
+                    if ( data.cgsCommonResponse.msg === '该车允许预约！' ) {//审查通过
                         //Wisp.UI.progressDialog.remove();//debug
                         _self.progressDialog.remove();
                         App.UI('changePage', {//年检预约切换效果
@@ -205,7 +205,7 @@ $(function () {
                         App.UI('dialog', {
                             type : 'alert',
                             title: '公众服务平台',
-                            msg  : data.msg
+                            msg  : data.cgsCommonResponse.msg
                         });
                         _self.bindEvent('first');
                     }
