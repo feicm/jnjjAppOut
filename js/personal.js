@@ -2,9 +2,7 @@ $(function () {
     /*
      * 个人信息
      * */
-    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
-        return false
-    }
+    App.addOnlineStatusListener(); //添加网络状态检测
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     //个人信息对象
     var Personal = {
