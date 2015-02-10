@@ -2,6 +2,11 @@ $(function () {
     if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
         return false
     }
+    var socket=new WebSocket('ws://127.0.0.1:7016');
+    socket.onopen=function(){
+        console.log('创建socket成功！');
+        socket.send('hello update please!');
+    }
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var loginSubmit = $('#login-submit');//登录
     var rigisterBtn = $('#rigister');//注册
