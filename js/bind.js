@@ -8,6 +8,7 @@ $(function () {
     var userName = App.LS.get('App_userName');
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var pageId = App.getPageId(window.location.href);
+    alert('pageId:'+pageId);
     var curWebView = Wisp.UI.Webview.init({
         PageId: pageId
     });
@@ -20,6 +21,7 @@ $(function () {
         + '/jnpublic/carType.json';//号牌种类请求地址
     var module = $('.c').attr('data-mode');//模块名获取
     var listPageId = App.LS.get(module);
+    alert('listPageId:'+listPageId);
     var listWebView = Wisp.UI.Webview.init({
         PageId: listPageId
     });
