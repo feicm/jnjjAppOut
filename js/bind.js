@@ -8,6 +8,7 @@ $(function () {
     var userName = App.LS.get('App_userName');
     Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
     var pageId = App.getPageId(window.location.href);
+    alert('pageId:'+pageId);
     var curWebView = Wisp.UI.Webview.init({
         PageId: pageId
     });
@@ -20,12 +21,13 @@ $(function () {
         + '/jnpublic/carType.json';//号牌种类请求地址
     var module = $('.c').attr('data-mode');//模块名获取
     var listPageId = App.LS.get(module);
+    alert('listPageId:'+listPageId);
     var listWebView = Wisp.UI.Webview.init({
         PageId: listPageId
     });
     var opts = {};
     var progressDialog;
-    if ( module === 'bindcar' ) { //绑定车辆 参数初始化
+    if ( module === 'car' ) { //绑定车辆 参数初始化
         var bindinfoBtn = $('#bindinfo_btn');
         var ip_name;
         var ip_hphm;
@@ -35,7 +37,7 @@ $(function () {
         var ip_phone;
         bindinfoBtn.on('click', bindcarListerner);
     }
-    if ( module === 'bindcard' ) { //绑定驾照 参数初始化
+    if ( module === 'card' ) { //绑定驾照 参数初始化
         var bindcardBtn = $('#bindcard_btn');
         var ip_name;
         var ip_phone;
