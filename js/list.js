@@ -315,7 +315,7 @@ $(function () {
                                 opt += '@wfjfs=' + msg[i].wfjfs//违法记分数
                                 + '@fkje=' + msg[i].fkje //罚款金额
                                 + '@clsj=' + msg[i].clsj //处理时间
-                                + '@clqk=' + msg[i].clqk //处理情况
+                                + '@jkqk=' + msg[i].jkqk //交款情况
                                 + '@jksj=' + msg[i].jksj//交款时间
                                 + '@jscjsj=' + msg[i].jscjsj //接收裁决时间
                                 + '@cjbj=' + msg[i].cjbj //裁决标记
