@@ -442,7 +442,7 @@ $(function () {
                             '                <div class="item-media"><i class="icon icon-tag"></i></div>',
                             '                <div class="item-inner">',
                             '                    <div class="item-title label">处理情况</div>',
-                            '                    <div class="item-after">' + data.jkqk + '</div>',
+                            '                    <div class="item-after">' + (data.jkqk === '1' ? "已处理" : "未处理") + '</div>',
                             '                </div>',
                             '            </div>',
                             '        </li>',
