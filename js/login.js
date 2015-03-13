@@ -30,7 +30,7 @@ $(function () {
         "PageId_lv01"            : (new Date()).getTime(),
         "loginRequestUrl"        : jnjjApp.config.requestUrl + '/jnpublic/userLogin.json',//登录验证请求地址
         "userinfoRequestUrl"     : jnjjApp.config.requestUrl + '/jnpublic/getUserInfo.json',//用户信息请求地址
-        "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do',//信息栏目数据获取地址
+        "colInfoRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/channel/tree.do?id=2',//信息栏目数据获取地址
         "galleryRequestUrl"      : jnjjApp.config.msgRequestUrl + '/wispcms/content/shuffling_jj.do',//首页大轮播数据获取地址
         "rigisterPageUrl"        : 'rigister.html',//注册页地址
         "backpwdPageUrl"         : 'backpwd.html',//找回密码页地址
