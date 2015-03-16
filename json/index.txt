@@ -1,0 +1,74 @@
+{
+  "footbar": [
+    {
+      "roldId": "0000",
+      "data": [
+        {
+          "beforeImg": "config/html/images/wispui/home_normal.png",
+          "afterImg": "config/html/images/wispui/home_hover.png",
+          "name": "首页",
+          "url": "config/html/json/home.txt"
+        },
+        {
+          "beforeImg": "config/html/images/wispui/message_normal.png",
+          "afterImg": "config/html/images/wispui/message_hover.png",
+          "name": "信息",
+          "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do"
+        },
+        {
+          "beforeImg": "config/html/images/wispui/traffic_normal.png",
+          "afterImg": "config/html/images/wispui/traffic_hover.png",
+          "name": "交管",
+          "url": "config/html/json/traffic.txt"
+        },
+        {
+          "beforeImg": "config/html/images/wispui/find_normal.png",
+          "afterImg": "config/html/images/wispui/find_hover.png",
+          "name": "发现",
+          "url": "config/html/json/find.txt"
+        },
+        {
+          "beforeImg": "config/html/images/wispui/my_normal.png",
+          "afterImg": "config/html/images/wispui/my_hover.png",
+          "name": "我的",
+          "url": "config/html/json/my.txt"
+        }
+      ]
+    },
+    {
+          "roldId": "0001",
+          "data": [
+            {
+              "beforeImg": "config/html/images/wispui/home_normal.png",
+              "afterImg": "config/html/images/wispui/home_hover.png",
+              "name": "首页",
+              "url": "config/html/json/home.txt"
+            },
+            {
+              "beforeImg": "config/html/images/wispui/message_normal.png",
+              "afterImg": "config/html/images/wispui/message_hover.png",
+              "name": "信息",
+              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do"
+            },
+            {
+              "beforeImg": "config/html/images/wispui/traffic_normal.png",
+              "afterImg": "config/html/images/wispui/traffic_hover.png",
+              "name": "交管",
+              "url": "config/html/json/traffic.txt"
+            },
+            {
+              "beforeImg": "config/html/images/wispui/find_normal.png",
+              "afterImg": "config/html/images/wispui/find_hover.png",
+              "name": "发现",
+              "url": "config/html/json/find.txt"
+            },
+            {
+              "beforeImg": "config/html/images/wispui/my_normal.png",
+              "afterImg": "config/html/images/wispui/my_hover.png",
+              "name": "我的",
+              "url": "config/html/json/my.txt"
+            }
+          ]
+        }
+  ]
+}
