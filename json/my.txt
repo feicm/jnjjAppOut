@@ -1,5 +1,5 @@
 {
-  "footbar": [
+  "my": [
     {
       "roldId": "0000",
       "data": [
