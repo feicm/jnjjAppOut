@@ -487,6 +487,7 @@ $(function () {
             var _self = this;
             var _usernameInput = $('#username');
             var _username = _self.username;
+            _usernameInput.focus();
             _username && _usernameInput.val(_username);
         },
         //初始化首页大轮播数据
