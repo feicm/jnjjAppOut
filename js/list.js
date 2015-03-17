@@ -323,6 +323,7 @@ $(function () {
                             }
                             li = [
                                 '<li class="list_hover" data-opt="' + opt + '">',
+                                '    <span class="ui-seal m-list-c1-sts ' + (msg[i].clqk === "1" ? null : "dbn") + '">未处理</span>',
                                 '    <div class="top">' + msg[i].hphm + '</div>',
                                 '    <div class="item-content ovh db">',
                                 '        <h1 class="h1 bg_arr_r">',

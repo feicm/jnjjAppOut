@@ -32,7 +32,9 @@ body {
 .db {
     display : block !important;
 }
-
+.dbn {
+    display : none !important;
+}
 .tr {
     text-align : right;
 }
