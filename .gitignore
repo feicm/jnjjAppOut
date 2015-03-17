@@ -2,5 +2,5 @@
 *.xml
 .name
 *.iml
-appConfig.js
+#appConfig.js
 fis-conf.js
