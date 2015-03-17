@@ -3,17 +3,13 @@
     {
       "roldId": "0000",
       "data": [
-        //发现 视图数据
         {
           "type": "RectangleWithIcoLeft",
           "data": [
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_wzts.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "违法推送",
@@ -23,11 +19,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_jyyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "加油优惠",
@@ -37,11 +30,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_xcyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "洗车优惠",
@@ -51,11 +41,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_dj.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "代驾",
@@ -65,11 +52,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_byyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "保养优惠",
@@ -79,11 +63,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_clns.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "车辆年审",
@@ -93,11 +74,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_dljy.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "道路救援",
@@ -112,17 +90,13 @@
     {
       "roldId": "0001",
       "data": [
-        //发现 视图数据
         {
           "type": "RectangleWithIcoLeft",
           "data": [
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_wzts.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "违法推送",
@@ -132,11 +106,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_jyyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "加油优惠",
@@ -146,11 +117,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_xcyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "洗车优惠",
@@ -160,11 +128,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_dj.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "代驾",
@@ -174,11 +139,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_byyh.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "保养优惠",
@@ -188,11 +150,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_clns.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "车辆年审",
@@ -202,11 +161,8 @@
             },
             {
               "btnType": "icobtn",
-              //带图标按钮 ;txtbtn,纯文本
               "beforeImg": "config/html/images/wispui/find/f_dljy.png",
-              //点击前图标
               "afterImg": "",
-              //点击时图标
               "disableImg": "",
               "enable": "true",
               "name": "道路救援",
