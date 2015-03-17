@@ -32,9 +32,11 @@ body {
 .db {
     display : block !important;
 }
+
 .dbn {
     display : none !important;
 }
+
 .tr {
     text-align : right;
 }
@@ -1444,6 +1446,24 @@ i.icon-card2 {
     height        : 20px;
     text-align    : center;
     border-radius : 3px;
+}
+
+.m-list-c1-sts {
+    position : absolute;
+    top      : 1em;
+    right    : 1.5em;
+}
+
+.ui-seal {
+    display           : inline-block;
+    -webkit-transform : rotate(25deg);
+    -ms-transform     : rotate(25deg);
+    font-size         : 1em;
+    font-weight       : bold;
+    padding           : .1em .4em;
+    border            : 3px solid #A22;
+    color             : #A22;
+    background        : rgba(0, 0, 0, 0);
 }
 
 /*backpwd*/
