@@ -48,7 +48,7 @@
               "beforeImg": "config/html/images/wispui/message_normal.png",
               "afterImg": "config/html/images/wispui/message_hover.png",
               "name": "信息",
-              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do?id=2"
+              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do"
             },
             {
               "beforeImg": "config/html/images/wispui/traffic_normal.png",
