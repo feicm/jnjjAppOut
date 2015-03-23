@@ -82,7 +82,18 @@
               "summary": "免费全国救援",
               "clickEvent": "",
               "url": "config/html/tips.html"
-            }
+            } ,
+                          {
+                            "btnType": "icobtn",
+                            "beforeImg": "config/html/images/wispui/find/f_dljy.png",
+                            "afterImg": "",
+                            "disableImg": "",
+                            "enable": "true",
+                            "name": "测试",
+                            "summary": "免费全国救援",
+                            "clickEvent": "",
+                            "url": "config/html/tips.html"
+                          }
           ]
         }
       ]
@@ -169,7 +180,18 @@
               "summary": "免费全国救援",
               "clickEvent": "",
               "url": "config/html/tips.html"
-            }
+            },
+                         {
+                           "btnType": "icobtn",
+                           "beforeImg": "config/html/images/wispui/find/f_dljy.png",
+                           "afterImg": "",
+                           "disableImg": "",
+                           "enable": "true",
+                           "name": "测试",
+                           "summary": "免费全国救援",
+                           "clickEvent": "",
+                           "url": "config/html/tips.html"
+                         }
           ]
         }
       ]
