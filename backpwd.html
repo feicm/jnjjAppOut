@@ -100,10 +100,24 @@
         </a>
     </div>
 </form>
-<script type="text/javascript" charset="utf-8" src="static/lib/lib.js"></script>
-<script type="text/javascript" charset="utf-8" src="static/js/pwd.js"></script>
-<script type="text/javascript" charset="utf-8" src="static/js/mobiscroll.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="static/js/lazyload.js"></script>
+<script>
+    LazyLoad.js(
+            [
+                'static/lib/lib.js',
+                'static/js/pwd.js',
+                'static/js/mobiscroll.all.js'
+            ], function () {
+                console.log("js延迟加载成功");
+            });
+</script>
 </body>
-        <!--select组件-->
-        <!--select组件 end-->
+        <!--<script src="js/zepto.min.js"></script>
+        <script src="js/WISPComponents_v3.0.js"></script>
+        <script src="js/appConfig.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/pwd.js"></script>
+        &lt;!&ndash;select组件&ndash;&gt;
+        <script src="js/mobiscroll.all.js" type="text/javascript"></script>
+        &lt;!&ndash;select组件 end&ndash;&gt;-->
 </html>

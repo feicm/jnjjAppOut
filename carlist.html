@@ -20,7 +20,20 @@
         </a>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8" src="static/lib/lib.js"></script>
-<script type="text/javascript" charset="utf-8" src="static/js/list.js"></script>
+<script type="text/javascript" charset="utf-8" src="static/js/lazyload.js"></script>
+<script>
+    LazyLoad.js(
+            [
+                'static/lib/lib.js',
+                'static/js/list.js'
+            ], function () {
+                console.log("js延迟加载成功");
+            });
+</script>
 </body>
+<!--<script src="js/zepto.min.js"></script>
+<script src="js/WISPComponents_v3.0.js"></script>
+<script src="js/appConfig.js"></script>
+<script src="js/common.js"></script>
+<script src="js/list.js"></script>-->
 </html>
