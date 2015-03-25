@@ -113,15 +113,17 @@ $(function () {
                                     type     : 'confirm',
                                     title    : '公众服务平台',
                                     msg      : '处理成功！',
-                                    OkTxt    : '缴费',
+                                    OkTxt    : '去缴费',
                                     CancelTxt: '暂不'
                                 }, function (action) {
                                     if ( action === 'OK' ) {
                                         //打开缴费信息
-                                        location.href = 'pay.html';
+                                        window.open('pay.html');
                                     }
                                     if ( action === 'CANCEL' ) {
                                         //修改hash并刷新页面
+                                        hash.replace(/clqk=0/g,'clqk=1');
+                                        location.reload();
                                     }
                                 });
                             }
@@ -141,7 +143,7 @@ $(function () {
                 else if ( dataFor === "pay" && $.inArray("handle", _btnNames) === -1 ) {
                     //缴费
                     $this.on('click', function () {
-                        location.href = 'pay.html';
+                        window.open('pay.html');
                     })
                 }
             })
