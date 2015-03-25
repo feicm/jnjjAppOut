@@ -46,6 +46,7 @@ $(function () {
             _self.loading = App.UI('dialog', {'msg': "数据加载中"});
             if ( !_url && _params ) {//url 为空 直接渲染
                 _self.render(_params, _dom);//渲染结果
+                _self.bindEvent();
                 _self.loading.remove();
             }
             _url && App.getAjaxData(_url, _params, function (data) {
