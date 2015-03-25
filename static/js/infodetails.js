@@ -129,6 +129,7 @@ $(function () {
                                             /*location.href = location.href.split('#')[0] + hash.replace(/clqk=0/g, 'clqk=1');
                                             location.reload();*/
                                             $this.parent().text('已处理');
+                                            _btns.off('click');
                                             _self.bindEvent();
                                         }
                                     });
