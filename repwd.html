@@ -51,13 +51,15 @@
 </form>
 <script type="text/javascript" charset="utf-8" src="static/js/lazyload.js"></script>
 <script>
-    LazyLoad.js(
-            [
-                'static/lib/lib.js',
-                'static/js/pwd.js'
-            ], function () {
-                console.log("js延迟加载成功");
-            });
+    setTimeout(function () {
+        LazyLoad.js(
+                [
+                    'static/lib/lib.js',
+                    'static/js/pwd.js'
+                ], function () {
+                    console.log("js延迟加载成功");
+                });
+    }, 10);
 </script>
 </body>
 <!--<script src="js/zepto.min.js"></script>
