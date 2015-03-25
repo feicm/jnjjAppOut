@@ -122,7 +122,7 @@ $(function () {
                                     }
                                     if ( action === 'CANCEL' ) {
                                         //修改hash并刷新页面
-                                        location.hash=hash.replace(/clqk=0/g,'clqk=1');
+                                        location.href=location.href.split('#')[0]+hash.replace(/clqk=0/g,'clqk=1');
                                         location.reload();
                                     }
                                 });
