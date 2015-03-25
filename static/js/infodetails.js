@@ -109,23 +109,28 @@ $(function () {
                             msg  : '确定处理？'
                         }, function (action) {
                             if ( action === 'OK' ) { //提交处理请求
-                                App.UI('dialog', {
-                                    type     : 'confirm',
-                                    title    : '公众服务平台',
-                                    msg      : '处理成功！',
-                                    OkTxt    : '去缴费',
-                                    CancelTxt: '暂不'
-                                }, function (action) {
-                                    if ( action === 'OK' ) {
-                                        //打开缴费信息
-                                        window.open('pay.html');
-                                    }
-                                    if ( action === 'CANCEL' ) {
-                                        //修改hash并刷新页面
-                                        location.href=location.href.split('#')[0]+hash.replace(/clqk=0/g,'clqk=1');
-                                        location.reload();
-                                    }
-                                });
+                                _self.loading = App.UI('dialog', {'msg': "违法处理中"});
+                                setTimeout(function () {
+                                    _self.loading.remove();
+                                    App.UI('dialog', {
+                                        type     : 'confirm',
+                                        title    : '公众服务平台',
+                                        msg      : '处理成功！',
+                                        OkTxt    : '去缴费',
+                                        CancelTxt: '暂不'
+                                    }, function (action) {
+                                        if ( action === 'OK' ) {
+                                            //打开缴费信息
+                                            window.open('pay.html');
+                                        }
+                                        if ( action === 'CANCEL' ) {
+                                            //修改hash并刷新页面
+                                            //location.hash=hash.replace(/clqk=0/g,'clqk=1');ios有bug 涉及url操作要特别注意ios的模拟处理
+                                            location.href = location.href.split('#')[0] + hash.replace(/clqk=0/g, 'clqk=1');
+                                            location.reload();
+                                        }
+                                    });
+                                }, 500)
                             }
                         });
                     })
