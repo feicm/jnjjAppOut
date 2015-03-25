@@ -84,7 +84,7 @@ $(function () {
             var _btnNames = [];
             var _list = _self.dom.find('.ui-pic img');//事故快处
             var _btns = _self.dom.find('.ui_btn'); //电子监控违法处理
-            if ( !_list.length || !_btns.length ) return false;
+            if ( !_list.length && !_btns.length ) return false;
             _list.length && _list.each(function (index) {//事故快处
                 var $this = $(this);
                 _images.push($this.attr('src'));
