@@ -410,7 +410,7 @@ $(function () {
                         '                <div class="item-media"><i class="icon icon-tag"></i></div>',
                         '                <div class="item-inner">',
                         '                    <div class="item-title label">交款情况</div>',
-                        '                    <div class="item-after">' + (data.jkqk === '1' ? "已交款" : "未交款<a data-for='pay' class='ui_btn ui_btn_01 ui_radius bg_color_03'>缴费</a>") + '</div>',
+                        '                    <div class="item-after">' + (data.jkqk === '1' ? "已交款" : "未交款<a data-for='pay' class='ui_btn ui_btn_01 ui_radius bg_color_01'>缴费</a>") + '</div>',
                         '                </div>',
                         '            </div>',
                         '        </li>',
