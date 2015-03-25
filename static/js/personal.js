@@ -1,1 +1,242 @@
-$(function(){App.addOnlineStatusListener(),Wisp.UI.Webview.getBaseDomain("Wisp.ClientCallback.setBaseDomain");var e={preQuestUrl:"adapter?open&url="+jnjjApp.config.requestUrl,curWebView:Wisp.UI.Webview.init({PageId:App.getPageId(window.location.href)}),indexPageId:App.getPageId(window.location.href),ip_username:$("#username"),ip_name:$("#name"),ip_photo:$("#photo"),ip_gender:$("#gender"),ip_phone:$("#phone"),ip_idnum:$("#idnum"),ip_email:$("#email"),ip_time:$("#time"),ip_edit_phone:$("#edit_phone"),ip_mover:$("#mover"),ip_m_name:$("#m_name"),ip_m_phone:$("#m_phone"),ip_closer:$("#closer"),ip_c_name:$("#c_name"),ip_c_phone:$("#c_phone"),ip_c_sfzh:$("#c_sfzh"),saveBtn:$("#save"),progressDialog:null,interval:null,isUpdate:!0,baseDomain:App.LS.get("App_baseDomain"),App_userName:App.LS.get("App_userName"),App_name:App.LS.get("App_name"),App_identityId:App.LS.get("App_identityId"),App_userImage:App.LS.get("App_userImage"),App_phoneNum:App.LS.get("App_phoneNum"),App_email:App.LS.get("App_email"),App_registerTime:App.LS.get("App_registerTime"),App_moveCar_Name:App.LS.get("App_moveCar_Name"),App_moveCar_phoneNum:App.LS.get("App_moveCar_phoneNum"),App_closeUser_Name:App.LS.get("App_closeUser_Name"),App_closeUser_PhoneNum:App.LS.get("App_closeUser_PhoneNum"),App_closeUser_IdentityId:App.LS.get("App_closeUser_IdentityId"),urlRouter:{p_moveContacts:"movecarpeople.html",p_closeContacts:"closepeople.html",p_phoneNum:"editphonenum.html",p_repwd:"repwd.html"},PageId_lv:(new Date).getTime(),init:function(e){this.list=e.list,this.mode=e.mode;var p=this;return"personalinfo"===p.mode?(App.LS.set(p.mode,p.indexPageId),p.interval=setInterval(function(){p.renderPersonalInfoPage("personalinfo")},1e3)):p.renderPersonalInfoPage(p.mode),p.renderPersonalInfoPage(p.mode),this.bindEvent(this.mode),this},renderPersonalInfoPage:function(e){var p=this,n=0;return console.log(n++),"true"===App.LS.get("p_hasUpdate")&&(p.isUpdate=!0,p.App_moveCar_Name=App.LS.get("App_moveCar_Name"),p.App_phoneNum=App.LS.get("App_phoneNum")),p.isUpdate?("personalinfo"===e&&(p.ip_username.text(p.App_userName),p.ip_name.text(p.App_name),p.ip_photo.attr("src",p.App_userImage),p.ip_gender.addClass(p.getGender(p.App_identityId)?"icon-user-men":"icon-user-women"),p.ip_idnum.text(p.App_identityId),p.ip_email.val(p.App_email),p.ip_time.text(p.App_registerTime),"null"!==p.App_phoneNum&&(p.ip_phone.text(p.App_phoneNum),"true"===App.LS.get("p_hasUpdate")&&App.LS.set("p_hasUpdate","false"),p.isUpdate=!1),"null"!==p.App_moveCar_Name&&(p.ip_mover.text(p.App_moveCar_Name),"true"===App.LS.get("p_hasUpdate")&&App.LS.set("p_hasUpdate","false"),p.isUpdate=!1),"null"!==p.App_closeUser_Name&&p.ip_closer.text(p.App_closeUser_Name)),"p_moveContacts"===e&&"null"!==p.App_moveCar_Name&&(p.ip_m_name.val(p.App_moveCar_Name),p.ip_m_phone.val(p.App_moveCar_phoneNum)),"p_closeContacts"===e&&"null"!==p.App_closeUser_Name&&(p.ip_c_name.val(p.App_closeUser_Name),p.ip_c_phone.val(p.App_closeUser_PhoneNum),p.ip_c_sfzh.val(p.App_closeUser_IdentityId)),void("p_phoneNum"===e&&"null"!==p.App_phoneNum&&p.ip_edit_phone.val(p.App_phoneNum))):!1},bindEvent:function(e){var p=this,n=p.list;"personalinfo"===e?n.each(function(){var e=$(this),n=e.data("rel");void 0!==n&&(e.on("click",function(){p.openPage(n)}),App.UI("buttonHover",{dom:e,hoverClassName:"ui_btn_list_01_hover"}))}):App.UI("btnHighlightWithInput",{btn:p.saveBtn,inputs:$(".J_btnHighlightWithInput input"),hoverClass:"ui_btn_01_hover",disableClass:"ui_btn_01_disable"},function(e){e.on("click",function(){p.updataInfo(e)})})},updataInfo:function(e){var p=this,n=jnjjApp.config.requestUrl+"/jnpublic/updUserInfo.json",o={registerName:p.App_userName,baseDomain:p.baseDomain,phonenum:p.ip_edit_phone.val()||p.App_phoneNum,movecarname:p.ip_m_name.val()||p.App_moveCar_Name,movecarphone:p.ip_m_phone.val()||p.App_moveCar_phoneNum};e.off("click"),p.progressDialog=App.UI("dialog",{msg:"保存中，请稍后！"}),App.getAjaxData(n,o,function(e){if("error"===e)return void p.saveBtn.on("click",function(){p.updataInfo(p.saveBtn)});var n=e.userUpdateResponse;n?(console.log("更新成功！"),p.progressDialog=p.progressDialog.resetMsg("保存成功！"),App.LS.set("p_hasUpdate","true"),App.LS.set("App_phoneNum",o.phonenum),App.LS.set("App_moveCar_Name",o.movecarname),App.LS.set("App_moveCar_phoneNum",o.movecarphone),p.saveBtn.on("click",function(){p.updataInfo(p.saveBtn)}),p.curWebView.close()):(p.progressDialog.resetMsg("保存失败！"),p.saveBtn.on("click",function(){p.updataInfo(p.saveBtn)})),setTimeout(function(){p.progressDialog.remove()},500)})},openPage:function(e){var p=this,n=p.urlRouter[e],o=n+"?@@webViewPageId="+p.PageId_lv+Wisp.CommenFunc.getRandom()+"@@";n&&window.open(o)},getGender:function(e){return parseInt(e.substr(16,1))%2==1?1:0}},p=App.getPageId(window.location.href),n=$(".c").data("mode");App.LS.set(n,p),App.LS.set("p_hasUpdate","false"),e.init({list:$(".list-block li"),mode:n}),App.UI("inputClose",{doms:$(".list-block")})});
+$(function () {
+    /*
+     * 个人信息
+     * */
+    App.addOnlineStatusListener(); //添加网络状态检测
+    Wisp.UI.Webview.getBaseDomain('Wisp.ClientCallback.setBaseDomain');//当前域写入localstorage key:App_baseDomain
+    //个人信息对象
+    var Personal = {
+        "preQuestUrl"             : 'adapter?open&url=' + jnjjApp.config.requestUrl,
+        "curWebView"              : Wisp.UI.Webview.init({PageId: App.getPageId(window.location.href)}),
+        "indexPageId"             : App.getPageId(window.location.href),
+        "ip_username"             : $('#username'),//用户名
+        "ip_name"                 : $('#name'), //姓名
+        "ip_photo"                : $('#photo'),//头像
+        "ip_gender"               : $('#gender'),//性别
+        "ip_phone"                : $('#phone'), //手机
+        "ip_idnum"                : $('#idnum'), //身份证
+        "ip_email"                : $('#email'), //邮箱
+        "ip_time"                 : $('#time'),  //注册时间
+        "ip_edit_phone"           : $('#edit_phone'), //修改手机输入框
+        "ip_mover"                : $('#mover'),  //移车联系人
+        "ip_m_name"               : $('#m_name'), //修改移车联系人姓名输入项
+        "ip_m_phone"              : $('#m_phone'),//修改移车联系人电话输入项
+        "ip_closer"               : $('#closer'),//密切联系人
+        "ip_c_name"               : $('#c_name'), //修改密切联系人姓名输入项
+        "ip_c_phone"              : $('#c_phone'),//修改密切联系人电话输入项
+        "ip_c_sfzh"               : $('#c_sfzh'), //修改密切联系人身份证输入项
+        "saveBtn"                 : $('#save'), //保存按钮
+        "progressDialog"          : null,//状态框
+        "interval"                : null,//定时器
+        "isUpdate"                : true,//更新标识
+        "baseDomain"              : App.LS.get('App_baseDomain'),//当前域
+        "App_userName"            : App.LS.get('App_userName'),
+        "App_name"                : App.LS.get('App_name'),
+        "App_identityId"          : App.LS.get('App_identityId'),
+        "App_userImage"           : App.LS.get('App_userImage'),
+        "App_phoneNum"            : App.LS.get('App_phoneNum'),
+        "App_email"               : App.LS.get('App_email'),
+        "App_registerTime"        : App.LS.get('App_registerTime'),
+        "App_moveCar_Name"        : App.LS.get('App_moveCar_Name'),
+        "App_moveCar_phoneNum"    : App.LS.get('App_moveCar_phoneNum'),
+        "App_closeUser_Name"      : App.LS.get('App_closeUser_Name'),
+        "App_closeUser_PhoneNum"  : App.LS.get('App_closeUser_PhoneNum'),
+        "App_closeUser_IdentityId": App.LS.get('App_closeUser_IdentityId'),
+        "urlRouter"               : {
+            "p_moveContacts" : "movecarpeople.html", //移车联系人页面
+            "p_closeContacts": "closepeople.html", //密切联系人页面
+            "p_phoneNum"     : "editphonenum.html", //手机编辑页面
+            "p_repwd"        : "repwd.html" //密码修改页面
+        },
+        "PageId_lv"               : (new Date()).getTime(),
+        "init"                    : function (opts) {
+            this.list = opts.list;
+            this.mode = opts.mode;
+            var _self = this;
+            if ( _self.mode === 'personalinfo' ) {
+                //_self.progressDialog = App.UI('dialog', {msg: '加载中···'});
+                App.LS.set(_self.mode, _self.indexPageId);//pageid 写入localstorage
+                _self.interval = setInterval(function () {//定时器监听localstorage 更新标识
+                    _self.renderPersonalInfoPage('personalinfo');
+                }, 1000);
+            } else {
+                _self.renderPersonalInfoPage(_self.mode);
+            }
+            _self.renderPersonalInfoPage(_self.mode);
+            this.bindEvent(this.mode);
+            return this;
+        },
+        //渲染个人信息页
+        "renderPersonalInfoPage"  : function (mode) {
+            var _self = this;
+            var i = 0;
+            console.log(i++);
+            if ( App.LS.get('p_hasUpdate') === 'true' ) {//监听localstorage中的 更新标识
+                _self.isUpdate = true;
+                _self.App_moveCar_Name = App.LS.get("App_moveCar_Name");//更新移车联系人姓名
+                _self.App_phoneNum = App.LS.get("App_phoneNum");//更新手机号
+            }
+            if ( _self.isUpdate ) { //更新时触发 true 时更新 否则 返回
+                if ( mode === 'personalinfo' ) {//填充个人中心
+                    _self.ip_username.text(_self.App_userName);//用户名
+                    _self.ip_name.text(_self.App_name);//姓名
+                    _self.ip_photo.attr('src', _self.App_userImage);
+                    if ( _self.getGender(_self.App_identityId) ) {
+                        _self.ip_gender.addClass('icon-user-men')
+                    } else {
+                        _self.ip_gender.addClass('icon-user-women')
+                    }
+                    _self.ip_idnum.text(_self.App_identityId);
+                    _self.ip_email.val(_self.App_email);
+                    _self.ip_time.text(_self.App_registerTime);
+                    if ( _self.App_phoneNum !== 'null' ) {
+                        _self.ip_phone.text(_self.App_phoneNum);
+                        if ( App.LS.get('p_hasUpdate') === 'true' ) {
+                            App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
+                        }
+                        _self.isUpdate = false;//设置更新触发标识为 false
+                    }
+                    if ( _self.App_moveCar_Name !== 'null' ) {
+                        _self.ip_mover.text(_self.App_moveCar_Name);
+                        if ( App.LS.get('p_hasUpdate') === 'true' ) {
+                            App.LS.set('p_hasUpdate', 'false');//重置 p_hasUpdate
+                        }
+                        _self.isUpdate = false;//设置更新触发标识为 false
+                    }
+                    if ( _self.App_closeUser_Name !== 'null' ) {
+                        _self.ip_closer.text(_self.App_closeUser_Name);
+                    }
+                    /*setTimeout(function () {
+                        _self.progressDialog.remove();
+                    }, 500)*/
+                }
+
+            } else {
+                return false;
+            }
+            if ( mode === 'p_moveContacts' ) {//填充移车联系人
+                if ( _self.App_moveCar_Name !== 'null' ) {
+                    _self.ip_m_name.val(_self.App_moveCar_Name);
+                    _self.ip_m_phone.val(_self.App_moveCar_phoneNum);
+                }
+            }
+            if ( mode === 'p_closeContacts' ) {//填充密切联系人
+                if ( _self.App_closeUser_Name !== 'null' ) {
+                    _self.ip_c_name.val(_self.App_closeUser_Name);
+                    _self.ip_c_phone.val(_self.App_closeUser_PhoneNum);
+                    _self.ip_c_sfzh.val(_self.App_closeUser_IdentityId);
+                }
+            }
+            if ( mode === 'p_phoneNum' ) {//密切联系人
+                if ( _self.App_phoneNum !== 'null' ) {
+                    _self.ip_edit_phone.val(_self.App_phoneNum);
+                }
+            }
+        },
+        "bindEvent"               : function (mode) {
+            var _self = this;
+            var _list = _self.list;
+            if ( mode === 'personalinfo' ) {
+                _list.each(function (index) {
+                    var $this = $(this);
+                    var _mode = $this.data('rel');
+                    if ( _mode !== undefined ) {
+                        $this.on('click', function () {
+                            _self.openPage(_mode);
+                        });
+                        App.UI('buttonHover', {//添加按钮点击效果
+                            "dom"           : $this,
+                            "hoverClassName": 'ui_btn_list_01_hover'
+                        });
+                    }
+                });
+            } else {
+                App.UI('btnHighlightWithInput', {
+                    "btn"         : _self.saveBtn,
+                    "inputs"      : $('.J_btnHighlightWithInput input'),
+                    "hoverClass"  : 'ui_btn_01_hover',
+                    "disableClass": 'ui_btn_01_disable'
+                }, function (btn) {//按钮可用后回调
+                    btn.on('click', function () {
+                        _self.updataInfo(btn);
+                    });
+                });
+            }
+        },
+        "updataInfo"              : function (btn) {
+            var _self = this;
+            var _url = jnjjApp.config.requestUrl + '/jnpublic/updUserInfo.json';//用户信息修改请求地址*/
+            var _params = {
+                "registerName": _self.App_userName,
+                "baseDomain"  : _self.baseDomain,
+                "phonenum"    : _self.ip_edit_phone.val() || _self.App_phoneNum,
+                "movecarname" : _self.ip_m_name.val() || _self.App_moveCar_Name,
+                "movecarphone": _self.ip_m_phone.val() || _self.App_moveCar_phoneNum
+            };
+            btn.off('click');//事件移除
+            _self.progressDialog = App.UI('dialog', {msg: '保存中，请稍后！'});
+            App.getAjaxData(_url, _params, function (data) {
+                if ( data === 'error' ) {//ajax 失败回调
+                    _self.saveBtn.on('click', function () {//事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                    return;
+                }
+                var msg = data.userUpdateResponse;
+                if ( msg ) {
+                    console.log('更新成功！');
+                    _self.progressDialog = _self.progressDialog.resetMsg('保存成功！');
+                    //新数据写入localStorage
+                    App.LS.set('p_hasUpdate', 'true');// 写入localstorage
+                    App.LS.set("App_phoneNum", _params.phonenum);
+                    App.LS.set("App_moveCar_Name", _params.movecarname);
+                    App.LS.set("App_moveCar_phoneNum", _params.movecarphone);
+                    _self.saveBtn.on('click', function () { //事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                    _self.curWebView.close();
+                    //Wisp.UI.Webview.init({PageId: App.LS.get('personalinfo')}).refresh();
+                } else {
+                    _self.progressDialog.resetMsg('保存失败！');
+                    _self.saveBtn.on('click', function () { //事件绑定
+                        _self.updataInfo(_self.saveBtn);
+                    });
+                }
+                setTimeout(function () {//0.5s后移除状态提示框
+                    _self.progressDialog.remove();
+                }, 500);
+            });
+        },
+        "openPage"                : function (mode) {
+            var _self = this;
+            var _pageName = _self.urlRouter[mode];
+            var _pageUrl = _pageName + '?@@webViewPageId='
+                + _self.PageId_lv + Wisp.CommenFunc.getRandom() + '@@';
+            _pageName && window.open(_pageUrl);
+        },
+        //通过身份证获取性别
+        "getGender"               : function (UUserCard) {
+            if ( parseInt(UUserCard.substr(16, 1)) % 2 == 1 ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    };
+    var PageId = App.getPageId(window.location.href);
+    var module = $('.c').data('mode');//模块名获取
+    App.LS.set(module, PageId);//pageid 写入localstorage
+    App.LS.set('p_hasUpdate', 'false');// 写入localstorage
+    Personal.init({//初始化个人资料对象
+        "list": $('.list-block li'),
+        "mode": module
+    });
+
+    /*
+     * --------------------页面效果------------------------
+     * */
+    App.UI('inputClose', {//个人资料页面切换效果
+        "doms": $('.list-block')
+    });
+
+})
