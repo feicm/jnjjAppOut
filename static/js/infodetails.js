@@ -104,9 +104,9 @@ $(function () {
                     $this.on('click', function () {
                         //提交处理请求
                         App.UI('dialog', {
-                            type     : 'confirm',
-                            title    : '公众服务平台',
-                            msg      : '确定处理？'
+                            type : 'confirm',
+                            title: '公众服务平台',
+                            msg  : '确定处理？'
                         }, function (action) {
                             if ( action === 'OK' ) { //提交处理请求
                                 App.UI('dialog', {
@@ -118,7 +118,7 @@ $(function () {
                                 }, function (action) {
                                     if ( action === 'OK' ) {
                                         //打开缴费信息
-                                        location.href='pay.html';
+                                        location.href = 'pay.html';
                                     }
                                     if ( action === 'CANCEL' ) {
                                         //修改hash并刷新页面
@@ -130,15 +130,19 @@ $(function () {
                 }
                 else if ( dataFor === "pay" && $.inArray("handle", _btnNames) !== -1 ) {
                     //先处理
-                    App.UI('dialog', {
-                        type : 'alert',
-                        title: '公众服务平台',
-                        msg  : '违法尚未处理，无法缴费，请先处理！'
-                    });
+                    $this.on('click', function () {
+                        App.UI('dialog', {
+                            type : 'alert',
+                            title: '公众服务平台',
+                            msg  : '违法尚未处理，无法缴费，请先处理！'
+                        });
+                    })
                 }
                 else if ( dataFor === "pay" && $.inArray("handle", _btnNames) === -1 ) {
                     //缴费
-                    location.href='pay.html';
+                    $this.on('click', function () {
+                        location.href = 'pay.html';
+                    })
                 }
             })
         },
