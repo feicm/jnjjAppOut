@@ -115,7 +115,7 @@ $(function () {
                                     App.UI('dialog', {
                                         type     : 'confirm',
                                         title    : '公众服务平台',
-                                        msg      : '处理成功！',
+                                        msg      : '处理成功！马上缴费？',
                                         OkTxt    : '去缴费',
                                         CancelTxt: '暂不'
                                     }, function (action) {
