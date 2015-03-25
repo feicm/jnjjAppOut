@@ -123,15 +123,9 @@ $(function () {
                                             //打开缴费信息
                                             window.open('pay.html');
                                         }
-                                        if ( action === 'CANCEL' ) {
-                                            //修改hash并刷新页面
-                                            //location.hash=hash.replace(/clqk=0/g,'clqk=1');ios有bug 涉及url操作要特别注意ios的模拟处理
-                                            /*location.href = location.href.split('#')[0] + hash.replace(/clqk=0/g, 'clqk=1');
-                                            location.reload();*/
-                                            $this.parent().text('已处理');
-                                            _btns.off('click');
-                                            _self.bindEvent();
-                                        }
+                                        $this.parent().text('已处理');
+                                        _btns.off('click');
+                                        _self.bindEvent();
                                     });
                                 }, 1200)
                             }
