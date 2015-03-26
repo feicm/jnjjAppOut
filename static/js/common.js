@@ -599,7 +599,7 @@ var App = (function () {
                 var _current = _self.current;
                 var _btn = _current.find('.modal-button');
                 var _pwdval;
-                _self.current.find('input')[0].focus();
+                _self.current.find('input').length && _self.current.find('input')[0].focus();
                 if ( !_btn.length ) return;
                 _btn.on('click', function (e) {
                     var $this = $(this);
@@ -607,7 +607,7 @@ var App = (function () {
                     if ( _action === 'OK' ) {
                         if ( _self.type === 'password' ) {
                             _pwdval = $this.parents('.modal').find('input').val();
-                            if ( _pwdval === undefined || _pwdval==='') {
+                            if ( _pwdval === undefined || _pwdval === '' ) {
                                 _self.current.find('input')[0].focus();
                                 _self.current.addClass('shake');
                                 setTimeout(function () {
