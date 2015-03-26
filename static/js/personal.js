@@ -135,14 +135,17 @@ $(function () {
                     title: '公众服务平台',
                     msg  : '请输入登录密码验证!'
                 }, function (action, val) {
-                    if ( action === 'OK' && _self.userVerify(val) ) { //确定并且密码正确
-                        if ( _self.App_phoneNum !== 'null' ) {
-                            _self.ip_edit_phone.val(_self.App_phoneNum);
+                    if ( action === 'OK' ) { //确定
+                        if ( _self.userVerify(val) ) {//并且密码正确
+                            if(_self.App_phoneNum !== 'null'){
+                                _self.ip_edit_phone.val(_self.App_phoneNum);
+                            }
+                        } else {
+                            _self.progressDialog.show();
+                            _self.progressDialog.resetMsg('密码错误，请重新输入！');
                         }
-                    } else if ( !_self.userVerify(val) ) { //密码错误
-                        _self.progressDialog.show();
-                        _self.progressDialog.resetMsg('密码错误，请重新输入！');
-                    }else{//取消
+                    }
+                    if ( action === 'CANCEL' ) {
                         _self.curWebView.close();
                     }
                 });
