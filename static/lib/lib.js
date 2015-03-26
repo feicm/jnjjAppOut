@@ -1392,7 +1392,6 @@ var App = (function () {
                 this.CancelTxt = opts.CancelTxt || '取消';
                 this.callback = callback || null;
                 this.show();
-                this.bindEvent();
                 return this;
             },
             "show"     : function () {
@@ -1403,6 +1402,7 @@ var App = (function () {
                     _html.addClass('modal-in');
                 }, 10);
                 this.current = _html;
+                this.bindEvent();
             },
             "bindEvent": function () {
                 var _self = this;
