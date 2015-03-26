@@ -64,7 +64,7 @@ $(function () {
             } else {
                 _self.renderPersonalInfoPage(_self.mode);
             }
-            _self.renderPersonalInfoPage(_self.mode);
+            //_self.renderPersonalInfoPage(_self.mode);
             this.bindEvent(this.mode);
             return this;
         },
