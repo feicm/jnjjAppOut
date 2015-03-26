@@ -616,12 +616,12 @@ var App = (function () {
                                 _self.callback('OK', _pwdval);
                             }
                         } else {
-                            _self.callback && _self.callback('OK');
                             _self.remove();
+                            _self.callback && _self.callback('OK');
                         }
                     } else if ( _action === 'CANCEL' ) {
-                        _self.callback && _self.callback('CANCEL');
                         _self.remove();
+                        _self.callback && _self.callback('CANCEL');
                     }
                     return true;
                 })
