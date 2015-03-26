@@ -1,1 +1,91 @@
-$(function(){function e(){var t,n=document.getElementById("hphm"),o=n.selectedIndex,i=n.options[o].text,c=n.options[o].getAttribute("data-type");t=$("#nodo01").prop("checked")?0:"",a.off("click");var p="#mode=wf_car@cartype="+c+"@carid="+i+"@jkbj="+t;window.open(r+p),a.on("click",e)}function t(){var e,n=$("#jzxm"),o=n.val();s.off("click"),e=$("#nodo02").prop("checked")?0:"";var i="#mode=wf_card@licenseid="+o+"@jkbj="+e;window.open(l+i),s.on("click",t)}function n(e,t,n){var o=e.val(),i=t,c=n;"未绑定"!==o&&(App.UI("buttonHover",{dom:i,hoverClassName:"ui_btn_01_hover"}),i.removeClass("ui_btn_01_disable"),i.on("click",c))}if(!App.addOnlineStatusListener())return!1;var o=App.LS.get("App_userName"),i="adapter?open&url=",c=i+jnjjApp.config.requestUrl+"/jnpublic/queryCar.json",p=i+jnjjApp.config.requestUrl+"/jnpublic/queryLicense.json",r=i+jnjjApp.config.requestUrl+"/jnpublic/config/html/resultlist.jsp",l=i+jnjjApp.config.requestUrl+"/jnpublic/config/html/resultlisttab.jsp",a=$("#clxc_submit"),s=$("#jzcx_submit");App.UI("tabToggle",{dom:$("#tab_violation"),activeClass:"active"}),App.UI("select",{dom:$("#hphm"),url:c,data:{register:o,axisFlag:!0},module:"car"},function(){n($("#hphm"),a,e)}),App.UI("select",{dom:$("#jzxm"),url:p,data:{register:o,axisFlag:!0},module:"license"},function(){n($("#jzxm"),s,t)})});
+$(function () {
+    if ( !App.addOnlineStatusListener() ) { //添加网络状态检测
+        return false
+    }
+    var userName = App.LS.get('App_userName');
+    var urlPre = 'adapter?open&url=';
+    var carlistRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/queryCar.json';//用户车辆列表请求地址 select
+    var cardlistRequestUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/queryLicense.json';//用户驾照列表请求地址 select
+    var infoPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/resultlist.jsp';//查询结果页地址
+    var infoTabPageUrl = urlPre
+        + jnjjApp.config.requestUrl
+        + '/jnpublic/config/html/resultlisttab.jsp';//查询结果页地址(带选项卡)
+    var clxcSubmit = $('#clxc_submit');
+    var jzcxSubmit = $('#jzcx_submit');
+    //按车辆 提交事件
+    function clxcListener() {
+        var ip_hphm = document.getElementById('hphm');
+        var index = ip_hphm.selectedIndex;
+        var hphm = ip_hphm.options[index].text;
+        var hpzl = ip_hphm.options[index].getAttribute('data-type');
+        var jkbj;
+        $('#nodo01').prop('checked') ? jkbj = 0 : jkbj = '';
+        /*var params = {
+         "register": userName,
+         "cartype" : hpzl,
+         "carid"   : hphm
+         };*/
+        clxcSubmit.off('click');
+        var params = '#mode=wf_car@cartype=' + hpzl + '@carid=' + hphm + '@jkbj=' + jkbj;
+        window.open(infoPageUrl + params);//通过url hash传参
+        clxcSubmit.on('click', clxcListener);
+
+    }
+
+    //按驾照查询提交事件
+    function jzcxListener() {
+        var ip_jzxm = $('#jzxm');
+        var licenseid = ip_jzxm.val();
+        var jkbj;
+        jzcxSubmit.off('click');
+        $('#nodo02').prop('checked') ? jkbj = 0 : jkbj = '';
+        var params = '#mode=wf_card@licenseid=' + licenseid + '@jkbj=' + jkbj;
+        window.open(infoTabPageUrl + params);//通过url hash传参
+        jzcxSubmit.on('click', jzcxListener);
+    }
+
+    //bindEvent
+    function bindEvent(input, btn, listener) {
+        var inputVal = input.val();
+        var _btn = btn;
+        var _listener = listener;
+        if ( inputVal !== '未绑定' ) {
+            App.UI('buttonHover', {//添加按钮点击效果
+                "dom"           : _btn,
+                "hoverClassName": 'ui_btn_01_hover'
+            });
+            _btn.removeClass('ui_btn_01_disable');
+            _btn.on('click', _listener);
+        }
+    }
+
+    /*
+     * --------------------页面效果------------------------
+     * */
+    App.UI('tabToggle', {
+        "dom"        : $('#tab_violation'),
+        "activeClass": 'active'
+    });
+    App.UI('select', {
+        "dom"   : $('#hphm'),
+        "url"   : carlistRequestUrl,
+        "data"  : {'register': userName, 'axisFlag': true},
+        "module": 'car'
+    }, function () {
+        bindEvent($('#hphm'), clxcSubmit, clxcListener);
+    });
+    App.UI('select', {
+        "dom"   : $('#jzxm'),
+        "url"   : cardlistRequestUrl,
+        "data"  : {'register': userName, 'axisFlag': true},
+        "module": 'license'
+    }, function () {
+        bindEvent($('#jzxm'), jzcxSubmit, jzcxListener);
+    });
+});

@@ -1,1 +1,1135 @@
-var App=function(){function t(t,n,a){var i={curHeight:null,init:function(){this.name=t,n.wrap&&(this.wrap=n.wrap),this.currentpage=this.wrap.children().eq(0),this.initDomFlag(),a&&(this.callback=a)},initDomFlag:function(){{var t=this,e=t.wrap,n=e.children();n.length}e.css("position","relative"),t.setCurPageHeight(),n.each(function(t){var e=t-0,n=100*e+"%";$(this).attr("id","page_"+e),$(this).css({position:"absolute",left:n,top:0})}),n.each(function(e){var n=e,a=$(this).find(".ui_btn[data-rel]");a.each(function(){"pre"===$(this).attr("data-rel")&&t.bindEvent($(this),n,n-1),"next"===$(this).attr("data-rel")&&t.bindEvent($(this),n,n+1)})})},bindEvent:function(t,e,n){var a=this,i=t,s=$("#page_"+e),o=$("#page_"+n);e>n?i.on("click",function(){console.log("go back"),a.toggle(s,o,"right")}):i.on("click",function(){console.log("go ahead"),a.toggle(s,o,"left")})},toggle:function(t,e,n){switch(n){case"left":t.animate({left:"-100%",opacity:"0","z-index":"0"},200,"ease-out"),e.animate({left:"0",opacity:"1"},200,"ease-out");break;case"right":t.animate({left:"100%",opacity:"0","z-index":"0"},200,"ease-out"),e.animate({left:"0",opacity:"1"},200,"ease-out")}this.currentpage=e,this.setCurPageHeight()},setCurPageHeight:function(){var t=this;t.curHeight=t.currentpage.height(),t.currentpage.css("z-index",1111),t.wrap.css({height:t.curHeight})}},m={tipsMap:{card:"格式:3701XXXXXXXXXXXXXX",mail:"格式:name@domain.com",user:"用户名含6-11位的数字或字母",cnuser:"姓名含1-20字",psd:"密码含6-20位",mobile:"手机号码含11位数字",car:"格式:M1111",archive:"档案编号12位纯数字",car2:"车辆识别代号17位",lsh:"流水号1-13位",record:"记录号12位字母或数字"},init:function(){this.doms=n.doms,this.render(),this.bindEvent()},render:function(){var t,e,n=this,a='<a class="close">X</a>';n.doms.each(function(){t=$(this).find(".item-input"),e=t.find("input").prop("readonly"),!e&&t.append(a)})},bindEvent:function(){var t,e=this;e.doms.each(function(){t=$(this).find(".item-input"),t.each(function(){var t,n;n=$(this).find("input"),t=$(this).find("a.close"),t.on("click",function(){var t=$(this).parent().children("input");t.val(""),t.focus(),$(this).css("display","none")}),n.on("focus",function(){t.css("display","block")}),n.on("blur",function(){e.verify($(this),t)}),n.on("input",function(){e.verify($(this),t)})})})},verify:function(t,e){var n,a,i,s,o=this;s=t.attr("data-type"),a=t.val(),s&&(n=o.validationer(s,a),n?o.removeTips(t):(i=o.tipsMap[s],o.popTips(t,i))),!a&&e.css("display","none")},validationer:function(t,e){var n;switch(t){case"card":n=v(e);break;case"mail":n=p(e);break;case"user":n=u(e);break;case"cnuser":n=d(e);break;case"psd":n=h(e);break;case"mobile":n=c(e);break;case"car":n=r(e);break;case"archive":n=l(e);break;case"car2":n=o(e);break;case"lsh":n=f(e);break;case"record":n=s(e);break;default:console.log("这是一个彩蛋，买彩票去吧！")}return n},popTips:function(t,e){var n=t.parent(),a='<b class="tips">'+e+"</b>",i=n.find(".tips");i.length||n.append(a)},removeTips:function(t){var e=t.parent(),n=e.find(".tips");n&&n.remove()}},g={init:function(){this.dom=n.dom,n.hoverClassName&&(this.hoverClassName=n.hoverClassName),this.off=n.off||!1,!this.off&&this.bindEvent(),this.off&&this.removeEvent()},bindEvent:function(){var t=this,e=t.dom,n=t.hoverClassName;e.on("touchstart",function(){$(this).addClass(n)}),e.on("touchend",function(){$(this).removeClass(n)})},removeEvent:function(){var t=this,e=t.dom;e.off("touchstart"),e.off("touchend")}},b={init:function(){this.dom=n.dom,this.url=n.url,this.dataType=n.dataType||null,this.params=n.data,this.module=n.module||null,this.callback=a||null;var t=this;e(t.url,t.params,function(e){t.initSelect(e)})},initSelect:function(t){var e,n,a=this,i=[],s=a.module;if(t.msg&&(e=t.msg),t[s+"QueryResponse"]&&(e=t[s+"QueryResponse"][s+"List"]),t[s+"Response"]&&(e=t[s+"Response"][s+"List"]),"Object"===a.dataType)for(var o in e)i.push("<option value='"+e[o].key+"'>"+e[o].name+"</option>");else if("Wfddbh"===a.dataType)for(var o in e)i.push("<option value='"+e[o].ddbh+"'>"+e[o].ddmc+"</option>");if(s){if("car"===s)for(var o in e)i.push("<option data-type='"+e[o].carNumType+"' value='"+e[o].carid+"'>"+e[o].carid+"</option>");if("license"===s)for(var o in e)i.push("<option value='"+e[o].licenseid+"'>"+e[o].licenseName+"</option>");if("carType"===s||"identityType"===s||"cgsCommon"===s)for(var o in e)i.push("<option value='"+e[o].key+"'>"+e[o].name+"</option>");if(!e.length)return i.push("<option>未绑定</option>"),n=i.join(""),a.dom.append(n),void a.dom.attr("disabled","disabled")}n=i.join(""),a.dom.append(n),n&&a.dom.mobiscroll().select({theme:"ios7",lang:"zh",display:"bottom",mode:"scroller",minWidth:200}),a.callback&&a.callback()}},k={init:function(){this.dom=n.dom,this.activeClass=n.activeClass,this.defaultClass=n.defaultClass||null,this.bindEvent()},bindEvent:function(){var t=this,e=t.activeClass,n=t.defaultClass,a=t.dom.children();a.each(function(){$(this).on("click",function(){var t=$(this),i=t.attr("data-for"),s=$("#"+i);t.hasClass(e)&&n&&t.removeClass(n),t.addClass(e),s.show(),a.each(function(){var t=$(this);t.attr("data-for")!==i&&(t.removeClass(e),n&&t.addClass(n),$("#"+t.attr("data-for")).hide())})})})}},C={curBlock:null,init:function(){this.dom=n.dom,this.bindEvent()},bindEvent:function(){var t=this,e=t.dom.val();t.dom.on("change",function(){var e=$(this).val();t.toggleBlock(e)}),e&&t.toggleBlock(e)},toggleBlock:function(t){if(t){var e=$("#"+t);this.curBlock&&this.curBlock.selector===e.selector||(this.curBlock&&this.curBlock.hide("linear"),e.show("linear"),this.curBlock=e)}}},w={oldVal:"",newVal:"",init:function(){this.btn=n.btn,this.listener=n.listener||null,this.listenerArg=n.listenerArg||null,this.inputs=n.inputs,this.disableClass=n.disableClass,this.hoverClass=n.hoverClass,this.callback=a,this.disableBtn(),this.bindEvent()},bindEvent:function(){var t,e,n=this;n.inputs.each(function(){t=$(this),e=t.val(),t.on("focus",function(){n.oldVal=$(this).val(),n.toggleBtnHighlight(),n.newVal=""}),t.on("blur",function(){n.newVal=$(this).val(),n.toggleBtnHighlight(),n.oldVal=n.newVal}),"checkbox"===t.attr("type")&&(n.oldVal="",t.on("change",function(){n.newVal=$(this).prop("checked")?"checked":"",n.toggleBtnHighlight()}))})},toggleBtnHighlight:function(){var t=this,e=t.getBtnStatus(),n=t.getInputsStatus(),a=t.hasChangeVal(t.oldVal,t.newVal);if(n&&a){if(t.newVal="","active"===e)return;t.enableBtn()}else{if(t.newVal="",""===e)return;t.disableBtn()}},enableBtn:function(){var t=this,e=t.btn,n=t.listener,a=t.listenerArg,i=t.disableClass,s=t.hoverClass,o=t.callback;e.removeClass(i),e.attr("data-status","active"),App.UI("buttonHover",{dom:e,hoverClassName:s}),n&&e.on("click",function(){a?n(a):n()}),o&&o(e)},disableBtn:function(){var t=this,e=t.btn,n=t.disableClass,a=t.hoverClass;e.addClass(n),e.attr("data-status",""),App.UI("buttonHover",{dom:e,hoverClassName:a,off:!0}),e.off("click")},getBtnStatus:function(){return this.btn.attr("data-status")},getInputsStatus:function(){var t,e,n=this,a=n.inputs,i=!1;return a.each(function(){var n=$(this);t=n.parent().find(".tips").length,e=n.val(),i=e&&!t?"checkbox"===n.attr("type")?n.prop("checked")?!0:!1:!0:!1}),i},hasChangeVal:function(t,e){return!(t===e)}},y={current:null,init:function(){return this.type=n.type||null,this.title=n.title||null,this.msg=n.msg||"",this.OkTxt=n.OkTxt||"确定",this.CancelTxt=n.CancelTxt||"取消",this.callback=a||null,this.show(),this.bindEvent(),this},show:function(){var t=this,e=$(t.getHtml());$("body").append(e),setTimeout(function(){e.addClass("modal-in")},10),this.current=e},bindEvent:function(){var t,e=this,n=e.current,a=n.find(".modal-button");a.length&&a.on("click",function(){var n=$(this),a=n.data("action");return"OK"===a?"password"===e.type?(t=n.parents(".modal").find("input").val(),void 0===t||""===t?(e.current.addClass("shake"),setTimeout(function(){e.current.removeClass("shake")},1e3)):(e.callback("OK",t),e.remove())):(e.callback&&e.callback("OK"),e.remove()):"CANCEL"===a&&(e.callback&&e.callback("CANCEL"),e.remove()),!0})},remove:function(){var t=this;t.current.removeClass("modal-in").addClass("modal-out"),t.current.remove()},getHtml:function(){var t,e=this,n=e.type,a=e.title,i=e.msg,s=e.OkTxt,o=e.CancelTxt;switch(n){case"alert":t=['<div class="modal">','    <div class="modal-inner">','        <div class="modal-title">'+a+"</div>",'        <div class="modal-text">'+i+"</div>","    </div>",'    <div class="modal-buttons ">        <span class="modal-button modal-button-bold" data-action="OK">确定</span>    </div>',"</div>",'<div class="ui-layer ui-layer-01"></div>'].join("");break;case"confirm":t=['<div class="modal">','    <div class="modal-inner">','        <div class="modal-title">'+a+"</div>",'        <div class="modal-text">'+i+"</div>","    </div>",'    <div class="modal-buttons ">','        <span class="modal-button modal-button-bold" data-action="CANCEL">'+o+"</span>",'        <span class="modal-button modal-button-bold" data-action="OK">'+s+"</span>","    </div>","</div>",'<div class="ui-layer ui-layer-01"></div>'].join("");break;case"password":t=['<div class="modal animated">','    <div class="modal-inner">','        <div class="modal-title">'+a+"</div>",'        <div class="modal-text">'+i+"</div>",'        <input type="password" name="modal-password" placeholder="密码" class="modal-text-input">    </div>','    <div class="modal-buttons ">','        <span class="modal-button modal-button-bold" data-action="CANCEL">'+o+"</span>",'        <span class="modal-button modal-button-bold" data-action="OK">'+s+"</span>","    </div>","</div>",'<div class="ui-layer ui-layer-01"></div>'].join("");break;default:t=['<div class="ui-loading">','    <div class="ico-loading"></div>','    <b class="msg">'+i+"</b>","</div>",'<div class="ui-layer"></div>'].join("")}return t},resetMsg:function(t){var e=this;return t&&(e.msg=t),e.remove(),e.show(),this}},E={changePage:i,inputClose:m,buttonHover:g,tabToggle:k,select:b,toggleSelectBlock:C,btnHighlightWithInput:w,dialog:y};return t&&E[t].init()}function e(t,e,n,a){var i={type:a||"GET",url:t,data:e,dataType:"json"};$.ajax(i).done(function(t){t&&n&&n(t)}).fail(function(){n&&n("error")})}function n(t){var e,n,a,i={},s=[];if(n=t.substring(1,t.length),s=n.split("@"),a=s.length)for(var o=0;a>o;o++)e=s[o].split("="),i[e[0]]=$.trim(e[1]);else e=n.split("="),i[e[0]]=$.trim(e[1]);return i}function a(t){var e,n,a=[];return e=t.split("@@"),e.length>1?(a=e[1].split("="),"webViewPageId"!==a[0]?(console.log("pageid is not find!"),!1):n=a[1]):!1}function i(){return window.addEventListener("offline",function(){App.UI("dialog",{type:"alert",title:"公众服务平台",msg:"您当前处于离线状态，请检查网络连接！"})},!0),window.addEventListener("online",function(){history.go(0)},!0),navigator.onLine?!0:(App.UI("dialog",{type:"alert",title:"公众服务平台",msg:"您当前处于离线状态，请检查网络连接！"}),!1)}function s(t){var e=/^[a-zA-Z0-9]{12}$/;return e.test(t)}function o(t){var e=/^[a-zA-Z0-9]{17}$/;return e.test(t)}function l(t){var e=/^\d{12}$/;return e.test(t)}function r(t){var e=/^[a-zA-Z0-9]{5}$/;return e.test(t)}function c(t){var e=/^(13[0-9]|15[0|2|3|5|6|7|8|9]|18[0|5|6|8|9]|177)\d{8}$/;return e.test(t)}function d(t){var e=/^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z0-9]){1,20}$/;return e.test(t)}function u(t){var e=/^[a-zA-Z0-9]{6,11}$/;return e.test(t)}function h(t){var e=/^\S{6,20}$/;return e.test(t)}function p(t){var e=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;return e.test(t)}function v(t){var e={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外"},n=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,a=0;if(n.test(t)===!1)return!1;if(t=t.replace(/x$/i,"a"),null==e[parseInt(t.substr(0,2))])return!1;sBirthday=t.substr(6,4)+"-"+Number(t.substr(10,2))+"-"+Number(t.substr(12,2));var i=new Date(sBirthday.replace(/-/g,"/"));if(sBirthday!=i.getFullYear()+"-"+(i.getMonth()+1)+"-"+i.getDate())return!1;for(var s=17;s>=0;s--)a+=Math.pow(2,s)%11*parseInt(t.charAt(17-s),11);return a%11!=1?!1:!0}function f(t){var e=/^\S{1,13}$/;return e.test(t)}function m(t){var e=function(t){App.UI("dialog",{type:"alert",title:"公众服务平台",msg:t})};return t.username&&(""===t.username.val()||t.username.parent().find(".tips").length)?(e("用户名错误!"),!1):t.pwdold&&(""===t.pwdold.val()||t.pwdold.parent().find(".tips").length)?(e("旧密码错误!"),!1):t.pwd1&&t.pwd2&&(""===t.pwd1.val()||""===t.pwd2.val()||t.pwd1.parent().find(".tips").length||t.pwd2.parent().find(".tips").length)?(e("密码错误!"),!1):t.pwdnew1&&t.pwdnew2&&(""===t.pwdnew1.val()||""===t.pwdnew2.val()||t.pwdnew1.parent().find(".tips").length||t.pwdnew2.parent().find(".tips").length)?(e("密码错误!"),!1):t.name&&(""===t.name.val()||t.name.parent().find(".tips").length)?(e("姓名填写错误!"),!1):t.phone&&(""===t.phone.val()||t.phone.parent().find(".tips").length)?(e("手机号码错误!"),!1):t.idnum&&(""===t.idnum.val()||t.idnum.parent().find(".tips").length)?(e("身份证号码错误!"),!1):t.clsbdh&&(""===t.clsbdh.val()||t.clsbdh.parent().find(".tips").length)?(e("车辆识别代号错误!"),!1):t.hphm&&(""===t.hphm.val()||t.hphm.parent().find(".tips").length)?(e("号牌号码错误!"),!1):t.dabh&&(""===t.dabh.val()||t.dabh.parent().find(".tips").length)?(e("档案编号错误!"),!1):t.email&&(""===t.email.val()||t.email.parent().find(".tips").length)?(e("邮箱格式错误!"),!1):t.closername&&(""===t.closername.val()||t.closername.parent().find(".tips").length)?(e("密切联系人姓名错误!"),!1):t.closerphone&&(""===t.closerphone.val()||t.closerphone.parent().find(".tips").length)?(e("密切联系人电话错误!"),!1):t.closeridcard&&(""===t.closeridcard.val()||t.closeridcard.parent().find(".tips").length)?(e("密切联系人身份证号错误!"),!1):t.movecarname&&(""===t.movecarname.val()||t.movecarname.parent().find(".tips").length)?(e("移车联系人姓名错误!"),!1):t.movecarphone&&(""===t.movecarphone.val()||t.movecarphone.parent().find(".tips").length)?(e("密切联系人电话号码错误!"),!1):t.sfzmhm&&(""===t.sfzmhm.val()||t.sfzmhm.parent().find(".tips").length)?(e("身份证明号码错误!"),!1):t.lsh&&(""===t.lsh.val()||t.lsh.parent().find(".tips").length)?(e("流水号错误!"),!1):t.sgkcjlh&&(""===t.sgkcjlh.val()||t.sgkcjlh.parent().find(".tips").length)?(e("记录号错误!"),!1):!0}var g={SetCookie:function(t,e,n){var a=arguments,i=arguments.length,n=i>2?a[2]:null,s=i>3?a[3]:null,o=i>4?a[4]:null,l=i>5?a[5]:!1;document.cookie=t+"="+escape(e)+(null==n?"":"; expires="+n.toGMTString())+(null==s?"":"; path="+s)+(null==o?"":"; domain="+o)+(1==l?"; secure":"")},GetCookie:function(t){for(var e=t+"=",n=e.length,a=document.cookie.length,i=0;a>i;){var s=i+n;if(document.cookie.substring(i,s)==e)return this.getCookieVal(s);if(i=document.cookie.indexOf(" ",i)+1,0==i)break}return null},getCookieVal:function(t){var e=document.cookie.indexOf(";",t);return-1==e&&(e=document.cookie.length),unescape(document.cookie.substring(t,e))},ResetCookie:function(){var t=document.getElementById("username").value,e=new Date;this.SetCookie(t,null,e)}},b={set:function(t,e){null!==this.get(t)&&this.remove(t),localStorage.setItem(t,e)},get:function(t){var e=localStorage.getItem(t);return void 0===e?null:e},remove:function(t){localStorage.removeItem(t)},clear:function(){localStorage.clear()},each:function(t){for(var e,n=localStorage.length,a=0,t=t||function(){};n>a&&(e=localStorage.key(a),t.call(this,e,this.get(e))!==!1);a++)localStorage.length<n&&(n--,a--)}};return{UI:t,getAjaxData:e,getHash:n,getPageId:a,addOnlineStatusListener:i,verify:m,Cookie:g,LS:b}}();
+/*
+ * js异常监控，语法、运行时错误
+ * */
+/*window.onerror = function(msg,url,line,col,error){
+ //没有URL不上报！上报也不知道错误
+ if (msg != "Script error." && !url){
+ return true;
+ }
+ //采用异步的方式
+ //我遇到过在window.onunload进行ajax的堵塞上报
+ //由于客户端强制关闭webview导致这次堵塞上报有Network Error
+ //我猜测这里window.onerror的执行流在关闭前是必然执行的
+ //而离开文章之后的上报对于业务来说是可丢失的
+ //所以我把这里的执行流放到异步事件去执行
+ //脚本的异常数降低了10倍
+ setTimeout(function(){
+ var data = {};
+ //不一定所有浏览器都支持col参数
+ col = col || (window.event && window.event.errorCharacter) || 0;
+
+ data.url = url;
+ data.line = line;
+ data.col = col;
+ if (!!error && !!error.stack){
+ //如果浏览器有堆栈信息
+ //直接使用
+ data.msg = error.stack.toString();
+ }else if (!!arguments.callee){
+ //尝试通过callee拿堆栈信息
+ var ext = [];
+ var f = arguments.callee.caller, c = 3;
+ //这里只拿三层堆栈信息
+ while (f && (--c>0)) {
+ ext.push(f.toString());
+ if (f  === f.caller) {
+ break;//如果有环
+ }
+ f = f.caller;
+ }
+ ext = ext.join(",");
+ data.msg = ext;
+ }
+ //把data上报到后台！
+
+ },0);
+
+ return true;
+ };*/
+var App = (function () {
+    function UI(name, opts, callback) {
+        var changePage = {
+            "curHeight"       : null,
+            "init"            : function () {
+                this.name = name;
+                opts.wrap && (this.wrap = opts.wrap);
+                this.currentpage = this.wrap.children().eq(0);
+                this.initDomFlag();
+                callback && (this.callback = callback);
+            },
+            "initDomFlag"     : function () {
+                var self = this;
+                var wrap = self.wrap;
+                var childrenList = wrap.children();
+                var l = childrenList.length;
+                wrap.css('position', 'relative');
+                self.setCurPageHeight();
+                childrenList.each(function (index) {
+                    var Index = index - 0;
+                    var left = Index * 100 + '%';
+                    $(this).attr('id', "page_" + Index);
+                    $(this).css({
+                        "position": 'absolute',
+                        "left"    : left,
+                        "top"     : 0
+                    });
+                });
+                childrenList.each(function (index) {
+                    var Index = index;
+                    var btns = $(this).find(".ui_btn[data-rel]");
+                    btns.each(function (index) {
+                        if ( $(this).attr("data-rel") === 'pre' ) {
+                            self.bindEvent($(this), Index, Index - 1);
+                        }
+                        if ( $(this).attr("data-rel") === 'next' ) {
+                            self.bindEvent($(this), Index, Index + 1);
+                        }
+                    });
+                });
+            },
+            "bindEvent"       : function (dom, currentpage, gopage) {
+                var self = this;
+                var btn = dom;
+                var cur_page = $('#page_' + currentpage);
+                var go_page = $('#page_' + gopage);
+                if ( currentpage > gopage ) {
+                    //点击后退
+                    btn.on('click', function () {
+                        console.log('go back');
+                        self.toggle(cur_page, go_page, "right");
+                    });
+                } else {
+                    //点击前进
+                    btn.on('click', function () {
+                        console.log('go ahead');
+                        self.toggle(cur_page, go_page, "left");
+                    });
+                }
+            },
+            "toggle"          : function (curpage, gopage, action) {
+                switch ( action ) {
+                    case 'left':
+                        curpage.animate({
+                            left     : '-100%',
+                            opacity  : '0',
+                            'z-index': '0'
+                        }, 200, 'ease-out');
+                        gopage.animate({
+                            left   : '0',
+                            opacity: '1'
+                        }, 200, 'ease-out');
+                        break;
+                    case 'right':
+                        curpage.animate({
+                            left     : '100%',
+                            opacity  : '0',
+                            'z-index': '0'
+                        }, 200, 'ease-out');
+                        gopage.animate({
+                            left   : '0',
+                            opacity: '1'
+                        }, 200, 'ease-out');
+                        break;
+                }
+                this.currentpage = gopage;
+                this.setCurPageHeight();
+            },
+            //android webview中软键盘弹出后父容器随最高子容器高度决定是否出现滚动条，如果当前显示容器高度小于最高子容器高度
+            // 而父容器又因为弹出键盘而随最高子容器高度出现滚动条，导致出现父容器overflowX属性失效 bug,表现为可左右拖动页面
+            //在父容器设置overflow:hidden前提下，通过切面切换时重置父容器高度为当前显示容器高度规避该bug
+            "setCurPageHeight": function () {
+                var _self = this;
+                _self.curHeight = _self.currentpage.height();
+                _self.currentpage.css('z-index', 1111);
+                _self.wrap.css({
+                    'height': _self.curHeight
+                })
+            }
+        };
+        var inputClose = {
+            "tipsMap"     : {
+                "card"   : '格式:3701XXXXXXXXXXXXXX',
+                "mail"   : '格式:name@domain.com',
+                "user"   : '用户名含6-11位的数字或字母',
+                "cnuser" : '姓名含1-20字',
+                "psd"    : '密码含6-20位',
+                "mobile" : '手机号码含11位数字',
+                "car"    : '格式:M1111',
+                "archive": '档案编号12位纯数字',
+                "car2"   : '车辆识别代号17位',
+                "lsh"    : '流水号1-13位',
+                "record" : '记录号12位字母或数字'
+            },
+            "init"        : function () {
+                this.doms = opts.doms;
+                this.render();
+                this.bindEvent();
+            },
+            "render"      : function () {
+                var self = this;
+                var inputWrap;
+                var isReadonly;
+                var closeHtml = '<a class="close">X</a>';
+                self.doms.each(function (index) {
+                    inputWrap = $(this).find('.item-input');
+                    isReadonly = inputWrap.find('input').prop('readonly');
+                    !isReadonly && inputWrap.append(closeHtml);
+                });
+            },
+            "bindEvent"   : function () {
+                var self = this;
+                var value;
+                var inputWrap;
+                //console.dir(self.doms);
+                self.doms.each(function (index) {
+                    inputWrap = $(this).find('.item-input');
+                    inputWrap.each(function (index) {
+                        var close;
+                        var input;
+                        var type;
+                        var result;
+                        var tipstxt;
+                        var value;
+                        input = $(this).find('input');
+                        close = $(this).find('a.close');
+                        close.on('click', function () {
+                            var curInput = $(this).parent().children('input');
+                            curInput.val('');
+                            curInput.focus();
+                            $(this).css('display', 'none');
+                        })
+                        input.on('focus', function (e) {
+                            //console.log('focus');
+                            close.css('display', 'block');
+                        })
+                        input.on('blur', function (e) {
+                            self.verify($(this), close);
+                        })
+                        input.on('input', function (e) {
+                            self.verify($(this), close);
+                        })
+                    })
+                });
+            },
+            "verify"      : function (target, closeDom) {
+                var self = this;
+                var result,
+                    value,
+                    tipstxt,
+                    type;
+                type = target.attr('data-type');
+                value = target.val();
+                if ( type ) {
+                    result = self.validationer(type, value);
+                    if ( !result ) { //没验证通过，弹出提示
+                        tipstxt = self.tipsMap[type];
+                        self.popTips(target, tipstxt);
+                    } else {//验证通过，原有提示，则移除
+                        self.removeTips(target);
+                    }
+                }
+                !value && closeDom.css('display', 'none');
+            },
+            "validationer": function (type, value) {
+                var result;
+                switch ( type ) {
+                    case "card":
+                        result = cidInfo(value);
+                        break;
+                    case "mail":
+                        result = isEmail(value);
+                        break;
+                    case "user":
+                        result = isENUser(value);
+                        break;
+                    case "cnuser":
+                        result = isCNUser(value);
+                        break;
+                    case "psd":
+                        result = ispsd(value);
+                        break;
+                    case "mobile":
+                        result = isMonbile(value);
+                        break;
+                    case "car":
+                        result = iscarid(value);
+                        break;
+                    case "archive":
+                        result = isArchiveid(value);
+                        break;
+                    case "car2":
+                        result = iscarid2(value);
+                        break;
+                    case "lsh":
+                        result = islsh(value);
+                        break;
+                    case "record":
+                        result = isrecord(value);
+                        break;
+                    default:
+                        console.log('这是一个彩蛋，买彩票去吧！');
+                }
+                return result;
+            },
+            "popTips"     : function (cur_input, txt) {
+                var self = this;
+                var wrap = cur_input.parent();
+                var tipshtml = '<b class="tips">' + txt + '</b>';
+                var tipsdom = wrap.find('.tips');
+                if ( tipsdom.length ) return;
+                wrap.append(tipshtml);
+            },
+            "removeTips"  : function (cur_input) {
+                var wrap = cur_input.parent();
+                var tipsdom = wrap.find('.tips');
+                tipsdom && tipsdom.remove();//有提示则移除
+            }
+        };
+        var buttonHover = {
+            "init"       : function () {
+                this.dom = opts.dom;
+                opts.hoverClassName && (this.hoverClassName = opts.hoverClassName);
+                this.off = opts.off || false;
+                !this.off && this.bindEvent();
+                this.off && this.removeEvent();
+            },
+            "bindEvent"  : function (e) {
+                var _self = this;
+                var _dom = _self.dom;
+                var _classname = _self.hoverClassName;
+                _dom.on('touchstart', function () {
+                    $(this).addClass(_classname);
+                });
+                _dom.on('touchend', function () {
+                    $(this).removeClass(_classname);
+                });
+            },
+            "removeEvent": function () {
+                var _self = this;
+                var _dom = _self.dom;
+                _dom.off('touchstart');
+                _dom.off('touchend');
+            }
+        };
+        var select = {
+            "init"      : function () {
+                this.dom = opts.dom;
+                this.url = opts.url;
+                this.dataType = opts.dataType || null;
+                this.params = opts.data;
+                this.module = opts.module || null;
+                this.callback = callback || null;
+                var _self = this;
+                getAjaxData(_self.url, _self.params, function (data) {
+                    _self.initSelect(data);
+                });
+            },
+            "initSelect": function (data) {
+                var _self = this;
+                var list;
+                var selectArr = [];
+                var selectStr;
+                var _module = _self.module;
+                data.msg && (list = data.msg);
+                data[_module + 'QueryResponse'] && (list = data[_module + 'QueryResponse'][_module + 'List']);
+                data[_module + 'Response'] && (list = data[_module + 'Response'][_module + 'List']);
+                if ( _self.dataType === 'Object' ) {
+                    for ( var j in list ) {
+                        selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
+                    }
+                }
+                /* 违法抓拍地点*/
+                else if ( _self.dataType === 'Wfddbh' ) {
+                    for ( var j in list ) {
+                        selectArr.push("<option value='" + list[j].ddbh + "'>" + list[j].ddmc + "</option>");
+                    }
+                }
+                if ( _module ) {
+                    if ( _module === 'car' ) {  //按车辆
+                        for ( var j in list ) {
+                            selectArr.push("<option data-type='" + list[j].carNumType + "' value='" + list[j].carid + "'>" + list[j].carid + "</option>");
+                        }
+                    }
+                    if ( _module === 'license' ) {
+                        for ( var j in list ) { //按驾照
+                            selectArr.push("<option value='" + list[j].licenseid + "'>" + list[j].licenseName + "</option>");
+                        }
+                    }
+                    if ( _module === 'carType' || _module === 'identityType' || _module === 'cgsCommon' ) {
+                        for ( var j in list ) { //车辆类型
+                            selectArr.push("<option value='" + list[j].key + "'>" + list[j].name + "</option>");
+                        }
+                    }
+                    if ( !list.length ) {
+                        selectArr.push("<option>未绑定</option>");
+                        selectStr = selectArr.join('');
+                        _self.dom.append(selectStr);
+                        _self.dom.attr('disabled', 'disabled');
+                        return;
+                    }
+                }
+                selectStr = selectArr.join('');
+                _self.dom.append(selectStr);
+                selectStr && _self.dom.mobiscroll().select({
+                    theme   : 'ios7',
+                    lang    : 'zh',
+                    display : 'bottom',
+                    mode    : 'scroller',
+                    minWidth: 200
+                });
+                _self.callback && _self.callback();
+            }
+        };
+        var tabToggle = {
+            "init"     : function () {
+                this.dom = opts.dom;
+                this.activeClass = opts.activeClass;
+                this.defaultClass = opts.defaultClass || null;
+                this.bindEvent();
+            },
+            "bindEvent": function (e) {
+                var _self = this;
+                var _activeClass = _self.activeClass;
+                var _defaultClass = _self.defaultClass;
+                var tabItem = _self.dom.children();
+                tabItem.each(function (index) {
+                    $(this).on('click', function (e) {
+                        var me = $(this);
+                        var dataFor = me.attr('data-for');
+                        var currentTabContent = $('#' + dataFor);
+                        if ( me.hasClass(_activeClass) ) {
+                            _defaultClass && me.removeClass(_defaultClass);
+                        }
+                        me.addClass(_activeClass);
+                        currentTabContent.show();
+                        tabItem.each(function (index) {
+                            var me = $(this);
+                            if ( me.attr('data-for') !== dataFor ) {
+                                me.removeClass(_activeClass);
+                                _defaultClass && me.addClass(_defaultClass);
+                                $('#' + me.attr('data-for')).hide();
+                            }
+                        });
+                    });
+                });
+            }
+        };
+        var toggleSelectBlock = {
+            "curBlock"   : null,
+            "init"       : function () {
+                this.dom = opts.dom;
+                this.bindEvent();
+            },
+            "bindEvent"  : function () {
+                var _self = this;
+                var _val = _self.dom.val();
+                _self.dom.on('change', function (e) {
+                    var selcetVal = $(this).val();
+                    _self.toggleBlock(selcetVal);
+                });
+                _val && _self.toggleBlock(_val);
+            },
+            "toggleBlock": function (targetid) {
+                if ( !targetid ) return;
+                var _self = this;
+                var _targetBlock = $('#' + targetid);
+                if ( this.curBlock && (this.curBlock.selector === _targetBlock.selector) ) return;
+                this.curBlock && this.curBlock.hide('linear');
+                _targetBlock.show('linear');
+                this.curBlock = _targetBlock;
+            }
+        };
+        var btnHighlightWithInput = {
+            "oldVal"            : '',
+            "newVal"            : '',
+            "init"              : function () {
+                this.btn = opts.btn;
+                this.listener = opts.listener || null;
+                this.listenerArg = opts.listenerArg || null;
+                this.inputs = opts.inputs;
+                this.disableClass = opts.disableClass;
+                this.hoverClass = opts.hoverClass;
+                this.callback = callback;
+                this.disableBtn();
+                this.bindEvent();
+            },
+            "bindEvent"         : function () {
+                var self = this;
+                var value;
+                var _curInput;
+                var _curInputVal;
+                //console.dir(self.doms);
+                self.inputs.each(function (index) {
+                    _curInput = $(this);
+                    _curInputVal = _curInput.val();
+                    _curInput.on('focus', function () {
+                        self.oldVal = $(this).val();
+                        //self.newVal = self.oldVal;
+                        self.toggleBtnHighlight();
+                        self.newVal = '';
+                    });
+                    _curInput.on('blur', function () {
+                        self.newVal = $(this).val();
+                        self.toggleBtnHighlight();
+                        self.oldVal = self.newVal;
+                    });
+                    if ( _curInput.attr('type') === 'checkbox' ) {
+                        self.oldVal = '';
+                        _curInput.on('change', function () {
+                            $(this).prop('checked') ? self.newVal = 'checked' : self.newVal = '';
+                            self.toggleBtnHighlight();
+                        })
+                    }
+                    /*_curInput.on('input', function () {
+                     self.toggleBtnHighlight();
+                     })*/// input 值长度为1时，有bug
+                });
+            },
+            "toggleBtnHighlight": function () {
+                var self = this;
+                var btnStauts = self.getBtnStatus();
+                var toActive = self.getInputsStatus();
+                var hasChangeVal = self.hasChangeVal(self.oldVal, self.newVal);
+                if ( toActive && hasChangeVal ) {//按钮需可用
+                    self.newVal = '';
+                    if ( btnStauts === 'active' ) { //本来就可以用，则返回
+                        return;
+                    } else { //本来不可用，则点亮并绑定事件
+                        self.enableBtn();
+                    }
+                } else {//按钮需不可用
+                    self.newVal = '';
+                    if ( btnStauts === '' ) { //本来不可用，则返回
+                        return;
+                    } else { //本来可用，则转为不可用并绑定事件
+                        self.disableBtn();
+                    }
+                }
+            },
+            "enableBtn"         : function () {
+                var self = this;
+                var _btn = self.btn;
+                var _listener = self.listener;
+                var _listenerArg = self.listenerArg;
+                var _disableClass = self.disableClass;
+                var _hoverClass = self.hoverClass;
+                var _callback = self.callback;
+                _btn.removeClass(_disableClass);
+                _btn.attr('data-status', 'active');
+                App.UI('buttonHover', {//添加按钮点击效果
+                    "dom"           : _btn,
+                    "hoverClassName": _hoverClass
+                });
+                _listener && _btn.on('click', function () {
+                    _listenerArg ? _listener(_listenerArg) : _listener();
+                });//注册事件
+                _callback && _callback(_btn);//回调函数中添加其他绑定事件
+            },
+            "disableBtn"        : function () {
+                var self = this;
+                var _btn = self.btn;
+                var _disableClass = self.disableClass;
+                var _hoverClass = self.hoverClass;
+                _btn.addClass(_disableClass);
+                _btn.attr('data-status', '');
+                App.UI('buttonHover', {//移除按钮点击效果
+                    "dom"           : _btn,
+                    "hoverClassName": _hoverClass,
+                    "off"           : true
+                });
+                _btn.off('click'); //移除事件
+            },
+            "getBtnStatus"      : function () {
+                return this.btn.attr('data-status');
+            },
+            "getInputsStatus"   : function () {
+                var self = this;
+                var _inputs = self.inputs;
+                var result = false;
+                var l;
+                var curVal;
+                _inputs.each(function (index) {
+                    var $this = $(this);
+                    l = $this.parent().find('.tips').length;
+                    curVal = $this.val();
+                    if ( curVal && !l ) {
+                        if ( $this.attr('type') === 'checkbox' ) {
+                            if ( $this.prop('checked') ) {
+                                result = true;
+                            } else {
+                                result = false;
+                            }
+                        } else {
+                            result = true;
+                        }
+                    } else {
+                        result = false;
+                    }
+                })
+                return result;
+            },
+            "hasChangeVal"      : function (oldval, newval) {
+                return !(oldval === newval);
+            }
+        };
+        var dialog = {
+            "current"  : null,
+            "init"     : function () {
+                this.type = opts.type || null;
+                this.title = opts.title || null;
+                this.msg = opts.msg || '';
+                this.OkTxt = opts.OkTxt || '确定';
+                this.CancelTxt = opts.CancelTxt || '取消';
+                this.callback = callback || null;
+                this.show();
+                this.bindEvent();
+                return this;
+            },
+            "show"     : function () {
+                var _self = this;
+                var _html = $(_self.getHtml());
+                $('body').append(_html);
+                setTimeout(function () {
+                    _html.addClass('modal-in');
+                }, 10);
+                this.current = _html;
+            },
+            "bindEvent": function () {
+                var _self = this;
+                var _current = _self.current;
+                var _btn = _current.find('.modal-button');
+                var _pwdval;
+                if ( !_btn.length ) return;
+                _btn.on('click', function (e) {
+                    var $this = $(this);
+                    var _action = $this.data('action');
+                    if ( _action === 'OK' ) {
+                        if ( _self.type === 'password' ) {
+                            _pwdval = $this.parents('.modal').find('input').val();
+                            if ( _pwdval === undefined || _pwdval==='') {
+                                _self.current.addClass('shake');
+                                setTimeout(function () {
+                                    _self.current.removeClass('shake');
+                                }, 1000)
+                            } else {
+                                _self.callback('OK', _pwdval);
+                                _self.remove();
+                            }
+                        } else {
+                            _self.callback && _self.callback('OK');
+                            _self.remove();
+                        }
+                    } else if ( _action === 'CANCEL' ) {
+                        _self.callback && _self.callback('CANCEL');
+                        _self.remove();
+                    }
+                    return true;
+                })
+            },
+            "remove"   : function () {
+                var _self = this;
+                _self.current.removeClass('modal-in').addClass('modal-out');
+                _self.current.remove();
+            },
+            "getHtml"  : function () {
+                var _self = this;
+                var _type = _self.type;
+                var _title = _self.title;
+                var _msg = _self.msg;
+                var _OkTxt = _self.OkTxt;
+                var _CancelTxt = _self.CancelTxt;
+                var result;
+                switch ( _type ) {
+                    case 'alert':
+                        result = [
+                            '<div class="modal">',
+                            '    <div class="modal-inner">',
+                            '        <div class="modal-title">' + _title + '</div>',
+                            '        <div class="modal-text">' + _msg + '</div>',
+                            '    </div>',
+                            '    <div class="modal-buttons ">' +
+                            '        <span class="modal-button modal-button-bold" data-action="OK">确定</span>' +
+                            '    </div>',
+                            '</div>',
+                            '<div class="ui-layer ui-layer-01"></div>'].join("");
+                        break;
+                    case 'confirm':
+                        result = [
+                            '<div class="modal">',
+                            '    <div class="modal-inner">',
+                            '        <div class="modal-title">' + _title + '</div>',
+                            '        <div class="modal-text">' + _msg + '</div>',
+                            '    </div>',
+                            '    <div class="modal-buttons ">',
+                            '        <span class="modal-button modal-button-bold" data-action="CANCEL">' + _CancelTxt + '</span>',
+                            '        <span class="modal-button modal-button-bold" data-action="OK">' + _OkTxt + '</span>',
+                            '    </div>',
+                            '</div>',
+                            '<div class="ui-layer ui-layer-01"></div>'].join("");
+                        break;
+                    case 'password':
+                        result = [
+                            '<div class="modal animated">',
+                            '    <div class="modal-inner">',
+                            '        <div class="modal-title">' + _title + '</div>',
+                            '        <div class="modal-text">' + _msg + '</div>',
+                            '        <input type="password" name="modal-password" placeholder="密码" class="modal-text-input">' +
+                            '    </div>',
+                            '    <div class="modal-buttons ">',
+                            '        <span class="modal-button modal-button-bold" data-action="CANCEL">' + _CancelTxt + '</span>',
+                            '        <span class="modal-button modal-button-bold" data-action="OK">' + _OkTxt + '</span>',
+                            '    </div>',
+                            '</div>',
+                            '<div class="ui-layer ui-layer-01"></div>'].join("");
+                        break;
+                    default :
+                        result = [
+                            '<div class="ui-loading">',
+                            '    <div class="ico-loading"></div>',
+                            '    <b class="msg">' + _msg + '</b>',
+                            '</div>',
+                            '<div class="ui-layer"></div>'].join("");
+
+                }
+                return result;
+            },
+            "resetMsg" : function (text) {
+                var _self = this;
+                text && (_self.msg = text);
+                _self.remove();
+                _self.show();
+                return this;
+            }
+        };
+        var moduleNameMap = {
+            "changePage"           : changePage,
+            "inputClose"           : inputClose,
+            "buttonHover"          : buttonHover,
+            "tabToggle"            : tabToggle,
+            "select"               : select,
+            "toggleSelectBlock"    : toggleSelectBlock,
+            "btnHighlightWithInput": btnHighlightWithInput,
+            "dialog"               : dialog
+        };
+        return name && moduleNameMap[name].init();
+    }
+
+    /*
+     * 操作cookie
+     * */
+    var Cookie = {
+        "SetCookie"   : function (name, value, expires) {
+            var argv = arguments;
+            var argc = arguments.length;
+            var expires = (argc > 2) ? argv[2] : null;
+            var path = (argc > 3) ? argv[3] : null;
+            var domain = (argc > 4) ? argv[4] : null;
+            var secure = (argc > 5) ? argv[5] : false;
+            document.cookie = name + "=" + escape(value) + ((expires == null) ?
+                "" : ("; expires=" + expires.toGMTString())) + ((path == null) ?
+                "" : ("; path=" + path)) + ((domain == null) ?
+                "" : ("; domain=" + domain)) + ((secure == true) ?
+                "; secure" : "");
+        },
+        "GetCookie"   : function (name) {
+            var arg = name + "=";
+            var alen = arg.length;
+            var clen = document.cookie.length;
+            var i = 0;
+            while ( i < clen ) {
+                var j = i + alen;
+                //alert(j);
+                if ( document.cookie.substring(i, j) == arg ) return this.getCookieVal(j);
+                i = document.cookie.indexOf(" ", i) + 1;
+                if ( i == 0 ) break;
+            }
+            return null;
+        },
+        "getCookieVal": function (offset) {
+            var endstr = document.cookie.indexOf(";", offset);
+            if ( endstr == -1 ) endstr = document.cookie.length;
+            return unescape(document.cookie.substring(offset, endstr));
+        },
+        "ResetCookie" : function () {
+            var usr = document.getElementById('username').value;
+            var expdate = new Date();
+            this.SetCookie(usr, null, expdate);
+        }
+    };
+    /*
+     *   localStorage 封装
+     * */
+    var LS = {
+        set   : function (key, value) {
+            //在iPhone/iPad上有时设置setItem()时会出现诡异的QUOTA_EXCEEDED_ERR错误
+            //这时一般在setItem之前，先removeItem()就ok了
+            if ( this.get(key) !== null )
+                this.remove(key);
+            localStorage.setItem(key, value);
+        },
+        //查询不存在的key时，有的浏览器返回undefined，这里统一返回null
+        get   : function (key) {
+            var v = localStorage.getItem(key);
+            return v === undefined ? null : v;
+        },
+        remove: function (key) {
+            localStorage.removeItem(key);
+        },
+        clear : function () {
+            localStorage.clear();
+        },
+        each  : function (fn) {
+            var n = localStorage.length, i = 0, fn = fn || function () {
+                }, key;
+            for ( ; i < n; i++ ) {
+                key = localStorage.key(i);
+                if ( fn.call(this, key, this.get(key)) === false )
+                    break;
+                //如果内容被删除，则总长度和索引都同步减少
+                if ( localStorage.length < n ) {
+                    n--;
+                    i--;
+                }
+            }
+        }
+    };
+    //ajax 请求封装
+    function getAjaxData(url, params, callback, type) {
+        var _params = { //通用请求
+            type    : type || 'GET',
+            url     : url,
+            data    : params,
+            dataType: 'json'
+        };
+        $.ajax(_params).done(function (data) {
+            if ( data ) {//验证返回数据
+                callback && callback(data);
+            }
+        }).fail(function (data) {
+            //Wisp.UI.progressDialog.remove();
+            callback && callback('error');
+        });
+    }
+
+    //hash
+    function getHash(str) {
+        var oHash = {},
+            aHash = [],
+            aItem,
+            str_sub,
+            l;
+        str_sub = str.substring(1, str.length);
+        aHash = str_sub.split('@');
+        //aHash = str.substring(1, str.length).split('@');
+        l = aHash.length;
+        if ( l ) {
+            for ( var i = 0; i < l; i++ ) {
+                aItem = aHash[i].split('=');
+                oHash[aItem[0]] = $.trim(aItem[1]);
+            }
+        } else {
+            aItem = str_sub.split('=');
+            oHash[aItem[0]] = $.trim(aItem[1]);
+        }
+        return oHash;
+    }
+
+    //get pageid  return pageid
+    function getPageId(url) {
+        //http://.../violation.jsp&@@webViewPageId=141993237706568@@
+        var skey, v, a = [];
+        skey = url.split('@@');
+        if ( skey.length > 1 ) {
+            a = skey[1].split('=');
+            if ( a[0] === 'webViewPageId' ) {
+                v = a[1];
+            } else {
+                console.log('pageid is not find!');
+                return false;
+            }
+        } else {
+            return false;
+        }
+        return v;
+    }
+
+    //网络状态检测
+    function isOnline() {
+        if ( navigator.onLine ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //网络状态改变监听
+    function addOnlineStatusListener(pageId) {
+        window.addEventListener("offline", function (e) {
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : '您当前处于离线状态，请检查网络连接！'
+            });
+        }, true);
+        window.addEventListener("online", function (e) {
+            history.go(0);
+        }, true);
+        if ( !navigator.onLine ) {
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : '您当前处于离线状态，请检查网络连接！'
+            });
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //事故快处记录号检测
+    function isrecord(str) {
+        var reg = /^[a-zA-Z0-9]{12}$/;
+        return reg.test(str);
+    }
+
+    //车辆识别代号号检测
+    function iscarid2(str) {
+        var reg = /^[a-zA-Z0-9]{17}$/;
+        return reg.test(str);
+    }
+
+    //档案号检测
+    function isArchiveid(str) {
+        var reg = /^\d{12}$/;
+        return reg.test(str);
+    }
+
+    //号牌号码
+    function iscarid(str) {
+        var reg = /^[a-zA-Z0-9]{5}$/;
+        return reg.test(str);
+    }
+
+    //手机号
+    function isMonbile(str) {
+        var reg = /^(13[0-9]|15[0|2|3|5|6|7|8|9]|18[0|5|6|8|9]|177)\d{8}$/;
+        return reg.test(str);
+    }
+
+    //中文名
+    function isCNUser(str) {
+        var reg = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z0-9]){1,20}$/;
+        return reg.test(str);
+    }
+
+    //英文名字母、数字
+    function isENUser(str) {
+        var reg = /^[a-zA-Z0-9]{6,11}$/;
+        return reg.test(str);
+    }
+
+    //密码
+    function ispsd(str) {
+        var reg = /^\S{6,20}$/;
+        return reg.test(str);
+    }
+
+    //邮箱
+    function isEmail(str) {
+        var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        return reg.test(str);
+    }
+
+    //身份证检测
+    function cidInfo(sId) {
+        var aCity = {
+            11: "北京",
+            12: "天津",
+            13: "河北",
+            14: "山西",
+            15: "内蒙古",
+            21: "辽宁",
+            22: "吉林",
+            23: "黑龙江",
+            31: "上海",
+            32: "江苏",
+            33: "浙江",
+            34: "安徽",
+            35: "福建",
+            36: "江西",
+            37: "山东",
+            41: "河南",
+            42: "湖北",
+            43: "湖南",
+            44: "广东",
+            45: "广西",
+            46: "海南",
+            50: "重庆",
+            51: "四川",
+            52: "贵州",
+            53: "云南",
+            54: "西藏",
+            61: "陕西",
+            62: "甘肃",
+            63: "青海",
+            64: "宁夏",
+            65: "新疆",
+            71: "台湾",
+            81: "香港",
+            82: "澳门",
+            91: "国外"
+        };
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        var iSum = 0;
+        if ( reg.test(sId) === false )return false;
+        sId = sId.replace(/x$/i, "a");
+        if ( aCity[parseInt(sId.substr(0, 2))] == null )return false;
+        sBirthday = sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2));
+        var d = new Date(sBirthday.replace(/-/g, "/"));
+        if ( sBirthday != (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()) )return false;
+        for ( var i = 17; i >= 0; i-- )iSum += (Math.pow(2, i) % 11) * parseInt(sId.charAt(17 - i), 11);
+        if ( iSum % 11 != 1 )return false;
+        return true;
+    }
+
+    //流水号
+    function islsh(str) {
+        var reg = /^\S{1,13}$/;
+        return reg.test(str);
+    }
+
+    //验证必填项
+    /*var opts = {
+     "username": $('#setusername'),//用户名
+     "pwd1"    : $('#setpwd_01'),//密码1
+     "pwd2"    : $('#setpwd_02'),//密码2
+     "name"    : $('#setname'),//姓名
+     "phone"   : $('#setphone'),//手机
+     "idnum"   : $('#setidnum')//身份证
+     };*/
+    function verify(opts) {
+        var tipsmsg = function (msg) {
+            App.UI('dialog', {
+                type : 'alert',
+                title: '公众服务平台',
+                msg  : msg
+            });
+        };
+        if ( opts.username && (opts.username.val() === '' || opts.username.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的用户名）');
+            tipsmsg('用户名错误!');
+            return false;
+        }
+        if ( opts.pwdold && (opts.pwdold.val() === '' || opts.pwdold.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的旧密码）');
+            tipsmsg('旧密码错误!');
+            return false;
+        }
+        if ( opts.pwd1
+            && opts.pwd2
+            && (opts.pwd1.val() === ''
+            || opts.pwd2.val() === ''
+            || opts.pwd1.parent().find('.tips').length
+            || opts.pwd2.parent().find('.tips').length ) ) {
+            //alert('提交失败！（请检查您的密码）');
+            tipsmsg('密码错误!');
+            return false;
+        }
+        if ( opts.pwdnew1
+            && opts.pwdnew2
+            && (opts.pwdnew1.val() === ''
+            || opts.pwdnew2.val() === ''
+            || opts.pwdnew1.parent().find('.tips').length
+            || opts.pwdnew2.parent().find('.tips').length ) ) {
+            //alert('提交失败！（请检查您的密码）');
+            tipsmsg('密码错误!');
+            return false;
+        }
+        if ( opts.name && (opts.name.val() === '' || opts.name.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的姓名）');
+            tipsmsg('姓名填写错误!');
+            return false;
+        }
+        if ( opts.phone && (opts.phone.val() === '' || opts.phone.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的手机号码）');
+            tipsmsg('手机号码错误!');
+            return false;
+        }
+        if ( opts.idnum && (opts.idnum.val() === '' || opts.idnum.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的身份证号）');
+            tipsmsg('身份证号码错误!');
+            return false;
+        }
+        if ( opts.clsbdh && (opts.clsbdh.val() === '' || opts.clsbdh.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的车辆识别代号）');
+            tipsmsg('车辆识别代号错误!');
+            return false;
+        }
+        if ( opts.hphm && (opts.hphm.val() === '' || opts.hphm.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的号牌号码）');
+            tipsmsg('号牌号码错误!');
+            return false;
+        }
+        if ( opts.dabh && (opts.dabh.val() === '' || opts.dabh.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的档案编号）');
+            tipsmsg('档案编号错误!');
+            return false;
+        }
+        if ( opts.email && (opts.email.val() === '' || opts.email.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的邮箱）');
+            tipsmsg('邮箱格式错误!');
+            return false;
+        }
+        if ( opts.closername && (opts.closername.val() === '' || opts.closername.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的密切联系人姓名）');
+            tipsmsg('密切联系人姓名错误!');
+            return false;
+        }
+        if ( opts.closerphone && (opts.closerphone.val() === '' || opts.closerphone.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的密切联系人电话）');
+            tipsmsg('密切联系人电话错误!');
+            return false;
+        }
+        if ( opts.closeridcard && (opts.closeridcard.val() === '' || opts.closeridcard.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的密切联系人身份证号）');
+            tipsmsg('密切联系人身份证号错误!');
+            return false;
+        }
+        if ( opts.movecarname && (opts.movecarname.val() === '' || opts.movecarname.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的移车联系人姓名）');
+            tipsmsg('移车联系人姓名错误!');
+            return false;
+        }
+        if ( opts.movecarphone && (opts.movecarphone.val() === '' || opts.movecarphone.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的移车联系人电话）');
+            tipsmsg('密切联系人电话号码错误!');
+            return false;
+        }
+        if ( opts.sfzmhm && (opts.sfzmhm.val() === '' || opts.sfzmhm.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的身份证明号码）');
+            tipsmsg('身份证明号码错误!');
+            return false;
+        }
+        if ( opts.lsh && (opts.lsh.val() === '' || opts.lsh.parent().find('.tips').length) ) {
+            //alert('提交失败！（请检查您的流水号）');
+            tipsmsg('流水号错误!');
+            return false;
+        }
+        if ( opts.sgkcjlh && (opts.sgkcjlh.val() === '' || opts.sgkcjlh.parent().find('.tips').length) ) {
+            tipsmsg('记录号错误!');
+            return false;
+        }
+        return true;
+    }
+
+    return {
+        "UI"                     : UI,
+        "getAjaxData"            : getAjaxData,
+        "getHash"                : getHash,
+        "getPageId"              : getPageId,
+        "addOnlineStatusListener": addOnlineStatusListener,
+        "verify"                 : verify,
+        "Cookie"                 : Cookie,
+        "LS"                     : LS   //本地存储
+    };
+})();
