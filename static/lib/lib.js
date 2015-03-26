@@ -1409,6 +1409,7 @@ var App = (function () {
                 var _current = _self.current;
                 var _btn = _current.find('.modal-button');
                 var _pwdval;
+                _self.current.find('input')[0].focus();
                 if ( !_btn.length ) return;
                 _btn.on('click', function (e) {
                     var $this = $(this);
