@@ -612,8 +612,8 @@ var App = (function () {
                                     _self.current.removeClass('shake');
                                 }, 1000)
                             } else {
-                                _self.callback('OK', _pwdval);
                                 _self.remove();
+                                _self.callback('OK', _pwdval);
                             }
                         } else {
                             _self.callback && _self.callback('OK');
