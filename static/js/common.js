@@ -608,6 +608,7 @@ var App = (function () {
                         if ( _self.type === 'password' ) {
                             _pwdval = $this.parents('.modal').find('input').val();
                             if ( _pwdval === undefined || _pwdval==='') {
+                                _self.current.find('input')[0].focus();
                                 _self.current.addClass('shake');
                                 setTimeout(function () {
                                     _self.current.removeClass('shake');
