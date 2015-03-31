@@ -9,6 +9,28 @@
             "ico": ""
           },
           "data": [
+	   {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_violation_hover.png",
+              "disableImg": "",
+              "enable": "false",
+              "name": "车辆信息",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/carlist.html?@@webViewPageId=142606040431343@@"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_accident_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_accident_hover.png",
+              "disableImg": "",
+              "enable": "true",
+              "name": "驾照信息",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/cardlist.html?@@webViewPageId=142606040431343@@"
+            },
             {
               "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
@@ -52,6 +74,39 @@
               "iconpos": "top",
               "clickEvent": "",
               "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
+            },
+	    {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcar_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcar_hover.png",
+              "disableImg": "config/html/images/wispui/clbd_dis.png",
+              "enable": "false",
+              "name": "违法处理",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/bindcar.html?@@webViewPageId=142606040431343@@"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "false",
+              "name": "违法缴费",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
+            },
+	     {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "true",
+              "name": "知识库",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do?id=3&action=knowledge"
             }
           ]
         },
@@ -137,6 +192,28 @@
                   "ico": ""
                 },
                 "data": [
+		 {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_violation_hover.png",
+              "disableImg": "",
+              "enable": "false",
+              "name": "车辆信息",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/carlist.html?@@webViewPageId=142606040431343@@"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_accident_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_accident_hover.png",
+              "disableImg": "",
+              "enable": "true",
+              "name": "驾照信息",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/cardlist.html?@@webViewPageId=142606040431343@@"
+            },
                   {
                     "btnType": "icobtn",
                     "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
@@ -180,7 +257,40 @@
                     "iconpos": "top",
                     "clickEvent": "",
                     "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
-                  }
+                  },
+		  {
+		"btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcar_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcar_hover.png",
+              "disableImg": "config/html/images/wispui/clbd_dis.png",
+              "enable": "false",
+              "name": "违法处理",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/bindcar.html?@@webViewPageId=142606040431343@@"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "false",
+              "name": "违法缴费",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
+            },
+	     {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "true",
+              "name": "知识库",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do?id=3&action=knowledge"
+            }
                 ]
               },
               {
