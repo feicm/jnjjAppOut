@@ -95,7 +95,7 @@
               "name": "违法缴费",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
+              "url": "config/html/pay4num.html?@@webViewPageId=142606040431343@@#mode=query_punish"
             },
 	     {
               "btnType": "icobtn",
@@ -278,7 +278,7 @@
               "name": "违法缴费",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/bindcard.html?@@webViewPageId=142606040431343@@"
+              "url": "config/html/pay4num.html?@@webViewPageId=142606040431343@@#mode=query_punish"
             },
 	     {
               "btnType": "icobtn",
