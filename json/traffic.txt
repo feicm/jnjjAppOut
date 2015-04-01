@@ -267,7 +267,7 @@
               "name": "违法处理",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/violation.html?@@webViewPageId=142606040431343@@"
+              "url": "config/html/violationHandle.html?@@webViewPageId=142606040431343@@"
             },
             {
               "btnType": "icobtn",
