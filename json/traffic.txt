@@ -11,8 +11,8 @@
           "data": [
 	   {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_violation_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_carmsg_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_carmsg_hover.png",
               "disableImg": "",
               "enable": "false",
               "name": "车辆信息",
@@ -22,8 +22,8 @@
             },
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_accident_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_accident_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_cardmsg_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_cardmsg_hover.png",
               "disableImg": "",
               "enable": "false",
               "name": "驾照信息",
@@ -77,8 +77,8 @@
             },
 	    {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcar_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcar_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalprocess_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalprocess_hover.png",
               "disableImg": "config/html/images/wispui/clbd_dis.png",
               "enable": "false",
               "name": "违法处理",
@@ -88,8 +88,8 @@
             },
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalpay_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalpay_hover.png",
               "disableImg": "config/html/images/wispui/jzbd_dis.png",
               "enable": "false",
               "name": "违法缴费",
@@ -99,8 +99,8 @@
             },
 	     {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_knowledgebase_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_knowledgebase_hover.png",
               "disableImg": "config/html/images/wispui/jzbd_dis.png",
               "enable": "true",
               "name": "知识库",
@@ -194,8 +194,8 @@
                 "data": [
 		 {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_violation_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_violation_hover.png",
+	      "beforeImg": "config/html/images/wispui/traffic/t_carmsg_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_carmsg_hover.png",
               "disableImg": "",
               "enable": "true",
               "name": "车辆信息",
@@ -205,8 +205,8 @@
             },
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_accident_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_accident_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_cardmsg_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_cardmsg_hover.png",
               "disableImg": "",
               "enable": "true",
               "name": "驾照信息",
@@ -260,8 +260,8 @@
                   },
 		  {
 		"btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcar_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcar_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalprocess_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalprocess_hover.png",
               "disableImg": "config/html/images/wispui/clbd_dis.png",
               "enable": "true",
               "name": "违法处理",
@@ -271,8 +271,8 @@
             },
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalpay_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalpay_hover.png",
               "disableImg": "config/html/images/wispui/jzbd_dis.png",
               "enable": "true",
               "name": "违法缴费",
@@ -282,8 +282,8 @@
             },
 	     {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_bindcard_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_bindcard_hover.png",
+              "beforeImg": "config/html/images/wispui/traffic/t_knowledgebase_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_knowledgebase_hover.png",
               "disableImg": "config/html/images/wispui/jzbd_dis.png",
               "enable": "true",
               "name": "知识库",
