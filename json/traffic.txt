@@ -91,7 +91,7 @@
               "beforeImg": "config/html/images/wispui/traffic/t_illegalpay_normal.png",
               "afterImg": "config/html/images/wispui/traffic/t_illegalpay_hover.png",
               "disableImg": "config/html/images/wispui/jzbd_dis.png",
-              "enable": "false",
+              "enable": "true",
               "name": "违法缴费",
               "iconpos": "top",
               "clickEvent": "",
