@@ -129,17 +129,6 @@
           "data": [
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_inspec_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_inspec_hover.png",
-              "disableImg": "config/html/images/wispui/njyy_dis.png",
-              "enable": "false",
-              "name": "年检预约",
-              "iconpos": "top",
-              "clickEvent": "",
-              "url": "config/html/inspectionAppointment.html?@@webViewPageId=142606040431343@@"
-            },
-            {
-              "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/traffic/t_examquery_normal.png",
               "afterImg": "config/html/images/wispui/traffic/t_examquery_hover.png",
               "disableImg": "",
@@ -151,17 +140,6 @@
             },
             {
               "btnType": "icobtn",
-              "beforeImg": "config/html/images/wispui/traffic/t_inspecquery_normal.png",
-              "afterImg": "config/html/images/wispui/traffic/t_inspecquery_hover.png",
-              "disableImg": "",
-              "enable": "false",
-              "name": "年检预约查询",
-              "iconpos": "top",
-              "clickEvent": "",
-              "url": "config/html/inspectionquery.html?@@webViewPageId=142606040431343@@#mode=query_njyy"
-            },
-            {
-              "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/traffic/t_examresult_normal.png",
               "afterImg": "config/html/images/wispui/traffic/t_examresult_hover.png",
               "disableImg": "",
@@ -170,15 +148,7 @@
               "iconpos": "top",
               "clickEvent": "",
               "url": "config/html/examquery.html?@@webViewPageId=142606040431343@@#mode=query_kscj"
-            }
-          ]
-        },
-        {
-          "divider": {
-            "title": "周边服务",
-            "ico": ""
-          },
-          "data": [
+            },
             {
               "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/traffic/t_position_normal.png",
@@ -323,17 +293,6 @@
                 "data": [
                   {
                     "btnType": "icobtn",
-                    "beforeImg": "config/html/images/wispui/traffic/t_inspec_normal.png",
-                    "afterImg": "config/html/images/wispui/traffic/t_inspec_hover.png",
-                    "disableImg": "config/html/images/wispui/njyy_dis.png",
-                    "enable": "true",
-                    "name": "年检预约",
-                    "iconpos": "top",
-                    "clickEvent": "",
-                    "url": "config/html/inspectionAppointment.html?@@webViewPageId=142606040431343@@"
-                  },
-                  {
-                    "btnType": "icobtn",
                     "beforeImg": "config/html/images/wispui/traffic/t_examquery_normal.png",
                     "afterImg": "config/html/images/wispui/traffic/t_examquery_hover.png",
                     "disableImg": "",
@@ -345,17 +304,6 @@
                   },
                   {
                     "btnType": "icobtn",
-                    "beforeImg": "config/html/images/wispui/traffic/t_inspecquery_normal.png",
-                    "afterImg": "config/html/images/wispui/traffic/t_inspecquery_hover.png",
-                    "disableImg": "",
-                    "enable": "true",
-                    "name": "年检预约查询",
-                    "iconpos": "top",
-                    "clickEvent": "",
-                    "url": "config/html/inspectionquery.html?@@webViewPageId=142606040431343@@#mode=query_njyy"
-                  },
-                  {
-                    "btnType": "icobtn",
                     "beforeImg": "config/html/images/wispui/traffic/t_examresult_normal.png",
                     "afterImg": "config/html/images/wispui/traffic/t_examresult_hover.png",
                     "disableImg": "",
@@ -364,15 +312,7 @@
                     "iconpos": "top",
                     "clickEvent": "",
                     "url": "config/html/examquery.html?@@webViewPageId=142606040431343@@#mode=query_kscj"
-                  }
-                ]
-              },
-              {
-                "divider": {
-                  "title": "周边服务",
-                  "ico": ""
-                },
-                "data": [
+                  },
                   {
                     "btnType": "icobtn",
                     "beforeImg": "config/html/images/wispui/traffic/t_position_normal.png",
