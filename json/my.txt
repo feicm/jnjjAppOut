@@ -148,7 +148,7 @@
               "name": "意见建议",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/feedback.html"
+              "url": "config/html/feedback.html#isLogin=true"
             }
           ]
         }
