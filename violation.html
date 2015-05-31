@@ -15,7 +15,7 @@
 <div class='c' id="tab-item-01" data-mode="violation">
     <div class="print pt18">
         <input type="checkbox" id="nodo01" name="jkbj">
-        <label for="nodo01">未缴款</label>
+        <label class="dbn" for="nodo01">未缴款</label>
     </div>
     <div class="list-block">
         <ul id="violation_car">
@@ -23,9 +23,9 @@
     </div>
 </div>
 <div style="display: none" class='c' data-mode="violation_card" id="tab-item-02">
-    <div class="print pt18">
+    <div class="print pt18" >
         <input type="checkbox" id="nodo02" name="jkbj">
-        <label for="nodo02">未缴款</label>
+        <label class="dbn" for="nodo02">未缴款</label>
     </div>
     <div class="list-block">
         <ul id="violation_card">
@@ -38,7 +38,6 @@
         LazyLoad.js(
                 [
                     'static/lib/lib.js',
-                    'static/js/mobiscroll.all.js',
                     'static/js/list.js'
                 ], function () {
                     console.log("js延迟加载成功");
