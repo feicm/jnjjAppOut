@@ -128,7 +128,7 @@
               "name": "知识库",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do?id=3&action=knowledge"
+              "url": "http://119.163.106.187:9087/external/channel/tree.do?id=527225958526234624&action=knowledge"
             }
           ]
         },
@@ -303,7 +303,7 @@
               "name": "知识库",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "http://rjsoft.gnway.cc:9093/wispcms/channel/tree.do?id=3&action=knowledge"
+              "url": "http://119.163.106.187:9087/external/channel/tree.do?id=527225958526234624&action=knowledge"
             }
                 ]
               },
