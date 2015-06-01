@@ -72,7 +72,7 @@
               "name": "授权管理",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "http://rjsoft.gnway.cc:9087/wisp_jn_pubmgr/system/userMessage_queryUserMessages?action=notification"
+              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
              },
             {
               "btnType": "icobtn",
@@ -161,7 +161,7 @@
               "name": "授权管理",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "http://rjsoft.gnway.cc:9087/wisp_jn_pubmgr/system/userMessage_queryUserMessages?action=notification"
+              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
             },
             {
               "btnType": "icobtn",
