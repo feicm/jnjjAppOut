@@ -65,6 +65,17 @@
             },
             {
               "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/my/m_msg.png",
+              "afterImg": "config/html/images/wispui/my/m_msg.png",
+              "disableImg": "",
+              "enable": "false",
+              "name": "授权管理",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "http://rjsoft.gnway.cc:9087/wisp_jn_pubmgr/system/userMessage_queryUserMessages?action=notification"
+             },
+            {
+              "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/my/m_feedback.png",
               "afterImg": "config/html/images/wispui/my/m_feedback.png",
               "disableImg": "",
@@ -137,6 +148,17 @@
               "disableImg": "",
               "enable": "true",
               "name": "消息查看",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "http://rjsoft.gnway.cc:9087/wisp_jn_pubmgr/system/userMessage_queryUserMessages?action=notification"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/my/m_msg.png",
+              "afterImg": "config/html/images/wispui/my/m_msg.png",
+              "disableImg": "",
+              "enable": "true",
+              "name": "授权管理",
               "iconpos": "top",
               "clickEvent": "",
               "url": "http://rjsoft.gnway.cc:9087/wisp_jn_pubmgr/system/userMessage_queryUserMessages?action=notification"
