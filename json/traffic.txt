@@ -108,6 +108,17 @@
               "clickEvent": "",
               "url": "config/html/flow.html?@@webViewPageId=142606040431343@@"
             },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalpay_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalpay_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "true",
+              "name": "违法预警",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
+            },
 	     {
               "btnType": "icobtn",
               "beforeImg": "config/html/images/wispui/traffic/t_knowledgebase_normal.png",
@@ -271,6 +282,17 @@
               "iconpos": "top",
               "clickEvent": "",
               "url": "config/html/flow.html?@@webViewPageId=142606040431343@@"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/traffic/t_illegalpay_normal.png",
+              "afterImg": "config/html/images/wispui/traffic/t_illegalpay_hover.png",
+              "disableImg": "config/html/images/wispui/jzbd_dis.png",
+              "enable": "true",
+              "name": "违法预警",
+              "iconpos": "top",
+              "clickEvent": "",
+              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
             },
 	     {
               "btnType": "icobtn",
