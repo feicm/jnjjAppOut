@@ -73,7 +73,7 @@
               "name": "授权管理",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
+              "url": "config/html/authlist.html?@@webViewPageId=142606040431343@@"
              },
             {
               "btnType": "icobtn",
@@ -163,7 +163,7 @@
               "name": "授权管理",
               "iconpos": "top",
               "clickEvent": "",
-              "url": "config/html/tips.html?@@webViewPageId=142606040431343@@"
+              "url": "config/html/authlist.html?@@webViewPageId=142606040431343@@"
             },
             {
               "btnType": "icobtn",
