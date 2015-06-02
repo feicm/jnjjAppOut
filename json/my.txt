@@ -10,6 +10,7 @@
               "id": "",
               "img": "",
               "name": "",
+              "upload": "",
               "registerName": "",
               "url": "config/html/loginnoskip.html",
               "roleid": "0000"
@@ -99,6 +100,7 @@
               "id": "",
               "img": "",
               "name": "",
+              "upload": "",
               "registerName": "",
               "url": "config/html/loginnoskip.html",
               "roleid": "0001"
