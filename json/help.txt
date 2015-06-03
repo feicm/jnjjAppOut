@@ -1,0 +1,66 @@
+{
+  "find": [
+    {
+      "roldId": "0000",
+      "data": [
+        {
+          "type": "RectangleWithIcoLeft",
+          "data": [
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/find/f_wzts.png",
+              "afterImg": "",
+              "disableImg": "",
+              "enable": "true",
+              "name": "APP使用",
+              "summary": "使用说明及常见问题说明",
+              "clickEvent": "",
+              "url": "config/html/tips.html"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/find/f_jyyh.png",
+              "afterImg": "",
+              "disableImg": "",
+              "enable": "true",
+              "name": "微信自助",
+              "summary": "使用说明及常见问题说明",
+              "clickEvent": "",
+              "url": "config/html/tips.html"
+            }
+      ]
+    },
+    {
+      "roldId": "0001",
+      "data": [
+        {
+          "type": "RectangleWithIcoLeft",
+          "data": [
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/find/f_wzts.png",
+              "afterImg": "",
+              "disableImg": "",
+              "enable": "true",
+              "name": "APP使用",
+              "summary": "使用说明及常见问题说明",
+              "clickEvent": "",
+              "url": "config/html/tips.html"
+            },
+            {
+              "btnType": "icobtn",
+              "beforeImg": "config/html/images/wispui/find/f_jyyh.png",
+              "afterImg": "",
+              "disableImg": "",
+              "enable": "true",
+              "name": "微信自助",
+              "summary": "使用说明及常见问题说明",
+              "clickEvent": "",
+              "url": "config/html/tips.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
