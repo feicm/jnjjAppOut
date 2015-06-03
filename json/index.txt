@@ -24,8 +24,8 @@
         {
           "beforeImg": "config/html/images/wispui/find_normal.png",
           "afterImg": "config/html/images/wispui/find_hover.png",
-          "name": "发现",
-          "url": "config/html/json/find.txt"
+          "name": "帮助",
+          "url": "config/html/json/help.txt"
         },
         {
           "beforeImg": "config/html/images/wispui/my_normal.png",
@@ -59,8 +59,8 @@
             {
               "beforeImg": "config/html/images/wispui/find_normal.png",
               "afterImg": "config/html/images/wispui/find_hover.png",
-              "name": "发现",
-              "url": "config/html/json/find.txt"
+              "name": "帮助",
+              "url": "config/html/json/help.txt"
             },
             {
               "beforeImg": "config/html/images/wispui/my_normal.png",
