@@ -13,7 +13,7 @@
                      "disableImg":"",
                      "enable":"true",
                      "name":"APP使用",
-                     "summary":"使用说明及常见问题说明",
+                     "summary":"使用说明",
                      "clickEvent":"",
                      "url":"config/html/tips.html"
                   },
@@ -24,7 +24,7 @@
                      "disableImg":"",
                      "enable":"true",
                      "name":"微信自助",
-                     "summary":"使用说明及常见问题说明",
+                     "summary":"常见问题说明",
                      "clickEvent":"",
                      "url":"config/html/tips.html"
                   }
@@ -45,7 +45,7 @@
                      "disableImg":"",
                      "enable":"true",
                      "name":"APP使用",
-                     "summary":"使用说明及常见问题说明",
+                     "summary":"使用说明",
                      "clickEvent":"",
                      "url":"config/html/tips.html"
                   },
@@ -56,7 +56,7 @@
                      "disableImg":"",
                      "enable":"true",
                      "name":"微信自助",
-                     "summary":"使用说明及常见问题说明",
+                     "summary":"常见问题说明",
                      "clickEvent":"",
                      "url":"config/html/tips.html"
                   }
