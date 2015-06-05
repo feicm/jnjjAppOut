@@ -113,11 +113,11 @@
                      "beforeImg":"config/html/images/wispui/traffic/t_illegalpay_normal.png",
                      "afterImg":"config/html/images/wispui/traffic/t_illegalpay_hover.png",
                      "disableImg":"config/html/images/wispui/jzbd_dis.png",
-                     "enable":"true",
+                     "enable":"false",
                      "name":"违法预警",
                      "iconpos":"top",
                      "clickEvent":"",
-                     "url":"http://119.163.106.187:9087/jnpublic/queryCarIllegal?action=illegal"
+                     "url":"http://119.163.106.187:9087/jnpublic/queryTsMessageList.json?action=illegal"
                   },
                   {
                      "btnType":"icobtn",
@@ -292,7 +292,7 @@
                      "name":"违法预警",
                      "iconpos":"top",
                      "clickEvent":"",
-                     "url":"http://119.163.106.187:9087/jnpublic/queryCarIllegal?action=illegal"
+                     "url":"http://119.163.106.187:9087/jnpublic/queryTsMessageList.json?action=illegal"
                   },
                   {
                      "btnType":"icobtn",
