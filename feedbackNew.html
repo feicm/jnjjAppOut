@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <title>意见建议</title>
+    <link type="text/css" rel="stylesheet" href="static/lib/all.css">
+</head>
+<style>
+    .type-c {
+        overflow : hidden;
+        padding  : .3em;
+    }
+    .type-c li{
+        margin: 1em 10px;
+        border-bottom: 1px solid #DDD;
+    }
+    input:not(.ip) {
+        display : none;
+    }
+
+    input:not(.ip) + label {
+        padding   : 0 .5em 0 2em;
+        display   : inline-block;
+        position  : relative;
+        font-size : 1em;
+        color     : #000;
+    }
+
+    input:not(.ip) + label:after {
+        content       : '';
+        font-size     : 14px;
+        position      : absolute;
+        top           : 0;
+        left          : 0;
+        color         : #99A1A7;
+        display       : inline-block;
+        border        : 1px solid;
+        width         : 20px;
+        height        : 20px;
+        text-align    : center;
+        border-radius : 3px;
+    }
+
+    input:not(.ip):checked + label:after {
+        content       : '\2714';
+        position      : absolute;
+        top           : 0;
+        left          : -.2em;
+        color         : #FFF;
+        display       : inline-block;
+        border        : 1px solid;
+        width         : 1.7em;
+        height        : 1.7em;
+        text-align    : center;
+        border-radius : 3px;
+        background    : #3D7FF3;
+        border        : 1px solid #3D7FF3;
+    }
+</style>
+<body>
+<form class="rigister_f" action="" method="post">
+    <ul class="type-c">
+        <li>
+            <input type="checkbox" id="01" name="type"/>
+            <label for="01">1、无法注册</label>
+        </li>
+        <li>
+            <input type="checkbox" id="02" name="type"/>
+            <label for="02">2、无法绑定车辆</label>
+        </li>
+        <li>
+            <input type="checkbox" id="03" name="type"/>
+            <label for="03">3、无法绑定驾照</label>
+        </li>
+        <li>
+            <input type="checkbox" id="04" name="type"/>
+            <label for="04">4、违法信息异常</label>
+        </li>
+        <li>
+            <input type="checkbox" id="05" name="type"/>
+            <label for="05">5、业务进度异常</label>
+        </li>
+
+    </ul>
+    <!--<b class='txt01'>请输入您的宝贵意见</b>-->
+    <div class="ft w100 mt05">
+        <a class="ui_btn ui_btn_01 ui_radius ui_btn_block" id="feedback_btn">
+            提交反馈
+        </a>
+    </div>
+</form>
+<script type="text/javascript" charset="utf-8" src="static/js/lazyload.js"></script>
+<script>
+    setTimeout(function () {
+        LazyLoad.js(
+                [
+                    'static/lib/lib.js',
+                    'static/js/feedback.js'
+                ], function () {
+                    console.log("js延迟加载成功");
+                });
+    }, 10);
+</script>
+</body>
+<!--<script src="js/zepto.min.js"></script>
+<script src="js/WISPComponents_v3.0.js"></script>
+<script src="js/appConfig.js"></script>
+<script src="js/common.js"></script>
+<script src="js/feedback.js"></script>-->
+</html>
